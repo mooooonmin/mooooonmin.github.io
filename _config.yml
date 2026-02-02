@@ -1,0 +1,83 @@
+# ----
+# Site
+
+title: 내가 보려고 만든 블로그
+url: "https://mooooonmin.github.io"
+baseurl: ""
+google_analytics_key:
+show_full_navigation: true
+
+# Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
+logo: /siteicon.png
+description: 진행중
+author:
+  name: mooooonmin
+  email: mooooonmin@gmail.com
+  twitter: # twitter username without the @ symbol
+social:
+  name: ""
+  links:
+    - ""
+
+# -----
+# Build
+
+encoding: utf-8
+timezone: Asia/Seoul
+
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENCE
+  # 중복 출력 충돌 방지 (index.md, 404.html 사용)
+  - index.markdown
+  - 404.md
+
+collections:
+  docs:
+    title: Documentation
+    permalink: /:path/
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
+  -
+    scope:
+      path: ""
+      type: "docs"
+    values:
+      seo:
+        type: Article
+      _comments:
+        category: Group navigation links with this field
+        order: Used to sort links in the navigation
+      _options:
+        content:
+          width: 800
+          height: 2000
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      _comments:
+        type: Marks the impact of this release
+
+# -----------
+# CloudCannon
+
+types:
+  - minor
+  - major
