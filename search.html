@@ -4,14 +4,8 @@ sitemap: false
 layout: default
 ---
 
-<form action="{{ site.baseurl }}/search/" method="get" class="search-form">
-	<label for="search-input-page">검색어</label>
-	<input type="text" name="q" id="search-input-page" placeholder="제목 또는 내용 입력" value="">
-	<button type="submit">검색</button>
-</form>
-
-<p id="search-status">검색 결과: <span id="search-process">-</span></p>
 <ul id="search-results"></ul>
+<p id="search-empty" style="display: none;">검색 결과가 없습니다.</p>
 
 <script>
 (function() {
@@ -70,12 +64,10 @@ layout: default
 		});
 
 		var query = getQuery();
-		var statusEl = document.getElementById("search-process");
 		var resultsEl = document.getElementById("search-results");
-		var inputEl = document.getElementById("search-input-page");
+		var emptyEl = document.getElementById("search-empty");
 		var headerInput = document.getElementById("search-input");
 
-		if (inputEl) inputEl.value = query;
 		if (headerInput) headerInput.value = query;
 
 		var keys = [];
@@ -90,9 +82,7 @@ layout: default
 			}
 		}
 
-		if (!statusEl) return;
 		if (keys.length > 0) {
-			statusEl.textContent = keys.length + "건";
 			var html = "";
 			keys.forEach(function(id) {
 				var item = dataById[id];
@@ -102,9 +92,10 @@ layout: default
 				html += "<li><h4><a href=\"" + url + "\">" + preview(title, query, 200) + "</a></h4><p><small>" + preview(content, query, 170) + "</small></p></li>";
 			});
 			if (resultsEl) { resultsEl.innerHTML = html; resultsEl.style.display = ""; }
+			if (emptyEl) emptyEl.style.display = "none";
 		} else {
-			statusEl.textContent = query ? "0건" : "검색어를 입력하세요";
 			if (resultsEl) { resultsEl.innerHTML = ""; resultsEl.style.display = "none"; }
+			if (emptyEl) emptyEl.style.display = "block";
 		}
 	}
 
