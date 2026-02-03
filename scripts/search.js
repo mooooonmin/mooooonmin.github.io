@@ -5,101 +5,107 @@ layout: null
 	function getQueryVariable(variable) {
 		var query = window.location.search.substring(1),
 			vars = query.split("&");
-
 		for (var i = 0; i < vars.length; i++) {
 			var pair = vars[i].split("=");
-
 			if (pair[0] === variable) {
-				return decodeURIComponent(pair[1].replace(/\+/g, '%20')).trim();
+				return decodeURIComponent((pair[1] || "").replace(/\+/g, '%20')).trim();
 			}
 		}
+		return "";
+	}
+
+	function escapeRegex(s) {
+		return (s || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 	}
 
 	function getPreview(query, content, previewLength) {
-		previewLength = previewLength || (content.length * 2);
+		content = typeof content === "string" ? content : "";
+		previewLength = previewLength || 170;
+		var parts = query.split(/\s+/).filter(Boolean),
+			match = -1,
+			matchLength = 0,
+			preview,
+			contentLower = content.toLowerCase(),
+			queryLower = query.toLowerCase();
 
-		var parts = query.split(" "),
-			match = content.toLowerCase().indexOf(query.toLowerCase()),
-			matchLength = query.length,
-			preview;
-
-		// Find a relevant location in content
-		for (var i = 0; i < parts.length; i++) {
-			if (match >= 0) {
-				break;
-			}
-
-			match = content.toLowerCase().indexOf(parts[i].toLowerCase());
-			matchLength = parts[i].length;
+		match = contentLower.indexOf(queryLower);
+		if (match >= 0) matchLength = query.length;
+		for (var i = 0; i < parts.length && match < 0; i++) {
+			match = contentLower.indexOf(parts[i].toLowerCase());
+			if (match >= 0) matchLength = parts[i].length;
 		}
 
-		// Create preview
 		if (match >= 0) {
-			var start = match - (previewLength / 2),
-				end = start > 0 ? match + matchLength + (previewLength / 2) : previewLength;
-
+			var start = Math.max(0, match - Math.floor(previewLength / 2)),
+				end = Math.min(content.length, match + matchLength + Math.floor(previewLength / 2));
 			preview = content.substring(start, end).trim();
-
-			if (start > 0) {
-				preview = "..." + preview;
-			}
-
-			if (end < content.length) {
-				preview = preview + "...";
-			}
-
-			// Highlight query parts
-			preview = preview.replace(new RegExp("(" + parts.join("|") + ")", "gi"), "<strong>$1</strong>");
+			if (start > 0) preview = "..." + preview;
+			if (end < content.length) preview = preview + "...";
+			var re = new RegExp("(" + parts.map(escapeRegex).join("|") + ")", "gi");
+			preview = preview.replace(re, "<strong>$1</strong>");
 		} else {
-			// Use start of content if no match found
 			preview = content.substring(0, previewLength).trim() + (content.length > previewLength ? "..." : "");
 		}
-
 		return preview;
 	}
 
-	function displaySearchResults(results, query) {
+	function displaySearchResults(keys, query) {
 		var searchResultsEl = document.getElementById("search-results"),
 			searchProcessEl = document.getElementById("search-process");
+		if (!searchResultsEl || !searchProcessEl) return;
 
-		if (results.length) {
+		if (keys.length > 0) {
 			var resultsHTML = "";
-			results.forEach(function (result) {
-				var item = window.data[result.ref],
-					contentPreview = getPreview(query, item.content, 170),
-					titlePreview = getPreview(query, item.title);
-
-				resultsHTML += "<li><h4><a href='{{ site.baseurl }}" + item.url.trim() + "'>" + titlePreview + "</a></h4><p><small>" + contentPreview + "</small></p></li>";
+			keys.forEach(function (key) {
+				var item = window.data[key];
+				if (!item) return;
+				var url = (item.url || "").trim(),
+					title = item.title || "(제목 없음)",
+					content = item.content || "";
+				var contentPreview = getPreview(query, content, 170),
+					titlePreview = getPreview(query, title);
+				resultsHTML += "<li><h4><a href='" + (window.baseurl || "") + url + "'>" + titlePreview + "</a></h4><p><small>" + contentPreview + "</small></p></li>";
 			});
-
 			searchResultsEl.innerHTML = resultsHTML;
-			searchProcessEl.innerText = "Showing";
+			searchResultsEl.style.display = "";
+			searchProcessEl.innerText = keys.length + "건";
 		} else {
+			searchResultsEl.innerHTML = "";
 			searchResultsEl.style.display = "none";
-			searchProcessEl.innerText = "No";
+			searchProcessEl.innerText = "0건";
 		}
 	}
 
-	window.index = lunr(function () {
-		this.field("id");
-		this.field("title", {boost: 10});
-		this.field("category");
-		this.field("url");
-		this.field("content");
-	});
+	// 검색어: 제목 또는 내용에 포함되면 (전체/부분 일치, 한글 지원)
+	function searchByQuery(query) {
+		query = (query || "").trim();
+		if (!query) return [];
+		var q = query.toLowerCase(),
+			keys = [];
+		for (var key in window.data) {
+			if (!window.data.hasOwnProperty(key)) continue;
+			var item = window.data[key],
+				title = (item.title || ""),
+				content = (item.content || "");
+			if (title.toLowerCase().indexOf(q) !== -1 || content.toLowerCase().indexOf(q) !== -1) {
+				keys.push(key);
+			}
+		}
+		return keys;
+	}
 
-	var query = decodeURIComponent((getQueryVariable("q") || "").replace(/\+/g, "%20")),
+	var query = getQueryVariable("q"),
 		searchQueryContainerEl = document.getElementById("search-query-container"),
 		searchQueryEl = document.getElementById("search-query"),
 		searchInputEl = document.getElementById("search-input");
 
-	searchInputEl.value = query;
-	searchQueryEl.innerText = query;
-	searchQueryContainerEl.style.display = "inline";
+	if (searchInputEl) searchInputEl.value = query;
+	if (searchQueryEl) searchQueryEl.textContent = query;
+	if (searchQueryContainerEl) searchQueryContainerEl.style.display = "inline";
 
-	for (var key in window.data) {
-		window.index.add(window.data[key]);
-	}
+	// baseurl은 검색 페이지에서 전역으로 넣어두거나 빈 문자열
+	window.baseurl = window.baseurl || "";
 
-	displaySearchResults(window.index.search(query), query); // Hand the results off to be displayed
+	var matchedKeys = searchByQuery(query);
+	displaySearchResults(matchedKeys, query);
 })();
