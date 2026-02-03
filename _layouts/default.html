@@ -27,13 +27,13 @@
 			<button type="button" class="open-nav" id="open-nav"></button>
 		</h1>
 		<form action="{{ site.baseurl }}/search/" method="get">
-			<input type="text" name="q" id="search-input" placeholder="검색">
+			<input type="text" name="q" id="search-input" placeholder="찾기">
 			<input type="submit" value="Search" style="display: none;">
 		</form>
 		<nav class="full-navigation">
 			<ul>
 				<li class="nav-item top-level {% if page.url == '/' %}current{% endif %}">
-					<a href="{{ site.baseurl }}/">전체</a>
+					<a href="{{ site.baseurl }}/">찾기</a>
 				</li>
 			</ul>
 		</nav>
