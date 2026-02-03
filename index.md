@@ -1,5 +1,5 @@
 ---
-title: 글 목록
+title: 전체
 layout: default
 ---
 
