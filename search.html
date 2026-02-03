@@ -1,29 +1,35 @@
 ---
-title: Search
+title: 검색
 sitemap: false
+layout: default
 ---
 
-<p><span id="search-process">Loading</span> results <span id="search-query-container" style="display: none;">for "<strong id="search-query"></strong>"</span></p>
+<p><span id="search-process">로딩 중</span> <span id="search-query-container" style="display: none;">"<strong id="search-query"></strong>" 검색 결과</span></p>
 <ul id="search-results"></ul>
 
 <script>
 	window.data = {
-		{% for item in site.docs %}
-			{% if item.title %}
-				{% unless item.excluded_in_search %}
-					{% if added %},{% endif %}
-					{% assign added = false %}
-
-					"{{ item.url | slugify }}": {
-						"id": "{{ item.url | slugify }}",
-						"title": "{{ item.title | xml_escape }}",
-						"category": "{{ collection.title | xml_escape }}",
-						"url": " {{ item.url | xml_escape }}",
-						"content": {{ item.content | strip_html | replace_regex: "[\s/\n]+"," " | strip | jsonify }}
-					}
-
-					{% assign added = true %}
-				{% endunless %}
+		{% assign need_comma = false %}
+		{% for post in site.posts %}
+			{% if need_comma %},{% endif %}
+			"{{ post.url | slugify }}": {
+				"id": "{{ post.url | slugify }}",
+				"title": "{{ post.title | xml_escape }}",
+				"url": "{{ post.url | xml_escape }}",
+				"content": {{ post.content | strip_html | replace_regex: "[\s/\n]+"," " | strip | jsonify }}
+			}
+			{% assign need_comma = true %}
+		{% endfor %}
+		{% for page in site.html_pages %}
+			{% if page.title and page.url != '/' and page.url != '/search/' and page.url != '/about/' %}
+			{% if need_comma %},{% endif %}
+			"page-{{ page.url | slugify }}": {
+				"id": "page-{{ page.url | slugify }}",
+				"title": "{{ page.title | xml_escape }}",
+				"url": "{{ page.url | xml_escape }}",
+				"content": {{ page.content | strip_html | replace_regex: "[\s/\n]+"," " | strip | jsonify }}
+			}
+			{% assign need_comma = true %}
 			{% endif %}
 		{% endfor %}
 	};
