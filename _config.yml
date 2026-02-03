@@ -33,8 +33,6 @@ exclude:
   - README.md
   - LICENSE
   - serve.sh
-  - index.markdown
-  - 404.md
 
 defaults:
   - scope:

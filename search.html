@@ -21,7 +21,7 @@ layout: default
 			{% assign need_comma = true %}
 		{% endfor %}
 		{% for page in site.html_pages %}
-			{% if page.title and page.url != '/' and page.url != '/search/' and page.url != '/about/' %}
+			{% if page.title and page.url != '/' and page.url != '/search/' %}
 			{% if need_comma %},{% endif %}
 			"page-{{ page.url | slugify }}": {
 				"id": "page-{{ page.url | slugify }}",
