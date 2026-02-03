@@ -4,26 +4,110 @@ sitemap: false
 layout: default
 ---
 
-<p><span id="search-process">검색</span> <span id="search-query-container" style="display: none;">"<strong id="search-query"></strong>" 결과</span></p>
+<form action="{{ site.baseurl }}/search/" method="get" class="search-form">
+	<label for="search-input-page">검색어</label>
+	<input type="text" name="q" id="search-input-page" placeholder="제목 또는 내용 입력" value="">
+	<button type="submit">검색</button>
+</form>
+
+<p id="search-status">검색 결과: <span id="search-process">-</span></p>
 <ul id="search-results"></ul>
 
-<script type="application/json" id="search-data">
-[
-{% assign need_comma = false %}
-{% for post in site.posts %}
-	{% if need_comma %},{% endif %}
-	{"id":"{{ post.url | slugify }}","title":{{ post.title | jsonify }},"url":{{ post.url | jsonify }},"content":{{ post.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
-	{% assign need_comma = true %}
-{% endfor %}
-{% for page in site.html_pages %}
-	{% if page.title and page.url != '/' and page.url != '/search/' %}
-	{% if need_comma %},{% endif %}
-	{"id":"page-{{ page.url | slugify }}","title":{{ page.title | jsonify }},"url":{{ page.url | jsonify }},"content":{{ page.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
-	{% assign need_comma = true %}
-	{% endif %}
-{% endfor %}
-]
+<script>
+(function() {
+	// 검색 데이터 (Liquid에서 직접 출력)
+	window.__searchData = [
+	{% assign need_comma = false %}
+	{% for post in site.posts %}
+		{% if need_comma %},{% endif %}
+		{"id":"{{ post.url | slugify }}","title":{{ post.title | jsonify }},"url":{{ post.url | jsonify }},"content":{{ post.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
+		{% assign need_comma = true %}
+	{% endfor %}
+	{% for page in site.html_pages %}
+		{% if page.title and page.url != '/' and page.url != '/search/' %}
+		{% if need_comma %},{% endif %}
+		{"id":"page-{{ page.url | slugify }}","title":{{ page.title | jsonify }},"url":{{ page.url | jsonify }},"content":{{ page.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
+		{% assign need_comma = true %}
+		{% endif %}
+	{% endfor %}
+	];
+
+	var baseurl = "{{ site.baseurl }}";
+
+	function getQuery() {
+		var s = window.location.search.substring(1), vars = s.split("&");
+		for (var i = 0; i < vars.length; i++) {
+			var p = vars[i].split("=");
+			if (p[0] === "q" && p[1]) return decodeURIComponent(p[1].replace(/\+/g, " ")).trim();
+		}
+		return "";
+	}
+
+	function escapeRegex(str) {
+		return String(str).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+	}
+
+	function preview(text, query, len) {
+		text = String(text || "");
+		len = len || 120;
+		var q = query.toLowerCase(), t = text.toLowerCase(), i = t.indexOf(q);
+		if (i < 0) return text.substring(0, len).trim() + (text.length > len ? "..." : "");
+		var start = Math.max(0, i - 40), end = Math.min(text.length, i + query.length + 80);
+		var out = text.substring(start, end).trim();
+		if (start > 0) out = "..." + out;
+		if (end < text.length) out = out + "...";
+		try {
+			out = out.replace(new RegExp("(" + escapeRegex(query) + ")", "gi"), "<strong>$1</strong>");
+		} catch (e) {}
+		return out;
+	}
+
+	function run() {
+		var data = window.__searchData || [];
+		var dataById = {};
+		data.forEach(function(item) {
+			if (item && item.id) dataById[item.id] = item;
+		});
+
+		var query = getQuery();
+		var statusEl = document.getElementById("search-process");
+		var resultsEl = document.getElementById("search-results");
+		var inputEl = document.getElementById("search-input-page");
+		var headerInput = document.getElementById("search-input");
+
+		if (inputEl) inputEl.value = query;
+		if (headerInput) headerInput.value = query;
+
+		var keys = [];
+		if (query) {
+			var q = query.toLowerCase();
+			for (var id in dataById) {
+				var item = dataById[id];
+				var title = String(item.title || "");
+				var content = String(item.content || "");
+				if (title.toLowerCase().indexOf(q) !== -1 || content.toLowerCase().indexOf(q) !== -1)
+					keys.push(id);
+			}
+		}
+
+		if (!statusEl) return;
+		if (keys.length > 0) {
+			statusEl.textContent = keys.length + "건";
+			var html = "";
+			keys.forEach(function(id) {
+				var item = dataById[id];
+				var url = baseurl + (item.url || "").trim();
+				var title = item.title || "(제목 없음)";
+				var content = item.content || "";
+				html += "<li><h4><a href=\"" + url + "\">" + preview(title, query, 200) + "</a></h4><p><small>" + preview(content, query, 170) + "</small></p></li>";
+			});
+			if (resultsEl) { resultsEl.innerHTML = html; resultsEl.style.display = ""; }
+		} else {
+			statusEl.textContent = query ? "0건" : "검색어를 입력하세요";
+			if (resultsEl) { resultsEl.innerHTML = ""; resultsEl.style.display = "none"; }
+		}
+	}
+
+	run();
+})();
 </script>
-<script>window.baseurl = "{{ site.baseurl }}";</script>
-<script src="{{ site.baseurl }}/scripts/search.js"></script>
-<script>document.getElementById("search-input") && document.getElementById("search-input").focus();</script>
