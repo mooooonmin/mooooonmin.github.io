@@ -1,15 +1,15 @@
 ---
-title: 찾기기
+title: 찾기
 sitemap: false
 layout: default
 ---
 
 <ul id="search-results"></ul>
-<p id="search-empty" style="display: none;">검색 결과가 없습니다.</p>
+<p id="search-empty" style="display: none;">결과가 없습니다.</p>
 
 <script>
 (function() {
-	// 검색 데이터 (Liquid에서 직접 출력)
+	// 찾기 데이터 (Liquid에서 직접 출력)
 	window.__searchData = [
 	{% assign need_comma = false %}
 	{% for post in site.posts %}
