@@ -1,38 +1,23 @@
 ---
-title: Welcome
+title: 홈
+layout: default
 ---
 
-This is the **Edition** template from [CloudCannon](http://cloudcannon.com/).
-**Edition** is perfect for documenting your product, application or service.
-It's populated with example content to give you some ideas.
+블로그에 오신 걸 환영합니다.
 
-ChatApp is a fictional chat application for sending messages and media to others.
-Teams and friend groups would use ChatApp to stay up to date if it existed.
+### 최근 글
 
-> [Sign up](http://example.com/signup) or learn more about ChatApp at [example.com](http://example.com/).
+<ul>
+{% for post in site.posts limit:10 %}
+	<li>
+		<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+		<span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+	</li>
+{% endfor %}
+</ul>
 
-### Getting Started
+{% if site.posts.size == 0 %}
+<p>아직 글이 없습니다.</p>
+{% endif %}
 
-Getting a message sent is quick and easy with ChatApp:
-
-1. Sign up for an account
-2. Add your friends from their email addresses
-3. Type a message or send a photo
-
-> Feel free to send us a message at [feedback@example.com](mailto:feedback@example.com) with your feedback.
-
-### Features
-
-Explore more of ChatApp by reading about our features:
-
-#### Media
-
-Send images, videos and other media to people. Sources include your computer, phone and Facebook.
-
-#### Contact Syncing
-
-Sync your contact list with your phone and/or Facebook contacts. Never lose your contacts between devices again!
-
-#### Devices
-
-ChatApp is available everywhere. Find out how to set it up on your all your devices.
+<p><a href="{{ site.baseurl }}/posts/">전체 글 보기</a> · <a href="{{ site.baseurl }}/feed.xml">RSS</a></p>
