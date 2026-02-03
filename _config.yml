@@ -10,7 +10,7 @@ timezone: Asia/Seoul
 
 # SEO (jekyll-seo-tag)
 logo: /siteicon.png
-description: 진행중
+description:
 author:
   name: mooooonmin
   email: mooooonmin@gmail.com
