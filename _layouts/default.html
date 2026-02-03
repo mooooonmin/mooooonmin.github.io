@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +21,7 @@
 	<script async src='https://www.google-analytics.com/analytics.js'></script>
 	{% endif %}
 </head>
+
 <body>
 	<header>
 		<h1>
@@ -34,11 +36,12 @@
 		<nav class="full-navigation">
 			<ul>
 				<li class="nav-item top-level {% if page.url == '/' %}current{% endif %}">
-					<a href="{{ site.baseurl }}/">찾기</a>
+					<a href="{{ site.baseurl }}/">전체</a>
 				</li>
 			</ul>
 		</nav>
 	</header>
+	
 	<section class="main">
 		<div class="page-header">
 			<h3>{{ page.title }}</h3>
@@ -53,4 +56,5 @@
 		});
 	</script>
 </body>
+
 </html>
