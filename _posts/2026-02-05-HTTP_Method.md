@@ -3,7 +3,7 @@ title: HTTP Method
 date: 2026-02-05 00:00:00 +0900
 ---
 
-## 1. 주요 HTTP Method
+## 1. HTTP Method
 
 | 메서드 | 역할 | 멱등성 (Idempotent) | 주요 특징 |
 | :---: | :---: | :---: | :--- |
