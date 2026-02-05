@@ -1,5 +1,5 @@
 ---
-title: HTTP Method 및 멱등성의 이해
+title: HTTP Method
 date: 2026-02-05 00:00:00 +0900
 ---
 
