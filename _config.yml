@@ -22,10 +22,13 @@ social:
 # Build
 
 permalink: /:year/:month/:day/:title/
+paginate: 30
+paginate_path: "/page:num/"
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-feed
+  - jekyll-paginate
 
 exclude:
   - Gemfile
