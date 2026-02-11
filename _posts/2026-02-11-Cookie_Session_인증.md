@@ -3,7 +3,7 @@ title: 쿠키와 세션을 활용한 인증(Authentication) 및 인가(Authoriza
 date: 2026-02-11 00:00:00 +0900
 ---
 
-<img src="/images/2026-02-11-Cookie_Session_인증/로그인.jpeg.jpeg" alt="로그인" style="max-width:100%;" />
+<img src="/images/2026-02-11-Cookie_Session_인증/로그인.jpeg" alt="로그인" style="max-width:100%;" />
 
 ## 1. 인증(Authentication)과 인가(Authorization)의 정의
 
