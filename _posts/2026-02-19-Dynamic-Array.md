@@ -1,5 +1,5 @@
 ---
-title: Dynamic Array(동적 배열)
+title: Dynamic Array
 date: 2026-02-19 00:00:00 +0900
 ---
 
