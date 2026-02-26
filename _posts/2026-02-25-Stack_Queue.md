@@ -1,5 +1,5 @@
 ---
-title: Stack으로 Queue 구현
+title: Stack 2개로 Queue 구현
 date: 2026-02-25 09:00:00 +0900
 ---
 
@@ -9,8 +9,6 @@ date: 2026-02-25 09:00:00 +0900
 * **instack**: 데이터 삽입(Enqueue)을 전담하는 스택.
 * **outstack**: 데이터 추출(Dequeue)을 전담하는 스택.
 * **핵심**: `instack`의 데이터를 `outstack`으로 옮기면 순서가 뒤집히며, 이때 `outstack`의 상단(Top)에는 가장 먼저 들어온 데이터가 위치하게 됨.
-
-
 
 ---
 
