@@ -22,7 +22,7 @@ social:
 # Build
 
 permalink: /:year/:month/:day/:title/
-paginate: 30
+paginate: 20
 paginate_path: "/page:num/"
 plugins:
   - jekyll-sitemap
