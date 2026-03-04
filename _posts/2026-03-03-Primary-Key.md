@@ -1,5 +1,5 @@
 ---
-title: 데이터베이스 Key
+title: DataBase Key
 date: 2026-03-03 02:00:00 +0900
 ---
 
