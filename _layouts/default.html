@@ -23,7 +23,15 @@
 </head>
 
 <body>
-	<header>
+	<button
+		type="button"
+		class="sidebar-toggle"
+		id="toggle-sidebar"
+		aria-controls="site-sidebar"
+		aria-expanded="true">
+		Categories
+	</button>
+	<header id="site-sidebar">
 		<h1>
 			<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/images/emblem.svg" width="40" height="40" alt="{{ site.title }} logo"></a>
 			{{ site.title }}
@@ -51,9 +59,49 @@
 		</article>
 	</section>
 	<script>
-		document.getElementById("open-nav").addEventListener("click", function () {
-			document.body.classList.toggle("nav-open");
-		});
+		(function () {
+			var body = document.body;
+			var openNavButton = document.getElementById("open-nav");
+			var sidebarToggleButton = document.getElementById("toggle-sidebar");
+			var collapsedClass = "nav-collapsed";
+			var storageKey = "sidebar-collapsed";
+
+			function setSidebarCollapsed(isCollapsed) {
+				body.classList.toggle(collapsedClass, isCollapsed);
+				if (sidebarToggleButton) {
+					sidebarToggleButton.setAttribute("aria-expanded", String(!isCollapsed));
+					sidebarToggleButton.setAttribute("aria-label", isCollapsed ? "Show categories" : "Hide categories");
+				}
+			}
+
+			if (openNavButton) {
+				openNavButton.addEventListener("click", function () {
+					body.classList.toggle("nav-open");
+				});
+			}
+
+			if (sidebarToggleButton) {
+				try {
+					var savedState = window.localStorage.getItem(storageKey);
+					if (savedState === "true") {
+						setSidebarCollapsed(true);
+					}
+				} catch (error) {
+					// Ignore localStorage errors in restricted environments.
+				}
+
+				sidebarToggleButton.addEventListener("click", function () {
+					var nextState = !body.classList.contains(collapsedClass);
+					setSidebarCollapsed(nextState);
+
+					try {
+						window.localStorage.setItem(storageKey, String(nextState));
+					} catch (error) {
+						// Ignore localStorage errors in restricted environments.
+					}
+				});
+			}
+		})();
 	</script>
 </body>
 
