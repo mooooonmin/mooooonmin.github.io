@@ -1,5 +1,5 @@
 ---
-title: Index를 사용하기 좋은 Column
+title: Index Column
 date: 2026-03-09 00:00:00 +0900
 ---
 
