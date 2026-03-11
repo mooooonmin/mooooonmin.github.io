@@ -1,5 +1,5 @@
 ---
 layout: category
-title: "카테고리 2"
+title: 2
 category: 2
 ---

@@ -75,7 +75,7 @@
           {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
           {% for year in postsByYear %}
             <li class="nav-item top-level {% if page.url contains year.name %}current{% endif %}">
-              <span>{{ year.name }}</span>
+              <a href="{{ site.baseurl }}/{{ year.name }}/">{{ year.name }}</a>
               <ul class="sub-navigation">
                 {% assign postsByCategory = year.items | group_by: "category" | sort: "name" %}
                 {% for catGroup in postsByCategory %}
