@@ -1,7 +1,3 @@
-# 📝 기록저장소 (mooooonmin)
-
-## 📚 포스팅 인덱스
-
 <details>
 <summary><b>📂 2026 (44)</b></summary>
 <div markdown="1">
