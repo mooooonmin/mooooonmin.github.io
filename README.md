@@ -1,9 +1,9 @@
 <details>
-<summary><b>📂 2026년 (총 44개)</b></summary>
+<summary><b>📂 2026 (44)</b></summary>
 <div markdown="1">
 
 <details>
-<summary><b>📎 카테고리: 1 (35개)</b></summary>
+<summary><b>1 (35)</b></summary>
 <div markdown="1">
 
 - [2026-03-10] [B+Tree Index vs Hash Index](https://mooooonmin.github.io/2026/03/10/btree_vshash/)
@@ -46,7 +46,7 @@
 </details>
 
 <details>
-<summary><b>📎 카테고리: 2 (9개)</b></summary>
+<summary><b>2 (9)</b></summary>
 <div markdown="1">
 
 - [2026-03-11] [[정보보안기사] 2.네트워크보안](https://mooooonmin.github.io/2026/03/11/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%8B%A4%EA%B8%B02/)
