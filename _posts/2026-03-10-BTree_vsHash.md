@@ -1,5 +1,6 @@
 ---
 title: B+Tree Index vs Hash Index
+category: 1
 date: 2026-03-10 08:00:00 +0900
 ---
 

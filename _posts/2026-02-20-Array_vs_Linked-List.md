@@ -1,5 +1,6 @@
 ---
 title: Array vs Linked List
+category: 1
 date: 2026-02-20 01:00:00 +0900
 ---
 

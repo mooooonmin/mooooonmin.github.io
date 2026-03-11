@@ -1,5 +1,6 @@
 ---
 title: Queue vs Priority Queue
+category: 1
 date: 2026-02-27 02:00:00 +0900
 ---
 

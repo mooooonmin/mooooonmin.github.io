@@ -1,5 +1,6 @@
 ---
 title: RDB vs NoSQL
+category: 1
 date: 2026-03-05 03:00:00 +0900
 ---
 

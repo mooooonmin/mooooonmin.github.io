@@ -1,5 +1,6 @@
 ---
 title: HTTP Status Code
+category: 1
 date: 2026-02-06 00:00:00 +0900
 ---
 
