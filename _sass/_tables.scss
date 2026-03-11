@@ -12,8 +12,16 @@ tr:nth-child(even) {
 }
 
 td, th {
-	padding: 8px;
+	padding: 8px 12px;
 	text-align: left;
+	vertical-align: top;
+	word-break: keep-all; 
+}
+
+/* Prevent the first column from squishing too much */
+td:first-child, th:first-child {
+	min-width: 130px;
+	white-space: nowrap;
 }
 
 th {
