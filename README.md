@@ -1,45 +1,70 @@
-# 구조
+# 📝 기록저장소 (mooooonmin)
 
-```
-├── 📁 _layouts          # 레이아웃 템플릿 (모든 페이지 공통 틀)
-│   └── 🌐 default.html  # 기본 레이아웃: 헤더(로고, 검색창, 전체 탭), 본문 영역
-├── 📁 _plugins          # Jekyll 플러그인 (커스텀 Liquid 필터 등)
-│   └── 💎 replace-regex.rb  # replace_regex 필터: 검색 데이터 생성 시 공백 치환에 사용
-├── 📁 _posts            # 블로그 글 (파일명: YYYY-MM-DD-제목.md)
-│   └── 📝 *.md          # 각 포스트 마크다운 파일
-├── 📁 _sass             # SCSS 소스 (스타일 변수, 레이아웃, 코드/표 스타일 등)
-│   ├── 🎨 _code.scss    # 코드 블록 스타일
-│   ├── 🎨 _layout.scss  # 헤더, 네비, 본문 레이아웃
-│   ├── 🎨 _mixins.scss  # SCSS 믹스인
-│   ├── 🎨 _normalize.scss  # CSS 리셋/정규화
-│   ├── 🎨 _pygments.scss   # 문법 강조(코드) 스타일
-│   ├── 🎨 _tables.scss  # 테이블 스타일
-│   └── 🎨 _typography.scss # 글자/타이포 스타일
-├── 📁 css
-│   └── 🎨 main.scss     # 메인 스타일 진입점 (_sass import 후 빌드 시 main.css 생성)
-├── 📁 images            # 이미지/아이콘 (사이트에서 참조)
-│   ├── 🖼️ emblem.svg    # 헤더 로고
-│   ├── 🖼️ favicon.png   # 브라우저 탭 아이콘
-│   └── 🖼️ menu.svg      # 네비 열기(햄버거) 아이콘
-├── 📁 scripts           # 클라이언트 스크립트
-│   └── 📄 search.js     # (참고: 현재 검색 로직은 search.html 인라인으로 사용 중)
-├── ⚙️ .gitignore        # Git 제외 목록 (_site, .sass-cache 등)
-├── 🌐 404.html          # 404 에러 페이지
-├── 📄 Gemfile           # Ruby/Jekyll 의존성 정의
-├── 📄 Gemfile.lock      # 의존성 버전 고정 (bundle install 결과)
-├── 📝 README.md         # 이 파일. 프로젝트 설명·구조
-├── ⚙️ _config.yml       # Jekyll 설정 (사이트 제목, URL, 플러그인, permalink 등)
-├── 🖼️ apple-touch-icon.png  # iOS 등 홈화면 추가 시 아이콘
-├── 📝 index.md          # 루트(/) 페이지 = 전체 글 목록
-├── 📄 robots.txt        # 검색엔진 크롤링 안내
-├── 🌐 search.html       # 검색 결과 페이지 (/search/?q=검색어)
-├── 📄 serve.sh          # 로컬 서버 실행 스크립트 (UTF-8 로케일 + jekyll serve)
-├── 🖼️ siteicon.png      # SEO·소셜 미리보기용 로고 (_config.yml logo)
-└── 🖼️ touch-icon.png    # 터치 기기용 아이콘 (192x192)
-```
----
-| 구분 | 역할 |
-|------|------|
-| **전체** | `index.md` → `/` 에서 전체 글 목록 표시 |
-| **찾기** | 헤더 검색창에 입력 후 Enter → `search.html` 에서 결과만 표시 (별도 탭 없음) |
-| **글 작성** | `_posts/` 에 `YYYY-MM-DD-제목.md` 형식으로 추가 |
+## 📚 포스팅 인덱스
+
+<details>
+<summary><b>📂 2026년 (총 44개)</b></summary>
+<div markdown="1">
+
+<details>
+<summary><b>📎 카테고리: 1 (35개)</b></summary>
+<div markdown="1">
+
+- [2026-03-10] [B+Tree Index vs Hash Index](https://mooooonmin.github.io/2026/03/10/btree_vshash/)
+- [2026-03-09] [Index Column](https://mooooonmin.github.io/2026/03/09/index_column/)
+- [2026-03-07] [Index](https://mooooonmin.github.io/2026/03/07/index/)
+- [2026-03-06] [Deadlock](https://mooooonmin.github.io/2026/03/06/deadlock/)
+- [2026-03-06] [Transaction](https://mooooonmin.github.io/2026/03/06/transaction/)
+- [2026-03-05] [Inner Join vs Left Outer Join](https://mooooonmin.github.io/2026/03/05/join/)
+- [2026-03-05] [관계형 데이터베이스의 1:N 및 N:M](https://mooooonmin.github.io/2026/03/05/rdb-%EA%B4%80%EA%B3%84/)
+- [2026-03-05] [RDB vs NoSQL](https://mooooonmin.github.io/2026/03/05/rdb_vs_nosql/)
+- [2026-03-03] [DataBase Key](https://mooooonmin.github.io/2026/03/03/primary-key/)
+- [2026-03-01] [Hash Table Collision](https://mooooonmin.github.io/2026/03/01/hash-table-collision/)
+- [2026-03-01] [Hash Table](https://mooooonmin.github.io/2026/03/01/hash-table/)
+- [2026-02-28] [BST](https://mooooonmin.github.io/2026/02/28/bst/)
+- [2026-02-27] [Queue vs Priority Queue](https://mooooonmin.github.io/2026/02/27/priority-queue/)
+- [2026-02-27] [Queue 2개로 Stack 구현](https://mooooonmin.github.io/2026/02/27/queue_stack/)
+- [2026-02-25] [Stack 2개로 Queue 구현](https://mooooonmin.github.io/2026/02/25/stack_queue/)
+- [2026-02-24] [Stack](https://mooooonmin.github.io/2026/02/24/stack/)
+- [2026-02-23] [Queue](https://mooooonmin.github.io/2026/02/23/queue/)
+- [2026-02-20] [Array vs Linked List](https://mooooonmin.github.io/2026/02/20/array_vs_linked-list/)
+- [2026-02-20] [Linked List](https://mooooonmin.github.io/2026/02/20/linked-list/)
+- [2026-02-19] [Dynamic Array](https://mooooonmin.github.io/2026/02/19/dynamic-array/)
+- [2026-02-16] [Array](https://mooooonmin.github.io/2026/02/16/array/)
+- [2026-02-13] [리눅스 주요 명령어](https://mooooonmin.github.io/2026/02/13/linux/)
+- [2026-02-12] [OSI 7계층 vs TCP/IP 4계층](https://mooooonmin.github.io/2026/02/12/osi_7_vs_tcp_ip_4/)
+- [2026-02-12] [TCP 3-way handshake](https://mooooonmin.github.io/2026/02/12/tcp_3-way-handshake/)
+- [2026-02-12] [TCP, UDP](https://mooooonmin.github.io/2026/02/12/tcp_vs_udp/)
+- [2026-02-11] [쿠키와 세션을 활용한 인증(Authentication) 및 인가(Authorization)](https://mooooonmin.github.io/2026/02/11/cookie_session_%EC%9D%B8%EC%A6%9D/)
+- [2026-02-10] [쿠키(Cookie)와 세션(Session)의 차이점](https://mooooonmin.github.io/2026/02/10/cookie_session/)
+- [2026-02-10] [GET vs POST (feat. PUT, PATCH)](https://mooooonmin.github.io/2026/02/10/http_method_%EB%B9%84%EA%B5%90/)
+- [2026-02-09] [단방향과 양방향(대칭/비대칭)](https://mooooonmin.github.io/2026/02/09/%EC%95%94%ED%98%B8%ED%99%94/)
+- [2026-02-09] [브라우저에 URL을 입력하면 일어나는 일 (네트워크 관점)](https://mooooonmin.github.io/2026/02/09/%EC%9B%B9%EB%8F%99%EC%9E%91%EB%B0%A9%EC%8B%9D/)
+- [2026-02-06] [HTTP Stateless와 비연결성](https://mooooonmin.github.io/2026/02/06/http_stateless/)
+- [2026-02-06] [HTTP Status Code](https://mooooonmin.github.io/2026/02/06/http_status_code/)
+- [2026-02-05] [HTTP](https://mooooonmin.github.io/2026/02/05/http/)
+- [2026-02-05] [HTTP Method](https://mooooonmin.github.io/2026/02/05/http_method/)
+- [2026-02-02] [글 작성 예시](https://mooooonmin.github.io/2026/02/02/%EA%B8%80_%EC%9E%91%EC%84%B1_%EC%98%88%EC%8B%9C/)
+
+</div>
+</details>
+
+<details>
+<summary><b>📎 카테고리: 2 (9개)</b></summary>
+<div markdown="1">
+
+- [2026-03-11] [[정보보안기사] 2.네트워크보안](https://mooooonmin.github.io/2026/03/11/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%8B%A4%EA%B8%B02/)
+- [2026-03-10] [[정보보안기사] 1.시스템보안(v0.2)](https://mooooonmin.github.io/2026/03/10/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%8B%A4%EA%B8%B01/)
+- [2026-03-04] [[DAsP] 3. 데이터 표준화](https://mooooonmin.github.io/2026/03/04/dasp3/)
+- [2026-03-04] [[DAsP] 4. 데이터 모델링(1)](https://mooooonmin.github.io/2026/03/04/dasp4-1/)
+- [2026-03-04] [[DAsP] 4. 데이터 모델링(2)](https://mooooonmin.github.io/2026/03/04/dasp4-2/)
+- [2026-03-03] [[DAsP] 2. 데이터 요건 분석](https://mooooonmin.github.io/2026/03/03/dasp2/)
+- [2026-02-28] [[빅데이터분석기사] Python/R](https://mooooonmin.github.io/2026/02/28/%EB%B9%85%ED%85%8C%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC/)
+- [2026-02-27] [[DAsP] 1. 전사아키텍처 이해](https://mooooonmin.github.io/2026/02/27/dasp1/)
+- [2026-02-23] [[정보보안기사] 필기 (v1.5)](https://mooooonmin.github.io/2026/02/23/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%ED%95%84%EA%B8%B0/)
+
+</div>
+</details>
+
+</div>
+</details>
