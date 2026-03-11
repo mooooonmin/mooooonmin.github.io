@@ -16,7 +16,8 @@ for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
         continue
     
     year, month, day, slug = match.groups()
-    slug = slug.replace(" ", "-").lower() # Basic slugify
+    slug = slug.strip()
+    slug_url = urllib.parse.quote(slug)
     
     with open(filepath, "r", encoding="utf-8") as f:
         content = f.read()
@@ -36,7 +37,7 @@ for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
                 category = c_match.group(1).strip()
 
     # Encode URL correctly to prevent markdown parsing issues
-    post_url = f"https://mooooonmin.github.io/{year}/{month}/{day}/{urllib.parse.quote(slug)}/"
+    post_url = f"https://mooooonmin.github.io/{year}/{month}/{day}/{slug_url}/"
     
     data[year][category].append({
         "title": title,
