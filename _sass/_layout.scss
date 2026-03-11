@@ -324,10 +324,32 @@ nav > ul {
 		color: #111;
 	}
 
-	&.top-level > a {
+	&.top-level > a, &.top-level > span {
 		line-height: 1.5;
 		font-weight: 600;
 		padding-left: $space;
+	}
+
+	&.top-level > span {
+		display: block;
+		padding: $space / 2 0 $space / 2 $space;
+		color: #111;
+	}
+
+	.sub-navigation {
+		padding-left: 0;
+
+		.sub-level > a {
+			padding-left: $space * 2;
+			font-size: 1.2rem;
+			color: #888;
+		}
+
+		.sub-level.current > a,
+		.sub-level > a:active,
+		.sub-level > a:hover {
+			color: #111;
+		}
 	}
 }
 

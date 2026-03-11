@@ -72,6 +72,20 @@
           >
             <a href="{{ site.baseurl }}/">전체</a>
           </li>
+          {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+          {% for year in postsByYear %}
+            <li class="nav-item top-level {% if page.url contains year.name %}current{% endif %}">
+              <span>{{ year.name }}</span>
+              <ul class="sub-navigation">
+                {% assign postsByCategory = year.items | group_by: "category" | sort: "name" %}
+                {% for catGroup in postsByCategory %}
+                  <li class="nav-item sub-level {% if page.url contains catGroup.name %}current{% endif %}">
+                    <a href="{{ site.baseurl }}/category/{{ catGroup.name | slugify }}/">{{ catGroup.name }} <span class="category-count">({{ catGroup.items | size }})</span></a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          {% endfor %}
         </ul>
       </nav>
     </header>

@@ -1,5 +1,6 @@
 ---
 title: GET vs POST (feat. PUT, PATCH)
+category: 1
 date: 2026-02-10 00:00:00 +0900
 ---
 

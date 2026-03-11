@@ -1,5 +1,6 @@
 ---
 title: Dynamic Array
+category: 1
 date: 2026-02-19 00:00:00 +0900
 ---
 
