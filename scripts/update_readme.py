@@ -51,11 +51,11 @@ readme = """# 📝 기록저장소 (mooooonmin)
 
 for year in sorted(data.keys(), reverse=True):
     total_posts = sum(len(posts) for posts in data[year].values())
-    readme += f"\n<details>\n<summary><b>📂 {year}년 (총 {total_posts}개)</b></summary>\n<div markdown=\"1\">\n\n"
+    readme += f"\n<details>\n<summary><b>📂 {year} ({total_posts})</b></summary>\n<div markdown=\"1\">\n\n"
     
     # Sort categories alphabetically/numerically
     for category in sorted(data[year].keys()):
-        readme += f"<details>\n<summary><b>📎 카테고리: {category} ({len(data[year][category])}개)</b></summary>\n<div markdown=\"1\">\n\n"
+        readme += f"<details>\n<summary><b>{category} ({len(data[year][category])})</b></summary>\n<div markdown=\"1\">\n\n"
         # Sort posts by date descending
         posts = sorted(data[year][category], key=lambda x: x["date"], reverse=True)
         for p in posts:
