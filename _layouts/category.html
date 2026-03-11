@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<ul class="post-list">
+{% assign filtered_posts = site.posts | where: "category", page.category %}
+{% for post in filtered_posts %}
+	<li>
+		<span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+		<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+	</li>
+{% endfor %}
+</ul>
+
+{% if filtered_posts.size == 0 %}
+<p>이 카테고리에 등록된 글이 없습니다.</p>
+{% endif %}
