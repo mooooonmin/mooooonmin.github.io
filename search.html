@@ -51,7 +51,7 @@ layout: default
 		if (start > 0) out = "..." + out;
 		if (end < text.length) out = out + "...";
 		try {
-			out = out.replace(new RegExp("(" + escapeRegex(query) + ")", "gi"), "<strong>$1</strong>");
+			out = out.replace(new RegExp("(" + escapeRegex(query) + ")", "gi"), "<strong style=\"color: #e53935;\">$1</strong>");
 		} catch (e) {}
 		return out;
 	}
