@@ -4,8 +4,10 @@ import re
 from collections import defaultdict
 import urllib.parse
 
-posts_dir = r"d:\02.프로젝트\mooooonmin.github.io\_posts"
-readme_path = r"d:\02.프로젝트\mooooonmin.github.io\README.md"
+# 상대 경로로 변경하여 GitHub Actions(Linux)와 로컬 환경 모두에서 동작하도록 수정
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+posts_dir = os.path.join(base_dir, "_posts")
+readme_path = os.path.join(base_dir, "README.md")
 
 data = defaultdict(lambda: defaultdict(list))
 
