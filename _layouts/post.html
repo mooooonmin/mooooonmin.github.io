@@ -4,18 +4,53 @@ layout: default
 {{ content }}
 
 <hr style="margin: 40px 0; border: 0; border-top: 1px solid rgba(0,0,0,0.1);">
+
+{% assign cat = page.category | default: page.categories[0] %}
+{% if cat %}
+  {% assign cat_posts = site.posts | where: "category", cat %}
+  {% if cat_posts.size == 0 %}
+    {% assign cat_posts = site.categories[cat] %}
+  {% endif %}
+  
+  {% assign current_index = nil %}
+  {% for p in cat_posts %}
+    {% if p.url == page.url %}
+      {% assign current_index = forloop.index0 %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+
+  {% assign prev_post = nil %}
+  {% assign next_post = nil %}
+
+  {% if current_index %}
+    {% assign prev_index = current_index | plus: 1 %}
+    {% assign next_index = current_index | minus: 1 %}
+
+    {% if prev_index < cat_posts.size %}
+      {% assign prev_post = cat_posts[prev_index] %}
+    {% endif %}
+    {% if next_index >= 0 %}
+      {% assign next_post = cat_posts[next_index] %}
+    {% endif %}
+  {% endif %}
+{% else %}
+  {% assign prev_post = page.previous %}
+  {% assign next_post = page.next %}
+{% endif %}
+
 <div class="post-navigation" style="display: flex; justify-content: space-between; margin-top: 2rem; font-family: 'Open Sans', sans-serif;">
   <div>
-    {% if page.previous.url %}
-      <a href="{{ site.baseurl }}{{ page.previous.url }}" role="button" tabindex="0" title="{{ page.previous.title }}" style="text-decoration: none; color: #37352f; font-weight: 600; font-size: 1.1rem; padding: 10px; border-radius: 4px; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#f7f6f3'" onmouseout="this.style.backgroundColor='transparent'">
-        &laquo; {{ page.previous.title | truncate: 25 }}
+    {% if prev_post.url %}
+      <a href="{{ site.baseurl }}{{ prev_post.url }}" role="button" tabindex="0" title="{{ prev_post.title }}" style="text-decoration: none; color: #37352f; font-weight: 600; font-size: 1.1rem; padding: 10px; border-radius: 4px; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#f7f6f3'" onmouseout="this.style.backgroundColor='transparent'">
+        &laquo; {{ prev_post.title | truncate: 25 }}
       </a>
     {% endif %}
   </div>
   <div>
-    {% if page.next.url %}
-      <a href="{{ site.baseurl }}{{ page.next.url }}" role="button" tabindex="0" title="{{ page.next.title }}" style="text-decoration: none; color: #37352f; font-weight: 600; font-size: 1.1rem; padding: 10px; border-radius: 4px; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#f7f6f3'" onmouseout="this.style.backgroundColor='transparent'">
-        {{ page.next.title | truncate: 25 }} &raquo;
+    {% if next_post.url %}
+      <a href="{{ site.baseurl }}{{ next_post.url }}" role="button" tabindex="0" title="{{ next_post.title }}" style="text-decoration: none; color: #37352f; font-weight: 600; font-size: 1.1rem; padding: 10px; border-radius: 4px; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#f7f6f3'" onmouseout="this.style.backgroundColor='transparent'">
+        {{ next_post.title | truncate: 25 }} &raquo;
       </a>
     {% endif %}
   </div>
