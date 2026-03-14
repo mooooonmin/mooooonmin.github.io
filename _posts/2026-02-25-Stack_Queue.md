@@ -55,7 +55,7 @@ class Queue(object):
 작업 빈도와 데이터 이동 과정을 고려한 성능 분석 결과.
 
 | 연산 | 시간 복잡도 | 비고 |
-| :--- | :--- | :--- |
+|:---|:---|:---|
 | **Enqueue** | O(1) | instack.push() 1회 수행 절차. |
 | **Dequeue (Best)** | O(1) | outstack에 데이터가 존재하는 경우 즉시 반환. |
 | **Dequeue (Worst)** | O(n) | outstack이 비어 있어 instack의 모든 데이터를 이동시키는 경우. |
