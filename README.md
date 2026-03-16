@@ -3,13 +3,14 @@
 ## 📚 포스팅 인덱스
 
 <details>
-<summary><b>📂 2026 (45)</b></summary>
+<summary><b>📂 2026 (46)</b></summary>
 <div markdown="1">
 
 <details>
-<summary><b>1 (36)</b></summary>
+<summary><b>1 (37)</b></summary>
 <div markdown="1">
 
+- [2026-03-16] [Multi Process](https://mooooonmin.github.io/2026/03/16/Multi_Process/)
 - [2026-03-13] [Process](https://mooooonmin.github.io/2026/03/13/Process/)
 - [2026-03-10] [B+Tree Index vs Hash Index](https://mooooonmin.github.io/2026/03/10/BTree_vsHash/)
 - [2026-03-09] [Index Column](https://mooooonmin.github.io/2026/03/09/Index_Column/)
