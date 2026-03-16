@@ -2,9 +2,23 @@
 layout: default
 ---
 
-<ul class="post-list">
+{% assign per_page = site.paginate | default: 20 %}
 {% assign filtered_posts = site.posts | where: "category", page.category %}
-{% for post in filtered_posts %}
+{% assign total_posts = filtered_posts | size %}
+{% assign total_pages = total_posts | divided_by: per_page %}
+{% assign remainder = total_posts | modulo: per_page %}
+{% if remainder > 0 %}
+  {% assign total_pages = total_pages | plus: 1 %}
+{% endif %}
+{% if total_pages == 0 %}
+  {% assign total_pages = 1 %}
+{% endif %}
+{% assign current_page = page.page_num | default: 1 %}
+{% assign offset = current_page | minus: 1 | times: per_page %}
+{% assign category_slug = page.category | append: "" | slugify %}
+
+<ul class="post-list">
+{% for post in filtered_posts limit: per_page offset: offset %}
 	<li>
 		<span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
 		<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
@@ -14,4 +28,38 @@ layout: default
 
 {% if filtered_posts.size == 0 %}
 <p>이 카테고리에 등록된 글이 없습니다.</p>
+{% endif %}
+
+{% if total_pages > 1 %}
+<nav class="pagination" aria-label="카테고리 글 목록 페이지">
+	{% if current_page > 1 %}
+		{% assign previous_page = current_page | minus: 1 %}
+		{% if previous_page == 1 %}
+			<a href="{{ site.baseurl }}/category/{{ category_slug }}/" class="pagination-prev">&lt;</a>
+		{% else %}
+			<a href="{{ site.baseurl }}/category/{{ category_slug }}/page{{ previous_page }}/" class="pagination-prev">&lt;</a>
+		{% endif %}
+	{% else %}
+		<span class="pagination-prev disabled">&lt;</span>
+	{% endif %}
+
+	<span class="pagination-numbers">
+		{% for page_number in (1..total_pages) %}
+			{% if page_number == current_page %}
+				<span class="pagination-current">{{ page_number }}</span>
+			{% elsif page_number == 1 %}
+				<a href="{{ site.baseurl }}/category/{{ category_slug }}/">{{ page_number }}</a>
+			{% else %}
+				<a href="{{ site.baseurl }}/category/{{ category_slug }}/page{{ page_number }}/">{{ page_number }}</a>
+			{% endif %}
+		{% endfor %}
+	</span>
+
+	{% if current_page < total_pages %}
+		{% assign next_page = current_page | plus: 1 %}
+		<a href="{{ site.baseurl }}/category/{{ category_slug }}/page{{ next_page }}/" class="pagination-next">&gt;</a>
+	{% else %}
+		<span class="pagination-next disabled">&gt;</span>
+	{% endif %}
+</nav>
 {% endif %}
