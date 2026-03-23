@@ -1,6 +1,7 @@
 import glob
 import os
 import re
+import urllib.parse
 from collections import defaultdict
 
 
@@ -8,7 +9,7 @@ base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 posts_dir = os.path.join(base_dir, "_posts")
 readme_path = os.path.join(base_dir, "README.md")
 
-year_counts = defaultdict(int)
+data = defaultdict(lambda: defaultdict(list))
 
 for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
     filename = os.path.basename(filepath)
@@ -16,18 +17,65 @@ for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
     if not match:
         continue
 
-    year = match.group(1)
-    year_counts[year] += 1
+    year, month, day, slug = match.groups()
+    slug = slug.strip()
+    slug_url = urllib.parse.quote(slug)
+
+    with open(filepath, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    title = slug
+    category = "Uncategorized"
+
+    if content.startswith("---"):
+        parts = content.split("---", 2)
+        if len(parts) >= 3:
+            front_matter = parts[1]
+            title_match = re.search(r'^\s*title:\s*"?([^\n"]+)"?\s*$', front_matter, re.MULTILINE)
+            if title_match:
+                title = title_match.group(1).strip()
+            category_match = re.search(r'^\s*category:\s*"?([^\n"]+)"?\s*$', front_matter, re.MULTILINE)
+            if category_match:
+                category = category_match.group(1).strip()
+
+    post_url = f"https://mooooonmin.github.io/{year}/{month}/{day}/{slug_url}/"
+
+    data[year][category].append(
+        {
+            "title": title,
+            "date": f"{year}-{month}-{day}",
+            "url": post_url,
+        }
+    )
 
 lines = []
 
-for year in sorted(year_counts.keys(), reverse=True):
-    count = year_counts[year]
-    lines.append(f"<details>")
-    lines.append(f"<summary><b>{year} ({count})</b></summary>")
-    lines.append(f"</details>")
+for year in sorted(data.keys(), reverse=True):
+    total_posts = sum(len(posts) for posts in data[year].values())
+    lines.append("<details>")
+    lines.append(f"<summary><b>{year} ({total_posts})</b></summary>")
+    lines.append('<div markdown="1">')
+    lines.append("")
 
-readme = "\n".join(lines).strip() + "\n"
+    for category in sorted(data[year].keys(), key=str):
+        posts = sorted(data[year][category], key=lambda item: item["date"], reverse=True)
+        lines.append("<details>")
+        lines.append(f"<summary><b>{category} ({len(posts)})</b></summary>")
+        lines.append('<div markdown="1">')
+        lines.append("")
+
+        for post in posts:
+            lines.append(f"- [{post['date']}] [{post['title']}]({post['url']})")
+
+        lines.append("")
+        lines.append("</div>")
+        lines.append("</details>")
+        lines.append("")
+
+    lines.append("</div>")
+    lines.append("</details>")
+
+readme = "\n".join(lines).rstrip() + "\n"
 
 with open(readme_path, "w", encoding="utf-8") as f:
     f.write(readme)
