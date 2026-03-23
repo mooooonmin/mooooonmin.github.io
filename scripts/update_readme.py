@@ -2,70 +2,32 @@ import glob
 import os
 import re
 from collections import defaultdict
-import urllib.parse
 
-# 상대 경로로 변경하여 GitHub Actions(Linux)와 로컬 환경 모두에서 동작하도록 수정
+
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 posts_dir = os.path.join(base_dir, "_posts")
 readme_path = os.path.join(base_dir, "README.md")
 
-data = defaultdict(lambda: defaultdict(list))
+year_counts = defaultdict(int)
 
 for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
     filename = os.path.basename(filepath)
     match = re.match(r"^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$", filename)
     if not match:
         continue
-    
-    year, month, day, slug = match.groups()
-    slug = slug.strip()
-    slug_url = urllib.parse.quote(slug)
-    
-    with open(filepath, "r", encoding="utf-8") as f:
-        content = f.read()
 
-    title = slug
-    category = "미분류"
-    
-    if content.startswith("---"):
-        parts = content.split("---", 2)
-        if len(parts) >= 3:
-            fm = parts[1]
-            t_match = re.search(r"\ntitle:\s*\"?([^\n\"]+)\"?", fm)
-            if t_match:
-                title = t_match.group(1).strip()
-            c_match = re.search(r"\ncategory:\s*\"?([^\n\"]+)\"?", fm)
-            if c_match:
-                category = c_match.group(1).strip()
+    year = match.group(1)
+    year_counts[year] += 1
 
-    # Encode URL correctly to prevent markdown parsing issues
-    post_url = f"https://mooooonmin.github.io/{year}/{month}/{day}/{slug_url}/"
-    
-    data[year][category].append({
-        "title": title,
-        "date": f"{year}-{month}-{day}",
-        "url": post_url
-    })
+lines = []
 
-readme = """# 📝 기록저장소 (mooooonmin)
+for year in sorted(year_counts.keys(), reverse=True):
+    count = year_counts[year]
+    lines.append(f"<details>")
+    lines.append(f"<summary><b>{year} ({count})</b></summary>")
+    lines.append(f"</details>")
 
-## 📚 포스팅 인덱스
-"""
-
-for year in sorted(data.keys(), reverse=True):
-    total_posts = sum(len(posts) for posts in data[year].values())
-    readme += f"\n<details>\n<summary><b>📂 {year} ({total_posts})</b></summary>\n<div markdown=\"1\">\n\n"
-    
-    # Sort categories alphabetically/numerically
-    for category in sorted(data[year].keys()):
-        readme += f"<details>\n<summary><b>{category} ({len(data[year][category])})</b></summary>\n<div markdown=\"1\">\n\n"
-        # Sort posts by date descending
-        posts = sorted(data[year][category], key=lambda x: x["date"], reverse=True)
-        for p in posts:
-            readme += f"- [{p['date']}] [{p['title']}]({p['url']})\n"
-        readme += "\n</div>\n</details>\n\n"
-        
-    readme += "</div>\n</details>\n"
+readme = "\n".join(lines).strip() + "\n"
 
 with open(readme_path, "w", encoding="utf-8") as f:
     f.write(readme)
