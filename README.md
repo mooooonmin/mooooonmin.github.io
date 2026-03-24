@@ -1,11 +1,12 @@
 <details>
-<summary><b>2026 (48)</b></summary>
+<summary><b>2026 (49)</b></summary>
 <div markdown="1">
 
 <details>
-<summary><b>1 (39)</b></summary>
+<summary><b>1 (40)</b></summary>
 <div markdown="1">
 
+- [2026-03-24] [IPC (Inter Process Communication)](https://mooooonmin.github.io/2026/03/24/IPC/)
 - [2026-03-23] [Multi Process vs Multi Thread](https://mooooonmin.github.io/2026/03/23/Multi_Process_vs_Multi_Thread/)
 - [2026-03-19] [Multi Thread](https://mooooonmin.github.io/2026/03/19/Multi_Thread/)
 - [2026-03-16] [Multi Process](https://mooooonmin.github.io/2026/03/16/Multi_Process/)
