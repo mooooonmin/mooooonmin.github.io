@@ -22,7 +22,7 @@ layout: default
         <span class="post-meta-label">태그</span>
         <div class="post-meta-tags">
           {% for tag in page.tags %}
-            <a href="{{ site.baseurl }}/tags/#tag-{{ tag | slugify }}" class="post-meta-chip">#{{ tag }}</a>
+            <a href="{{ site.baseurl }}/tags/#{{ tag | downcase }}" class="post-meta-chip">#{{ tag }}</a>
           {% endfor %}
         </div>
       </div>
