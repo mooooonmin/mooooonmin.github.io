@@ -9,7 +9,6 @@ permalink: /tags/
 {% if sorted_tags.size > 0 %}
 <section class="tag-page" aria-labelledby="tag-page-title">
   <div class="tag-pane tag-pane-list">
-    <h4 id="tag-page-title">태그</h4>
     <div class="tag-tools">
       <label class="tag-search-label" for="tag-search-input">검색</label>
       <input
@@ -81,10 +80,22 @@ permalink: /tags/
     var emptyState = document.getElementById("tag-empty-state");
     var buttons = Array.prototype.slice.call(document.querySelectorAll(".tag-cloud-button"));
     var sections = Array.prototype.slice.call(document.querySelectorAll(".tag-section-panel"));
-    var activeTag = null;`r`n`r`n    function getHashTag() {`r`n      return normalize(window.location.hash.replace("#", ""));`r`n    }`r`n`r`n    function setHashTag(tagName) {`r`n      if (!tagName) return;`r`n      var nextHash = "#" + tagName;`r`n      if (window.location.hash !== nextHash) {`r`n        window.history.replaceState(null, "", nextHash);`r`n      }`r`n    }
+    var activeTag = null;
 
     function normalize(value) {
       return (value || "").toLowerCase().trim();
+    }
+
+    function getHashTag() {
+      return normalize(window.location.hash.replace("#", ""));
+    }
+
+    function setHashTag(tagName) {
+      if (!tagName) return;
+      var nextHash = "#" + tagName;
+      if (window.location.hash !== nextHash) {
+        window.history.replaceState(null, "", nextHash);
+      }
     }
 
     function sortByCount(items) {
@@ -94,94 +105,116 @@ permalink: /tags/
       return items;
     }
 
+    function getSection(tagName) {
+      return sections.find(function (section) {
+        return section.dataset.tagName === tagName;
+      });
+    }
+
     function syncButtonState() {
       buttons.forEach(function (button) {
-        var isActive = activeTag && button.dataset.tagName === activeTag;
-        button.classList.toggle("is-active", Boolean(isActive));
+        button.classList.toggle("is-active", button.dataset.tagName === activeTag);
       });
+    }
+
+    function showSection(section, visibleCount) {
+      sections.forEach(function (item) {
+        item.style.display = item === section ? "block" : "none";
+      });
+
+      if (section) {
+        resultTitle.textContent = "#" + section.dataset.tagLabel;
+        resultCount.textContent = visibleCount + "개";
+        emptyState.style.display = visibleCount === 0 ? "block" : "none";
+      } else {
+        resultTitle.textContent = "태그를 선택하세요";
+        resultCount.textContent = "";
+        emptyState.style.display = "block";
+      }
     }
 
     function render() {
       var query = normalize(searchInput && searchInput.value);
-      var visibleTagCount = 0;
-      var activeSectionVisible = false;
+      var visibleButtons = [];
 
       buttons.forEach(function (button) {
         var tagName = normalize(button.dataset.tagName);
-        var section = sections.find(function (item) {
-          return item.dataset.tagName === tagName;
-        });
+        var section = getSection(tagName);
         var postItems = section ? Array.prototype.slice.call(section.querySelectorAll("li")) : [];
         var matchedPosts = 0;
 
         postItems.forEach(function (postItem) {
           var postText = normalize(postItem.dataset.searchText);
-          var visible = !query || tagName.indexOf(query) !== -1 || postText.indexOf(query) !== -1;
-          postItem.style.display = visible ? "" : "none";
-          if (visible) matchedPosts += 1;
+          var visiblePost = !query || tagName.indexOf(query) !== -1 || postText.indexOf(query) !== -1;
+          postItem.style.display = visiblePost ? "" : "none";
+          if (visiblePost) matchedPosts += 1;
         });
 
         var visibleTag = !query || tagName.indexOf(query) !== -1 || matchedPosts > 0;
         button.style.display = visibleTag ? "inline-flex" : "none";
-        if (visibleTag) visibleTagCount += 1;
+        button.dataset.visiblePosts = String(matchedPosts);
 
-        if (section) {
-          var active = activeTag === tagName;
-          section.style.display = active && visibleTag ? "block" : "none";
-          if (active && visibleTag) {
-            activeSectionVisible = true;
-            resultTitle.textContent = "#" + section.dataset.tagLabel;
-            resultCount.textContent = matchedPosts + "개";
-          }
+        if (visibleTag) {
+          visibleButtons.push(button);
         }
       });
 
-      if (!activeTag || !activeSectionVisible) {
-        var firstVisible = buttons.find(function (button) {
-          return button.style.display !== "none";
-        });
-
-        if (firstVisible) {
-          activeTag = firstVisible.dataset.tagName;
-          syncButtonState();
-          render();
-          return;
+      if (!activeTag || !visibleButtons.some(function (button) { return button.dataset.tagName === activeTag; })) {
+        activeTag = visibleButtons.length > 0 ? visibleButtons[0].dataset.tagName : null;
+        if (activeTag) {
+          setHashTag(activeTag);
         }
-
-        resultTitle.textContent = "태그를 선택하세요";
-        resultCount.textContent = "";
       }
 
-      emptyState.style.display = visibleTagCount === 0 ? "block" : "none";
+      syncButtonState();
+
+      if (activeTag) {
+        var activeButton = buttons.find(function (button) {
+          return button.dataset.tagName === activeTag;
+        });
+        var activeSection = getSection(activeTag);
+        var visibleCount = activeButton ? Number(activeButton.dataset.visiblePosts || 0) : 0;
+        showSection(activeSection, visibleCount);
+      } else {
+        showSection(null, 0);
+      }
     }
 
     sortByCount(buttons).forEach(function (button) {
       cloud.appendChild(button);
     });
 
-    sortByCount(sections).forEach(function (section) {
-      section.parentNode.appendChild(section);
-    });
-
     buttons.forEach(function (button) {
       button.addEventListener("click", function () {
         activeTag = button.dataset.tagName;
+        setHashTag(activeTag);
         syncButtonState();
         render();
       });
     });
 
     if (searchInput) {
-      searchInput.addEventListener("input", function () {
+      searchInput.addEventListener("input", render);
+    }
+
+    window.addEventListener("hashchange", function () {
+      var nextTag = getHashTag();
+      if (nextTag && buttons.some(function (button) { return button.dataset.tagName === nextTag; })) {
+        activeTag = nextTag;
+        syncButtonState();
         render();
-      });
-    }
+      }
+    });
 
-    if (buttons.length > 0) {
+    var hashTag = getHashTag();
+    if (hashTag && buttons.some(function (button) { return button.dataset.tagName === hashTag; })) {
+      activeTag = hashTag;
+    } else if (buttons.length > 0) {
       activeTag = buttons[0].dataset.tagName;
-      syncButtonState();
+      setHashTag(activeTag);
     }
 
+    syncButtonState();
     render();
   })();
 </script>
