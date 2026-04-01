@@ -7,18 +7,8 @@ permalink: /tags/
 {% assign sorted_tags = site.tags | sort %}
 
 {% if sorted_tags.size > 0 %}
-<section class="tag-page" aria-labelledby="tag-page-title">
+<section class="tag-page">
   <div class="tag-pane tag-pane-list">
-    <div class="tag-tools">
-      <label class="tag-search-label" for="tag-search-input">검색</label>
-      <input
-        type="search"
-        id="tag-search-input"
-        class="tag-search-input"
-        placeholder="태그 또는 포스트 제목으로 찾기"
-        autocomplete="off"
-      />
-    </div>
     <div class="tag-cloud tag-cloud-split" id="tag-cloud-list">
       {% for tag in sorted_tags %}
         {% assign tag_name = tag[0] %}
@@ -55,7 +45,7 @@ permalink: /tags/
       >
         <ul class="post-list">
           {% for post in tag_posts %}
-            <li data-search-text="{{ post.title | downcase | escape }}">
+            <li>
               <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
               <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </li>
@@ -64,7 +54,7 @@ permalink: /tags/
       </section>
     {% endfor %}
 
-    <p class="tag-empty-state" id="tag-empty-state">검색 결과가 없습니다.</p>
+    <p class="tag-empty-state tag-empty-state-visible" id="tag-empty-state">왼쪽에서 태그를 선택하면 관련 포스트 목록이 표시됩니다.</p>
   </div>
 </section>
 {% else %}
@@ -74,7 +64,6 @@ permalink: /tags/
 <script>
   (function () {
     var cloud = document.getElementById("tag-cloud-list");
-    var searchInput = document.getElementById("tag-search-input");
     var resultTitle = document.getElementById("tag-result-title");
     var resultCount = document.getElementById("tag-result-count");
     var emptyState = document.getElementById("tag-empty-state");
@@ -91,16 +80,13 @@ permalink: /tags/
     }
 
     function setHashTag(tagName) {
-      if (!tagName) return;
-      var nextHash = "#" + tagName;
-      if (window.location.hash !== nextHash) {
-        window.history.replaceState(null, "", nextHash);
-      }
+      var nextUrl = window.location.pathname + window.location.search + (tagName ? ("#" + tagName) : "");
+      window.history.replaceState(null, "", nextUrl);
     }
 
-    function sortByCount(items) {
+    function sortAlphabetically(items) {
       items.sort(function (a, b) {
-        return Number(b.dataset.count || 0) - Number(a.dataset.count || 0);
+        return a.dataset.tagName.localeCompare(b.dataset.tagName);
       });
       return items;
     }
@@ -117,15 +103,17 @@ permalink: /tags/
       });
     }
 
-    function showSection(section, visibleCount) {
-      sections.forEach(function (item) {
-        item.style.display = item === section ? "block" : "none";
+    function render() {
+      var activeSection = activeTag ? getSection(activeTag) : null;
+
+      sections.forEach(function (section) {
+        section.style.display = section === activeSection ? "block" : "none";
       });
 
-      if (section) {
-        resultTitle.textContent = "#" + section.dataset.tagLabel;
-        resultCount.textContent = visibleCount + "개";
-        emptyState.style.display = visibleCount === 0 ? "block" : "none";
+      if (activeSection) {
+        resultTitle.textContent = "#" + activeSection.dataset.tagLabel;
+        resultCount.textContent = activeSection.dataset.count + "개";
+        emptyState.style.display = "none";
       } else {
         resultTitle.textContent = "태그를 선택하세요";
         resultCount.textContent = "";
@@ -133,54 +121,7 @@ permalink: /tags/
       }
     }
 
-    function render() {
-      var query = normalize(searchInput && searchInput.value);
-      var visibleButtons = [];
-
-      buttons.forEach(function (button) {
-        var tagName = normalize(button.dataset.tagName);
-        var section = getSection(tagName);
-        var postItems = section ? Array.prototype.slice.call(section.querySelectorAll("li")) : [];
-        var matchedPosts = 0;
-
-        postItems.forEach(function (postItem) {
-          var postText = normalize(postItem.dataset.searchText);
-          var visiblePost = !query || tagName.indexOf(query) !== -1 || postText.indexOf(query) !== -1;
-          postItem.style.display = visiblePost ? "" : "none";
-          if (visiblePost) matchedPosts += 1;
-        });
-
-        var visibleTag = !query || tagName.indexOf(query) !== -1 || matchedPosts > 0;
-        button.style.display = visibleTag ? "inline-flex" : "none";
-        button.dataset.visiblePosts = String(matchedPosts);
-
-        if (visibleTag) {
-          visibleButtons.push(button);
-        }
-      });
-
-      if (!activeTag || !visibleButtons.some(function (button) { return button.dataset.tagName === activeTag; })) {
-        activeTag = visibleButtons.length > 0 ? visibleButtons[0].dataset.tagName : null;
-        if (activeTag) {
-          setHashTag(activeTag);
-        }
-      }
-
-      syncButtonState();
-
-      if (activeTag) {
-        var activeButton = buttons.find(function (button) {
-          return button.dataset.tagName === activeTag;
-        });
-        var activeSection = getSection(activeTag);
-        var visibleCount = activeButton ? Number(activeButton.dataset.visiblePosts || 0) : 0;
-        showSection(activeSection, visibleCount);
-      } else {
-        showSection(null, 0);
-      }
-    }
-
-    sortByCount(buttons).forEach(function (button) {
+    sortAlphabetically(buttons).forEach(function (button) {
       cloud.appendChild(button);
     });
 
@@ -193,26 +134,15 @@ permalink: /tags/
       });
     });
 
-    if (searchInput) {
-      searchInput.addEventListener("input", render);
-    }
-
     window.addEventListener("hashchange", function () {
       var nextTag = getHashTag();
-      if (nextTag && buttons.some(function (button) { return button.dataset.tagName === nextTag; })) {
-        activeTag = nextTag;
-        syncButtonState();
-        render();
-      }
+      activeTag = buttons.some(function (button) { return button.dataset.tagName === nextTag; }) ? nextTag : null;
+      syncButtonState();
+      render();
     });
 
     var hashTag = getHashTag();
-    if (hashTag && buttons.some(function (button) { return button.dataset.tagName === hashTag; })) {
-      activeTag = hashTag;
-    } else if (buttons.length > 0) {
-      activeTag = buttons[0].dataset.tagName;
-      setHashTag(activeTag);
-    }
+    activeTag = buttons.some(function (button) { return button.dataset.tagName === hashTag; }) ? hashTag : null;
 
     syncButtonState();
     render();
