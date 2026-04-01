@@ -186,19 +186,18 @@ $nav-image: $baseurl + "/images/menu.svg";
 	.sidebar-toggle {
 		display: inline-flex;
 		align-items: center;
+		justify-content: center;
 		position: fixed;
 		top: 12px;
 		left: $nav-width - 18px;
 		z-index: 2;
 		height: 36px;
-		padding: 0 12px;
+		width: 36px;
+		padding: 0;
 		border: 1px solid rgba(0, 0, 0, 0.15);
-		border-radius: 18px;
+		border-radius: 999px;
 		background-color: #fff;
 		color: #555;
-		font-family: "Open Sans", sans-serif;
-		font-size: 1.2rem;
-		font-weight: 600;
 		line-height: 1;
 		cursor: pointer;
 		transition: left 0.2s ease, color 0.2s ease, background-color 0.2s ease;
@@ -206,7 +205,6 @@ $nav-image: $baseurl + "/images/menu.svg";
 
 	.sidebar-toggle::before {
 		content: "<";
-		margin-right: 6px;
 		font-size: 1.3rem;
 		font-weight: 700;
 	}

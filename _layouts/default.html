@@ -46,9 +46,8 @@
       id="toggle-sidebar"
       aria-controls="site-sidebar"
       aria-expanded="true"
-    >
-      접기
-    </button>
+      aria-label="카테고리 접기"
+    ></button>
     <header id="site-sidebar">
       <h1>
         <a href="{{ site.baseurl }}/"
@@ -120,7 +119,6 @@
               "aria-label",
               isCollapsed ? "카테고리 펼치기" : "카테고리 접기",
             );
-            sidebarToggleButton.textContent = isCollapsed ? "펼치기" : "접기";
           }
         }
 
