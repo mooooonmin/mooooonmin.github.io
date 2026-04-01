@@ -2,6 +2,7 @@
 title: Queue 2개로 Stack 구현
 category: 1
 date: 2026-02-27 00:00:00 +0900
+tags: [datastructure, queue, stack, implementation]
 ---
 
 ## 1. 구현 원리 및 로직

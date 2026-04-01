@@ -2,6 +2,7 @@
 title: TCP 3-way handshake
 category: 1
 date: 2026-02-12 11:50:00 +0900
+tags: [network, tcp, handshake]
 ---
 
 ## 1. 3-way Handshake: 연결 수립 (Connection Setup)

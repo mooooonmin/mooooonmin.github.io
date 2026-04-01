@@ -2,6 +2,7 @@
 title: HTTP Method
 category: 1
 date: 2026-02-05 00:00:00 +0900
+tags: [network, http, method, rest]
 ---
 
 ## 1. HTTP Method

@@ -2,6 +2,7 @@
 title: Hash Table Collision
 category: 1
 date: 2026-03-01 02:00:00 +0900
+tags: [datastructure, hash-table, collision]
 ---
 
 ## 1. 해시 충돌(Collision) 해결의 두 가지 축

@@ -2,6 +2,7 @@
 title: DataBase Key
 category: 1
 date: 2026-03-03 02:00:00 +0900
+tags: [database, key, primary-key, relation]
 ---
 
 ## 1. 릴레이션(Relation)의 정의

@@ -2,6 +2,7 @@
 title: Index Column
 category: 1
 date: 2026-03-09 00:00:00 +0900
+tags: [database, index, column, optimization]
 ---
 
 ## 1. Index를 사용하기 좋은 Column

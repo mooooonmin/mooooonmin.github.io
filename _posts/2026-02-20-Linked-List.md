@@ -2,6 +2,7 @@
 title: Linked List
 category: 1
 date: 2026-02-20 00:00:00 +0900
+tags: [datastructure, linked-list]
 ---
 
 ## 1. Linked List의 정의 및 논리적 구조

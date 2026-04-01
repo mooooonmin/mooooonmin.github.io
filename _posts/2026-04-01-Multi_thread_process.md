@@ -1,7 +1,8 @@
-﻿---
+---
 title: Synchronization
 category: 1
 date: 2026-04-01 00:00:00 +0900
+tags: [os, thread, synchronization, mutex, semaphore]
 ---
 
 ## 1. 동기화 문제 개념
