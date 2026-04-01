@@ -3,13 +3,21 @@
 <div markdown="1">
 
 <details>
-<summary><b>1 (34)</b></summary>
+<summary><b>1 (42)</b></summary>
 <div markdown="1">
 
+- [2026-04-02] [데드락](https://mooooonmin.github.io/2026/04/02/Deadlock/)
+- [2026-04-01] [Synchronization](https://mooooonmin.github.io/2026/04/01/Multi_thread_process/)
+- [2026-03-24] [IPC (Inter 프로세스 Communication)](https://mooooonmin.github.io/2026/03/24/IPC/)
+- [2026-03-23] [Multi 프로세스 vs Multi 스레드](https://mooooonmin.github.io/2026/03/23/Multi_Process_vs_Multi_Thread/)
+- [2026-03-19] [Multi 스레드](https://mooooonmin.github.io/2026/03/19/Multi_Thread/)
+- [2026-03-16] [Multi 프로세스](https://mooooonmin.github.io/2026/03/16/Multi_Process/)
+- [2026-03-13] [프로세스](https://mooooonmin.github.io/2026/03/13/Process/)
 - [2026-03-10] [B+Tree Index vs Hash Index](https://mooooonmin.github.io/2026/03/10/BTree_vs_Hash/)
 - [2026-03-09] [Index Column](https://mooooonmin.github.io/2026/03/09/Index_Column/)
 - [2026-03-07] [Index](https://mooooonmin.github.io/2026/03/07/Index/)
 - [2026-03-06] [Transaction](https://mooooonmin.github.io/2026/03/06/Transaction/)
+- [2026-03-06] [데드락](https://mooooonmin.github.io/2026/03/06/Deadlock/)
 - [2026-03-05] [관계형 데이터베이스의 1:N 및 N:M](https://mooooonmin.github.io/2026/03/05/RDB-%EA%B4%80%EA%B3%84/)
 - [2026-03-05] [Inner Join vs Left Outer Join](https://mooooonmin.github.io/2026/03/05/Join/)
 - [2026-03-05] [RDB vs NoSQL](https://mooooonmin.github.io/2026/03/05/RDB_VS_NoSQL/)
@@ -45,9 +53,10 @@
 </details>
 
 <details>
-<summary><b>2 (9)</b></summary>
+<summary><b>2 (10)</b></summary>
 <div markdown="1">
 
+- [2026-03-30] [[Naver Cloud] NAC(100)](https://mooooonmin.github.io/2026/03/30/NCA100/)
 - [2026-03-11] [[정보보안기사] 2.네트워크보안](https://mooooonmin.github.io/2026/03/11/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%8B%A4%EA%B8%B02/)
 - [2026-03-10] [[정보보안기사] 1.시스템보안(v0.3)](https://mooooonmin.github.io/2026/03/10/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%8B%A4%EA%B8%B01/)
 - [2026-03-04] [[DAsP] 3. 데이터 표준화](https://mooooonmin.github.io/2026/03/04/DAsP3/)
@@ -57,23 +66,6 @@
 - [2026-02-28] [[빅데이터분석기사] Python/R](https://mooooonmin.github.io/2026/02/28/%EB%B9%85%ED%85%8C%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC/)
 - [2026-02-27] [[DAsP] 1. 전사아키텍처 이해](https://mooooonmin.github.io/2026/02/27/DAsP1/)
 - [2026-02-23] [[정보보안기사] 필기 (v1.5)](https://mooooonmin.github.io/2026/02/23/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%ED%95%84%EA%B8%B0/)
-
-</div>
-</details>
-
-<details>
-<summary><b>Uncategorized (9)</b></summary>
-<div markdown="1">
-
-- [2026-04-02] [Deadlock](https://mooooonmin.github.io/2026/04/02/Deadlock/)
-- [2026-04-01] [Multi_thread_process](https://mooooonmin.github.io/2026/04/01/Multi_thread_process/)
-- [2026-03-30] [NCA100](https://mooooonmin.github.io/2026/03/30/NCA100/)
-- [2026-03-24] [IPC](https://mooooonmin.github.io/2026/03/24/IPC/)
-- [2026-03-23] [Multi_Process_vs_Multi_Thread](https://mooooonmin.github.io/2026/03/23/Multi_Process_vs_Multi_Thread/)
-- [2026-03-19] [Multi_Thread](https://mooooonmin.github.io/2026/03/19/Multi_Thread/)
-- [2026-03-16] [Multi_Process](https://mooooonmin.github.io/2026/03/16/Multi_Process/)
-- [2026-03-13] [Process](https://mooooonmin.github.io/2026/03/13/Process/)
-- [2026-03-06] [Deadlock](https://mooooonmin.github.io/2026/03/06/Deadlock/)
 
 </div>
 </details>
