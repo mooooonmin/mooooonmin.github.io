@@ -742,11 +742,11 @@ img {
 
 .tag-page {
 	display: grid;
-	grid-template-columns: minmax(240px, 0.85fr) minmax(0, 1.65fr);
-	gap: 24px;
-	max-width: 1120px;
+	grid-template-columns: minmax(320px, 1.05fr) minmax(0, 1.95fr);
+	gap: 28px;
+	max-width: 1320px;
 	margin: 0 auto;
-	padding: 0 12px 8px;
+	padding: 0 8px 8px;
 }
 
 .tag-pane {
@@ -760,12 +760,12 @@ img {
 }
 
 .tag-pane-posts {
-	min-height: 320px;
+	min-height: 420px;
 }
 
 .tag-cloud-split {
-	gap: 8px 10px;
-	padding-top: 2px;
+	gap: 10px 12px;
+	padding-top: 0;
 }
 
 .tag-cloud-button {
@@ -834,7 +834,7 @@ img {
 	.tag-page {
 		grid-template-columns: 1fr;
 		gap: 20px;
-		padding: 0 12px 8px;
+		padding: 0 8px 8px;
 	}
 
 	.tag-pane-list {
