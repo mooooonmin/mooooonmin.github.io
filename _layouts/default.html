@@ -72,6 +72,11 @@
           >
             <a href="{{ site.baseurl }}/">전체</a>
           </li>
+          <li
+            class="nav-item top-level {% if page.url contains '/tags/' %}current{% endif %}"
+          >
+            <a href="{{ site.baseurl }}/tags/">태그</a>
+          </li>
           {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
           {% for year in postsByYear %}
             <li class="nav-item top-level {% if page.url contains year.name %}current{% endif %}">

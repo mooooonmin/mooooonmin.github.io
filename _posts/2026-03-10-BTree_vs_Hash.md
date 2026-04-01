@@ -2,6 +2,7 @@
 title: B+Tree Index vs Hash Index
 category: 1
 date: 2026-03-10 08:00:00 +0900
+tags: [database, index, btree, hash]
 ---
 
 ## 1. Index 자료구조 선택 문제

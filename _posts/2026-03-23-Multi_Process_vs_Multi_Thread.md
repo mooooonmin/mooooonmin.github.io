@@ -1,7 +1,8 @@
-﻿---
+---
 title: Multi 프로세스 vs Multi 스레드
 category: 1
 date: 2026-03-23 00:00:00 +0900
+tags: [os, process, thread, comparison, concurrency]
 ---
 
 ## 1. Multi 프로세스 vs Multi 스레드 개념

@@ -244,6 +244,137 @@ $nav-image: $baseurl + "/images/menu.svg";
 	margin: $space auto 0 auto;
 }
 
+.post-meta {
+	max-width: $content-max-width;
+	margin: 0 auto 20px auto;
+	padding: 0 ($space + 5);
+	@include display-flex();
+	@include flex-direction(column);
+	gap: 12px;
+}
+
+.post-meta-group {
+	@include display-flex();
+	@include align-items(center);
+	@include flex-flow(row wrap);
+	gap: 10px;
+}
+
+.post-meta-label {
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: #666;
+	line-height: 1;
+}
+
+.post-meta-tags {
+	@include display-inline-flex();
+	@include flex-flow(row wrap);
+	gap: 8px;
+}
+
+.post-meta-chip {
+	display: inline-flex;
+	align-items: center;
+	padding: 6px 10px;
+	border-radius: 999px;
+	background-color: #f1f1ef;
+	color: $content-color;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.2rem;
+	font-weight: 600;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.post-meta-chip-category {
+	background-color: $brand-colour;
+	color: #fff;
+}
+
+.post-meta a.post-meta-chip:hover {
+	background-color: #e7e5e1;
+}
+
+.tag-cloud-section,
+.tag-sections {
+	max-width: $content-max-width;
+	margin: 0 auto;
+	padding: 0 ($space + 5);
+}
+
+.tag-cloud-section {
+	margin-bottom: 36px;
+}
+
+.tag-cloud {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px 14px;
+	align-items: center;
+	padding: 8px 0 4px;
+}
+
+.tag-cloud-item {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 8px;
+	padding: 8px 0;
+	color: $content-color;
+	text-decoration: none;
+	font-family: "Open Sans", sans-serif;
+	font-size: clamp(1.1rem, calc(0.9rem + (var(--tag-count) * 0.18rem)), 3.2rem);
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	transition: opacity 0.2s ease;
+}
+
+.tag-cloud-item:hover {
+	opacity: 0.65;
+}
+
+.tag-cloud-name {
+	display: inline-block;
+}
+
+.tag-cloud-count {
+	font-size: 0.42em;
+	font-weight: 600;
+	color: #888;
+}
+
+.tag-section {
+	padding-top: 24px;
+	margin-top: 24px;
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.tag-section:first-child {
+	margin-top: 0;
+}
+
+.tag-section-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-bottom: 12px;
+}
+
+.tag-section-header h4 {
+	margin: 0;
+	font-size: 2rem;
+}
+
+.tag-section-count {
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: #888;
+}
+
 .page-header {
 	h2,
 	h3 {

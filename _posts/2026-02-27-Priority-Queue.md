@@ -2,6 +2,7 @@
 title: Queue vs Priority Queue
 category: 1
 date: 2026-02-27 02:00:00 +0900
+tags: [datastructure, priority-queue, heap]
 ---
 
 ## 1. Queue와 Priority Queue의 개념 비교

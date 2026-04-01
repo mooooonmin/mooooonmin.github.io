@@ -2,6 +2,7 @@
 title: RDB vs NoSQL
 category: 1
 date: 2026-03-05 03:00:00 +0900
+tags: [database, rdbms, nosql, comparison]
 ---
 
 ## 1. RDB와 NoSQL 개념

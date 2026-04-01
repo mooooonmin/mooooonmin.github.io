@@ -1,7 +1,8 @@
-﻿---
+---
 title: "Multi 프로세스"
 category: 1
 date: 2026-03-16 00:00:00 +0900
+tags: [os, process, concurrency, multiprocessing]
 ---
 
 ## 1. Multi 프로세스 개념

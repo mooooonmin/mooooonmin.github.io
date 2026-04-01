@@ -1,7 +1,8 @@
-﻿---
+---
 title: Multi 스레드
 category: 1
 date: 2026-03-19 00:00:00 +0900
+tags: [os, thread, concurrency, multithreading]
 ---
 
 ## 1. 스레드 개념

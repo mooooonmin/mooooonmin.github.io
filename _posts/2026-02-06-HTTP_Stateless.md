@@ -2,6 +2,7 @@
 title: HTTP Stateless와 비연결성
 category: 1
 date: 2026-02-06 03:00:00 +0900
+tags: [network, http, stateless, connection]
 ---
 
 ## 1. 클라이언트-서버 구조
