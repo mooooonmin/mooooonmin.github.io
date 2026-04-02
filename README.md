@@ -6,7 +6,7 @@
 <summary><b>1 (42)</b></summary>
 <div markdown="1">
 
-- [2026-04-02] [데드락](https://mooooonmin.github.io/2026/04/02/Deadlock/)
+- [2026-04-02] [Deadlock](https://mooooonmin.github.io/2026/04/02/Deadlock/)
 - [2026-04-01] [Synchronization](https://mooooonmin.github.io/2026/04/01/Multi_thread_process/)
 - [2026-03-24] [IPC (Inter 프로세스 Communication)](https://mooooonmin.github.io/2026/03/24/IPC/)
 - [2026-03-23] [Multi 프로세스 vs Multi 스레드](https://mooooonmin.github.io/2026/03/23/Multi_Process_vs_Multi_Thread/)
