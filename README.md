@@ -3,7 +3,16 @@
 <div markdown="1">
 
 <details>
-<summary><b>1 (43)</b></summary>
+<summary><b>0 (1)</b></summary>
+<div markdown="1">
+
+- [2026-02-02] [글 작성 예시](https://mooooonmin.github.io/2026/02/02/%EA%B8%80_%EC%9E%91%EC%84%B1_%EC%98%88%EC%8B%9C/)
+
+</div>
+</details>
+
+<details>
+<summary><b>1 (42)</b></summary>
 <div markdown="1">
 
 - [2026-04-02] [Deadlock](https://mooooonmin.github.io/2026/04/02/Deadlock/)
@@ -48,7 +57,6 @@
 - [2026-02-06] [HTTP Status Code](https://mooooonmin.github.io/2026/02/06/HTTP_Status_Code/)
 - [2026-02-05] [HTTP](https://mooooonmin.github.io/2026/02/05/HTTP/)
 - [2026-02-05] [HTTP Method](https://mooooonmin.github.io/2026/02/05/HTTP_Method/)
-- [2026-02-02] [글 작성 예시](https://mooooonmin.github.io/2026/02/02/%EA%B8%80_%EC%9E%91%EC%84%B1_%EC%98%88%EC%8B%9C/)
 
 </div>
 </details>
