@@ -3,7 +3,9 @@ layout: default
 ---
 {% assign cat = page.category | default: page.categories[0] %}
 {% assign category_label = cat %}
-{% if cat == 1 or cat == "1" %}
+{% if cat == 0 or cat == "0" %}
+  {% assign category_label = "가이드" %}
+{% elsif cat == 1 or cat == "1" %}
   {% assign category_label = "일반" %}
 {% elsif cat == 2 or cat == "2" %}
   {% assign category_label = "자격증" %}
