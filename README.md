@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (53)</b></summary>
+<summary><b>2026 (54)</b></summary>
 <div markdown="1">
 
 <details>
@@ -12,9 +12,10 @@
 </details>
 
 <details>
-<summary><b>1 (42)</b></summary>
+<summary><b>1 (43)</b></summary>
 <div markdown="1">
 
+- [2026-04-03] [Segmentation](https://mooooonmin.github.io/2026/04/03/Segmentation/)
 - [2026-04-02] [Deadlock](https://mooooonmin.github.io/2026/04/02/Deadlock/)
 - [2026-04-02] [Paging](https://mooooonmin.github.io/2026/04/02/Paging/)
 - [2026-04-01] [Synchronization](https://mooooonmin.github.io/2026/04/01/Multi_thread_process/)
