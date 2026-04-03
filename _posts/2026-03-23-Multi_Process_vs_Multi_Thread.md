@@ -53,7 +53,7 @@ Multi Thread는 **하나의 프로세스 내부에서 여러 Thread가 실행되
 | 구분 | Multi 프로세스 | Multi 스레드 |
 |---|---|---|
 | 메모리 사용 | 많은 메모리 공간 사용 | 적은 메모리 공간 사용 |
-| CPU 사용 | 높은 CPU 사용 | 상대적으로 효율적 |
+| 생성 / 전환 비용 | 상대적으로 큼 | 상대적으로 작음 |
 | Context Switching | 느림 | 빠름 |
 | 안정성 | 높음 (프로세스 간 독립) | 낮음 (스레드 간 영향 존재) |
 | 자원 공유 | 어려움 (IPC 필요) | 쉬움 (메모리 공유) |
@@ -121,3 +121,13 @@ Multi Thread는 Multi 프로세스 대비
 > - 하나의 프로세스 내에서 실행되는 스레드 기반 구조  
 > - 메모리 및 자원 효율성 높음  
 > - 동기화 문제 및 안정성 이슈 존재
+
+---
+
+## 참고 자료
+
+1. KOCW, 운영체제 강의자료  
+   https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf
+2. University of Illinois Chicago, Operating Systems Notes, "Processes" / "Threads"  
+   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/3_Processes.html  
+   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html
