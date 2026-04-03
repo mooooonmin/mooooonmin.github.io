@@ -83,8 +83,8 @@ Mutex는 Mutual Exclusion 의미.
 
 단점
 
-- Busy Waiting 발생 가능
-- CPU 자원 낭비 가능
+- 구현 방식에 따라 대기 중인 스레드를 block시키지 않으면 Busy Waiting 발생 가능
+- 잠금 경쟁이 심하면 성능 저하 가능
 
 ---
 
@@ -120,8 +120,8 @@ Semaphore는 공유 자원 접근 개수를 제어하는 동기화 기법 의미
 
 Semaphore 값이 0 또는 1만 가지는 경우 의미.
 
-- Mutex와 동일한 동작 구조
-- 단일 접근 제어 방식
+- 상호 배제 용도로 사용할 수 있음
+- 다만 일반적으로 **소유권 개념이 있는 Mutex와는 동일 개념으로 보지 않음**
 
 ---
 
@@ -149,3 +149,12 @@ Semaphore 값이 0 또는 1만 가지는 경우 의미.
 >
 > Semaphore  
 > 여러 스레드 접근 가능, 자원 개수 기반 제어
+
+---
+
+## 참고 자료
+
+1. KOCW, 운영체제 강의자료  
+   https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/5.pdf
+2. University of Illinois Chicago, Operating Systems Notes, "Process Synchronization"  
+   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/5_Synchronization.html

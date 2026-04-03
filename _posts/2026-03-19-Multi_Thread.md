@@ -69,7 +69,7 @@ Thread는 프로세스 내부에서 **독립적으로 함수를 호출하는 실
 
 ## 5. PC Register와 스레드
 
-Multi 스레드 환경에서는 **각 Thread마다 독립적인 PC(Program Counter) Register 필요**.
+Multi 스레드 환경에서는 **각 Thread가 자신의 실행 위치(Program Counter 값)를 별도로 보존해야 함**.
 
 그 이유는 스레드 간에도 **Context Switch 발생**하기 때문.
 
@@ -80,7 +80,8 @@ PC Register에는 다음 정보 저장.
 스레드 실행이 중단되었다가 다시 이어서 실행되기 위해서는  
 각 Thread가 **자신의 다음 실행 위치 정보 유지 필요**.
 
-따라서 각 Thread마다 **독립적인 PC Register 필요 구조**.
+즉, 실제 하드웨어 Register는 CPU가 현재 실행 중인 Thread의 값을 담고,  
+각 Thread는 자신의 PC 값을 **Thread Context**에 저장해 두었다가 다시 복구하는 구조.
 
 ---
 
@@ -133,7 +134,16 @@ PC Register에는 다음 정보 저장.
 >
 > **PC Register**
 >
-> - 각 Thread마다 독립적으로 필요한 구조
+> - 각 Thread는 자신의 실행 위치 정보를 별도로 보존
 > - 스레드 간 Context Switch 이후 실행 위치 복구 목적
+
+---
+
+## 참고 자료
+
+1. KOCW, 운영체제 강의자료  
+   https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf
+2. University of Illinois Chicago, Operating Systems Notes, "Threads"  
+   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html
 
 
