@@ -1,11 +1,11 @@
 ---
-title: Multi 프로세스 vs Multi 스레드
+title: Multi process vs Multi thread
 category: 1
 date: 2026-03-23 00:00:00 +0900
 tags: [os, process, thread, comparison, concurrency]
 ---
 
-## 1. Multi 프로세스 vs Multi 스레드 개념
+## 1. Multi process vs Multi thread 개념
 
 Multi Process와 Multi Thread는 **여러 작업을 동시에 수행하는 실행 구조** 의미.
 
