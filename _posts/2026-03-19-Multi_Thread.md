@@ -1,5 +1,5 @@
 ---
-title: Multi 스레드
+title: Multi thread
 category: 1
 date: 2026-03-19 00:00:00 +0900
 tags: [os, thread, concurrency, multithreading]
@@ -15,9 +15,9 @@ Thread는 프로세스 내부에서 **독립적인 기능을 수행하는 실행
 
 ---
 
-## 2. Multi 스레드 개념
+## 2. Multi thread 개념
 
-**Multi 스레드**란 하나의 Process가 동시에 여러 작업을 수행할 수 있도록 하는 구조 의미.
+**Multi thread**란 하나의 Process가 동시에 여러 작업을 수행할 수 있도록 하는 구조 의미.
 
 즉, 하나의 프로세스 내부에 **여러 개의 Thread가 존재하는 구조** 의미.
 
@@ -119,7 +119,7 @@ PC Register에는 다음 정보 저장.
 > - 하나의 프로세스 내부에서 실행되는 동작 단위
 > - 독립적인 기능 수행 구조
 >
-> **Multi 스레드**
+> **Multi thread**
 >
 > - 하나의 프로세스 내부에서 여러 Thread가 동시에 실행되는 구조
 >
