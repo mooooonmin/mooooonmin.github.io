@@ -1,13 +1,13 @@
 ---
-title: "Multi 프로세스"
+title: Multi process
 category: 1
 date: 2026-03-16 00:00:00 +0900
 tags: [os, process, concurrency, multiprocessing]
 ---
 
-## 1. Multi 프로세스 개념
+## 1. Multi process 개념
 
-**Multi 프로세스**란 **2개 이상의 Process가 동시에 실행되는 구조** 의미.
+**Multi process**란 **2개 이상의 Process가 동시에 실행되는 구조** 의미.
 
 여기서 동시에 실행된다는 의미는 다음 두 가지 개념 포함.
 
@@ -31,9 +31,9 @@ tags: [os, process, concurrency, multiprocessing]
 
 ---
 
-## 3. Multi 프로세스 구조
+## 3. Multi process 구조
 
-Multi 프로세스 환경에서는 여러 Process가 동시에 Memory에 적재되는 구조.
+Multi process 환경에서는 여러 Process가 동시에 Memory에 적재되는 구조.
 
 각 Process는 **자신만의 메모리 영역을 독립적으로 할당받는 구조**.
 
