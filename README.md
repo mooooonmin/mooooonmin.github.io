@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (61)</b></summary>
+<summary><b>2026 (59)</b></summary>
 <div markdown="1">
 
 <details>
@@ -68,14 +68,12 @@
 </details>
 
 <details>
-<summary><b>2 (12)</b></summary>
+<summary><b>2 (10)</b></summary>
 <div markdown="1">
 
 - [2026-04-09] [[정보보안기사] 서술형2](https://mooooonmin.github.io/2026/04/09/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%8B%A4%EA%B8%B04/)
 - [2026-04-08] [[정보보안기사] 서술형1](https://mooooonmin.github.io/2026/04/08/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%8B%A4%EA%B8%B03/)
 - [2026-03-30] [[Naver Cloud] NAC(100)](https://mooooonmin.github.io/2026/03/30/NCA100/)
-- [2026-03-11] [[정보보안기사] 2.네트워크보안](https://mooooonmin.github.io/2026/03/11/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%8B%A4%EA%B8%B02/)
-- [2026-03-10] [[정보보안기사] 1.시스템보안(v0.3)](https://mooooonmin.github.io/2026/03/10/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%8B%A4%EA%B8%B01/)
 - [2026-03-04] [[DAsP] 4. 데이터 모델링(1)](https://mooooonmin.github.io/2026/03/04/DAsP4-1/)
 - [2026-03-04] [[DAsP] 3. 데이터 표준화](https://mooooonmin.github.io/2026/03/04/DAsP3/)
 - [2026-03-04] [[DAsP] 4. 데이터 모델링(2)](https://mooooonmin.github.io/2026/03/04/DAsP4-2/)
