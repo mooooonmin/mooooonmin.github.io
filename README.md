@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (60)</b></summary>
+<summary><b>2026 (61)</b></summary>
 <div markdown="1">
 
 <details>
@@ -12,9 +12,10 @@
 </details>
 
 <details>
-<summary><b>1 (47)</b></summary>
+<summary><b>1 (48)</b></summary>
 <div markdown="1">
 
+- [2026-04-16] [Docker Container Run 2](https://mooooonmin.github.io/2026/04/16/Docker_Container_Run_2/)
 - [2026-04-16] [Docker Image List And Remove](https://mooooonmin.github.io/2026/04/16/Docker_Image_Ls_Rm/)
 - [2026-04-16] [Docker Container Create And Start 1](https://mooooonmin.github.io/2026/04/16/Docker_Container_Create_Start_1/)
 - [2026-04-15] [Docker](https://mooooonmin.github.io/2026/04/15/Docker/)
