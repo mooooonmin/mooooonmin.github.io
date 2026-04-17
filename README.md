@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (59)</b></summary>
+<summary><b>2026 (61)</b></summary>
 <div markdown="1">
 
 <details>
@@ -68,9 +68,11 @@
 </details>
 
 <details>
-<summary><b>2 (10)</b></summary>
+<summary><b>2 (12)</b></summary>
 <div markdown="1">
 
+- [2026-04-17] [[정보보안기사] 서술형3](https://mooooonmin.github.io/2026/04/17/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%84%9C%EC%88%A0%ED%98%953/)
+- [2026-04-17] [[정보보안기사] 서술형4](https://mooooonmin.github.io/2026/04/17/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%84%9C%EC%88%A0%ED%98%954/)
 - [2026-04-09] [[정보보안기사] 서술형2](https://mooooonmin.github.io/2026/04/09/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%84%9C%EC%88%A0%ED%98%952/)
 - [2026-04-08] [[정보보안기사] 서술형1](https://mooooonmin.github.io/2026/04/08/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%84%9C%EC%88%A0%ED%98%951/)
 - [2026-03-30] [[Naver Cloud] NAC(100)](https://mooooonmin.github.io/2026/03/30/NCA100/)
