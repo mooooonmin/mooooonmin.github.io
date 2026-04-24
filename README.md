@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (68)</b></summary>
+<summary><b>2026 (69)</b></summary>
 <div markdown="1">
 
 <details>
@@ -68,9 +68,10 @@
 </details>
 
 <details>
-<summary><b>2 (19)</b></summary>
+<summary><b>2 (20)</b></summary>
 <div markdown="1">
 
+- [2026-04-24] [[정보보안기사] 단답형4](https://mooooonmin.github.io/2026/04/24/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EB%8B%A8%EB%8B%B5%ED%98%954/)
 - [2026-04-23] [[정보보안기사] 단답형2](https://mooooonmin.github.io/2026/04/23/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EB%8B%A8%EB%8B%B5%ED%98%952/)
 - [2026-04-23] [[정보보안기사] 단답형3](https://mooooonmin.github.io/2026/04/23/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EB%8B%A8%EB%8B%B5%ED%98%953/)
 - [2026-04-22] [[정보보안기사] 단답형1](https://mooooonmin.github.io/2026/04/22/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EB%8B%A8%EB%8B%B5%ED%98%951/)
