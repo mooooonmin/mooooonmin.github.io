@@ -242,6 +242,16 @@ $nav-image: $baseurl + "/images/menu.svg";
 	margin: $space auto 0 auto;
 }
 
+.question-number {
+	display: block;
+	margin: 2.8rem 0 1.4rem;
+	padding: 0.75rem 1rem;
+	border-left: 4px solid #37352f;
+	border-radius: 4px;
+	background-color: #f1f1ef;
+	letter-spacing: 0;
+}
+
 .post-meta {
 	max-width: $content-max-width;
 	margin: 0 auto 20px auto;
