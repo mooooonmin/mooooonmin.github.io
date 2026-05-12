@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (83)</b></summary>
+<summary><b>2026 (84)</b></summary>
 <div markdown="1">
 
 <details>
@@ -12,10 +12,11 @@
 </details>
 
 <details>
-<summary><b>1 (56)</b></summary>
+<summary><b>1 (57)</b></summary>
 <div markdown="1">
 
 - [2026-05-12] [Dockerfile COPY](https://mooooonmin.github.io/2026/05/12/Dockerfile_COPY/)
+- [2026-05-12] [Dockerfile ENTRYPOINT](https://mooooonmin.github.io/2026/05/12/Dockerfile_ENTRYPOINT/)
 - [2026-05-11] [Dockerfile FROM](https://mooooonmin.github.io/2026/05/11/Dockerfile_FROM/)
 - [2026-05-11] [Docker 종료된 컨테이너 디버깅](https://mooooonmin.github.io/2026/05/11/Docker_Container_Debug_Exited/)
 - [2026-05-08] [Dockerfile](https://mooooonmin.github.io/2026/05/08/Dockerfile/)
