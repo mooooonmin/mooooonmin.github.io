@@ -1,6 +1,6 @@
 ---
 title: Dockerfile ENTRYPOINT
-category: 1
+category: 3
 date: 2026-05-12 00:00:00 +0900
 tags: [docker, dockerfile, entrypoint, container]
 ---

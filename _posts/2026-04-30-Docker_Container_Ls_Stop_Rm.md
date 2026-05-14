@@ -1,6 +1,6 @@
 ---
 title: Docker Container List Stop And Remove
-category: 1
+category: 3
 date: 2026-04-30 00:00:00 +0900
 tags: [docker, container, ps, stop, kill, rm]
 ---

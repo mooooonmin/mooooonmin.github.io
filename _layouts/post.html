@@ -9,6 +9,8 @@ layout: default
   {% assign category_label = "일반" %}
 {% elsif cat == 2 or cat == "2" %}
   {% assign category_label = "자격증" %}
+{% elsif cat == 3 or cat == "3" %}
+  {% assign category_label = "도커/쿠버네티스" %}
 {% endif %}
 
 {% if cat or page.tags %}

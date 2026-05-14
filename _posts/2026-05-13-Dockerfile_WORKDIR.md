@@ -1,6 +1,6 @@
 ---
 title: Dockerfile WORKDIR
-category: 1
+category: 3
 date: 2026-05-13 00:00:10 +0900
 tags: [docker, dockerfile, workdir, directory, build]
 ---
