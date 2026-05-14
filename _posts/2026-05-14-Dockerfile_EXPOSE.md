@@ -1,6 +1,6 @@
 ---
 title: Dockerfile EXPOSE
-category: 1
+category: 3
 date: 2026-05-14 00:00:00 +0900
 tags: [docker, dockerfile, expose, port, container]
 ---
