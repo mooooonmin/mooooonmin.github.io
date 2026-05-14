@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (86)</b></summary>
+<summary><b>2026 (87)</b></summary>
 <div markdown="1">
 
 <details>
@@ -12,9 +12,10 @@
 </details>
 
 <details>
-<summary><b>1 (59)</b></summary>
+<summary><b>1 (60)</b></summary>
 <div markdown="1">
 
+- [2026-05-14] [Dockerfile EXPOSE](https://mooooonmin.github.io/2026/05/14/Dockerfile_EXPOSE/)
 - [2026-05-13] [Dockerfile WORKDIR](https://mooooonmin.github.io/2026/05/13/Dockerfile_WORKDIR/)
 - [2026-05-13] [Dockerfile RUN](https://mooooonmin.github.io/2026/05/13/Dockerfile_RUN/)
 - [2026-05-12] [Dockerfile COPY](https://mooooonmin.github.io/2026/05/12/Dockerfile_COPY/)
