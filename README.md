@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (90)</b></summary>
+<summary><b>2026 (91)</b></summary>
 <div markdown="1">
 
 <details>
@@ -97,9 +97,10 @@
 </details>
 
 <details>
-<summary><b>3 (20)</b></summary>
+<summary><b>3 (21)</b></summary>
 <div markdown="1">
 
+- [2026-05-18] [Ubuntu에서 Docker, Docker Compose 설치하기](https://mooooonmin.github.io/2026/05/18/Docker_Install_Ubuntu/)
 - [2026-05-15] [자주 사용하는 Docker Compose CLI 명령어](https://mooooonmin.github.io/2026/05/15/Docker_Compose_CLI/)
 - [2026-05-15] [Docker CLI와 Docker Compose 쉽게 변환하기](https://mooooonmin.github.io/2026/05/15/Docker_CLI_Compose_Convert/)
 - [2026-05-14] [Docker Compose를 사용하는 이유](https://mooooonmin.github.io/2026/05/14/Docker_Compose_Why/)
