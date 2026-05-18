@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (92)</b></summary>
+<summary><b>2026 (93)</b></summary>
 <div markdown="1">
 
 <details>
@@ -97,9 +97,10 @@
 </details>
 
 <details>
-<summary><b>3 (22)</b></summary>
+<summary><b>3 (23)</b></summary>
 <div markdown="1">
 
+- [2026-05-19] [Kubernetes Pod](https://mooooonmin.github.io/2026/05/19/Kubernetes_Pod/)
 - [2026-05-18] [Kubernetes](https://mooooonmin.github.io/2026/05/18/Kubernetes/)
 - [2026-05-18] [Ubuntu에서 Docker, Docker Compose 설치하기](https://mooooonmin.github.io/2026/05/18/Docker_Install_Ubuntu/)
 - [2026-05-15] [자주 사용하는 Docker Compose CLI 명령어](https://mooooonmin.github.io/2026/05/15/Docker_Compose_CLI/)
