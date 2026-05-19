@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (97)</b></summary>
+<summary><b>2026 (98)</b></summary>
 <div markdown="1">
 
 <details>
@@ -97,11 +97,12 @@
 </details>
 
 <details>
-<summary><b>3 (27)</b></summary>
+<summary><b>3 (28)</b></summary>
 <div markdown="1">
 
 - [2026-05-20] [파드(Pod) 디버깅 하는 방법](https://mooooonmin.github.io/2026/05/20/Kubernetes_Pod_Debugging/)
 - [2026-05-20] [디플로이먼트(Deployment)란?](https://mooooonmin.github.io/2026/05/20/Kubernetes_Deployment/)
+- [2026-05-20] [서비스(Service)란?](https://mooooonmin.github.io/2026/05/20/Kubernetes_Service/)
 - [2026-05-19] [Kubernetes Pod](https://mooooonmin.github.io/2026/05/19/Kubernetes_Pod/)
 - [2026-05-19] [파드(Pod)로 띄운 프로그램에 접속이 안 되는 이유](https://mooooonmin.github.io/2026/05/19/Kubernetes_Pod_Port_Forward/)
 - [2026-05-19] [이미지가 없다고 에러가 뜨는 이유](https://mooooonmin.github.io/2026/05/19/Kubernetes_Image_Pull_Policy/)
