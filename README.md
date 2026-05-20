@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (99)</b></summary>
+<summary><b>2026 (100)</b></summary>
 <div markdown="1">
 
 <details>
@@ -97,10 +97,11 @@
 </details>
 
 <details>
-<summary><b>3 (29)</b></summary>
+<summary><b>3 (30)</b></summary>
 <div markdown="1">
 
 - [2026-05-21] [디플로이먼트를 활용한 서버 개수 조절 방법](https://mooooonmin.github.io/2026/05/21/Kubernetes_Deployment_Scaling/)
+- [2026-05-21] [서버가 죽었을 때 자동으로 복구하는 기능](https://mooooonmin.github.io/2026/05/21/Kubernetes_Self_Healing/)
 - [2026-05-20] [파드(Pod) 디버깅 하는 방법](https://mooooonmin.github.io/2026/05/20/Kubernetes_Pod_Debugging/)
 - [2026-05-20] [디플로이먼트(Deployment)란?](https://mooooonmin.github.io/2026/05/20/Kubernetes_Deployment/)
 - [2026-05-20] [서비스(Service)란?](https://mooooonmin.github.io/2026/05/20/Kubernetes_Service/)
