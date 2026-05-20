@@ -1,5 +1,5 @@
 ---
-title: 서비스(Service)란?
+title: Kubernetes Service
 category: 3
 date: 2026-05-20 00:00:20 +0900
 tags: [kubernetes, k8s, service, networking, load-balancing]

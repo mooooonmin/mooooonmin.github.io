@@ -1,5 +1,5 @@
 ---
-title: 디플로이먼트(Deployment)란?
+title: Kubernetes Deployment
 category: 3
 date: 2026-05-20 00:00:10 +0900
 tags: [kubernetes, k8s, deployment, replicaset, pod]
