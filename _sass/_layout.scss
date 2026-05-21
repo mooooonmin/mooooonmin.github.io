@@ -750,11 +750,16 @@ img {
 
 .tag-page {
 	display: grid;
-	grid-template-columns: minmax(340px, 1fr) minmax(0, 1.9fr);
-	gap: 56px;
-	max-width: 1560px;
+	grid-template-columns: minmax(580px, 1.35fr) minmax(360px, 0.85fr);
+	gap: 64px;
+	max-width: 1180px;
 	margin: 0 auto;
 	padding: 0 4px 8px;
+}
+
+.tag-page-body .content,
+.tag-page-body .page-header {
+	max-width: 1180px;
 }
 
 .tag-pane {
