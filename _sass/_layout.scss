@@ -133,6 +133,11 @@ header {
 		@include align-items(center);
 		border-bottom: 1px solid rgba(0, 0, 0, 0.075);
 
+		a {
+			border: 0;
+			line-height: 0;
+		}
+
 		img {
 			height: $emblem-size;
 			width: $emblem-size;
@@ -166,9 +171,11 @@ $nav-image: $baseurl + "/images/menu.svg";
 
 	@media (min-width: $mobile-break) {
 		background-color: transparent;
+		position: fixed;
 		width: $nav-width;
 		right: auto;
 		bottom: 0;
+		max-height: 100vh;
 		transition: transform 0.2s ease;
 
 		.open-nav {
@@ -860,6 +867,7 @@ img {
 
 header > nav {
 	flex: 1;
+	overflow-y: auto;
 }
 
 .year-nav-heading {
@@ -1169,6 +1177,7 @@ tbody tr:nth-child(odd) th {
 }
 
 .theme-switcher {
+	flex: 0 0 auto;
 	padding: 12px $space 20px;
 	margin-top: 12px;
 }
