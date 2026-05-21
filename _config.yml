@@ -36,6 +36,7 @@ exclude:
   - README.md
   - LICENSE
   - serve.sh
+  - docs/post-template.md
 
 defaults:
   - scope:
