@@ -1,6 +1,6 @@
 ---
 title: Queue vs Priority Queue
-category: 1
+category: cs
 date: 2026-02-27 02:00:00 +0900
 tags: [datastructure, priority-queue, heap]
 ---
@@ -60,4 +60,3 @@ tags: [datastructure, priority-queue, heap]
 
 > **Q. 우선순위 큐의 대표적인 활용 사례는?**
 > * 네트워크 데이터 패킷의 우선순위 제어, 다익스트라(Dijkstra) 최단 경로 알고리즘, 운영체제의 CPU 스케줄링 등에서 필수적으로 사용.
-

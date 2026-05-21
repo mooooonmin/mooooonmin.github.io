@@ -1,6 +1,6 @@
 ---
 layout: category
-title: 1
-category: 1
+title: CS
+category: cs
 page_num: 2
 ---

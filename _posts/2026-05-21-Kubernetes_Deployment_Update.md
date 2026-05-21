@@ -1,6 +1,6 @@
 ---
 title: 새로운 버전의 서버로 업데이트 시키기
-category: 3
+category: docker-kubernetes
 date: 2026-05-21 00:00:20 +0900
 tags: [kubernetes, k8s, deployment, rollout, update, spring-boot, docker]
 ---

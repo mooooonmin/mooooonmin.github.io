@@ -1,6 +1,6 @@
 ---
 title: Docker Volume
-category: 3
+category: docker-kubernetes
 date: 2026-05-07 00:00:00 +0900
 tags: [docker, container, volume, bind-mount, storage]
 ---

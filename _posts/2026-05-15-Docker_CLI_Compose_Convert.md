@@ -1,6 +1,6 @@
 ---
 title: Docker CLI와 Docker Compose 쉽게 변환하기
-category: 3
+category: docker-kubernetes
 date: 2026-05-15 00:00:10 +0900
 tags: [docker, docker-compose, compose, cli, converter]
 ---

@@ -1,6 +1,6 @@
 ---
 title: Hash Table
-category: 1
+category: cs
 date: 2026-03-01 00:00:00 +0900
 tags: [datastructure, hash-table, hash]
 ---

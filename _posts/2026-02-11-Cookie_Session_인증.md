@@ -1,6 +1,6 @@
 ---
 title: 쿠키와 세션을 활용한 인증(Authentication) 및 인가(Authorization)
-category: 1
+category: cs
 date: 2026-02-11 00:00:00 +0900
 tags: [network, security, authentication, authorization, session]
 ---

@@ -1,6 +1,6 @@
 ---
 title: Multi thread
-category: 1
+category: cs
 date: 2026-03-19 00:00:00 +0900
 tags: [os, thread, concurrency, multithreading]
 ---
@@ -145,5 +145,3 @@ PC Register에는 다음 정보 저장.
    https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf
 2. University of Illinois Chicago, Operating Systems Notes, "Threads"  
    https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html
-
-

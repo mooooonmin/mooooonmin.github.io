@@ -11,6 +11,22 @@ readme_path = os.path.join(base_dir, "README.md")
 
 data = defaultdict(lambda: defaultdict(list))
 
+category_labels = {
+    "docs": "문서",
+    "cs": "CS",
+    "exam": "자격증",
+    "docker-kubernetes": "도커/쿠버네티스",
+    "linux": "Linux",
+}
+
+category_order = {
+    "docs": 0,
+    "cs": 1,
+    "exam": 2,
+    "docker-kubernetes": 3,
+    "linux": 4,
+}
+
 for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
     filename = os.path.basename(filepath)
     match = re.match(r"^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$", filename)
@@ -27,8 +43,10 @@ for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
     title = slug
     category = "Uncategorized"
 
-    if content.startswith("---"):
-        parts = content.split("---", 2)
+    content_for_front_matter = content.lstrip("\ufeff")
+
+    if content_for_front_matter.startswith("---"):
+        parts = content_for_front_matter.split("---", 2)
         if len(parts) >= 3:
             front_matter = parts[1]
             title_match = re.search(r'^\s*title:\s*"?([^\n"]+)"?\s*$', front_matter, re.MULTILINE)
@@ -57,10 +75,11 @@ for year in sorted(data.keys(), reverse=True):
     lines.append('<div markdown="1">')
     lines.append("")
 
-    for category in sorted(data[year].keys(), key=str):
+    for category in sorted(data[year].keys(), key=lambda name: (category_order.get(name, 999), str(name))):
         posts = sorted(data[year][category], key=lambda item: item["date"], reverse=True)
+        category_label = category_labels.get(category, category)
         lines.append("<details>")
-        lines.append(f"<summary><b>{category} ({len(posts)})</b></summary>")
+        lines.append(f"<summary><b>{category_label} ({len(posts)})</b></summary>")
         lines.append('<div markdown="1">')
         lines.append("")
 

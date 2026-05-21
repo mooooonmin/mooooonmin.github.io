@@ -1,7 +1,8 @@
 import os
 import glob
 
-posts_dir = r"d:\02.프로젝트\mooooonmin.github.io\_posts"
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+posts_dir = os.path.join(base_dir, "_posts")
 
 for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
     with open(filepath, "r", encoding="utf-8") as f:
@@ -10,12 +11,12 @@ for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
     if "\ncategory:" not in content:
         # insert category before date
         if "\ndate:" in content:
-            content = content.replace("\ndate:", "\ncategory: 1\ndate:", 1)
+            content = content.replace("\ndate:", "\ncategory: cs\ndate:", 1)
         else:
             # fallback: insert right after first ---
             parts = content.split("---", 2)
             if len(parts) >= 3:
-                parts[1] = "\ncategory: 1" + parts[1]
+                parts[1] = "\ncategory: cs" + parts[1]
                 content = "---".join(parts)
         
         with open(filepath, "w", encoding="utf-8") as f:

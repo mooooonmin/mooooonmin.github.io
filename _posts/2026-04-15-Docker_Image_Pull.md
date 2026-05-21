@@ -1,6 +1,6 @@
 ---
 title: Docker Image Pull
-category: 3
+category: docker-kubernetes
 date: 2026-04-15 00:00:00 +0900
 tags: [docker, image, dockerhub, registry]
 ---

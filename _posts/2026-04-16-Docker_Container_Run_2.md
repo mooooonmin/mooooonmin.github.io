@@ -1,6 +1,6 @@
 ---
 title: Docker Container Run 2
-category: 3
+category: docker-kubernetes
 date: 2026-04-16 00:00:00 +0900
 tags: [docker, container, run, port]
 ---

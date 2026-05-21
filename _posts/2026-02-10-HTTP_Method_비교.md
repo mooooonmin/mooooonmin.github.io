@@ -1,6 +1,6 @@
 ---
 title: GET vs POST (feat. PUT, PATCH)
-category: 1
+category: cs
 date: 2026-02-10 00:00:00 +0900
 tags: [network, http, method, rest]
 ---

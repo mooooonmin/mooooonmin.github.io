@@ -1,6 +1,6 @@
 ---
 title: TCP 3-way handshake
-category: 1
+category: cs
 date: 2026-02-12 11:50:00 +0900
 tags: [network, tcp, handshake]
 ---

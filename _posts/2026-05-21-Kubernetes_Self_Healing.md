@@ -1,6 +1,6 @@
 ---
 title: 서버가 죽었을 때 자동으로 복구하는 기능
-category: 3
+category: docker-kubernetes
 date: 2026-05-21 00:00:10 +0900
 tags: [kubernetes, k8s, pod, deployment, self-healing, restart-policy]
 ---
