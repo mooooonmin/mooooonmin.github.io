@@ -14,7 +14,7 @@ Docker에서 이미지를 로컬로 내려받을 때는 `docker pull` 명령을 
 docker pull nginx
 ```
 
-위 명령은 `nginx` 이미지를 내려받는다.  
+위 명령은 `nginx` 이미지를 내려받는다.
 공식 문서 기준으로 태그를 생략하면 Docker는 기본적으로 `latest` 태그를 사용한다. [1][2][3]
 
 즉,
@@ -33,7 +33,7 @@ docker pull nginx:latest
 
 ## 2. 레지스트리를 생략하면 Docker Hub를 사용
 
-이미지를 받을 때 별도의 레지스트리 주소를 적지 않으면,  
+이미지를 받을 때 별도의 레지스트리 주소를 적지 않으면,
 Docker는 기본적으로 `docker.io`를 사용한다. [2]
 
 예를 들어 `nginx` 는 문서상 다음과 같이 해석된다. [2][3]
@@ -69,10 +69,10 @@ docker pull nginx:stable-perl
 
 ## 4. latest 태그를 볼 때 주의할 점
 
-`latest` 는 **태그를 생략했을 때 기본으로 사용되는 태그 이름**이지,  
+`latest` 는 **태그를 생략했을 때 기본으로 사용되는 태그 이름**이지,
 항상 "가장 최신 버전"을 뜻한다고 단정하면 안 된다. [1][4]
 
-공식 문서는 태그 미지정 시 `latest` 가 기본값이라고 설명하지만,  
+공식 문서는 태그 미지정 시 `latest` 가 기본값이라고 설명하지만,
 어떤 태그를 어떤 이미지에 붙일지는 이미지 제공자가 관리한다. [1][4]
 
 따라서 실무에서는 재현성을 위해:
@@ -105,13 +105,13 @@ docker pull nginx:stable-perl
 
 ---
 
-## 참고 자료
+## 출처
 
-1. Docker Docs, `docker image pull`  
+1. Docker Docs, `docker image pull`
    https://docs.docker.com/reference/cli/docker/image/pull/
-2. Docker Docs, `docker image tag`  
+2. Docker Docs, `docker image tag`
    https://docs.docker.com/engine/reference/commandline/tag/
-3. Docker Docs, Build, tag, and publish an image  
+3. Docker Docs, Build, tag, and publish an image
    https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/
-4. Docker Docs, Tags on Docker Hub  
+4. Docker Docs, Tags on Docker Hub
    https://docs.docker.com/docker-hub/repos/manage/hub-images/tags/

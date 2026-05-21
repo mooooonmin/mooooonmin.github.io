@@ -129,9 +129,9 @@ Docker Compose는 여러 컨테이너를 하나의 애플리케이션 단위로 
 
 ---
 
-## 참고자료
+## 출처
 
-[1] Docker Docs, Docker Compose: <https://docs.docker.com/compose/>  
-[2] Docker Docs, How Compose works: <https://docs.docker.com/compose/intro/compose-application-model/>  
-[3] Docker Docs, docker compose up: <https://docs.docker.com/reference/cli/docker/compose/up/>  
+[1] Docker Docs, Docker Compose: <https://docs.docker.com/compose/>
+[2] Docker Docs, How Compose works: <https://docs.docker.com/compose/intro/compose-application-model/>
+[3] Docker Docs, docker compose up: <https://docs.docker.com/reference/cli/docker/compose/up/>
 [4] Docker Docs, What is Docker Compose?: <https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-docker-compose/>

@@ -39,14 +39,12 @@ Multi 스레드 환경에서 각 Thread는 **Stack 영역을 제외한 나머지
 
 즉 Thread의 메모리 구조는 다음과 같은 형태.
 
-
 | 구분    | 공유 여부 |
-| ----- | ----- |
+|---|---|
 | Code  | 공유    |
 | Data  | 공유    |
 | Heap  | 공유    |
 | Stack | 독립    |
-
 
 ---
 
@@ -62,7 +60,7 @@ Thread는 프로세스 내부에서 **독립적으로 함수를 호출하는 실
 
 이 정보들은 **Stack 메모리 영역에 저장되는 구조**.
 
-따라서 각 Thread가 서로 독립적으로 실행되기 위해서는  
+따라서 각 Thread가 서로 독립적으로 실행되기 위해서는
 각 Thread마다 **독립적인 Stack 메모리 영역 필요**.
 
 ---
@@ -77,10 +75,10 @@ PC Register에는 다음 정보 저장.
 
 - 다음에 실행할 명령어 주소
 
-스레드 실행이 중단되었다가 다시 이어서 실행되기 위해서는  
+스레드 실행이 중단되었다가 다시 이어서 실행되기 위해서는
 각 Thread가 **자신의 다음 실행 위치 정보 유지 필요**.
 
-즉, 실제 하드웨어 Register는 CPU가 현재 실행 중인 Thread의 값을 담고,  
+즉, 실제 하드웨어 Register는 CPU가 현재 실행 중인 Thread의 값을 담고,
 각 Thread는 자신의 PC 값을 **Thread Context**에 저장해 두었다가 다시 복구하는 구조.
 
 ---
@@ -101,14 +99,12 @@ PC Register에는 다음 정보 저장.
 
 ## 7. Process와 스레드 비교
 
-
 | 구분     | 프로세스                       | 스레드                  |
-| ------ | ----------------------------- | ----------------------- |
+|---|---|---|
 | 개념     | 운영체제로부터 자원을 할당받는 작업 단위        | 프로세스 내부에서 실행되는 동작 단위 |
 | 메모리 | Code, Data, Heap, Stack 모두 독립 | Stack 제외 나머지 영역 공유      |
 | 자원 할당  | 운영체제가 직접 자원 할당                | Process가 할당받은 자원 활용     |
 | 실행 단위  | 프로그램 실행 단위                    | 함수 실행 흐름 단위             |
-
 
 ---
 
@@ -139,9 +135,9 @@ PC Register에는 다음 정보 저장.
 
 ---
 
-## 참고 자료
+## 출처
 
-1. KOCW, 운영체제 강의자료  
+1. KOCW, 운영체제 강의자료
    https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf
-2. University of Illinois Chicago, Operating Systems Notes, "Threads"  
+2. University of Illinois Chicago, Operating Systems Notes, "Threads"
    https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html

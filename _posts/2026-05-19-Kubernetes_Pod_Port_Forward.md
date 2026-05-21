@@ -216,10 +216,10 @@ kubectl get pods
 
 ---
 
-## 참고 자료
+## 출처
 
 확인일: 2026-05-18
 
-[1] Kubernetes Documentation, Pods - Pod networking: <https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking>  
-[2] Kubernetes Documentation, Use Port Forwarding to Access Applications in a Cluster: <https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/>  
+[1] Kubernetes Documentation, Pods - Pod networking: <https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking>
+[2] Kubernetes Documentation, Use Port Forwarding to Access Applications in a Cluster: <https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/>
 [3] Kubernetes Documentation, kubectl port-forward: <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward>

@@ -172,9 +172,9 @@ docker logs -t -f 컨테이너명
 
 ---
 
-## 참고 자료
+## 출처
 
-1. Docker Docs, `docker container logs`  
+1. Docker Docs, `docker container logs`
    https://docs.docker.com/reference/cli/docker/container/logs/
-2. Docker Docs, Logs and metrics  
+2. Docker Docs, Logs and metrics
    https://docs.docker.com/engine/logging/

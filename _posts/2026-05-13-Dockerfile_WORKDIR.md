@@ -211,7 +211,7 @@ ls
 
 ---
 
-## 참고자료
+## 출처
 
-[1] Docker Docs, Dockerfile reference - WORKDIR: <https://docs.docker.com/reference/dockerfile/#workdir>  
+[1] Docker Docs, Dockerfile reference - WORKDIR: <https://docs.docker.com/reference/dockerfile/#workdir>
 [2] Docker Docs, Dockerfile reference - COPY destination: <https://docs.docker.com/reference/dockerfile/#destination>

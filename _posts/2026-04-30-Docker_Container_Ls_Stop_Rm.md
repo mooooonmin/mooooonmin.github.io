@@ -57,7 +57,7 @@ docker stop 컨테이너ID
 
 `docker stop` 은 `docker container stop` 의 별칭(alias)이다. [2]
 
-공식 문서 기준으로 `docker stop` 은 컨테이너 안의 메인 프로세스에 먼저 `SIGTERM` 을 보내고,  
+공식 문서 기준으로 `docker stop` 은 컨테이너 안의 메인 프로세스에 먼저 `SIGTERM` 을 보내고,
 일정 시간 안에 종료되지 않으면 `SIGKILL` 을 보낸다. [2]
 
 즉, 일반적인 종료 흐름은 다음과 같다.
@@ -86,7 +86,7 @@ docker kill 컨테이너ID
 - `docker stop` : 먼저 정상 종료를 시도한 뒤, 필요하면 강제 종료 [2]
 - `docker kill` : 기본적으로 강제 종료 신호를 보냄 [3]
 
-실무에서는 특별한 이유가 없다면 먼저 `docker stop` 을 사용하고,  
+실무에서는 특별한 이유가 없다면 먼저 `docker stop` 을 사용하고,
 정상적으로 종료되지 않을 때 `docker kill` 을 고려하는 편이 안전하다.
 
 ---
@@ -124,7 +124,7 @@ docker rm -f 컨테이너ID
 
 공식 문서 기준으로 `-f, --force` 옵션은 실행 중인 컨테이너를 강제로 제거하며, 이때 `SIGKILL` 을 사용한다. [4]
 
-다만 강제 삭제는 컨테이너 안에서 처리 중이던 작업을 정상적으로 마무리할 기회를 줄이지 않을 수 있다.  
+다만 강제 삭제는 컨테이너 안에서 처리 중이던 작업을 정상적으로 마무리할 기회를 줄이지 않을 수 있다.
 따라서 보통은 먼저 `docker stop` 으로 중지한 뒤 `docker rm` 으로 삭제하는 흐름이 더 안전하다. [2][4]
 
 ---
@@ -149,13 +149,13 @@ docker rm $(docker ps --filter status=exited -q)
 docker rm $(docker ps -qa)
 ```
 
-`docker ps -qa` 는 **중지된 컨테이너만** 조회하는 명령이 아니라,  
+`docker ps -qa` 는 **중지된 컨테이너만** 조회하는 명령이 아니라,
 `-a` 로 모든 컨테이너를 조회하고 `-q` 로 ID만 출력하는 명령이다. [1]
 
-따라서 위 조합은 모든 컨테이너 ID를 `docker rm` 에 넘긴다.  
+따라서 위 조합은 모든 컨테이너 ID를 `docker rm` 에 넘긴다.
 다만 `-f` 옵션이 없으면 실행 중인 컨테이너 삭제는 실패할 수 있다. [4]
 
-또한 `$(...)` 문법은 Docker 명령 자체가 아니라 셸 기능이다.  
+또한 `$(...)` 문법은 Docker 명령 자체가 아니라 셸 기능이다.
 공식 문서도 이런 조합 방식은 셸에 의존하므로 환경에 따라 문법이 달라질 수 있다고 설명한다. [4]
 
 ---
@@ -173,7 +173,7 @@ docker rm -f $(docker ps -qa)
 1. `docker ps -qa` 로 모든 컨테이너 ID 출력 [1]
 2. `docker rm -f` 로 해당 컨테이너들을 강제 삭제 [4]
 
-강제 삭제에는 `SIGKILL` 이 사용될 수 있으므로,  
+강제 삭제에는 `SIGKILL` 이 사용될 수 있으므로,
 필요한 컨테이너가 포함되어 있지 않은지 먼저 `docker ps -a` 로 확인하는 것이 안전하다. [1][4]
 
 ---
@@ -199,13 +199,13 @@ docker rm -f $(docker ps -qa)
 
 ---
 
-## 참고 자료
+## 출처
 
-1. Docker Docs, `docker container ls`  
+1. Docker Docs, `docker container ls`
    https://docs.docker.com/reference/cli/docker/container/ls/
-2. Docker Docs, `docker container stop`  
+2. Docker Docs, `docker container stop`
    https://docs.docker.com/reference/cli/docker/container/stop/
-3. Docker Docs, `docker container kill`  
+3. Docker Docs, `docker container kill`
    https://docs.docker.com/reference/cli/docker/container/kill/
-4. Docker Docs, `docker container rm`  
+4. Docker Docs, `docker container rm`
    https://docs.docker.com/reference/cli/docker/container/rm/

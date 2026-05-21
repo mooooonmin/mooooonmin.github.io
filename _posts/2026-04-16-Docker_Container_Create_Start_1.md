@@ -21,17 +21,17 @@ docker create nginx
 - 컨테이너 상태는 `created` 로 남아 있으며 [1]
 - 이후 `docker start` 로 직접 실행할 수 있다. [1][2]
 
-공식 문서 기준으로 `docker create` 는  
+공식 문서 기준으로 `docker create` 는
 컨테이너 설정을 미리 준비해두고 나중에 시작하고 싶을 때 사용할 수 있다. [1]
 
-따라서 초안의 "잘 사용하지 않는다"는 표현은 절대적인 사실로 보기는 어렵고,  
+따라서 초안의 "잘 사용하지 않는다"는 표현은 절대적인 사실로 보기는 어렵고,
 보통은 `docker run` 이 더 자주 쓰이지만, `create` 자체도 분명한 용도가 있다. [1][3]
 
 ---
 
 ## 2. 이미지가 로컬에 없을 때
 
-컨테이너를 만들 때 로컬에 해당 이미지가 없으면,  
+컨테이너를 만들 때 로컬에 해당 이미지가 없으면,
 Docker는 기본적으로 이미지를 먼저 가져오려고 시도한다. [1]
 
 공식 문서에서 `docker create` 의 `--pull` 기본값은 `missing` 으로 설명된다. [1]
@@ -48,7 +48,7 @@ Docker는 기본적으로 이미지를 먼저 가져오려고 시도한다. [1]
 docker ps -a
 ```
 
-기본 `docker ps` 는 **실행 중인 컨테이너만** 보여주고, [4]  
+기본 `docker ps` 는 **실행 중인 컨테이너만** 보여주고, [4]
 `-a` 옵션을 주면 **중지된 컨테이너와 created 상태 컨테이너까지 포함**해서 보여준다. [4]
 
 ---
@@ -90,7 +90,7 @@ docker ps
 
 ## 6. 컨테이너 중지와 삭제
 
-실행 중인 컨테이너를 중지하려면 `docker stop` 을 사용하고,  
+실행 중인 컨테이너를 중지하려면 `docker stop` 을 사용하고,
 삭제하려면 `docker rm` 을 사용한다. [5][6]
 
 예:
@@ -123,10 +123,10 @@ docker image rm nginx
 - `docker start` : 생성된 컨테이너 시작 [2]
 - `docker run` : **create + start** 를 한 번에 수행 [3]
 
-Docker 공식 문서도 `docker run` 이 필요 시 이미지를 pull 하고,  
+Docker 공식 문서도 `docker run` 이 필요 시 이미지를 pull 하고,
 새 컨테이너를 만든 뒤 시작한다고 설명한다. [3]
 
-즉, 실무에서는 보통 `docker run` 을 더 자주 보게 되지만,  
+즉, 실무에서는 보통 `docker run` 을 더 자주 보게 되지만,
 개념을 정확히 이해하려면 `create` 와 `start` 를 나눠서 보는 것이 도움이 된다.
 
 ---
@@ -156,19 +156,19 @@ Docker 공식 문서도 `docker run` 이 필요 시 이미지를 pull 하고,
 
 ---
 
-## 참고 자료
+## 출처
 
-1. Docker Docs, `docker container create`  
+1. Docker Docs, `docker container create`
    https://docs.docker.com/reference/cli/docker/container/create/
-2. Docker Docs, `docker container start`  
+2. Docker Docs, `docker container start`
    https://docs.docker.com/reference/cli/docker/container/start/
-3. Docker Docs, `docker container run`  
+3. Docker Docs, `docker container run`
    https://docs.docker.com/reference/cli/docker/container/run/
-4. Docker Docs, Run containers  
+4. Docker Docs, Run containers
    https://docs.docker.com/guides/golang/run-containers/
-5. Docker Docs, `docker container stop`  
+5. Docker Docs, `docker container stop`
    https://docs.docker.com/reference/cli/docker/container/stop/
-6. Docker Docs, `docker container rm`  
+6. Docker Docs, `docker container rm`
    https://docs.docker.com/reference/cli/docker/container/rm/
-7. Docker Docs, `docker image rm`  
+7. Docker Docs, `docker image rm`
    https://docs.docker.com/reference/cli/docker/image/rm/

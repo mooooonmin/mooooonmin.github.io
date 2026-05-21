@@ -130,8 +130,8 @@ COPY, RUN 등으로 필요한 파일과 설정 추가
 
 ---
 
-## 참고 자료
+## 출처
 
-[1] Docker Docs, "Dockerfile reference - FROM", https://docs.docker.com/reference/builder/#from  
-[2] Docker Docs, "What is an image?", https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/  
+[1] Docker Docs, "Dockerfile reference - FROM", https://docs.docker.com/reference/builder/#from
+[2] Docker Docs, "What is an image?", https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-an-image/
 [3] Docker Docs, "docker image tag", https://docs.docker.com/reference/cli/docker/image/tag/

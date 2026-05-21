@@ -46,7 +46,6 @@ h5,
 h6 {
 	color: #37352f;
 	line-height: 1.3;
-	margin: 0 0 0.4em 0;
 	font-weight: 600;
 }
 
@@ -59,14 +58,17 @@ h1 {
 h2 {
 	font-size: 2.4rem;
 	letter-spacing: -1px;
+	margin: 0 0 1.6rem 0;
 }
 
 h3 {
 	font-size: 2rem;
+	margin: 2.4rem 0 1.2rem 0;
 }
 
 h4 {
 	font-size: 1.7rem;
+	margin: 2rem 0 1rem 0;
 }
 
 h5 {
@@ -97,7 +99,7 @@ figure {
 	-webkit-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
 	-moz-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
 	-o-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
-	margin: 0 0 1.75em 0;
+	margin: 0 0 1.6rem 0;
 	text-rendering: geometricPrecision;
 }
 
@@ -132,7 +134,7 @@ dl dd {
 }
 
 li {
-	margin: 0.4em 0;
+	margin: 0.35em 0;
 }
 
 li li {
@@ -144,7 +146,7 @@ hr {
 	height: 1px;
 	border: 0;
 	border-top: rgba(55, 53, 47, 0.16) 1px solid;
-	margin: 3.2em 0;
+	margin: 2.4rem 0;
 	padding: 0;
 }
 

@@ -39,7 +39,7 @@ docker image ls
 docker image ls -q
 ```
 
-여기서 `-q` 는 `quiet` 의 약자이며,  
+여기서 `-q` 는 `quiet` 의 약자이며,
 상세 정보 대신 이미지 ID만 출력한다. [1]
 
 ---
@@ -59,10 +59,10 @@ docker image rm nginx:latest
 docker image rm 605c77e624dd
 ```
 
-Docker 공식 문서 기준으로 이미지는 **짧은 ID(short ID)** 로도 삭제할 수 있다.  
+Docker 공식 문서 기준으로 이미지는 **짧은 ID(short ID)** 로도 삭제할 수 있다.
 단, 입력한 ID가 하나의 이미지에만 고유하게 매칭되어야 한다. [2]
 
-또한 `docker image rm` 은 단순히 "파일처럼 바로 삭제"되는 개념만은 아니고,  
+또한 `docker image rm` 은 단순히 "파일처럼 바로 삭제"되는 개념만은 아니고,
 태그가 여러 개 달린 이미지에서는 먼저 **untag** 가 일어날 수 있다. [2]
 
 즉:
@@ -111,7 +111,7 @@ docker image rm $(docker image ls -q)
 docker image rm -f $(docker image ls -q)
 ```
 
-다만 이 방식은 **셸 문법에 의존**하므로,  
+다만 이 방식은 **셸 문법에 의존**하므로,
 Bash, Zsh, PowerShell 등 환경에 따라 동작 형태가 달라질 수 있다.
 
 ---
@@ -125,7 +125,7 @@ Bash, Zsh, PowerShell 등 환경에 따라 동작 형태가 달라질 수 있다
 - `docker image rm` 은 이미지 또는 태그를 제거하는 명령이다. [2]
 - `-f` 는 강제 삭제 옵션이다. [2]
 
-또한 문서상 이미지 삭제는 로컬 호스트에서만 일어나며,  
+또한 문서상 이미지 삭제는 로컬 호스트에서만 일어나며,
 레지스트리(Docker Hub 등)의 이미지를 지우는 것은 아니다. [2]
 
 ---
@@ -150,9 +150,9 @@ Bash, Zsh, PowerShell 등 환경에 따라 동작 형태가 달라질 수 있다
 
 ---
 
-## 참고 자료
+## 출처
 
-1. Docker Docs, `docker image ls`  
+1. Docker Docs, `docker image ls`
    https://docs.docker.com/reference/cli/docker/image/ls/
-2. Docker Docs, `docker image rm`  
+2. Docker Docs, `docker image rm`
    https://docs.docker.com/reference/cli/docker/image/rm/

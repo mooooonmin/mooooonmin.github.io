@@ -138,23 +138,23 @@ Semaphore 값이 0 또는 1만 가지는 경우 의미.
 
 ## 핵심 정리
 
-> 동기화 문제  
-> 공유 자원 동시 접근으로 인한 오류 발생 구조  
+> 동기화 문제
+> 공유 자원 동시 접근으로 인한 오류 발생 구조
 >
-> Race Condition  
-> 실행 순서에 따라 결과가 달라지는 문제  
+> Race Condition
+> 실행 순서에 따라 결과가 달라지는 문제
 >
-> Mutex  
-> 하나의 Thread만 접근 가능한 Lock 기반 제어  
+> Mutex
+> 하나의 Thread만 접근 가능한 Lock 기반 제어
 >
-> Semaphore  
+> Semaphore
 > 여러 스레드 접근 가능, 자원 개수 기반 제어
 
 ---
 
-## 참고 자료
+## 출처
 
-1. KOCW, 운영체제 강의자료  
+1. KOCW, 운영체제 강의자료
    https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/5.pdf
-2. University of Illinois Chicago, Operating Systems Notes, "Process Synchronization"  
+2. University of Illinois Chicago, Operating Systems Notes, "Process Synchronization"
    https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/5_Synchronization.html
