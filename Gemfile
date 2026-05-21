@@ -1,23 +1,8 @@
 source 'https://rubygems.org'
 
-# Ruby 3.4+ 호환: 기본 번들에서 제거된 gem들
-gem 'csv'
-gem 'base64'
-gem 'bigdecimal'
-gem 'rexml'
+# GitHub Pages 기본 빌드 환경과 같은 의존성 묶음을 사용한다.
+# 현재 GitHub Pages는 github-pages 232와 Jekyll 3.10.0 조합으로 빌드한다.
+gem 'github-pages', '~> 232', group: :jekyll_plugins
 
-# Windows에서 Jekyll 타임존 처리에 필요
-gem 'tzinfo'
-gem 'tzinfo-data'
-
-# Ruby 3.0+ Jekyll serve에 필요 (webrick이 기본 번들에서 제거됨)
+# Ruby 3.0 이상에서 로컬 `jekyll serve`를 실행할 때 필요한 서버 런타임이다.
 gem 'webrick'
-
-gem 'jekyll', '~> 4.3'
-
-group :jekyll_plugins do
-  gem 'jekyll-feed'
-  gem 'jekyll-paginate'
-  gem 'jekyll-seo-tag'
-  gem 'jekyll-sitemap'
-end
