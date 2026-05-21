@@ -915,7 +915,8 @@ img {
 	--theme-body-bg: #f9f9f9;
 	--theme-content-bg: #ffffff;
 	--theme-nav-bg: #f9f9f9;
-	--theme-header-bg: #1f1f1f;
+	--theme-header-bg: #f9f9f9;
+	--theme-header-text: #1f1f1f;
 	--theme-text: #1f1f1f;
 	--theme-muted: #666666;
 	--theme-subtle: #8a8a8a;
@@ -936,6 +937,7 @@ img {
 	--theme-content-bg: #1f1f1f;
 	--theme-nav-bg: #1f1f1f;
 	--theme-header-bg: #111111;
+	--theme-header-text: #f9f9f9;
 	--theme-text: #f9f9f9;
 	--theme-muted: #c7c7c7;
 	--theme-subtle: #9a9a9a;
@@ -1001,7 +1003,7 @@ body.nav-open header {
 
 header h1 {
 	background-color: var(--theme-header-bg);
-	color: #ffffff;
+	color: var(--theme-header-text);
 }
 
 a {
