@@ -463,7 +463,7 @@ nav > ul {
 		color: #111;
 	}
 
-	&.top-level > a, &.top-level > span {
+	&.top-level > a, &.top-level > span, .year-nav-toggle {
 		line-height: 1.5;
 		font-weight: 600;
 		padding-left: $space;
@@ -848,4 +848,44 @@ img {
 	.tag-pane-list {
 		position: static;
 	}
+}
+
+.year-nav-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	border: 0;
+	background: transparent;
+	color: #111;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.4rem;
+	text-align: left;
+	cursor: pointer;
+	padding-top: $space / 2;
+	padding-right: $space;
+	padding-bottom: $space / 2;
+}
+
+.year-nav-toggle::after {
+	content: "⌃";
+	color: #888;
+	font-size: 1rem;
+	line-height: 1;
+	transform: rotate(0deg);
+	transition: transform 0.2s ease;
+}
+
+.year-nav-toggle:hover,
+.year-nav-toggle:focus {
+	color: #111;
+	outline: none;
+}
+
+.year-nav-collapsed .year-nav-toggle::after {
+	transform: rotate(180deg);
+}
+
+.year-nav-collapsed .sub-navigation {
+	display: none;
 }
