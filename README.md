@@ -1,11 +1,12 @@
 <details>
-<summary><b>2026 (103)</b></summary>
+<summary><b>2026 (104)</b></summary>
 <div markdown="1">
 
 <details>
-<summary><b>문서 (1)</b></summary>
+<summary><b>문서 (2)</b></summary>
 <div markdown="1">
 
+- [2026-05-21] [포스트 형식 작성 가이드](https://mooooonmin.github.io/2026/05/21/Post_Format_Guide/)
 - [2026-02-02] [글 작성 예시](https://mooooonmin.github.io/2026/02/02/%EA%B8%80_%EC%9E%91%EC%84%B1_%EC%98%88%EC%8B%9C/)
 
 </div>
