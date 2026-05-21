@@ -1169,9 +1169,8 @@ tbody tr:nth-child(odd) th {
 }
 
 .theme-switcher {
-	padding: 18px $space 24px;
+	padding: 12px $space 20px;
 	margin-top: 12px;
-	border-top: 1px solid var(--theme-border);
 }
 
 .theme-toggle {
@@ -1179,8 +1178,8 @@ tbody tr:nth-child(odd) th {
 	display: inline-flex;
 	align-items: center;
 	justify-content: flex-start;
-	width: 104px;
-	height: 48px;
+	width: 74px;
+	height: 34px;
 	padding: 0;
 	border: 1px solid var(--theme-border-strong);
 	border-radius: 999px;
@@ -1198,8 +1197,8 @@ tbody tr:nth-child(odd) th {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	width: 36px;
-	height: 36px;
+	width: 24px;
+	height: 24px;
 	border-radius: 999px;
 	background: #ffffff;
 	color: #111111;
@@ -1208,7 +1207,7 @@ tbody tr:nth-child(odd) th {
 
 .theme-toggle-icon::before {
 	content: "☀";
-	font-size: 2rem;
+	font-size: 1.4rem;
 	line-height: 1;
 }
 
@@ -1227,7 +1226,7 @@ tbody tr:nth-child(odd) th {
 }
 
 :root[data-theme="dark"] .theme-toggle-icon {
-	left: 61px;
+	left: 43px;
 	background: #000000;
 	color: #ffffff;
 }
