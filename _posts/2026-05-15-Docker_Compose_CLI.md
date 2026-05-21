@@ -117,7 +117,7 @@ docker compose down
 docker compose down -v
 ```
 
-## 9. 정리
+## 핵심 정리
 
 자주 사용하는 Docker Compose CLI 명령어는 다음처럼 정리할 수 있다.
 

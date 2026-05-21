@@ -95,7 +95,7 @@ Kubernetes 공식 문서는 Deployment나 StatefulSet 안의 Pod가 실패하면
 
 ---
 
-## 5. Self-Healing의 핵심 정리
+## 5. Self-Healing 동작 흐름
 
 Kubernetes의 Self-Healing은 크게 두 가지 흐름으로 이해하면 된다.
 
@@ -114,7 +114,7 @@ Kubernetes의 Self-Healing은 크게 두 가지 흐름으로 이해하면 된다
 
 ---
 
-## 6. 요약
+## 핵심 정리
 
 Kubernetes는 Pod 안의 컨테이너가 종료되면 `restartPolicy`에 따라 컨테이너를 자동으로 재시작할 수 있다. [2]
 

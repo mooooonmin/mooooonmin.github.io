@@ -104,7 +104,7 @@ docker run --name webserver -p 80:80 nginx
 - 컨테이너 이름: `--name` 값이 `container_name` 또는 서비스 이름으로 의도대로 반영됐는지 확인한다.
 - 백그라운드 실행: `-d`는 Compose 파일 안의 서비스 속성이 아니라 실행할 때 사용하는 `docker compose up -d` 옵션으로 이해한다.
 
-## 5. 정리
+## 핵심 정리
 
 Docker CLI와 Docker Compose는 서로 다른 문법을 사용하지만, 컨테이너 실행에 필요한 이미지, 포트, 볼륨, 환경 변수 같은 설정은 서로 대응시켜 이해할 수 있다. [1][2]
 

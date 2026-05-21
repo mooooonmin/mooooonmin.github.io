@@ -283,7 +283,7 @@ Kubernetes 공식 튜토리얼도 Service를 확인할 때 `kubectl get svc`, `k
 
 ---
 
-## 8. 정리
+## 핵심 정리
 
 Service는 Pod 앞에 서 있는 안정적인 네트워크 입구다.
 

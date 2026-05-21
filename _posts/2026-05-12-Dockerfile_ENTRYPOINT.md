@@ -151,7 +151,7 @@ docker exec -it [Container ID] bash
 
 ---
 
-## 6. 정리
+## 핵심 정리
 
 `ENTRYPOINT`는 컨테이너가 시작될 때 실행할 기본 명령을 지정한다.
 
