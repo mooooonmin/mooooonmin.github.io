@@ -909,3 +909,317 @@ img {
 .year-nav-collapsed .sub-navigation {
 	display: none;
 }
+
+:root {
+	color-scheme: light;
+	--theme-body-bg: #f9f9f9;
+	--theme-content-bg: #ffffff;
+	--theme-nav-bg: #f9f9f9;
+	--theme-header-bg: #1f1f1f;
+	--theme-text: #1f1f1f;
+	--theme-muted: #666666;
+	--theme-subtle: #8a8a8a;
+	--theme-border: rgba(31, 31, 31, 0.16);
+	--theme-border-strong: rgba(31, 31, 31, 0.42);
+	--theme-chip-bg: #eeeeee;
+	--theme-chip-hover: #e3e3e3;
+	--theme-input-bg: #ffffff;
+	--theme-code-bg: #333333;
+	--theme-code-text: #f9f9f9;
+	--theme-highlight: rgba(253, 224, 71, 0.4);
+	--theme-shadow: rgba(0, 0, 0, 0.14);
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	--theme-body-bg: #1f1f1f;
+	--theme-content-bg: #1f1f1f;
+	--theme-nav-bg: #1f1f1f;
+	--theme-header-bg: #111111;
+	--theme-text: #f9f9f9;
+	--theme-muted: #c7c7c7;
+	--theme-subtle: #9a9a9a;
+	--theme-border: rgba(249, 249, 249, 0.16);
+	--theme-border-strong: rgba(249, 249, 249, 0.42);
+	--theme-chip-bg: #333333;
+	--theme-chip-hover: #3d3d3d;
+	--theme-input-bg: #333333;
+	--theme-code-bg: #111111;
+	--theme-code-text: #f9f9f9;
+	--theme-highlight: rgba(250, 204, 21, 0.24);
+	--theme-shadow: rgba(0, 0, 0, 0.42);
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+	color: var(--theme-text);
+}
+
+body {
+	background-color: var(--theme-body-bg);
+}
+
+body::before,
+.content {
+	background-color: var(--theme-content-bg);
+	color: var(--theme-text);
+}
+
+@media (min-width: $mobile-break) {
+	body::after,
+	header {
+		background-color: var(--theme-nav-bg);
+	}
+
+	body::before {
+		background-color: var(--theme-content-bg);
+	}
+
+	#search-input,
+	body::after,
+	header h1 {
+		box-shadow: inset -10px 0 10px -10px var(--theme-shadow);
+	}
+}
+
+header,
+body.nav-open header {
+	background-color: var(--theme-nav-bg);
+}
+
+header h1 {
+	background-color: var(--theme-header-bg);
+	color: #ffffff;
+}
+
+a {
+	border-bottom-color: var(--theme-border-strong);
+}
+
+a:hover {
+	color: var(--theme-text);
+	border-bottom-color: var(--theme-text);
+}
+
+hr,
+.tag-section,
+.pagination,
+.tag-result-header {
+	border-color: var(--theme-border);
+}
+
+#search-input {
+	background-color: var(--theme-input-bg);
+	color: var(--theme-text);
+	border-bottom-color: var(--theme-border);
+}
+
+#search-input::placeholder {
+	color: var(--theme-subtle);
+}
+
+.nav-item > a,
+.nav-item.top-level > span,
+.year-nav-link,
+.year-nav-toggle,
+.tag-cloud-button,
+.post-meta-label,
+.tag-section-count,
+.tag-empty-state,
+.tag-cloud-count,
+.changelog .date,
+.page-header h2 {
+	color: var(--theme-muted);
+}
+
+.nav-item.current > a,
+.nav-item > a:active,
+.nav-item > a:hover,
+.year-nav-link:hover,
+.year-nav-link:focus,
+.year-nav-toggle:hover,
+.year-nav-toggle:focus,
+.tag-cloud-button:hover,
+.tag-cloud-button.is-active,
+.tag-cloud-button.is-active .tag-cloud-count {
+	color: var(--theme-text);
+}
+
+.nav-item .sub-navigation .sub-level > a,
+.year-nav-toggle::after {
+	color: var(--theme-subtle);
+}
+
+.nav-item .sub-navigation .sub-level.current > a,
+.nav-item .sub-navigation .sub-level > a:active,
+.nav-item .sub-navigation .sub-level > a:hover {
+	color: var(--theme-text);
+}
+
+.post-meta-chip,
+.question-number,
+blockquote,
+kbd,
+.badge,
+.settings-panel-example .example,
+.tag-cloud-button:hover {
+	background-color: var(--theme-chip-bg);
+	color: var(--theme-text);
+}
+
+.post-meta a.post-meta-chip:hover,
+.pagination .pagination-numbers a:hover,
+.sidebar-toggle:hover {
+	background-color: var(--theme-chip-hover);
+}
+
+.post-meta-chip-category,
+.pagination .pagination-current,
+.badge.major {
+	background-color: var(--theme-header-bg);
+	color: #ffffff;
+}
+
+blockquote,
+.question-number {
+	border-color: var(--theme-text);
+}
+
+mark {
+	background-color: var(--theme-highlight);
+	color: var(--theme-text);
+}
+
+pre,
+code,
+tt {
+	background-color: var(--theme-code-bg);
+	color: var(--theme-code-text);
+}
+
+pre code,
+pre tt {
+	background: transparent;
+}
+
+kbd {
+	border-color: var(--theme-border-strong);
+	text-shadow: none;
+	box-shadow: 0 1px 0 var(--theme-shadow);
+}
+
+.sidebar-toggle {
+	background-color: var(--theme-content-bg);
+	color: var(--theme-muted);
+	border-color: var(--theme-border);
+}
+
+.pagination .pagination-prev,
+.pagination .pagination-next,
+.pagination .pagination-numbers a {
+	color: var(--theme-text);
+}
+
+.pagination .pagination-prev.disabled,
+.pagination .pagination-next.disabled {
+	color: var(--theme-subtle);
+}
+
+table th,
+table td {
+	border-color: var(--theme-border);
+}
+
+tbody tr:nth-child(odd) td,
+tbody tr:nth-child(odd) th {
+	background-color: var(--theme-chip-bg);
+}
+
+.tag-cloud-button {
+	border-bottom-color: var(--theme-border);
+}
+
+.tag-cloud-button.is-active {
+	border-bottom-color: var(--theme-text);
+}
+
+.tag-cloud-button:hover {
+	border-bottom-color: var(--theme-border-strong);
+}
+
+.theme-toggle {
+	position: absolute;
+	top: 50%;
+	right: 62px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 34px;
+	height: 34px;
+	padding: 0;
+	border: 1px solid rgba(255, 255, 255, 0.28);
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.12);
+	color: #ffffff;
+	cursor: pointer;
+	transform: translateY(-50%);
+}
+
+.theme-toggle::before {
+	content: "☾";
+	font-size: 1.5rem;
+	line-height: 1;
+}
+
+:root[data-theme="dark"] .theme-toggle::before {
+	content: "☀";
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+	background: rgba(255, 255, 255, 0.22);
+	outline: none;
+}
+
+.post-divider {
+	margin: 40px 0;
+	border: 0;
+	border-top: 1px solid var(--theme-border);
+}
+
+.post-navigation {
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+	margin-top: 2rem;
+	font-family: "Open Sans", sans-serif;
+}
+
+.post-navigation a {
+	display: inline-block;
+	padding: 10px;
+	border: 0;
+	border-radius: 4px;
+	color: var(--theme-text);
+	font-size: 1.1rem;
+	font-weight: 600;
+	text-decoration: none;
+	transition: background-color 0.2s;
+}
+
+.post-navigation a:hover,
+.post-navigation a:focus {
+	background-color: var(--theme-chip-bg);
+}
+
+@media (min-width: $mobile-break) {
+	.theme-toggle {
+		right: 14px;
+	}
+}
