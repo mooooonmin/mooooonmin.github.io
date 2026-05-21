@@ -52,7 +52,7 @@
       <h1>
         <a href="{{ site.baseurl }}/"
           ><img
-            src="{{ site.baseurl }}/images/emblem.png"
+            src="{{ site.baseurl }}/images/database.svg"
             width="40"
             height="40"
             alt="{{ site.title }} logo"
@@ -78,9 +78,18 @@
           </li>
           {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
           {% for year in postsByYear %}
-            <li class="nav-item top-level {% if page.url contains year.name %}current{% endif %}">
-              <a href="{{ site.baseurl }}/{{ year.name }}/">{{ year.name }}</a>
-              <ul class="sub-navigation">
+            {% assign year_nav_id = "year-nav-" | append: year.name %}
+            <li class="nav-item top-level year-nav-item {% if page.url contains year.name %}current{% endif %}" data-year-nav="{{ year.name }}">
+              <button
+                type="button"
+                class="year-nav-toggle"
+                aria-expanded="true"
+                aria-controls="{{ year_nav_id }}"
+                data-year-toggle="{{ year.name }}"
+              >
+                <span>{{ year.name }}</span>
+              </button>
+              <ul class="sub-navigation" id="{{ year_nav_id }}">
                 {% assign postsByCategory = year.items | group_by: "category" | sort: "name" %}
                 {% for catGroup in postsByCategory %}
                   {% assign category_label = catGroup.name %}
@@ -117,8 +126,12 @@
         var body = document.body;
         var openNavButton = document.getElementById("open-nav");
         var sidebarToggleButton = document.getElementById("toggle-sidebar");
+        var yearToggleButtons = Array.prototype.slice.call(
+          document.querySelectorAll("[data-year-toggle]"),
+        );
         var collapsedClass = "nav-collapsed";
         var storageKey = "sidebar-collapsed";
+        var yearStoragePrefix = "year-nav-collapsed:";
 
         function setSidebarCollapsed(isCollapsed) {
           body.classList.toggle(collapsedClass, isCollapsed);
@@ -161,6 +174,37 @@
             }
           });
         }
+
+        yearToggleButtons.forEach(function (button) {
+          var year = button.getAttribute("data-year-toggle");
+          var navItem = document.querySelector('[data-year-nav="' + year + '"]');
+          var yearStorageKey = yearStoragePrefix + year;
+
+          function setYearCollapsed(isCollapsed) {
+            if (!navItem) return;
+            navItem.classList.toggle("year-nav-collapsed", isCollapsed);
+            button.setAttribute("aria-expanded", String(!isCollapsed));
+          }
+
+          try {
+            setYearCollapsed(
+              window.localStorage.getItem(yearStorageKey) === "true",
+            );
+          } catch (error) {
+            setYearCollapsed(false);
+          }
+
+          button.addEventListener("click", function () {
+            var nextState = !navItem.classList.contains("year-nav-collapsed");
+            setYearCollapsed(nextState);
+
+            try {
+              window.localStorage.setItem(yearStorageKey, String(nextState));
+            } catch (error) {
+              // Ignore localStorage errors in restricted environments.
+            }
+          });
+        });
       })();
     </script>
   </body>
