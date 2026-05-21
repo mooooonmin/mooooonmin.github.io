@@ -1,6 +1,6 @@
 ---
 title: Docker Container Exec
-category: 3
+category: docker-kubernetes
 date: 2026-05-06 00:00:00 +0900
 tags: [docker, container, exec, bash, shell]
 ---

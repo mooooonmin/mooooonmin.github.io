@@ -83,8 +83,20 @@
               <ul class="sub-navigation">
                 {% assign postsByCategory = year.items | group_by: "category" | sort: "name" %}
                 {% for catGroup in postsByCategory %}
+                  {% assign category_label = catGroup.name %}
+                  {% if catGroup.name == "docs" %}
+                    {% assign category_label = "문서" %}
+                  {% elsif catGroup.name == "cs" %}
+                    {% assign category_label = "CS" %}
+                  {% elsif catGroup.name == "exam" %}
+                    {% assign category_label = "자격증" %}
+                  {% elsif catGroup.name == "docker-kubernetes" %}
+                    {% assign category_label = "도커/쿠버네티스" %}
+                  {% elsif catGroup.name == "linux" %}
+                    {% assign category_label = "Linux" %}
+                  {% endif %}
                   <li class="nav-item sub-level {% if page.url contains catGroup.name %}current{% endif %}">
-                    <a href="{{ site.baseurl }}/category/{{ catGroup.name | slugify }}/">{{ catGroup.name }} <span class="category-count">({{ catGroup.items | size }})</span></a>
+                    <a href="{{ site.baseurl }}/category/{{ catGroup.name | slugify }}/">{{ category_label }} <span class="category-count">({{ catGroup.items | size }})</span></a>
                   </li>
                 {% endfor %}
               </ul>

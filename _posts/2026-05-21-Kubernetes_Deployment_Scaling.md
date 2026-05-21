@@ -1,6 +1,6 @@
 ---
 title: 디플로이먼트를 활용한 서버 개수 조절 방법
-category: 3
+category: docker-kubernetes
 date: 2026-05-21 00:00:00 +0900
 tags: [kubernetes, k8s, deployment, scaling, replicas, kubectl]
 ---

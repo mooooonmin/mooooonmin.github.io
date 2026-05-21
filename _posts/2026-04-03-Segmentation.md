@@ -1,6 +1,6 @@
 ---
 title: Segmentation
-category: 1
+category: cs
 date: 2026-04-03 00:00:00 +0900
 tags: [os, memory, segmentation]
 ---

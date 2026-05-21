@@ -1,6 +1,6 @@
 ---
 title: RDB vs NoSQL
-category: 1
+category: cs
 date: 2026-03-05 03:00:00 +0900
 tags: [database, rdbms, nosql, comparison]
 ---

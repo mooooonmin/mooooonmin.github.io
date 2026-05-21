@@ -1,6 +1,6 @@
 ---
 title: 자주 사용하는 Docker Compose CLI 명령어
-category: 3
+category: docker-kubernetes
 date: 2026-05-15 00:00:00 +0900
 tags: [docker, docker-compose, compose, cli, container]
 ---

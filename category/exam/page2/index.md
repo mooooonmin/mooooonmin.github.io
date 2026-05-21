@@ -1,6 +1,6 @@
 ---
 layout: category
-title: 2
-category: 2
+title: 자격증
+category: exam
 page_num: 2
 ---

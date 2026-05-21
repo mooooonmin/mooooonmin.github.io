@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Service
-category: 3
+category: docker-kubernetes
 date: 2026-05-20 00:00:20 +0900
 tags: [kubernetes, k8s, service, networking, load-balancing]
 ---

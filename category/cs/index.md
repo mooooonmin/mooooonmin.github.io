@@ -1,5 +1,5 @@
 ---
 layout: category
-title: 3
-category: 3
+title: CS
+category: cs
 ---

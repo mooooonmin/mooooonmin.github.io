@@ -1,6 +1,6 @@
 ---
 title: Dockerfile RUN
-category: 3
+category: docker-kubernetes
 date: 2026-05-13 00:00:00 +0900
 tags: [docker, dockerfile, run, image, build]
 ---

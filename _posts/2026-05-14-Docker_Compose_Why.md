@@ -1,6 +1,6 @@
 ---
 title: Docker Compose를 사용하는 이유
-category: 3
+category: docker-kubernetes
 date: 2026-05-14 00:00:10 +0900
 tags: [docker, docker-compose, compose, container, yaml]
 ---

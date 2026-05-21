@@ -1,6 +1,6 @@
 ---
 title: Ubuntu에서 Docker, Docker Compose 설치하기
-category: 3
+category: docker-kubernetes
 date: 2026-05-18 00:00:00 +0900
 tags: [docker, ubuntu, docker-compose, compose, install]
 ---
