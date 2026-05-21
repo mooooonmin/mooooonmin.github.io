@@ -940,6 +940,9 @@ header > nav {
 	--theme-chip-bg: #eeeeee;
 	--theme-chip-hover: #e3e3e3;
 	--theme-input-bg: #ffffff;
+	--theme-table-row-bg: #ffffff;
+	--theme-table-alt-bg: #f1f1f1;
+	--theme-table-head-bg: #eeeeee;
 	--theme-code-bg: #333333;
 	--theme-code-text: #f9f9f9;
 	--theme-highlight: rgba(253, 224, 71, 0.4);
@@ -961,6 +964,9 @@ header > nav {
 	--theme-chip-bg: #333333;
 	--theme-chip-hover: #3d3d3d;
 	--theme-input-bg: #333333;
+	--theme-table-row-bg: #1f1f1f;
+	--theme-table-alt-bg: #2b2b2b;
+	--theme-table-head-bg: #333333;
 	--theme-code-bg: #111111;
 	--theme-code-text: #f9f9f9;
 	--theme-highlight: rgba(250, 204, 21, 0.24);
@@ -1154,14 +1160,30 @@ kbd {
 	color: var(--theme-subtle);
 }
 
-table th,
-table td {
-	border-color: var(--theme-border);
+table {
+	color: var(--theme-text);
+	border-collapse: collapse;
 }
 
-tbody tr:nth-child(odd) td,
-tbody tr:nth-child(odd) th {
-	background-color: var(--theme-chip-bg);
+tr {
+	border-bottom-color: var(--theme-border);
+	background: var(--theme-table-row-bg);
+}
+
+tr:nth-child(even),
+tbody tr:nth-child(even) {
+	background: var(--theme-table-alt-bg);
+}
+
+th {
+	background: var(--theme-table-head-bg);
+	color: var(--theme-text);
+}
+
+td,
+th {
+	color: var(--theme-text);
+	border-color: var(--theme-border);
 }
 
 .tag-cloud-button {
