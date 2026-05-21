@@ -131,7 +131,7 @@ Docker 공식 문서도 `docker run` 이 필요 시 이미지를 pull 하고,
 
 ---
 
-## 8. 핵심 정리
+## 핵심 정리
 
 > **docker create**
 >

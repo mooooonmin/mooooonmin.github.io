@@ -113,7 +113,7 @@ sudo docker run hello-world
 
 ---
 
-## 6. 정리
+## 핵심 정리
 
 Ubuntu에서 Docker와 Docker Compose를 새로 설치할 때 핵심은 다음과 같다.
 

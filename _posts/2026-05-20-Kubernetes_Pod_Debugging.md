@@ -266,7 +266,7 @@ kubectl delete pod nginx-pod
 
 ---
 
-## 8. 정리
+## 핵심 정리
 
 Pod 디버깅의 핵심은 다음과 같다.
 

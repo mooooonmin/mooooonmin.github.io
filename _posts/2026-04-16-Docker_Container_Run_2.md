@@ -154,7 +154,7 @@ docker run -d --name my-web-server -p 4000:80 nginx
 
 ---
 
-## 9. 핵심 정리
+## 핵심 정리
 
 > **docker run**
 >
