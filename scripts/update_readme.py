@@ -5,6 +5,8 @@ import urllib.parse
 from collections import defaultdict
 
 
+# README는 저장소 첫 화면에서 전체 글 목록을 확인하기 위한 인덱스다.
+# GitHub Actions가 _posts 변경 시 이 스크립트를 실행해 목록을 최신 상태로 맞춘다.
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 posts_dir = os.path.join(base_dir, "_posts")
 readme_path = os.path.join(base_dir, "README.md")
@@ -28,6 +30,7 @@ category_order = {
 }
 
 for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
+    # Jekyll 게시글 파일명 규칙에서 날짜와 URL slug를 가져온다.
     filename = os.path.basename(filepath)
     match = re.match(r"^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$", filename)
     if not match:
@@ -46,6 +49,7 @@ for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
     content_for_front_matter = content.lstrip("\ufeff")
 
     if content_for_front_matter.startswith("---"):
+        # README에는 제목과 카테고리만 필요하므로 front matter에서 필요한 값만 추출한다.
         parts = content_for_front_matter.split("---", 2)
         if len(parts) >= 3:
             front_matter = parts[1]
@@ -69,6 +73,7 @@ for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
 lines = []
 
 for year in sorted(data.keys(), reverse=True):
+    # 연도 > 카테고리 > 게시글 순서의 접이식 목록을 만든다.
     total_posts = sum(len(posts) for posts in data[year].values())
     lines.append("<details>")
     lines.append(f"<summary><b>{year} ({total_posts})</b></summary>")

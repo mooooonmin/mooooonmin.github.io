@@ -9,6 +9,7 @@
     {% feed_meta %}
     <script>
       (function () {
+        // CSS가 내려오기 전에 테마를 먼저 지정해 라이트/다크 전환 시 화면 깜빡임을 줄인다.
         try {
           var savedTheme = window.localStorage.getItem("theme-mode");
           var prefersDark = window.matchMedia &&
@@ -79,6 +80,7 @@
           </li>
           {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
           {% for year in postsByYear %}
+            {% comment %}연도 제목은 목록 페이지 이동, 버튼은 하위 카테고리 접기/펼치기만 담당한다.{% endcomment %}
             {% assign year_nav_id = "year-nav-" | append: year.name %}
             <li class="nav-item top-level year-nav-item {% if page.url contains year.name %}current{% endif %}" data-year-nav="{{ year.name }}">
               <div class="year-nav-heading">
@@ -116,6 +118,7 @@
           {% endfor %}
         </ul>
       </nav>
+      {% comment %}긴 카테고리 목록은 nav만 스크롤되고, 테마 토글은 사이드바 하단에 남도록 nav 밖에 둔다.{% endcomment %}
       <div class="theme-switcher">
         <button
           type="button"
@@ -164,6 +167,7 @@
         }
 
         function setTheme(theme) {
+          // 실제 색상 변경은 CSS 변수와 data-theme 속성이 처리한다. JS는 상태 저장과 접근성 문구만 갱신한다.
           var nextTheme = theme === "dark" ? "dark" : "light";
           document.documentElement.setAttribute("data-theme", nextTheme);
 
@@ -194,7 +198,7 @@
               setSidebarCollapsed(true);
             }
           } catch (error) {
-            // Ignore localStorage errors in restricted environments.
+            // 제한된 브라우저 환경에서는 localStorage 접근이 실패할 수 있으므로 무시한다.
           }
 
           sidebarToggleButton.addEventListener("click", function () {
@@ -204,7 +208,7 @@
             try {
               window.localStorage.setItem(storageKey, String(nextState));
             } catch (error) {
-              // Ignore localStorage errors in restricted environments.
+              // 제한된 브라우저 환경에서는 localStorage 접근이 실패할 수 있으므로 무시한다.
             }
           });
         }
@@ -223,7 +227,7 @@
             try {
               window.localStorage.setItem("theme-mode", nextTheme);
             } catch (error) {
-              // Ignore localStorage errors in restricted environments.
+              // 제한된 브라우저 환경에서는 localStorage 접근이 실패할 수 있으므로 무시한다.
             }
           });
         }
@@ -234,6 +238,7 @@
           var yearStorageKey = yearStoragePrefix + year;
 
           function setYearCollapsed(isCollapsed) {
+            // 연도별 접힘 상태는 li에 클래스를 주는 방식으로 관리하고, 실제 숨김은 CSS가 담당한다.
             if (!navItem) return;
             navItem.classList.toggle("year-nav-collapsed", isCollapsed);
             button.setAttribute("aria-expanded", String(!isCollapsed));
@@ -258,7 +263,7 @@
             try {
               window.localStorage.setItem(yearStorageKey, String(nextState));
             } catch (error) {
-              // Ignore localStorage errors in restricted environments.
+              // 제한된 브라우저 환경에서는 localStorage 접근이 실패할 수 있으므로 무시한다.
             }
           });
         });
