@@ -959,6 +959,8 @@ header > nav {
 	--theme-chip-hover: #e3e3e3;
 	--theme-category-chip-bg: #1f1f1f;
 	--theme-category-chip-text: #f9f9f9;
+	--theme-pagination-active-bg: #1f1f1f;
+	--theme-pagination-active-text: #ffffff;
 	--theme-input-bg: #ffffff;
 	--theme-table-row-bg: #ffffff;
 	--theme-table-alt-bg: #f1f1f1;
@@ -985,6 +987,8 @@ header > nav {
 	--theme-chip-hover: #3d3d3d;
 	--theme-category-chip-bg: #f9f9f9;
 	--theme-category-chip-text: #1f1f1f;
+	--theme-pagination-active-bg: #f9f9f9;
+	--theme-pagination-active-text: #111111;
 	--theme-input-bg: #333333;
 	--theme-table-row-bg: #1f1f1f;
 	--theme-table-alt-bg: #2b2b2b;
@@ -1131,10 +1135,14 @@ kbd,
 }
 
 .post-meta-chip-category,
-.pagination .pagination-current,
 .badge.major {
 	background-color: var(--theme-header-bg);
 	color: #ffffff;
+}
+
+.pagination .pagination-numbers .pagination-current {
+	background-color: var(--theme-pagination-active-bg);
+	color: var(--theme-pagination-active-text);
 }
 
 .post-meta-chip-category {
