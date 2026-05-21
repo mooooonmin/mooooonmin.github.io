@@ -9,7 +9,7 @@ encoding: utf-8
 timezone: Asia/Seoul
 
 # SEO (jekyll-seo-tag)
-logo: /siteicon.png
+logo: /images/database.svg
 description:
 author:
   name: mooooonmin
