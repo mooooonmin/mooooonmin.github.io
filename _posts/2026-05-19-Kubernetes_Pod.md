@@ -153,10 +153,10 @@ Pod의 핵심은 다음과 같다.
 
 ---
 
-## 참고 자료
+## 출처
 
 확인일: 2026-05-18
 
-[1] Kubernetes Documentation, Pods: <https://kubernetes.io/docs/concepts/workloads/pods/>  
-[2] Kubernetes Documentation, Pods - Using Pods: <https://kubernetes.io/docs/concepts/workloads/pods/#using-pods>  
+[1] Kubernetes Documentation, Pods: <https://kubernetes.io/docs/concepts/workloads/pods/>
+[2] Kubernetes Documentation, Pods - Using Pods: <https://kubernetes.io/docs/concepts/workloads/pods/#using-pods>
 [3] Kubernetes Documentation, Pod Lifecycle: <https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/>

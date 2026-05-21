@@ -180,9 +180,9 @@ docker exec -it로 내부 접속
 
 ---
 
-## 참고 자료
+## 출처
 
-[1] Docker Docs, `docker container logs`, https://docs.docker.com/reference/cli/docker/container/logs/  
-[2] Docker Docs, `docker container exec`, https://docs.docker.com/engine/reference/commandline/exec/  
-[3] Docker Docs, `docker container run`, https://docs.docker.com/reference/cli/docker/container/run/  
+[1] Docker Docs, `docker container logs`, https://docs.docker.com/reference/cli/docker/container/logs/
+[2] Docker Docs, `docker container exec`, https://docs.docker.com/engine/reference/commandline/exec/
+[3] Docker Docs, `docker container run`, https://docs.docker.com/reference/cli/docker/container/run/
 [4] Docker Docs, "Dockerfile reference - ENTRYPOINT", https://docs.docker.com/reference/dockerfile/#entrypoint

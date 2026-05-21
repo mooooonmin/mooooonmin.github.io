@@ -261,9 +261,9 @@ kubectl get pods
 
 ---
 
-## 참고 자료
+## 출처
 
 확인일: 2026-05-18
 
-[1] Kubernetes Documentation, 이미지 - 이미지 풀 정책: <https://kubernetes.io/ko/docs/concepts/containers/images/#image-pull-policy>  
+[1] Kubernetes Documentation, 이미지 - 이미지 풀 정책: <https://kubernetes.io/ko/docs/concepts/containers/images/#image-pull-policy>
 [2] Kubernetes Documentation, Use Port Forwarding to Access Applications in a Cluster: <https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/>

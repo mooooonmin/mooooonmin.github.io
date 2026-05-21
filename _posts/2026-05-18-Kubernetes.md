@@ -76,15 +76,15 @@ Kubernetes 공식 문서는 Kubernetes가 실패한 컨테이너를 재시작하
 
 ---
 
-## 참고 자료
+## 출처
 
 확인일: 2026-05-14
 
-[1] Kubernetes Documentation, Overview: <https://kubernetes.io/docs/concepts/overview/>  
-[2] Docker Docs, Docker Compose: <https://docs.docker.com/compose/>  
-[3] Kubernetes Documentation, What Kubernetes is not: <https://kubernetes.io/docs/concepts/overview/#what-kubernetes-is-not>  
-[4] Kubernetes Documentation, Deployments - Rolling Back a Deployment: <https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment>  
-[5] Kubernetes Documentation, Service - Defining a Service: <https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service>  
-[6] Kubernetes Documentation, Service type - LoadBalancer: <https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer>  
-[7] Kubernetes Documentation, Why you need Kubernetes and what it can do: <https://kubernetes.io/docs/concepts/overview/#why-you-need-kubernetes-and-what-it-can-do>  
+[1] Kubernetes Documentation, Overview: <https://kubernetes.io/docs/concepts/overview/>
+[2] Docker Docs, Docker Compose: <https://docs.docker.com/compose/>
+[3] Kubernetes Documentation, What Kubernetes is not: <https://kubernetes.io/docs/concepts/overview/#what-kubernetes-is-not>
+[4] Kubernetes Documentation, Deployments - Rolling Back a Deployment: <https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-back-a-deployment>
+[5] Kubernetes Documentation, Service - Defining a Service: <https://kubernetes.io/docs/concepts/services-networking/service/#defining-a-service>
+[6] Kubernetes Documentation, Service type - LoadBalancer: <https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer>
+[7] Kubernetes Documentation, Why you need Kubernetes and what it can do: <https://kubernetes.io/docs/concepts/overview/#why-you-need-kubernetes-and-what-it-can-do>
 [8] Kubernetes Documentation, Horizontal Pod Autoscaling: <https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/>

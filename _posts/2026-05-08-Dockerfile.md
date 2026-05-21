@@ -113,7 +113,7 @@ Dockerfile에는 여러 명령을 사용할 수 있다.
 Docker 공식 reference에서 설명하는 대표적인 명령은 다음과 같다. [2]
 
 | 명령 | 의미 |
-| --- | --- |
+|---|---|
 | `FROM` | 기반 이미지를 지정한다. |
 | `WORKDIR` | 작업 디렉터리를 변경한다. |
 | `COPY` | 파일이나 디렉터리를 이미지 안으로 복사한다. |
@@ -149,9 +149,9 @@ docker run으로 컨테이너 실행
 
 ---
 
-## 참고 자료
+## 출처
 
-[1] Docker Docs, "Dockerfile overview", https://docs.docker.com/build/concepts/dockerfile/  
-[2] Docker Docs, "Dockerfile reference", https://docs.docker.com/reference/builder  
-[3] Docker Docs, "Build, tag, and publish an image", https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/  
+[1] Docker Docs, "Dockerfile overview", https://docs.docker.com/build/concepts/dockerfile/
+[2] Docker Docs, "Dockerfile reference", https://docs.docker.com/reference/builder
+[3] Docker Docs, "Build, tag, and publish an image", https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/
 [4] Docker Docs, "Docker Hub", https://docs.docker.com/docker-hub/

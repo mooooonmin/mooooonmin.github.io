@@ -9,7 +9,7 @@ tags: [os, process, thread, comparison, concurrency]
 
 Multi Process와 Multi Thread는 **여러 작업을 동시에 수행하는 실행 구조** 의미.
 
-두 방식 모두 동시성 기반 처리 구조이지만  
+두 방식 모두 동시성 기반 처리 구조이지만
 **자원 관리 방식과 실행 구조에서 차이 존재**.
 
 ---
@@ -112,22 +112,22 @@ Multi Thread는 Multi 프로세스 대비
 
 > **Multi 프로세스**
 >
-> - 독립적인 프로세스 기반 실행 구조  
-> - 높은 안정성  
+> - 독립적인 프로세스 기반 실행 구조
+> - 높은 안정성
 > - 높은 자원 사용 비용
 >
 > **Multi 스레드**
 >
-> - 하나의 프로세스 내에서 실행되는 스레드 기반 구조  
-> - 메모리 및 자원 효율성 높음  
+> - 하나의 프로세스 내에서 실행되는 스레드 기반 구조
+> - 메모리 및 자원 효율성 높음
 > - 동기화 문제 및 안정성 이슈 존재
 
 ---
 
-## 참고 자료
+## 출처
 
-1. KOCW, 운영체제 강의자료  
+1. KOCW, 운영체제 강의자료
    https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf
-2. University of Illinois Chicago, Operating Systems Notes, "Processes" / "Threads"  
-   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/3_Processes.html  
+2. University of Illinois Chicago, Operating Systems Notes, "Processes" / "Threads"
+   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/3_Processes.html
    https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html

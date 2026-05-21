@@ -37,7 +37,7 @@ docker run nginx
 - `docker pull nginx` [5]
 - `docker run --pull always nginx` [1]
 
-초안의 "새롭게 갱신된 이미지를 받고 싶다면 `docker pull` 을 사용한다"는 설명은 대체로 맞지만,  
+초안의 "새롭게 갱신된 이미지를 받고 싶다면 `docker pull` 을 사용한다"는 설명은 대체로 맞지만,
 공식 문서 기준으로는 `docker run --pull always` 도 가능한 방법이다. [1]
 
 ---
@@ -107,14 +107,14 @@ docker ps
 docker ps -a
 ```
 
-공식 문서 기준으로 기본 `docker ps` 는 **실행 중인 컨테이너만** 표시하고,  
+공식 문서 기준으로 기본 `docker ps` 는 **실행 중인 컨테이너만** 표시하고,
 `-a` 를 사용하면 **중지된 컨테이너까지 포함**해서 확인할 수 있다. [2]
 
 ---
 
 ## 7. 컨테이너 중지와 삭제
 
-실행 중인 컨테이너를 중지할 때는 `docker stop` 을 사용하고,  
+실행 중인 컨테이너를 중지할 때는 `docker stop` 을 사용하고,
 컨테이너를 삭제할 때는 `docker rm` 을 사용한다. [3][4]
 
 예:
@@ -179,19 +179,19 @@ docker run -d --name my-web-server -p 4000:80 nginx
 
 ---
 
-## 참고 자료
+## 출처
 
-1. Docker Docs, `docker container run`  
+1. Docker Docs, `docker container run`
    https://docs.docker.com/reference/cli/docker/container/run/
-2. Docker Docs, `docker container ls`  
+2. Docker Docs, `docker container ls`
    https://docs.docker.com/reference/cli/docker/container/ls/
-3. Docker Docs, `docker container stop`  
+3. Docker Docs, `docker container stop`
    https://docs.docker.com/reference/cli/docker/container/stop/
-4. Docker Docs, `docker container rm`  
+4. Docker Docs, `docker container rm`
    https://docs.docker.com/reference/cli/docker/container/rm/
-5. Docker Docs, `docker image rm`  
+5. Docker Docs, `docker image rm`
    https://docs.docker.com/reference/cli/docker/image/rm/
-6. Docker Docs, `docker container create`  
+6. Docker Docs, `docker container create`
    https://docs.docker.com/reference/cli/docker/container/create/
-7. Docker Docs, `docker container start`  
+7. Docker Docs, `docker container start`
    https://docs.docker.com/reference/cli/docker/container/start/

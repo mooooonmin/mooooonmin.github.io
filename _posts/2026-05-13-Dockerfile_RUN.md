@@ -88,7 +88,7 @@ ENTRYPOINT ["/bin/bash", "-c", "sleep 500"]
 정리하면 다음과 같다.
 
 | 명령 | 실행 시점 | 주된 용도 |
-| --- | --- | --- |
+|---|---|---|
 | `RUN` | 이미지 빌드 중 | 패키지 설치, 파일 생성, 빌드 작업 |
 | `ENTRYPOINT` | 컨테이너 시작 시 | 컨테이너의 기본 실행 명령 지정 |
 
@@ -170,10 +170,10 @@ git -v
 
 ---
 
-## 참고자료
+## 출처
 
-[1] Docker Docs, Dockerfile reference - RUN: <https://docs.docker.com/reference/dockerfile/#run>  
-[2] Docker Docs, Dockerfile reference - Shell and exec form: <https://docs.docker.com/reference/dockerfile/#shell-and-exec-form>  
-[3] Docker Docs, Dockerfile reference - ENTRYPOINT: <https://docs.docker.com/reference/dockerfile/#entrypoint>  
-[4] Docker Docs, docker image build: <https://docs.docker.com/reference/cli/docker/image/build/>  
+[1] Docker Docs, Dockerfile reference - RUN: <https://docs.docker.com/reference/dockerfile/#run>
+[2] Docker Docs, Dockerfile reference - Shell and exec form: <https://docs.docker.com/reference/dockerfile/#shell-and-exec-form>
+[3] Docker Docs, Dockerfile reference - ENTRYPOINT: <https://docs.docker.com/reference/dockerfile/#entrypoint>
+[4] Docker Docs, docker image build: <https://docs.docker.com/reference/cli/docker/image/build/>
 [5] Docker Docs, docker container exec: <https://docs.docker.com/reference/cli/docker/container/exec/>

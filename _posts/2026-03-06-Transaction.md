@@ -5,11 +5,11 @@ date: 2026-03-06 00:00:00 +0900
 tags: [database, transaction, acid]
 ---
 
-## Transaction 개념
+## 1. Transaction 개념
 
 Transaction은 여러 데이터 변경 작업을 **하나의 묶음 단위로 처리하는 방식**.
 
-예시 상황.  
+예시 상황.
 A 계좌에서 B 계좌로 돈을 송금하는 경우.
 
 - A 계좌에서 금액 차감
@@ -23,7 +23,7 @@ A 계좌에서 B 계좌로 돈을 송금하는 경우.
 
 ---
 
-## Transaction 동작 흐름
+## 2. Transaction 동작 흐름
 
 1. Transaction 시작
 2. 여러 SQL 작업 수행
@@ -32,7 +32,7 @@ A 계좌에서 B 계좌로 돈을 송금하는 경우.
 
 ---
 
-## ACID 원칙
+## 3. ACID 원칙
 
 Transaction은 데이터 무결성을 보장하기 위해 **ACID 특성**을 만족해야 하는 구조.
 
@@ -45,7 +45,7 @@ Transaction은 데이터 무결성을 보장하기 위해 **ACID 특성**을 만
 
 ---
 
-## 동시성 제어 (Concurrency Control)
+## 4. 동시성 제어 (Concurrency Control)
 
 여러 Transaction이 **동시에 동일한 데이터를 수정하는 상황 발생 가능**.
 
@@ -67,7 +67,7 @@ Lock 방식의 경우
 
 ---
 
-## COMMIT vs ROLLBACK
+## 5. COMMIT vs ROLLBACK
 
 | 명령어 | 설명 |
 |---|---|
@@ -79,7 +79,7 @@ Lock 방식의 경우
 ## 핵심 정리
 
 > **Transaction**
-> 
+>
 > - 데이터베이스 작업의 최소 처리 단위
 > - 여러 SQL 작업을 하나의 논리적 작업으로 묶는 구조
 >

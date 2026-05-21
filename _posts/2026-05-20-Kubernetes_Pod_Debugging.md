@@ -279,11 +279,11 @@ Pod 디버깅의 핵심은 다음과 같다.
 
 ---
 
-## 참고 자료
+## 출처
 
 확인일: 2026-05-18
 
-[1] Kubernetes Documentation, kubectl describe: <https://kubernetes.io/docs/reference/kubectl/kubectl-cmds/#describe>  
-[2] Kubernetes Documentation, kubectl logs: <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/>  
-[3] Kubernetes Documentation, kubectl exec: <https://kubernetes.io/docs/reference/kubectl/kubectl-cmds/#exec>  
+[1] Kubernetes Documentation, kubectl describe: <https://kubernetes.io/docs/reference/kubectl/kubectl-cmds/#describe>
+[2] Kubernetes Documentation, kubectl logs: <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/>
+[3] Kubernetes Documentation, kubectl exec: <https://kubernetes.io/docs/reference/kubectl/kubectl-cmds/#exec>
 [4] Kubernetes Documentation, kubectl Quick Reference - Interacting with running Pods: <https://kubernetes.io/docs/reference/kubectl/quick-reference/#interacting-with-running-pods>
