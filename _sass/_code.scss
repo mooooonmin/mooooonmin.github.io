@@ -35,3 +35,12 @@ p > code {
 	padding: 4px 6px;
 	white-space: nowrap;
 }
+
+@media (max-width: $mobile-break - 1px) {
+	blockquote > code,
+	li > code,
+	p > code {
+		white-space: normal;
+		overflow-wrap: anywhere;
+	}
+}
