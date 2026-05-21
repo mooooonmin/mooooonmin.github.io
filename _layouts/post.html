@@ -3,6 +3,7 @@ layout: default
 ---
 {% assign cat = page.category | default: page.categories[0] %}
 {% assign category_label = cat %}
+{% comment %}게시글에는 저장용 category 코드 대신 사람이 읽기 쉬운 한글 카테고리명을 보여준다.{% endcomment %}
 {% if cat == "docs" %}
   {% assign category_label = "문서" %}
 {% elsif cat == "cs" %}
@@ -41,6 +42,7 @@ layout: default
 <hr class="post-divider">
 
 {% if cat %}
+  {% comment %}이전/다음 글은 전체 글 기준이 아니라 같은 카테고리 안에서만 이동하도록 계산한다.{% endcomment %}
   {% assign cat_posts = site.posts | where: "category", cat %}
   {% if cat_posts.size == 0 %}
     {% assign cat_posts = site.categories[cat] %}

@@ -18,7 +18,7 @@ td, th {
 	word-break: keep-all; 
 }
 
-/* Prevent the first column from squishing too much */
+/* 첫 번째 열은 항목 이름이 들어가는 경우가 많아 너무 좁아지지 않게 최소 폭을 둔다. */
 td:first-child, th:first-child {
 	min-width: 130px;
 	white-space: nowrap;

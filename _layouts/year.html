@@ -4,6 +4,7 @@ layout: default
 
 {% assign per_page = site.paginate | default: 20 %}
 {% assign filtered_posts = "" | split: "" %}
+{% comment %}generate_pages.py가 만든 page_num을 받아 현재 연도 페이지에 보여줄 글 범위만 잘라낸다.{% endcomment %}
 {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 {% for yearGroup in postsByYear %}
   {% if yearGroup.name == page.year %}
@@ -36,6 +37,7 @@ layout: default
 {% endif %}
 
 {% if total_pages > 1 %}
+{% comment %}첫 페이지 URL은 /2026/이고, 2페이지부터 /2026/page2/ 형식을 사용한다.{% endcomment %}
 <nav class="pagination" aria-label="연도 글 목록 페이지">
   {% if current_page > 1 %}
     {% assign previous_page = current_page | minus: 1 %}
