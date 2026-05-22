@@ -14,10 +14,10 @@ readme_path = os.path.join(base_dir, "README.md")
 data = defaultdict(lambda: defaultdict(list))
 
 category_labels = {
-    "docs": "문서",
+    "docs": "Docs",
     "cs": "CS",
-    "exam": "자격증",
-    "docker-kubernetes": "도커/쿠버네티스",
+    "exam": "Exam",
+    "docker-kubernetes": "Docker/Kubernetes",
     "linux": "Linux",
 }
 

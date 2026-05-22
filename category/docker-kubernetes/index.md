@@ -1,5 +1,5 @@
 ---
 layout: category
-title: 도커/쿠버네티스
+title: Docker/Kubernetes
 category: docker-kubernetes
 ---

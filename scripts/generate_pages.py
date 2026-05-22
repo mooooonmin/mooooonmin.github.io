@@ -12,10 +12,10 @@ posts_dir = os.path.join(base_dir, "_posts")
 config_path = os.path.join(base_dir, "_config.yml")
 
 category_labels = {
-    "docs": "문서",
+    "docs": "Docs",
     "cs": "CS",
-    "exam": "자격증",
-    "docker-kubernetes": "도커/쿠버네티스",
+    "exam": "Exam",
+    "docker-kubernetes": "Docker/Kubernetes",
     "linux": "Linux",
 }
 

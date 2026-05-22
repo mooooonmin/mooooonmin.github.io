@@ -1,5 +1,5 @@
 ---
 layout: category
-title: 자격증
+title: Exam
 category: exam
 ---
