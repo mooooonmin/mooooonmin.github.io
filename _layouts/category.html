@@ -28,12 +28,12 @@ layout: default
 </ul>
 
 {% if filtered_posts.size == 0 %}
-<p>이 카테고리에 등록된 글이 없습니다.</p>
+<p>No posts in this category.</p>
 {% endif %}
 
 {% if total_pages > 1 %}
 {% comment %}첫 페이지 URL은 /category/name/이고, 2페이지부터 /category/name/page2/ 형식을 사용한다.{% endcomment %}
-<nav class="pagination" aria-label="카테고리 글 목록 페이지">
+<nav class="pagination" aria-label="Category post list pages">
 	{% if current_page > 1 %}
 		{% assign previous_page = current_page | minus: 1 %}
 		{% if previous_page == 1 %}

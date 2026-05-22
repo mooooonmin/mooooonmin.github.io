@@ -1,5 +1,5 @@
 ---
 layout: category
-title: 문서
+title: Docs
 category: docs
 ---

@@ -1,5 +1,5 @@
 ---
-title: 태그
+title: Tags
 layout: default
 permalink: /tags/
 ---
@@ -30,7 +30,7 @@ permalink: /tags/
 
   <div class="tag-pane tag-pane-posts">
     <div class="tag-result-header">
-      <h4 id="tag-result-title">태그를 선택하세요</h4>
+      <h4 id="tag-result-title">Select a tag</h4>
       <span class="tag-section-count" id="tag-result-count"></span>
     </div>
 
@@ -54,11 +54,11 @@ permalink: /tags/
       </section>
     {% endfor %}
 
-    <p class="tag-empty-state tag-empty-state-visible" id="tag-empty-state">왼쪽에서 태그를 선택하면 관련 포스트 목록이 표시됩니다.</p>
+    <p class="tag-empty-state tag-empty-state-visible" id="tag-empty-state">Select a tag on the left to see related posts.</p>
   </div>
 </section>
 {% else %}
-<p>등록된 태그가 없습니다.</p>
+<p>No tags have been added.</p>
 {% endif %}
 
 <script>
@@ -115,7 +115,7 @@ permalink: /tags/
         resultCount.textContent = activeSection.dataset.count + "개";
         emptyState.style.display = "none";
       } else {
-        resultTitle.textContent = "태그를 선택하세요";
+        resultTitle.textContent = "Select a tag";
         resultCount.textContent = "";
         emptyState.style.display = "block";
       }

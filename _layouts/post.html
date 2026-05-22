@@ -3,15 +3,15 @@ layout: default
 ---
 {% assign cat = page.category | default: page.categories[0] %}
 {% assign category_label = cat %}
-{% comment %}게시글에는 저장용 category 코드 대신 사람이 읽기 쉬운 한글 카테고리명을 보여준다.{% endcomment %}
+{% comment %}게시글에는 저장용 category 코드 대신 사람이 읽기 쉬운 영문 카테고리명을 보여준다.{% endcomment %}
 {% if cat == "docs" %}
-  {% assign category_label = "문서" %}
+  {% assign category_label = "Docs" %}
 {% elsif cat == "cs" %}
   {% assign category_label = "CS" %}
 {% elsif cat == "exam" %}
-  {% assign category_label = "자격증" %}
+  {% assign category_label = "Exam" %}
 {% elsif cat == "docker-kubernetes" %}
-  {% assign category_label = "도커/쿠버네티스" %}
+  {% assign category_label = "Docker/Kubernetes" %}
 {% elsif cat == "linux" %}
   {% assign category_label = "Linux" %}
 {% endif %}
@@ -20,13 +20,13 @@ layout: default
   <div class="post-meta">
     {% if cat %}
       <div class="post-meta-group">
-        <span class="post-meta-label">카테고리</span>
+        <span class="post-meta-label">Category</span>
         <span class="post-meta-chip post-meta-chip-category">{{ category_label }}</span>
       </div>
     {% endif %}
     {% if page.tags and page.tags.size > 0 %}
       <div class="post-meta-group">
-        <span class="post-meta-label">태그</span>
+        <span class="post-meta-label">Tags</span>
         <div class="post-meta-tags">
           {% for tag in page.tags %}
             <a href="{{ site.baseurl }}/tags/#{{ tag | downcase }}" class="post-meta-chip">#{{ tag }}</a>

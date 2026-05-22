@@ -48,7 +48,7 @@
       id="toggle-sidebar"
       aria-controls="site-sidebar"
       aria-expanded="true"
-      aria-label="카테고리 접기"
+      aria-label="Collapse category panel"
     ></button>
     <header id="site-sidebar">
       <h1>
@@ -71,12 +71,12 @@
           <li
             class="nav-item top-level {% if page.url == '/' %}current{% endif %}"
           >
-            <a href="{{ site.baseurl }}/">전체</a>
+            <a href="{{ site.baseurl }}/">All</a>
           </li>
           <li
             class="nav-item top-level {% if page.url contains '/tags/' %}current{% endif %}"
           >
-            <a href="{{ site.baseurl }}/tags/">태그</a>
+            <a href="{{ site.baseurl }}/tags/">Tags</a>
           </li>
           {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
           {% for year in postsByYear %}
@@ -90,7 +90,7 @@
                   class="year-nav-toggle"
                   aria-expanded="true"
                   aria-controls="{{ year_nav_id }}"
-                  aria-label="{{ year.name }} 하위 카테고리 접기"
+                  aria-label="Collapse {{ year.name }} categories"
                   data-year-toggle="{{ year.name }}"
                 ></button>
               </div>
@@ -99,13 +99,13 @@
                 {% for catGroup in postsByCategory %}
                   {% assign category_label = catGroup.name %}
                   {% if catGroup.name == "docs" %}
-                    {% assign category_label = "문서" %}
+                    {% assign category_label = "Docs" %}
                   {% elsif catGroup.name == "cs" %}
                     {% assign category_label = "CS" %}
                   {% elsif catGroup.name == "exam" %}
-                    {% assign category_label = "자격증" %}
+                    {% assign category_label = "Exam" %}
                   {% elsif catGroup.name == "docker-kubernetes" %}
-                    {% assign category_label = "도커/쿠버네티스" %}
+                    {% assign category_label = "Docker/Kubernetes" %}
                   {% elsif catGroup.name == "linux" %}
                     {% assign category_label = "Linux" %}
                   {% endif %}
@@ -161,7 +161,7 @@
             );
             sidebarToggleButton.setAttribute(
               "aria-label",
-              isCollapsed ? "카테고리 펼치기" : "카테고리 접기",
+              isCollapsed ? "Expand category panel" : "Collapse category panel",
             );
           }
         }
@@ -244,7 +244,7 @@
             button.setAttribute("aria-expanded", String(!isCollapsed));
             button.setAttribute(
               "aria-label",
-              year + (isCollapsed ? " 하위 카테고리 펼치기" : " 하위 카테고리 접기"),
+              (isCollapsed ? "Expand " : "Collapse ") + year + " categories",
             );
           }
 
