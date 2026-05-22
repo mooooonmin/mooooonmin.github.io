@@ -23,8 +23,8 @@ category_labels = {
 
 category_order = {
     "docs": 0,
-    "cs": 1,
-    "exam": 2,
+    "exam": 1,
+    "cs": 2,
     "docker-kubernetes": 3,
     "linux": 4,
 }
@@ -81,7 +81,7 @@ for year in sorted(data.keys(), reverse=True):
     lines.append("")
 
     for category in sorted(data[year].keys(), key=lambda name: (category_order.get(name, 999), str(name))):
-        posts = sorted(data[year][category], key=lambda item: item["date"], reverse=True)
+        posts = sorted(data[year][category], key=lambda item: (item["date"], item["title"]), reverse=True)
         category_label = category_labels.get(category, category)
         lines.append("<details>")
         lines.append(f"<summary><b>{category_label} ({len(posts)})</b></summary>")
