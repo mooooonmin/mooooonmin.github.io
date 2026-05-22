@@ -87,9 +87,11 @@ for year in sorted(data.keys(), reverse=True):
         lines.append(f"<summary><b>{category_label} ({len(posts)})</b></summary>")
         lines.append('<div markdown="1">')
         lines.append("")
+        lines.append("| Date | Title |")
+        lines.append("|---|---|")
 
         for post in posts:
-            lines.append(f"- [{post['date']}] [{post['title']}]({post['url']})")
+            lines.append(f"| {post['date']} | [{post['title']}]({post['url']}) |")
 
         lines.append("")
         lines.append("</div>")
