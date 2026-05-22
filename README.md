@@ -3,7 +3,7 @@
 <div markdown="1">
 
 <details>
-<summary><b>문서 (3)</b></summary>
+<summary><b>Docs (3)</b></summary>
 <div markdown="1">
 
 - [2026-05-21] [커밋 메시지 작성 가이드](https://mooooonmin.github.io/2026/05/21/Commit_Message_Guide/)
@@ -64,7 +64,7 @@
 </details>
 
 <details>
-<summary><b>자격증 (26)</b></summary>
+<summary><b>Exam (26)</b></summary>
 <div markdown="1">
 
 - [2026-04-29] [[정보보안기사] 단답형10](https://mooooonmin.github.io/2026/04/29/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EB%8B%A8%EB%8B%B5%ED%98%9510/)
@@ -98,7 +98,7 @@
 </details>
 
 <details>
-<summary><b>도커/쿠버네티스 (35)</b></summary>
+<summary><b>Docker/Kubernetes (35)</b></summary>
 <div markdown="1">
 
 - [2026-05-22] [볼륨(Volume)을 활용해 MySQL 실행시키기](https://mooooonmin.github.io/2026/05/22/Kubernetes_MySQL_Volume/)
