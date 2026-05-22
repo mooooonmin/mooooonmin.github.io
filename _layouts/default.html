@@ -95,8 +95,13 @@
                 ></button>
               </div>
               <ul class="sub-navigation" id="{{ year_nav_id }}">
-                {% assign postsByCategory = year.items | group_by: "category" | sort: "name" %}
-                {% for catGroup in postsByCategory %}
+                {% assign postsByCategory = year.items | group_by: "category" %}
+                {% assign category_order = "docs|exam|cs|docker-kubernetes|linux" | split: "|" %}
+                {% for category_name in category_order %}
+                  {% assign catGroup = postsByCategory | where: "name", category_name | first %}
+                  {% if catGroup == nil %}
+                    {% continue %}
+                  {% endif %}
                   {% assign category_label = catGroup.name %}
                   {% if catGroup.name == "docs" %}
                     {% assign category_label = "Docs" %}
