@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (106)</b></summary>
+<summary><b>2026 (107)</b></summary>
 <div markdown="1">
 
 <details>
@@ -98,9 +98,10 @@
 </details>
 
 <details>
-<summary><b>도커/쿠버네티스 (34)</b></summary>
+<summary><b>도커/쿠버네티스 (35)</b></summary>
 <div markdown="1">
 
+- [2026-05-22] [볼륨(Volume)을 활용해 MySQL 실행시키기](https://mooooonmin.github.io/2026/05/22/Kubernetes_MySQL_Volume/)
 - [2026-05-22] [Kubernetes Volume](https://mooooonmin.github.io/2026/05/22/Kubernetes_Volume/)
 - [2026-05-21] [새로운 버전의 서버로 업데이트 시키기](https://mooooonmin.github.io/2026/05/21/Kubernetes_Deployment_Update/)
 - [2026-05-21] [디플로이먼트를 활용한 서버 개수 조절 방법](https://mooooonmin.github.io/2026/05/21/Kubernetes_Deployment_Scaling/)
