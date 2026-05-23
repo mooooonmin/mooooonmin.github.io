@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (108)</b></summary>
+<summary><b>2026 (109)</b></summary>
 <div markdown="1">
 
 <details>
@@ -104,11 +104,12 @@
 </details>
 
 <details>
-<summary><b>Docker/Kubernetes (36)</b></summary>
+<summary><b>Docker/Kubernetes (37)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-05-23 | [컨피그맵(ConfigMap), 시크릿(Secret)을 활용해 환경변수 분리하기](https://mooooonmin.github.io/2026/05/23/Kubernetes_ConfigMap_Secret_Env/) |
 | 2026-05-22 | [볼륨(Volume)을 활용해 MySQL 실행시키기](https://mooooonmin.github.io/2026/05/22/Kubernetes_MySQL_Volume/) |
 | 2026-05-22 | [MySQL과 연결이 제대로 되지 않았다면 어떻게 될까?](https://mooooonmin.github.io/2026/05/22/Kubernetes_MySQL_Connection_Failure/) |
 | 2026-05-22 | [Kubernetes Volume](https://mooooonmin.github.io/2026/05/22/Kubernetes_Volume/) |
