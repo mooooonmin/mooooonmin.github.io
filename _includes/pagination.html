@@ -1,0 +1,38 @@
+{% assign total_pages = include.total_pages | default: 1 %}
+{% assign current_page = include.current_page | default: 1 %}
+{% assign base_path = include.base_path | default: "/" %}
+{% assign aria_label = include.aria_label | default: "Post list pages" %}
+
+{% if total_pages > 1 %}
+<nav class="pagination" aria-label="{{ aria_label }}">
+	{% if current_page > 1 %}
+		{% assign previous_page = current_page | minus: 1 %}
+		{% if previous_page == 1 %}
+			<a href="{{ site.baseurl }}{{ base_path }}" class="pagination-prev">&lt;</a>
+		{% else %}
+			<a href="{{ site.baseurl }}{{ base_path }}page{{ previous_page }}/" class="pagination-prev">&lt;</a>
+		{% endif %}
+	{% else %}
+		<span class="pagination-prev disabled">&lt;</span>
+	{% endif %}
+
+	<span class="pagination-numbers">
+		{% for page_number in (1..total_pages) %}
+			{% if page_number == current_page %}
+				<span class="pagination-current">{{ page_number }}</span>
+			{% elsif page_number == 1 %}
+				<a href="{{ site.baseurl }}{{ base_path }}">{{ page_number }}</a>
+			{% else %}
+				<a href="{{ site.baseurl }}{{ base_path }}page{{ page_number }}/">{{ page_number }}</a>
+			{% endif %}
+		{% endfor %}
+	</span>
+
+	{% if current_page < total_pages %}
+		{% assign next_page = current_page | plus: 1 %}
+		<a href="{{ site.baseurl }}{{ base_path }}page{{ next_page }}/" class="pagination-next">&gt;</a>
+	{% else %}
+		<span class="pagination-next disabled">&gt;</span>
+	{% endif %}
+</nav>
+{% endif %}
