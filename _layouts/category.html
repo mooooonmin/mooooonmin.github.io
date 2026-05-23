@@ -4,7 +4,7 @@ layout: default
 
 {% assign per_page = site.paginate | default: 20 %}
 {% assign filtered_posts = site.posts | where: "category", page.category %}
-{% comment %}generate_pages.py가 만든 page_num을 받아 현재 카테고리 페이지에 보여줄 글 범위만 잘라낸다.{% endcomment %}
+{% comment %}generate_pages.py가 만든 page_num을 받아 현재 카테고리 페이지에 보여줄 글 범위만 선택한다.{% endcomment %}
 {% assign total_posts = filtered_posts | size %}
 {% assign total_pages = total_posts | divided_by: per_page %}
 {% assign remainder = total_posts | modulo: per_page %}
@@ -28,40 +28,8 @@ layout: default
 </ul>
 
 {% if filtered_posts.size == 0 %}
-<p>No posts in this category.</p>
+<p>이 카테고리에 등록된 글이 없습니다.</p>
 {% endif %}
 
-{% if total_pages > 1 %}
-{% comment %}첫 페이지 URL은 /category/name/이고, 2페이지부터 /category/name/page2/ 형식을 사용한다.{% endcomment %}
-<nav class="pagination" aria-label="Category post list pages">
-	{% if current_page > 1 %}
-		{% assign previous_page = current_page | minus: 1 %}
-		{% if previous_page == 1 %}
-			<a href="{{ site.baseurl }}/category/{{ category_slug }}/" class="pagination-prev">&lt;</a>
-		{% else %}
-			<a href="{{ site.baseurl }}/category/{{ category_slug }}/page{{ previous_page }}/" class="pagination-prev">&lt;</a>
-		{% endif %}
-	{% else %}
-		<span class="pagination-prev disabled">&lt;</span>
-	{% endif %}
-
-	<span class="pagination-numbers">
-		{% for page_number in (1..total_pages) %}
-			{% if page_number == current_page %}
-				<span class="pagination-current">{{ page_number }}</span>
-			{% elsif page_number == 1 %}
-				<a href="{{ site.baseurl }}/category/{{ category_slug }}/">{{ page_number }}</a>
-			{% else %}
-				<a href="{{ site.baseurl }}/category/{{ category_slug }}/page{{ page_number }}/">{{ page_number }}</a>
-			{% endif %}
-		{% endfor %}
-	</span>
-
-	{% if current_page < total_pages %}
-		{% assign next_page = current_page | plus: 1 %}
-		<a href="{{ site.baseurl }}/category/{{ category_slug }}/page{{ next_page }}/" class="pagination-next">&gt;</a>
-	{% else %}
-		<span class="pagination-next disabled">&gt;</span>
-	{% endif %}
-</nav>
-{% endif %}
+{% assign category_base_path = "/category/" | append: category_slug | append: "/" %}
+{% include pagination.html total_pages=total_pages current_page=current_page base_path=category_base_path aria_label="카테고리 글 목록 페이지" %}

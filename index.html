@@ -13,33 +13,7 @@ layout: default
 </ul>
 
 {% if paginator.posts.size == 0 %}
-<p>아직 글이 없습니다. <code>_posts</code> 폴더에 마크다운 파일을 추가하면 글이 나타납니다.</p>
+<p>아직 글이 없습니다. <code>_posts</code> 폴더에 마크다운 파일을 추가하면 글이 표시됩니다.</p>
 {% endif %}
 
-{% if paginator.total_pages > 1 %}
-<nav class="pagination" aria-label="글 목록 페이지">
-	{% if paginator.previous_page %}
-		<a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="pagination-prev">&lt;</a>
-	{% else %}
-		<span class="pagination-prev disabled">&lt;</span>
-	{% endif %}
-
-	<span class="pagination-numbers">
-		{% for page in (1..paginator.total_pages) %}
-			{% if page == paginator.page %}
-				<span class="pagination-current">{{ page }}</span>
-			{% elsif page == 1 %}
-				<a href="{{ site.baseurl }}/">{{ page }}</a>
-			{% else %}
-				<a href="{{ site.baseurl }}/page{{ page }}/">{{ page }}</a>
-			{% endif %}
-		{% endfor %}
-	</span>
-
-	{% if paginator.next_page %}
-		<a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="pagination-next">&gt;</a>
-	{% else %}
-		<span class="pagination-next disabled">&gt;</span>
-	{% endif %}
-</nav>
-{% endif %}
+{% include pagination.html total_pages=paginator.total_pages current_page=paginator.page base_path="/" aria_label="글 목록 페이지" %}
