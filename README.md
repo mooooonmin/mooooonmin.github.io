@@ -1,5 +1,5 @@
 <details>
-<summary><b>2026 (110)</b></summary>
+<summary><b>2026 (111)</b></summary>
 <div markdown="1">
 
 <details>
@@ -152,11 +152,12 @@
 </details>
 
 <details>
-<summary><b>Linux (1)</b></summary>
+<summary><b>Linux (2)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-05-26 | [리눅스(Linux)란?](https://mooooonmin.github.io/2026/05/26/Linux_Intro/) |
 | 2026-02-13 | [리눅스 주요 명령어](https://mooooonmin.github.io/2026/02/13/Linux/) |
 
 </div>
