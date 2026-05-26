@@ -29,20 +29,21 @@
 
 | Date | Title |
 |---|---|
-| 2026-05-23 | [컨피그맵(ConfigMap), 시크릿(Secret)을 활용해 환경변수 분리하기](https://mooooonmin.github.io/2026/05/23/Kubernetes_ConfigMap_Secret_Env/) |
-| 2026-05-21 | [컨피그맵(ConfigMap)을 활용해 환경변수 분리하기](https://mooooonmin.github.io/2026/05/21/Kubernetes_ConfigMap/) |
+| 2026-05-23 | [ConfigMap, Secret 활용해 환경변수 분리하기](https://mooooonmin.github.io/2026/05/23/Kubernetes_ConfigMap_Secret_Env/) |
 | 2026-05-21 | [커밋 메시지 작성 가이드](https://mooooonmin.github.io/2026/05/21/Commit_Message_Guide/) |
+| 2026-05-21 | [ConfigMap 활용해 환경변수 분리하기](https://mooooonmin.github.io/2026/05/21/Kubernetes_ConfigMap/) |
 | 2026-02-10 | [쿠키(Cookie)와 세션(Session)의 차이점](https://mooooonmin.github.io/2026/02/10/Cookie_Session/) |
 
 </div>
 </details>
 
 <details>
-<summary><b>D (28)</b></summary>
+<summary><b>D (29)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-05-21 | [Deployment 활용한 서버 개수 조절 방법](https://mooooonmin.github.io/2026/05/21/Kubernetes_Deployment_Scaling/) |
 | 2026-05-15 | [자주 사용하는 Docker Compose CLI 명령어](https://mooooonmin.github.io/2026/05/15/Docker_Compose_CLI/) |
 | 2026-05-15 | [Docker CLI와 Docker Compose 쉽게 변환하기](https://mooooonmin.github.io/2026/05/15/Docker_CLI_Compose_Convert/) |
 | 2026-05-14 | [Dockerfile EXPOSE](https://mooooonmin.github.io/2026/05/14/Dockerfile_EXPOSE/) |
@@ -104,11 +105,12 @@
 </details>
 
 <details>
-<summary><b>I (4)</b></summary>
+<summary><b>I (5)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-05-19 | [ImagePullBackOff](https://mooooonmin.github.io/2026/05/19/Kubernetes_Image_Pull_Policy/) |
 | 2026-03-24 | [IPC](https://mooooonmin.github.io/2026/03/24/IPC/) |
 | 2026-03-09 | [Index Column](https://mooooonmin.github.io/2026/03/09/Index_Column/) |
 | 2026-03-07 | [Index](https://mooooonmin.github.io/2026/03/07/Index/) |
@@ -118,7 +120,7 @@
 </details>
 
 <details>
-<summary><b>K (10)</b></summary>
+<summary><b>K (8)</b></summary>
 <div markdown="1">
 
 | Date | Title |
@@ -127,10 +129,8 @@
 | 2026-05-22 | [Kubernetes Volume](https://mooooonmin.github.io/2026/05/22/Kubernetes_Volume/) |
 | 2026-05-21 | [서버가 죽었을 때 자동으로 복구하는 기능](https://mooooonmin.github.io/2026/05/21/Kubernetes_Self_Healing/) |
 | 2026-05-21 | [새로운 버전의 서버로 업데이트 시키기](https://mooooonmin.github.io/2026/05/21/Kubernetes_Deployment_Update/) |
-| 2026-05-21 | [디플로이먼트를 활용한 서버 개수 조절 방법](https://mooooonmin.github.io/2026/05/21/Kubernetes_Deployment_Scaling/) |
 | 2026-05-20 | [Kubernetes Service](https://mooooonmin.github.io/2026/05/20/Kubernetes_Service/) |
 | 2026-05-20 | [Kubernetes Deployment](https://mooooonmin.github.io/2026/05/20/Kubernetes_Deployment/) |
-| 2026-05-19 | [이미지가 없다고 에러가 뜨는 이유](https://mooooonmin.github.io/2026/05/19/Kubernetes_Image_Pull_Policy/) |
 | 2026-05-19 | [Kubernetes Pod](https://mooooonmin.github.io/2026/05/19/Kubernetes_Pod/) |
 | 2026-05-18 | [Kubernetes](https://mooooonmin.github.io/2026/05/18/Kubernetes/) |
 
@@ -143,8 +143,8 @@
 
 | Date | Title |
 |---|---|
-| 2026-05-26 | [리눅스(Linux)란?](https://mooooonmin.github.io/2026/05/26/Linux_Intro/) |
 | 2026-05-26 | [리눅스 배포판과 터미널 기본 조작법](https://mooooonmin.github.io/2026/05/26/Linux_Distribution_Terminal_Basics/) |
+| 2026-05-26 | [Linux](https://mooooonmin.github.io/2026/05/26/Linux_Intro/) |
 | 2026-02-20 | [Linked List](https://mooooonmin.github.io/2026/02/20/Linked-List/) |
 | 2026-02-13 | [리눅스 주요 명령어](https://mooooonmin.github.io/2026/02/13/Linux/) |
 
@@ -194,8 +194,8 @@
 | Date | Title |
 |---|---|
 | 2026-05-21 | [포스트 형식 작성 가이드](https://mooooonmin.github.io/2026/05/21/Post_Format_Guide/) |
-| 2026-05-20 | [파드(Pod) 디버깅 하는 방법](https://mooooonmin.github.io/2026/05/20/Kubernetes_Pod_Debugging/) |
-| 2026-05-19 | [파드(Pod)로 띄운 프로그램에 접속이 안 되는 이유](https://mooooonmin.github.io/2026/05/19/Kubernetes_Pod_Port_Forward/) |
+| 2026-05-20 | [Pod 디버깅 하는 방법](https://mooooonmin.github.io/2026/05/20/Kubernetes_Pod_Debugging/) |
+| 2026-05-19 | [Pod로 띄운 프로그램에 접속이 안 되는 이유](https://mooooonmin.github.io/2026/05/19/Kubernetes_Pod_Port_Forward/) |
 | 2026-04-02 | [Paging](https://mooooonmin.github.io/2026/04/02/Paging/) |
 | 2026-03-13 | [Process](https://mooooonmin.github.io/2026/03/13/Process/) |
 | 2026-02-28 | [[빅데이터분석기사] Python/R](https://mooooonmin.github.io/2026/02/28/%EB%B9%85%ED%85%8C%EC%9D%B4%ED%84%B0%EB%B6%84%EC%84%9D%EA%B8%B0%EC%82%AC/) |
@@ -217,12 +217,13 @@
 </details>
 
 <details>
-<summary><b>R (1)</b></summary>
+<summary><b>R (2)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
 | 2026-03-05 | [RDB vs NoSQL](https://mooooonmin.github.io/2026/03/05/RDB_VS_NoSQL/) |
+| 2026-03-04 | [RDB 1:N 및 N:M](https://mooooonmin.github.io/2026/03/04/RDB-%EA%B4%80%EA%B3%84/) |
 
 </div>
 </details>
@@ -233,7 +234,7 @@
 
 | Date | Title |
 |---|---|
-| 2026-05-21 | [시크릿(Secret)을 활용해 민감한 값을 환경 변수로 분리하기](https://mooooonmin.github.io/2026/05/21/Kubernetes_Secret/) |
+| 2026-05-21 | [Secret 활용해 민감한 값을 환경 변수로 분리하기](https://mooooonmin.github.io/2026/05/21/Kubernetes_Secret/) |
 | 2026-04-03 | [Segmentation](https://mooooonmin.github.io/2026/04/03/Segmentation/) |
 | 2026-04-01 | [Synchronization](https://mooooonmin.github.io/2026/04/01/Multi_thread_process/) |
 | 2026-02-25 | [Stack 2개로 Queue 구현](https://mooooonmin.github.io/2026/02/25/Stack_Queue/) |
@@ -274,7 +275,7 @@
 
 | Date | Title |
 |---|---|
-| 2026-05-22 | [볼륨(Volume)을 활용해 MySQL 실행시키기](https://mooooonmin.github.io/2026/05/22/Kubernetes_MySQL_Volume/) |
+| 2026-05-22 | [Volume 활용해 MySQL 실행시키기](https://mooooonmin.github.io/2026/05/22/Kubernetes_MySQL_Volume/) |
 | 2026-04-06 | [Virtual Memory](https://mooooonmin.github.io/2026/04/06/Virtual-Memory/) |
 | 2026-02-23 | [[정보보안기사] 필기 (v1.5)](https://mooooonmin.github.io/2026/02/23/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%ED%95%84%EA%B8%B0/) |
 
@@ -282,7 +283,7 @@
 </details>
 
 <details>
-<summary><b>0-9 (19)</b></summary>
+<summary><b>0-9 (18)</b></summary>
 <div markdown="1">
 
 | Date | Title |
@@ -305,7 +306,6 @@
 | 2026-04-17 | [[정보보안기사] 서술형3](https://mooooonmin.github.io/2026/04/17/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%84%9C%EC%88%A0%ED%98%953/) |
 | 2026-04-09 | [[정보보안기사] 서술형2](https://mooooonmin.github.io/2026/04/09/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%84%9C%EC%88%A0%ED%98%952/) |
 | 2026-04-08 | [[정보보안기사] 서술형1](https://mooooonmin.github.io/2026/04/08/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%EC%84%9C%EC%88%A0%ED%98%951/) |
-| 2026-03-04 | [관계형 데이터베이스의 1:N 및 N:M](https://mooooonmin.github.io/2026/03/04/RDB-%EA%B4%80%EA%B3%84/) |
 
 </div>
 </details>

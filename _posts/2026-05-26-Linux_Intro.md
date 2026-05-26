@@ -1,5 +1,5 @@
 ---
-title: 리눅스(Linux)란?
+title: Linux
 category: l
 date: 2026-05-26 00:00:00 +0900
 tags: [linux, os, kernel, operating-system]

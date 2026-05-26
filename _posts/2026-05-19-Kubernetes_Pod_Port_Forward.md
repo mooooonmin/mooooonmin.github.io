@@ -1,5 +1,5 @@
 ---
-title: 파드(Pod)로 띄운 프로그램에 접속이 안 되는 이유
+title: Pod로 띄운 프로그램에 접속이 안 되는 이유
 category: p
 date: 2026-05-19 00:00:10 +0900
 tags: [kubernetes, k8s, pod, network, port-forward, nginx]

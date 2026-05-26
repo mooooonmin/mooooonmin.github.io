@@ -1,5 +1,5 @@
 ---
-title: 시크릿(Secret)을 활용해 민감한 값을 환경 변수로 분리하기
+title: Secret 활용해 민감한 값을 환경 변수로 분리하기
 category: s
 date: 2026-05-21 00:00:40 +0900
 tags: [kubernetes, k8s, secret, configmap, deployment, environment-variable, kubectl]
