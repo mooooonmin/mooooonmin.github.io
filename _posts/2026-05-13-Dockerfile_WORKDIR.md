@@ -1,6 +1,6 @@
 ---
 title: Dockerfile WORKDIR
-category: docker-kubernetes
+category: d
 date: 2026-05-13 00:00:10 +0900
 tags: [docker, dockerfile, workdir, directory, build]
 ---

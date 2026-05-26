@@ -1,6 +1,6 @@
 ---
 title: 이미지가 없다고 에러가 뜨는 이유
-category: docker-kubernetes
+category: k
 date: 2026-05-19 00:00:20 +0900
 tags: [kubernetes, k8s, pod, image, image-pull-policy, imagepullbackoff]
 ---

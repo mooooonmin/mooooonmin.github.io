@@ -489,7 +489,7 @@ nav > ul {
 		color: #111;
 	}
 
-	&.top-level > a, &.top-level > span, .year-nav-link {
+	&.top-level > a, &.top-level > span {
 		line-height: 1.5;
 		font-weight: 600;
 		padding-left: $space;
@@ -887,61 +887,6 @@ header > nav {
 	overflow-y: auto;
 }
 
-.year-nav-heading {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-}
-
-.year-nav-link {
-	flex: 1;
-	color: #111;
-	text-decoration: none;
-	font-family: "Open Sans", sans-serif;
-	font-size: 1.4rem;
-	padding-top: $space / 2;
-	padding-bottom: $space / 2;
-}
-
-.year-nav-toggle {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 40px;
-	align-self: stretch;
-	border: 0;
-	background: transparent;
-	color: #111;
-	cursor: pointer;
-	padding: 0;
-}
-
-.year-nav-toggle::after {
-	content: "⌃";
-	color: #888;
-	font-size: 1rem;
-	line-height: 1;
-	transform: rotate(0deg);
-	transition: transform 0.2s ease;
-}
-
-.year-nav-link:hover,
-.year-nav-link:focus,
-.year-nav-toggle:hover,
-.year-nav-toggle:focus {
-	color: #111;
-	outline: none;
-}
-
-.year-nav-collapsed .year-nav-toggle::after {
-	transform: rotate(180deg);
-}
-
-.year-nav-collapsed .sub-navigation {
-	display: none;
-}
-
 :root {
 	/* 라이트/다크 모드는 이 변수 묶음만 바꾸는 방식으로 관리한다. 새 색상이 필요하면 하드코딩보다 변수 추가를 우선한다. */
 	color-scheme: light;
@@ -1081,8 +1026,6 @@ hr,
 
 .nav-item > a,
 .nav-item.top-level > span,
-.year-nav-link,
-.year-nav-toggle,
 .tag-cloud-button,
 .post-meta-label,
 .tag-section-count,
@@ -1096,18 +1039,13 @@ hr,
 .nav-item.current > a,
 .nav-item > a:active,
 .nav-item > a:hover,
-.year-nav-link:hover,
-.year-nav-link:focus,
-.year-nav-toggle:hover,
-.year-nav-toggle:focus,
 .tag-cloud-button:hover,
 .tag-cloud-button.is-active,
 .tag-cloud-button.is-active .tag-cloud-count {
 	color: var(--theme-text);
 }
 
-.nav-item .sub-navigation .sub-level > a,
-.year-nav-toggle::after {
+.nav-item .sub-navigation .sub-level > a {
 	color: var(--theme-subtle);
 }
 

@@ -1,6 +1,6 @@
 ---
 title: 리눅스 배포판과 터미널 기본 조작법
-category: linux
+category: l
 date: 2026-05-26 00:00:10 +0900
 tags: [linux, ubuntu, distribution, terminal, shell]
 ---

@@ -1,6 +1,6 @@
 ---
 title: HTTP Stateless와 비연결성
-category: cs
+category: h
 date: 2026-02-06 03:00:00 +0900
 tags: [network, http, stateless, connection]
 ---

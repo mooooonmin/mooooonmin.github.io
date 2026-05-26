@@ -1,6 +1,6 @@
 ---
 title: Docker 종료된 컨테이너 디버깅
-category: docker-kubernetes
+category: d
 date: 2026-05-11 00:00:00 +0900
 tags: [docker, container, debug, exec, entrypoint]
 ---

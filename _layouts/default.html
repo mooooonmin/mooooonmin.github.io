@@ -78,47 +78,17 @@
           >
             <a href="{{ site.baseurl }}/tags/">Tags</a>
           </li>
-          {% assign postsByYear = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-          {% for year in postsByYear %}
-            {% comment %}연도 제목은 목록 페이지 이동, 버튼은 하위 카테고리 접기/펼치기만 담당한다.{% endcomment %}
-            {% assign year_nav_id = "year-nav-" | append: year.name %}
-            <li class="nav-item top-level year-nav-item {% if page.url contains year.name %}current{% endif %}" data-year-nav="{{ year.name }}">
-              <div class="year-nav-heading">
-                <a href="{{ site.baseurl }}/{{ year.name }}/" class="year-nav-link">{{ year.name }}</a>
-                <button
-                  type="button"
-                  class="year-nav-toggle"
-                  aria-expanded="true"
-                  aria-controls="{{ year_nav_id }}"
-                  aria-label="Collapse {{ year.name }} categories"
-                  data-year-toggle="{{ year.name }}"
-                ></button>
-              </div>
-              <ul class="sub-navigation" id="{{ year_nav_id }}">
-                {% assign postsByCategory = year.items | group_by: "category" %}
-                {% assign category_order = "docs|exam|cs|docker-kubernetes|linux" | split: "|" %}
-                {% for category_name in category_order %}
-                  {% assign catGroup = postsByCategory | where: "name", category_name | first %}
-                  {% if catGroup == nil %}
-                    {% continue %}
-                  {% endif %}
-                  {% assign category_label = catGroup.name %}
-                  {% if catGroup.name == "docs" %}
-                    {% assign category_label = "Docs" %}
-                  {% elsif catGroup.name == "cs" %}
-                    {% assign category_label = "CS" %}
-                  {% elsif catGroup.name == "exam" %}
-                    {% assign category_label = "Exam" %}
-                  {% elsif catGroup.name == "docker-kubernetes" %}
-                    {% assign category_label = "Docker/Kubernetes" %}
-                  {% elsif catGroup.name == "linux" %}
-                    {% assign category_label = "Linux" %}
-                  {% endif %}
-                  <li class="nav-item sub-level {% if page.url contains catGroup.name %}current{% endif %}">
-                    <a href="{{ site.baseurl }}/category/{{ catGroup.name | slugify }}/">{{ category_label }} <span class="category-count">({{ catGroup.items | size }})</span></a>
-                  </li>
-                {% endfor %}
-              </ul>
+          {% assign postsByCategory = site.posts | group_by: "category" %}
+          {% assign category_order = "a|b|c|d|e|f|g|h|i|j|k|l|m|n|o|p|q|r|s|t|u|v|w|x|y|z|0-9" | split: "|" %}
+          {% for category_name in category_order %}
+            {% assign catGroup = postsByCategory | where: "name", category_name | first %}
+            {% if catGroup == nil %}
+              {% continue %}
+            {% endif %}
+            {% assign category_label = catGroup.name | upcase %}
+            {% assign category_path = "/category/" | append: catGroup.name | append: "/" %}
+            <li class="nav-item top-level {% if page.category == catGroup.name or page.url contains category_path %}current{% endif %}">
+              <a href="{{ site.baseurl }}/category/{{ catGroup.name | slugify }}/">{{ category_label }} <span class="category-count">({{ catGroup.items | size }})</span></a>
             </li>
           {% endfor %}
         </ul>
@@ -150,12 +120,8 @@
         var openNavButton = document.getElementById("open-nav");
         var sidebarToggleButton = document.getElementById("toggle-sidebar");
         var themeToggleButton = document.getElementById("theme-toggle");
-        var yearToggleButtons = Array.prototype.slice.call(
-          document.querySelectorAll("[data-year-toggle]"),
-        );
         var collapsedClass = "nav-collapsed";
         var storageKey = "sidebar-collapsed";
-        var yearStoragePrefix = "year-nav-collapsed:";
 
         function setSidebarCollapsed(isCollapsed) {
           body.classList.toggle(collapsedClass, isCollapsed);
@@ -236,42 +202,6 @@
             }
           });
         }
-
-        yearToggleButtons.forEach(function (button) {
-          var year = button.getAttribute("data-year-toggle");
-          var navItem = document.querySelector('[data-year-nav="' + year + '"]');
-          var yearStorageKey = yearStoragePrefix + year;
-
-          function setYearCollapsed(isCollapsed) {
-            // 연도별 접힘 상태는 li에 클래스를 주는 방식으로 관리하고, 실제 숨김은 CSS가 담당한다.
-            if (!navItem) return;
-            navItem.classList.toggle("year-nav-collapsed", isCollapsed);
-            button.setAttribute("aria-expanded", String(!isCollapsed));
-            button.setAttribute(
-              "aria-label",
-              (isCollapsed ? "Expand " : "Collapse ") + year + " categories",
-            );
-          }
-
-          try {
-            setYearCollapsed(
-              window.localStorage.getItem(yearStorageKey) === "true",
-            );
-          } catch (error) {
-            setYearCollapsed(false);
-          }
-
-          button.addEventListener("click", function () {
-            var nextState = !navItem.classList.contains("year-nav-collapsed");
-            setYearCollapsed(nextState);
-
-            try {
-              window.localStorage.setItem(yearStorageKey, String(nextState));
-            } catch (error) {
-              // 제한된 브라우저 환경에서는 localStorage 접근이 실패할 수 있으므로 무시한다.
-            }
-          });
-        });
       })();
     </script>
   </body>

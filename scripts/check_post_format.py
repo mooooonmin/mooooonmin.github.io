@@ -34,7 +34,8 @@ def split_front_matter(text):
 
 
 def is_exam_post(front_matter):
-    return front_matter.get("category") == "exam"
+    tags = front_matter.get("tags", "")
+    return "exam" in {tag.strip().strip('"').strip("'") for tag in tags.strip("[]").split(",")}
 
 
 def previous_nonblank(lines, index):

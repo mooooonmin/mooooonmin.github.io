@@ -1,6 +1,6 @@
 ---
 title: 컨피그맵(ConfigMap), 시크릿(Secret)을 활용해 환경변수 분리하기
-category: docker-kubernetes
+category: c
 date: 2026-05-23 00:00:00 +0900
 tags: [kubernetes, k8s, configmap, secret, deployment, environment-variable, kubectl]
 ---

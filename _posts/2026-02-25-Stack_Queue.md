@@ -1,6 +1,6 @@
 ---
 title: Stack 2개로 Queue 구현
-category: cs
+category: s
 date: 2026-02-25 09:00:00 +0900
 tags: [datastructure, stack, queue, implementation]
 ---

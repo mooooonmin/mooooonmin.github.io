@@ -1,6 +1,6 @@
 ---
 title: Virtual Memory
-category: cs
+category: v
 date: 2026-04-06 00:00:00 +0900
 tags: [os, memory, virtual-memory, demand-paging, page-fault]
 ---

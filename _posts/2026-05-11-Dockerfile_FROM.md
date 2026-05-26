@@ -1,6 +1,6 @@
 ---
 title: Dockerfile FROM
-category: docker-kubernetes
+category: d
 date: 2026-05-11 00:00:00 +0900
 tags: [docker, dockerfile, from, image]
 ---

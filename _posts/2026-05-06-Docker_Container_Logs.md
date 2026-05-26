@@ -1,6 +1,6 @@
 ---
 title: Docker Container Logs
-category: docker-kubernetes
+category: d
 date: 2026-05-06 00:00:00 +0900
 tags: [docker, container, logs, tail, follow]
 ---

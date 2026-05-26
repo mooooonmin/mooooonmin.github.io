@@ -1,6 +1,6 @@
 ---
 title: Kubernetes에서 외부 MySQL 접근 막기
-category: docker-kubernetes
+category: k
 date: 2026-05-23 00:00:30 +0900
 tags: [kubernetes, k8s, mysql, service, clusterip, nodeport, port-forward, security]
 ---

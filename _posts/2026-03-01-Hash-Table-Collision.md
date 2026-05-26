@@ -1,6 +1,6 @@
 ---
 title: Hash Table Collision
-category: cs
+category: h
 date: 2026-03-01 02:00:00 +0900
 tags: [datastructure, hash-table, collision]
 ---

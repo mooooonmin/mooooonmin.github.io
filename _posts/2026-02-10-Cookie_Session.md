@@ -1,6 +1,6 @@
 ---
 title: 쿠키(Cookie)와 세션(Session)의 차이점
-category: cs
+category: c
 date: 2026-02-10 09:00:00 +0900
 tags: [network, http, cookie, session]
 ---

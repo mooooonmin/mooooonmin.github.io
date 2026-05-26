@@ -1,6 +1,6 @@
 ---
 title: HTTP Status Code
-category: cs
+category: h
 date: 2026-02-06 00:00:00 +0900
 tags: [network, http, status-code, web]
 ---

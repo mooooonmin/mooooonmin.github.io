@@ -2,19 +2,7 @@
 layout: default
 ---
 {% assign cat = page.category | default: page.categories[0] %}
-{% assign category_label = cat %}
-{% comment %}게시글에는 저장용 category 코드 대신 사람이 읽기 쉬운 영문 카테고리명을 보여준다.{% endcomment %}
-{% if cat == "docs" %}
-  {% assign category_label = "Docs" %}
-{% elsif cat == "cs" %}
-  {% assign category_label = "CS" %}
-{% elsif cat == "exam" %}
-  {% assign category_label = "Exam" %}
-{% elsif cat == "docker-kubernetes" %}
-  {% assign category_label = "Docker/Kubernetes" %}
-{% elsif cat == "linux" %}
-  {% assign category_label = "Linux" %}
-{% endif %}
+{% assign category_label = cat | upcase %}
 
 {% if cat or page.tags %}
   <div class="post-meta">

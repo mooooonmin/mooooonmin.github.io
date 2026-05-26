@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Pod
-category: docker-kubernetes
+category: k
 date: 2026-05-19 00:00:00 +0900
 tags: [kubernetes, k8s, pod, container, docker]
 ---

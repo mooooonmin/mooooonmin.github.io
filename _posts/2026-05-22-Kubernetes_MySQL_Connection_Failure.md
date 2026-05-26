@@ -1,6 +1,6 @@
 ---
 title: MySQL과 연결이 제대로 되지 않았다면 어떻게 될까?
-category: docker-kubernetes
+category: m
 date: 2026-05-22 00:00:20 +0900
 tags: [kubernetes, mysql, spring, deployment, troubleshooting, logs]
 ---
