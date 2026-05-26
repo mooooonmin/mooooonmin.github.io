@@ -1,6 +1,6 @@
 ---
 title: Multi process vs Multi thread
-category: cs
+category: m
 date: 2026-03-23 00:00:00 +0900
 tags: [os, process, thread, comparison, concurrency]
 ---

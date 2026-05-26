@@ -1,6 +1,6 @@
 ---
 title: 포스트 형식 작성 가이드
-category: docs
+category: p
 date: 2026-05-21 00:01:00 +0900
 tags: [guide, writing, markdown, template]
 ---

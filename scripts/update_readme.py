@@ -13,21 +13,9 @@ readme_path = os.path.join(base_dir, "README.md")
 
 data = defaultdict(lambda: defaultdict(list))
 
-category_labels = {
-    "docs": "Docs",
-    "cs": "CS",
-    "exam": "Exam",
-    "docker-kubernetes": "Docker/Kubernetes",
-    "linux": "Linux",
-}
-
-category_order = {
-    "docs": 0,
-    "exam": 1,
-    "cs": 2,
-    "docker-kubernetes": 3,
-    "linux": 4,
-}
+category_order = [*list("abcdefghijklmnopqrstuvwxyz"), "0-9"]
+category_labels = {letter: letter.upper() for letter in category_order}
+category_labels["0-9"] = "0-9"
 
 for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
     # Jekyll 게시글 파일명 규칙에서 날짜와 URL slug를 가져온다.
@@ -70,36 +58,31 @@ for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
         }
     )
 
+posts_by_category = defaultdict(list)
+for categories in data.values():
+    for category, posts in categories.items():
+        posts_by_category[category].extend(posts)
+
 lines = []
 
-for year in sorted(data.keys(), reverse=True):
-    # 연도 > 카테고리 > 게시글 순서의 접이식 목록을 만든다.
-    total_posts = sum(len(posts) for posts in data[year].values())
+for category in sorted(posts_by_category.keys(), key=lambda name: (category_order.index(name) if name in category_order else 999, str(name))):
+    # 카테고리는 주제 대신 사전식 색인으로만 사용한다.
+    posts = sorted(posts_by_category[category], key=lambda item: (item["date"], item["title"]), reverse=True)
+    category_label = category_labels.get(category, category)
     lines.append("<details>")
-    lines.append(f"<summary><b>{year} ({total_posts})</b></summary>")
+    lines.append(f"<summary><b>{category_label} ({len(posts)})</b></summary>")
     lines.append('<div markdown="1">')
     lines.append("")
+    lines.append("| Date | Title |")
+    lines.append("|---|---|")
 
-    for category in sorted(data[year].keys(), key=lambda name: (category_order.get(name, 999), str(name))):
-        posts = sorted(data[year][category], key=lambda item: (item["date"], item["title"]), reverse=True)
-        category_label = category_labels.get(category, category)
-        lines.append("<details>")
-        lines.append(f"<summary><b>{category_label} ({len(posts)})</b></summary>")
-        lines.append('<div markdown="1">')
-        lines.append("")
-        lines.append("| Date | Title |")
-        lines.append("|---|---|")
+    for post in posts:
+        lines.append(f"| {post['date']} | [{post['title']}]({post['url']}) |")
 
-        for post in posts:
-            lines.append(f"| {post['date']} | [{post['title']}]({post['url']}) |")
-
-        lines.append("")
-        lines.append("</div>")
-        lines.append("</details>")
-        lines.append("")
-
+    lines.append("")
     lines.append("</div>")
     lines.append("</details>")
+    lines.append("")
 
 readme = "\n".join(lines).rstrip() + "\n"
 

@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Volume
-category: docker-kubernetes
+category: k
 date: 2026-05-22 00:00:00 +0900
 tags: [kubernetes, volume, pv, pvc, storage]
 ---

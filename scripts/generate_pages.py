@@ -5,19 +5,16 @@ import shutil
 from collections import Counter
 
 
-# _posts 개수를 기준으로 연도별/카테고리별 목록 페이지를 자동 생성한다.
+# _posts 개수를 기준으로 알파벳/숫자 카테고리별 목록 페이지를 자동 생성한다.
 # 새 글이 추가되어 페이지 수가 바뀌어도 page2, page3 같은 폴더를 직접 만들 필요가 없다.
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 posts_dir = os.path.join(base_dir, "_posts")
 config_path = os.path.join(base_dir, "_config.yml")
+category_dir = os.path.join(base_dir, "category")
 
-category_labels = {
-    "docs": "Docs",
-    "cs": "CS",
-    "exam": "Exam",
-    "docker-kubernetes": "Docker/Kubernetes",
-    "linux": "Linux",
-}
+category_order = [*list("abcdefghijklmnopqrstuvwxyz"), "0-9"]
+category_labels = {letter: letter.upper() for letter in category_order}
+category_labels["0-9"] = "0-9"
 
 
 def read_paginate():
@@ -48,10 +45,10 @@ def parse_front_matter(content):
 
 
 def collect_posts():
-    # _posts 파일명 규칙에 맞는 게시글만 순회하고 연도/카테고리를 모은다.
+    # _posts 파일명 규칙에 맞는 게시글만 순회하고 카테고리를 모은다.
     posts = []
     for filename in os.listdir(posts_dir):
-        match = re.match(r"^(\d{4})-\d{2}-\d{2}-.+\.md$", filename)
+        match = re.match(r"^\d{4}-\d{2}-\d{2}-.+\.md$", filename)
         if not match:
             continue
 
@@ -59,9 +56,8 @@ def collect_posts():
         with open(filepath, "r", encoding="utf-8") as f:
             front_matter = parse_front_matter(f.read())
 
-        year = front_matter.get("date", match.group(1))[:4]
         category = front_matter.get("category", "Uncategorized")
-        posts.append({"year": year, "category": category})
+        posts.append({"category": category})
 
     return posts
 
@@ -90,6 +86,25 @@ def remove_page_dirs(parent_dir):
             shutil.rmtree(path)
 
 
+def remove_stale_category_dirs(active_categories):
+    # 더 이상 사용하지 않는 예전 주제형 카테고리 폴더를 제거한다.
+    if not os.path.isdir(category_dir):
+        return
+
+    for name in os.listdir(category_dir):
+        path = os.path.join(category_dir, name)
+        if os.path.isdir(path) and name not in active_categories:
+            shutil.rmtree(path)
+
+
+def remove_year_dirs():
+    # 연도별 대분류 페이지를 더 이상 사용하지 않으므로 생성되어 있던 YYYY 폴더를 제거한다.
+    for name in os.listdir(base_dir):
+        path = os.path.join(base_dir, name)
+        if os.path.isdir(path) and re.match(r"^\d{4}$", name):
+            shutil.rmtree(path)
+
+
 def generate_collection_pages(parent_dir, layout, title, values, count, per_page):
     # 첫 페이지는 index.md, 두 번째 페이지부터 page2/index.md 형식으로 만든다.
     total_pages = max(1, math.ceil(count / per_page))
@@ -109,21 +124,12 @@ def generate_collection_pages(parent_dir, layout, title, values, count, per_page
 
 
 def main():
-    # 연도별 아카이브와 카테고리 아카이브를 같은 규칙으로 생성한다.
+    # 카테고리 아카이브를 생성한다. 연도별 대분류는 사용하지 않는다.
     per_page = read_paginate()
     posts = collect_posts()
-    years = Counter(post["year"] for post in posts)
     categories = Counter(post["category"] for post in posts)
-
-    for year, count in years.items():
-        generate_collection_pages(
-            os.path.join(base_dir, year),
-            "year",
-            year,
-            {"year": year},
-            count,
-            per_page,
-        )
+    remove_year_dirs()
+    remove_stale_category_dirs(set(categories.keys()))
 
     for category, count in categories.items():
         title = category_labels.get(category, category)
@@ -136,7 +142,7 @@ def main():
             per_page,
         )
 
-    print("Year and category pages generated successfully.")
+    print("Category pages generated successfully.")
 
 
 if __name__ == "__main__":

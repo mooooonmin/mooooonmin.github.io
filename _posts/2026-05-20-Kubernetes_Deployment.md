@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Deployment
-category: docker-kubernetes
+category: k
 date: 2026-05-20 00:00:10 +0900
 tags: [kubernetes, k8s, deployment, replicaset, pod]
 ---

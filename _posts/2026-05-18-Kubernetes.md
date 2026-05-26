@@ -1,6 +1,6 @@
 ---
 title: Kubernetes
-category: docker-kubernetes
+category: k
 date: 2026-05-18 00:00:10 +0900
 tags: [kubernetes, k8s, container, docker, orchestration]
 ---

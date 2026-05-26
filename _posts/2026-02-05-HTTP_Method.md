@@ -1,6 +1,6 @@
 ---
 title: HTTP Method
-category: cs
+category: h
 date: 2026-02-05 00:00:00 +0900
 tags: [network, http, method, rest]
 ---

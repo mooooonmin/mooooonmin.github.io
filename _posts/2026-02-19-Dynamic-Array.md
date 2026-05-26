@@ -1,6 +1,6 @@
 ---
 title: Dynamic Array
-category: cs
+category: d
 date: 2026-02-19 00:00:00 +0900
 tags: [datastructure, array, dynamic-array, amortized]
 ---

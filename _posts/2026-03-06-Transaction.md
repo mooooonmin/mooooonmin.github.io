@@ -1,6 +1,6 @@
 ---
 title: Transaction
-category: cs
+category: t
 date: 2026-03-06 00:00:00 +0900
 tags: [database, transaction, acid]
 ---

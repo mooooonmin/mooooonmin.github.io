@@ -1,6 +1,6 @@
 ---
 title: 파드(Pod) 디버깅 하는 방법
-category: docker-kubernetes
+category: p
 date: 2026-05-20 00:00:00 +0900
 tags: [kubernetes, k8s, pod, debugging, kubectl, logs]
 ---

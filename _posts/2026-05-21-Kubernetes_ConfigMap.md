@@ -1,6 +1,6 @@
 ---
 title: 컨피그맵(ConfigMap)을 활용해 환경변수 분리하기
-category: docker-kubernetes
+category: c
 date: 2026-05-21 00:00:30 +0900
 tags: [kubernetes, k8s, configmap, deployment, environment-variable, kubectl]
 ---

@@ -1,6 +1,6 @@
 ---
 title: B+Tree Index vs Hash Index
-category: cs
+category: b
 date: 2026-03-10 08:00:00 +0900
 tags: [database, index, btree, hash]
 ---

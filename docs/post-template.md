@@ -1,6 +1,6 @@
 ---
 title: 포스트 제목
-category: cs
+category: p
 date: YYYY-MM-DD HH:MM:SS +0900
 tags: [tag1, tag2]
 ---

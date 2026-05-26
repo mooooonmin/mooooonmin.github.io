@@ -1,6 +1,6 @@
 ---
 title: Multi thread
-category: cs
+category: m
 date: 2026-03-19 00:00:00 +0900
 tags: [os, thread, concurrency, multithreading]
 ---

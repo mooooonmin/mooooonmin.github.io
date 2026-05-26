@@ -1,6 +1,6 @@
 ---
 title: Synchronization
-category: cs
+category: s
 date: 2026-04-01 00:00:00 +0900
 tags: [os, thread, synchronization, mutex, semaphore]
 ---

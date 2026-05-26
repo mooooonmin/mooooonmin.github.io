@@ -1,6 +1,6 @@
 ---
 title: 커밋 메시지 작성 가이드
-category: docs
+category: c
 date: 2026-05-21 00:01:10 +0900
 tags: [git, commit, convention, guide]
 ---

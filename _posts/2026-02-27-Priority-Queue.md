@@ -1,6 +1,6 @@
 ---
 title: Queue vs Priority Queue
-category: cs
+category: q
 date: 2026-02-27 02:00:00 +0900
 tags: [datastructure, priority-queue, heap]
 ---

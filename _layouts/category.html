@@ -28,8 +28,8 @@ layout: default
 </ul>
 
 {% if filtered_posts.size == 0 %}
-<p>이 카테고리에 등록된 글이 없습니다.</p>
+<p>No posts in this category.</p>
 {% endif %}
 
 {% assign category_base_path = "/category/" | append: category_slug | append: "/" %}
-{% include pagination.html total_pages=total_pages current_page=current_page base_path=category_base_path aria_label="카테고리 글 목록 페이지" %}
+{% include pagination.html total_pages=total_pages current_page=current_page base_path=category_base_path aria_label="Category post list pages" %}
