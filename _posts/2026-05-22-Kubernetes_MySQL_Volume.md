@@ -1,5 +1,5 @@
 ---
-title: 볼륨(Volume)을 활용해 MySQL 실행시키기
+title: Volume 활용해 MySQL 실행시키기
 category: v
 date: 2026-05-22 00:00:10 +0900
 tags: [kubernetes, mysql, volume, pv, pvc, persistent-volume]
