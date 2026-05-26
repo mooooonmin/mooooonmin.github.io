@@ -9,6 +9,7 @@ on:
       - '_posts/**.md'
       - 'scripts/update_readme.py'
       - 'scripts/generate_pages.py'
+      - '.github/workflows/update-readme.yml'
 
 jobs:
   update-readme:
