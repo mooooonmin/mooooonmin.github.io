@@ -149,11 +149,12 @@
 </details>
 
 <details>
-<summary><b>L (4)</b></summary>
+<summary><b>L (5)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-05-27 | [ls -l과 ls -a](https://mooooonmin.github.io/2026/05/27/Linux_Ls_Long_All/) |
 | 2026-05-26 | [리눅스 배포판과 터미널 기본 조작법](https://mooooonmin.github.io/2026/05/26/Linux_Distribution_Terminal_Basics/) |
 | 2026-05-26 | [Linux](https://mooooonmin.github.io/2026/05/26/Linux_Intro/) |
 | 2026-02-20 | [Linked List](https://mooooonmin.github.io/2026/02/20/Linked-List/) |
