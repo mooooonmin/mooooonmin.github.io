@@ -77,6 +77,17 @@
 </details>
 
 <details>
+<summary><b>F (1)</b></summary>
+<div markdown="1">
+
+| Date | Title |
+|---|---|
+| 2026-05-27 | [File과 Directory](https://mooooonmin.github.io/2026/05/27/Linux_File_Directory/) |
+
+</div>
+</details>
+
+<details>
 <summary><b>G (2)</b></summary>
 <div markdown="1">
 
