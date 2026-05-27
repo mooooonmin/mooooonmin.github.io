@@ -5,20 +5,18 @@ pre, code, tt {
 	border-radius: 2px;
 	line-height: 1.4;
 	font-weight: 400;
-	background-color: #404145;
-	color: #FAFAFA;
-	border-radius: 2px;
 }
 
 pre {
 	box-sizing: border-box;
 	margin: 0 0 1.75em 0;
 	width: 100%;
-	padding: 10px;
+	padding: 16px;
 	font-size: 0.9em;
 	white-space: pre;
 	overflow: auto;
 	border-radius: 3px;
+	border: 1px solid transparent;
 
 	code, tt {
 		font-size: inherit;
@@ -32,8 +30,9 @@ pre {
 blockquote > code,
 li > code,
 p > code {
-	padding: 4px 6px;
+	padding: 2px 5px;
 	white-space: nowrap;
+	border-radius: 3px;
 }
 
 @media (max-width: $mobile-break - 1px) {

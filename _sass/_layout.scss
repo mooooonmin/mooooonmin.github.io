@@ -910,8 +910,11 @@ header > nav {
 	--theme-table-row-bg: #ffffff;
 	--theme-table-alt-bg: #f1f1f1;
 	--theme-table-head-bg: #eeeeee;
-	--theme-code-bg: #333333;
-	--theme-code-text: #f9f9f9;
+	--theme-code-block-bg: #f2f2f2;
+	--theme-code-block-text: #1a73e8;
+	--theme-code-block-border: #d7d7d7;
+	--theme-inline-code-bg: #eeeeee;
+	--theme-inline-code-text: #b23a2e;
 	--theme-highlight: rgba(253, 224, 71, 0.4);
 	--theme-shadow: rgba(0, 0, 0, 0.14);
 }
@@ -938,8 +941,11 @@ header > nav {
 	--theme-table-row-bg: #1f1f1f;
 	--theme-table-alt-bg: #2b2b2b;
 	--theme-table-head-bg: #333333;
-	--theme-code-bg: #111111;
-	--theme-code-text: #f9f9f9;
+	--theme-code-block-bg: #111111;
+	--theme-code-block-text: #6aa9ff;
+	--theme-code-block-border: #363636;
+	--theme-inline-code-bg: #2f2f2f;
+	--theme-inline-code-text: #ff9b8f;
 	--theme-highlight: rgba(250, 204, 21, 0.24);
 	--theme-shadow: rgba(0, 0, 0, 0.42);
 }
@@ -1098,16 +1104,32 @@ mark {
 	color: var(--theme-text);
 }
 
-pre,
 code,
 tt {
-	background-color: var(--theme-code-bg);
-	color: var(--theme-code-text);
+	background-color: var(--theme-inline-code-bg);
+	color: var(--theme-inline-code-text);
+}
+
+pre,
+.highlight {
+	background-color: var(--theme-code-block-bg);
+	color: var(--theme-code-block-text);
+}
+
+pre {
+	border-color: var(--theme-code-block-border);
+}
+
+pre span,
+.highlight span {
+	background-color: transparent !important;
+	color: inherit !important;
 }
 
 pre code,
 pre tt {
 	background: transparent;
+	color: inherit;
 }
 
 kbd {
