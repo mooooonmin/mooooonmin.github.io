@@ -201,11 +201,12 @@
 </details>
 
 <details>
-<summary><b>P (6)</b></summary>
+<summary><b>P (7)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-05-28 | [Path](https://mooooonmin.github.io/2026/05/28/Linux_Path/) |
 | 2026-05-21 | [포스트 형식 작성 가이드](https://mooooonmin.github.io/2026/05/21/Post_Format_Guide/) |
 | 2026-05-20 | [Pod 디버깅 하는 방법](https://mooooonmin.github.io/2026/05/20/Kubernetes_Pod_Debugging/) |
 | 2026-05-19 | [Pod로 띄운 프로그램에 접속이 안 되는 이유](https://mooooonmin.github.io/2026/05/19/Kubernetes_Pod_Port_Forward/) |
