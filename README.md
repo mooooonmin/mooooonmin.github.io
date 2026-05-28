@@ -189,11 +189,12 @@
 </details>
 
 <details>
-<summary><b>O (1)</b></summary>
+<summary><b>O (2)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-05-28 | [Option](https://mooooonmin.github.io/2026/05/28/Linux_Command_Option/) |
 | 2026-02-12 | [OSI 7계층 vs TCP/IP 4계층](https://mooooonmin.github.io/2026/02/12/OSI_7_vs_TCP_IP_4/) |
 
 </div>
