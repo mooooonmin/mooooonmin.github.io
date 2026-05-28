@@ -259,11 +259,12 @@
 </details>
 
 <details>
-<summary><b>T (3)</b></summary>
+<summary><b>T (4)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-05-28 | [Tilde](https://mooooonmin.github.io/2026/05/28/Linux_Tilde/) |
 | 2026-03-06 | [Transaction](https://mooooonmin.github.io/2026/03/06/Transaction/) |
 | 2026-02-12 | [TCP, UDP](https://mooooonmin.github.io/2026/02/12/TCP_vs_UDP/) |
 | 2026-02-12 | [TCP 3-way handshake](https://mooooonmin.github.io/2026/02/12/TCP_3-way-handshake/) |
