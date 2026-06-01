@@ -287,11 +287,12 @@
 </details>
 
 <details>
-<summary><b>V (3)</b></summary>
+<summary><b>V (4)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-01 | [Vim 기본 사용법 1](https://mooooonmin.github.io/2026/06/01/Linux_Vim_Basic_1/) |
 | 2026-05-22 | [Volume 활용해 MySQL 실행시키기](https://mooooonmin.github.io/2026/05/22/Kubernetes_MySQL_Volume/) |
 | 2026-04-06 | [Virtual Memory](https://mooooonmin.github.io/2026/04/06/Virtual-Memory/) |
 | 2026-02-23 | [[정보보안기사] 필기 (v1.5)](https://mooooonmin.github.io/2026/02/23/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%ED%95%84%EA%B8%B0/) |
