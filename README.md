@@ -277,11 +277,12 @@
 </details>
 
 <details>
-<summary><b>U (2)</b></summary>
+<summary><b>U (3)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-02 | [User/Super User](https://mooooonmin.github.io/2026/06/02/Linux_User_Super_User/) |
 | 2026-05-18 | [Ubuntu에서 Docker, Docker Compose 설치하기](https://mooooonmin.github.io/2026/05/18/Docker_Install_Ubuntu/) |
 | 2026-02-09 | [브라우저에 URL을 입력하면 일어나는 일 (네트워크 관점)](https://mooooonmin.github.io/2026/02/09/%EC%9B%B9%EB%8F%99%EC%9E%91%EB%B0%A9%EC%8B%9D/) |
 
