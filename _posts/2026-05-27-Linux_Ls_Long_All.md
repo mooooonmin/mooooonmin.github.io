@@ -1,5 +1,5 @@
 ---
-title: ls -l과 ls -a
+title: ls -l/ls -a
 category: l
 date: 2026-05-27 00:00:10 +0900
 tags: [linux, ls, file, directory, hidden-file, command]

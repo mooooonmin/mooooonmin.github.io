@@ -29,9 +29,9 @@
 
 | Date | Title |
 |---|---|
-| 2026-06-02 | [Cat과 Vim](https://mooooonmin.github.io/2026/06/02/Linux_View_File_Content/) |
-| 2026-06-01 | [Create와 Delete](https://mooooonmin.github.io/2026/06/01/Linux_Create_Delete_File_Directory/) |
-| 2026-06-01 | [Copy와 Move](https://mooooonmin.github.io/2026/06/01/Linux_Copy_Move_Rename/) |
+| 2026-06-02 | [Cat/Vim](https://mooooonmin.github.io/2026/06/02/Linux_View_File_Content/) |
+| 2026-06-01 | [Create/Delete](https://mooooonmin.github.io/2026/06/01/Linux_Create_Delete_File_Directory/) |
+| 2026-06-01 | [Copy/Move](https://mooooonmin.github.io/2026/06/01/Linux_Copy_Move_Rename/) |
 | 2026-05-23 | [ConfigMap, Secret 활용해 환경변수 분리하기](https://mooooonmin.github.io/2026/05/23/Kubernetes_ConfigMap_Secret_Env/) |
 | 2026-05-21 | [커밋 메시지 작성 가이드](https://mooooonmin.github.io/2026/05/21/Commit_Message_Guide/) |
 | 2026-05-21 | [ConfigMap 활용해 환경변수 분리하기](https://mooooonmin.github.io/2026/05/21/Kubernetes_ConfigMap/) |
@@ -85,7 +85,7 @@
 
 | Date | Title |
 |---|---|
-| 2026-05-27 | [File과 Directory](https://mooooonmin.github.io/2026/05/27/Linux_File_Directory/) |
+| 2026-05-27 | [File/Directory](https://mooooonmin.github.io/2026/05/27/Linux_File_Directory/) |
 
 </div>
 </details>
@@ -157,7 +157,7 @@
 
 | Date | Title |
 |---|---|
-| 2026-05-27 | [ls -l과 ls -a](https://mooooonmin.github.io/2026/05/27/Linux_Ls_Long_All/) |
+| 2026-05-27 | [ls -l/ls -a](https://mooooonmin.github.io/2026/05/27/Linux_Ls_Long_All/) |
 | 2026-05-26 | [리눅스 배포판과 터미널 기본 조작법](https://mooooonmin.github.io/2026/05/26/Linux_Distribution_Terminal_Basics/) |
 | 2026-05-26 | [Linux](https://mooooonmin.github.io/2026/05/26/Linux_Intro/) |
 | 2026-02-20 | [Linked List](https://mooooonmin.github.io/2026/02/20/Linked-List/) |
@@ -293,8 +293,8 @@
 
 | Date | Title |
 |---|---|
-| 2026-06-01 | [Vim 기본 사용법 2](https://mooooonmin.github.io/2026/06/01/Linux_Vim_Basic_2/) |
-| 2026-06-01 | [Vim 기본 사용법 1](https://mooooonmin.github.io/2026/06/01/Linux_Vim_Basic_1/) |
+| 2026-06-01 | [Vim Basic 2](https://mooooonmin.github.io/2026/06/01/Linux_Vim_Basic_2/) |
+| 2026-06-01 | [Vim Basic 1](https://mooooonmin.github.io/2026/06/01/Linux_Vim_Basic_1/) |
 | 2026-05-22 | [Volume 활용해 MySQL 실행시키기](https://mooooonmin.github.io/2026/05/22/Kubernetes_MySQL_Volume/) |
 | 2026-04-06 | [Virtual Memory](https://mooooonmin.github.io/2026/04/06/Virtual-Memory/) |
 | 2026-02-23 | [[정보보안기사] 필기 (v1.5)](https://mooooonmin.github.io/2026/02/23/%EC%A0%95%EB%B3%B4%EB%B3%B4%EC%95%88%EA%B8%B0%EC%82%AC%ED%95%84%EA%B8%B0/) |
