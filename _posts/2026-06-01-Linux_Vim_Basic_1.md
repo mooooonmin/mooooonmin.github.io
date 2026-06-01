@@ -1,5 +1,5 @@
 ---
-title: Vim 기본 사용법 1
+title: Vim Basic 1
 category: v
 date: 2026-06-01 00:00:20 +0900
 tags: [linux, vim, vi, editor, insert-mode, normal-mode]

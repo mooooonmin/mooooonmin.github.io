@@ -1,5 +1,5 @@
 ---
-title: Vim 기본 사용법 2
+title: Vim Basic 2
 category: v
 date: 2026-06-01 00:00:30 +0900
 tags: [linux, vim, vi, editor, quit, swap-file, recovery]

@@ -1,5 +1,5 @@
 ---
-title: Copy와 Move
+title: Copy/Move
 category: c
 date: 2026-06-01 00:00:10 +0900
 tags: [linux, cp, mv, copy, move, rename, file, directory]

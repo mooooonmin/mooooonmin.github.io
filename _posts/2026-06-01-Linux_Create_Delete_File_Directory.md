@@ -1,5 +1,5 @@
 ---
-title: Create와 Delete
+title: Create/Delete
 category: c
 date: 2026-06-01 00:00:00 +0900
 tags: [linux, touch, mkdir, rm, file, directory, command]

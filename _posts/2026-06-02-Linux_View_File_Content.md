@@ -1,5 +1,5 @@
 ---
-title: Cat과 Vim
+title: Cat/Vim
 category: c
 date: 2026-06-02 00:00:00 +0900
 tags: [linux, cat, vim, vi, file, command]

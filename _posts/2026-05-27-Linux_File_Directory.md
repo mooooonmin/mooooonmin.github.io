@@ -1,5 +1,5 @@
 ---
-title: File과 Directory
+title: File/Directory
 category: f
 date: 2026-05-27 00:00:00 +0900
 tags: [linux, file, directory, path, pwd, cd, ls]
