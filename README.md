@@ -24,11 +24,12 @@
 </details>
 
 <details>
-<summary><b>C (6)</b></summary>
+<summary><b>C (7)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-02 | [Cat과 Vim](https://mooooonmin.github.io/2026/06/02/Linux_View_File_Content/) |
 | 2026-06-01 | [Create와 Delete](https://mooooonmin.github.io/2026/06/01/Linux_Create_Delete_File_Directory/) |
 | 2026-06-01 | [Copy와 Move](https://mooooonmin.github.io/2026/06/01/Linux_Copy_Move_Rename/) |
 | 2026-05-23 | [ConfigMap, Secret 활용해 환경변수 분리하기](https://mooooonmin.github.io/2026/05/23/Kubernetes_ConfigMap_Secret_Env/) |
