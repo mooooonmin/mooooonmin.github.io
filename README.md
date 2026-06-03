@@ -251,11 +251,12 @@
 </details>
 
 <details>
-<summary><b>S (6)</b></summary>
+<summary><b>S (7)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-04 | [Sudo](https://mooooonmin.github.io/2026/06/04/Linux_Sudo/) |
 | 2026-05-21 | [Secret 활용해 민감한 값을 환경 변수로 분리하기](https://mooooonmin.github.io/2026/05/21/Kubernetes_Secret/) |
 | 2026-04-03 | [Segmentation](https://mooooonmin.github.io/2026/04/03/Segmentation/) |
 | 2026-04-01 | [Synchronization](https://mooooonmin.github.io/2026/04/01/Multi_thread_process/) |
