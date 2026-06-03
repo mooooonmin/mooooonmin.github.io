@@ -24,11 +24,12 @@
 </details>
 
 <details>
-<summary><b>C (7)</b></summary>
+<summary><b>C (8)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-04 | [Chmod](https://mooooonmin.github.io/2026/06/04/Linux_Chmod/) |
 | 2026-06-02 | [Cat/Vim](https://mooooonmin.github.io/2026/06/02/Linux_View_File_Content/) |
 | 2026-06-01 | [Create/Delete](https://mooooonmin.github.io/2026/06/01/Linux_Create_Delete_File_Directory/) |
 | 2026-06-01 | [Copy/Move](https://mooooonmin.github.io/2026/06/01/Linux_Copy_Move_Rename/) |
