@@ -1,7 +1,7 @@
 ---
 title: Queue vs Priority Queue
 category: q
-date: 2026-02-27 02:00:00 +0900
+date: 2026-02-27 00:00:10 +0900
 tags: [datastructure, priority-queue, heap]
 ---
 

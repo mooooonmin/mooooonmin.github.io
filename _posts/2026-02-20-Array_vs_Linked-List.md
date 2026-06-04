@@ -1,7 +1,7 @@
 ---
 title: Array vs Linked List
 category: a
-date: 2026-02-20 01:00:00 +0900
+date: 2026-02-20 00:00:10 +0900
 tags: [datastructure, array, linked-list, comparison]
 ---
 

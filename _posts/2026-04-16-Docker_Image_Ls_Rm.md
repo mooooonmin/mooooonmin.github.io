@@ -1,7 +1,7 @@
 ---
 title: Docker Image List And Remove
 category: d
-date: 2026-04-16 00:00:00 +0900
+date: 2026-04-16 00:00:20 +0900
 tags: [docker, image, cli, cleanup]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Hash Table Collision
 category: h
-date: 2026-03-01 02:00:00 +0900
+date: 2026-03-01 00:00:10 +0900
 tags: [datastructure, hash-table, collision]
 ---
 

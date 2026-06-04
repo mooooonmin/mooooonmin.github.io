@@ -1,7 +1,7 @@
 ---
 title: Restrict File Access
 category: r
-date: 2026-06-04 00:00:00 +0900
+date: 2026-06-04 00:00:10 +0900
 tags: [linux, chmod, permission, security, file, rwx]
 ---
 
