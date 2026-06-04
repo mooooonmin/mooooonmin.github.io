@@ -1,7 +1,7 @@
 ---
 title: Package Manager
 category: p
-date: 2026-06-05 00:00:10 +0900
+date: 2026-06-05 00:00:20 +0900
 tags: [linux, package-manager, apt, dnf, yum, npm, pip]
 ---
 
