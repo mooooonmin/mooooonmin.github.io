@@ -206,11 +206,12 @@
 </details>
 
 <details>
-<summary><b>P (9)</b></summary>
+<summary><b>P (10)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-05 | [Package Manager](https://mooooonmin.github.io/2026/06/05/Package_Manager/) |
 | 2026-06-03 | [Permission](https://mooooonmin.github.io/2026/06/03/Linux_Permission/) |
 | 2026-06-02 | [Permission Denied](https://mooooonmin.github.io/2026/06/02/Linux_Permission_Denied/) |
 | 2026-05-28 | [Path](https://mooooonmin.github.io/2026/05/28/Linux_Path/) |
