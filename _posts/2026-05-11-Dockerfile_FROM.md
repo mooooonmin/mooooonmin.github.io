@@ -1,7 +1,7 @@
 ---
 title: Dockerfile FROM
 category: d
-date: 2026-05-11 00:00:00 +0900
+date: 2026-05-11 00:00:10 +0900
 tags: [docker, dockerfile, from, image]
 ---
 

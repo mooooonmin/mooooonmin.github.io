@@ -1,7 +1,7 @@
 ---
 title: TCP 3-way handshake
 category: t
-date: 2026-02-12 11:50:00 +0900
+date: 2026-02-12 00:00:10 +0900
 tags: [network, tcp, handshake]
 ---
 

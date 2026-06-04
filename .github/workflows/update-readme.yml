@@ -7,6 +7,7 @@ on:
       - master
     paths:
       - '_posts/**.md'
+      - 'scripts/normalize_post_times.py'
       - 'scripts/update_readme.py'
       - 'scripts/generate_pages.py'
       - '.github/workflows/update-readme.yml'
@@ -26,6 +27,9 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Normalize post times
+        run: python scripts/normalize_post_times.py
+
       - name: Generate category pages
         run: python scripts/generate_pages.py
 
@@ -36,6 +40,6 @@ jobs:
         run: |
           git config --local user.name 'github-actions[bot]'
           git config --local user.email 'github-actions[bot]@users.noreply.github.com'
-          git add README.md category
+          git add README.md category _posts
           git commit -m "docs: auto-update generated pages [skip ci]" || echo "No changes to commit"
           git push

@@ -1,7 +1,7 @@
 ---
 title: Sudo
 category: s
-date: 2026-06-04 00:00:00 +0900
+date: 2026-06-04 00:00:20 +0900
 tags: [linux, sudo, root, permission, super-user, security]
 ---
 
