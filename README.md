@@ -1,9 +1,10 @@
 <details>
-<summary><b>A (4)</b></summary>
+<summary><b>A (5)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-05 | [APT Sudo Reason](https://mooooonmin.github.io/2026/06/05/APT_Sudo_Reason/) |
 | 2026-06-05 | [APT Commands](https://mooooonmin.github.io/2026/06/05/APT_Commands/) |
 | 2026-02-20 | [Array vs Linked List](https://mooooonmin.github.io/2026/02/20/Array_vs_Linked-List/) |
 | 2026-02-16 | [Array](https://mooooonmin.github.io/2026/02/16/Array/) |
