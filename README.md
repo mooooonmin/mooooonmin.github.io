@@ -241,11 +241,12 @@
 </details>
 
 <details>
-<summary><b>R (3)</b></summary>
+<summary><b>R (4)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-08 | [Redirection Append](https://mooooonmin.github.io/2026/06/08/Redirection_Append/) |
 | 2026-06-04 | [Restrict File Access](https://mooooonmin.github.io/2026/06/04/Linux_Restrict_File_Access/) |
 | 2026-03-05 | [RDB vs NoSQL](https://mooooonmin.github.io/2026/03/05/RDB_VS_NoSQL/) |
 | 2026-03-04 | [RDB 1:N 및 N:M](https://mooooonmin.github.io/2026/03/04/RDB-%EA%B4%80%EA%B3%84/) |
