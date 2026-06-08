@@ -94,11 +94,12 @@
 </details>
 
 <details>
-<summary><b>G (3)</b></summary>
+<summary><b>G (4)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-09 | [Grep](https://mooooonmin.github.io/2026/06/09/Grep/) |
 | 2026-06-03 | [Group](https://mooooonmin.github.io/2026/06/03/Linux_Group/) |
 | 2026-02-10 | [GET vs POST (feat. PUT, PATCH)](https://mooooonmin.github.io/2026/02/10/HTTP_Method_%EB%B9%84%EA%B5%90/) |
 | 2026-02-02 | [글 작성 예시](https://mooooonmin.github.io/2026/02/02/%EA%B8%80_%EC%9E%91%EC%84%B1_%EC%98%88%EC%8B%9C/) |
@@ -208,11 +209,12 @@
 </details>
 
 <details>
-<summary><b>P (10)</b></summary>
+<summary><b>P (11)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-09 | [Process Ps Kill](https://mooooonmin.github.io/2026/06/09/Process_Ps_Kill/) |
 | 2026-06-05 | [Package Manager](https://mooooonmin.github.io/2026/06/05/Package_Manager/) |
 | 2026-06-03 | [Permission](https://mooooonmin.github.io/2026/06/03/Linux_Permission/) |
 | 2026-06-02 | [Permission Denied](https://mooooonmin.github.io/2026/06/02/Linux_Permission_Denied/) |
