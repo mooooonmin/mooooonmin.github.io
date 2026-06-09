@@ -70,3 +70,10 @@ tags: [datastructure, hash-table, hash]
 > * **정의**: 키를 해시값으로 변환하여 인덱스로 사용하는 **Key-Value** 기반 자료구조.
 > * **성능**: 평균 **O(1)**의 시간 복잡도를 가지나 충돌 발생 시 성능 저하 위험이 존재.
 > * **포인트**: 충돌 해결을 위한 **Chaining**과 **Open Addressing**의 차이를 명확히 인지하고, 좋은 해시 함수의 조건을 설명하는 것이 핵심.
+
+---
+
+## 출처
+
+1. Pat Morin, Open Data Structures - Hash Tables
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/5_Hash_Tables.html

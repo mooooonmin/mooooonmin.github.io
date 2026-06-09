@@ -59,3 +59,12 @@ tags: [datastructure, array, dynamic-array, amortized]
 - **Dynamic Array**: 크기 고민 없이 데이터를 추가할 수 있도록 자동 리사이징 기능을 제공하는 배열 구조.
 - **Amortized O(1)**: 리사이징 비용(O(n))이 가끔 발생하지만, 전체적인 추가(Append) 연산의 평균 효율은 상수로 유지.
 - **용도**: 데이터의 개수가 유동적이고 빈번한 인덱스 접근이 필요한 경우 최적의 선택지.
+
+---
+
+## 출처
+
+1. Pat Morin, Open Data Structures - Array-Based Lists
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/2_Array_Based_Lists.html
+2. MIT OpenCourseWare 6.006, Data Structures and Dynamic Arrays
+   https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/
