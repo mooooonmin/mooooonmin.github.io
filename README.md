@@ -185,11 +185,12 @@
 </details>
 
 <details>
-<summary><b>N (2)</b></summary>
+<summary><b>N (3)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-10 | [Nohup Log](https://mooooonmin.github.io/2026/06/10/Nohup_Log/) |
 | 2026-06-09 | [Nohup Background](https://mooooonmin.github.io/2026/06/09/Nohup_Background/) |
 | 2026-03-30 | [[Naver Cloud] NAC(100)](https://mooooonmin.github.io/2026/03/30/NCA100/) |
 
