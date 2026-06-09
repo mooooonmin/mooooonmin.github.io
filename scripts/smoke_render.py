@@ -131,6 +131,34 @@ def check_theme_toggle(page, label):
     assert_true(before != after, f"{label}: theme toggle did not change theme")
 
 
+def check_mobile_navigation(page, base_url, route, label, viewport_name):
+    if viewport_name != "mobile" or route != "/":
+        return
+
+    open_button = page.locator("#open-nav")
+    assert_true(open_button.count() == 1, f"{label}: mobile nav button missing")
+    assert_true(open_button.is_visible(), f"{label}: mobile nav button hidden")
+
+    open_button.click()
+    assert_true("nav-open" in page.locator("body").get_attribute("class"), f"{label}: mobile nav did not open")
+
+    navigation = page.locator(".full-navigation")
+    assert_true(navigation.is_visible(), f"{label}: mobile navigation hidden after open")
+
+    toggle = page.locator("#theme-toggle")
+    assert_true(toggle.is_visible(), f"{label}: mobile theme toggle hidden after nav open")
+    before_theme = page.locator("html").get_attribute("data-theme")
+    toggle.click()
+    after_theme = page.locator("html").get_attribute("data-theme")
+    assert_true(before_theme != after_theme, f"{label}: mobile theme toggle did not change theme")
+
+    category_link = page.locator('a[href="/category/d/"]')
+    assert_true(category_link.count() == 1, f"{label}: category D link missing")
+    with page.expect_navigation(wait_until="load"):
+        category_link.click()
+    assert_true(page.url == f"{base_url}/category/d/", f"{label}: category link did not navigate: {page.url}")
+
+
 def check_visual_surfaces(page, label):
     assert_true(page.locator("#site-sidebar").count() == 1, f"{label}: sidebar missing")
     assert_true(page.locator(".content").count() == 1, f"{label}: content missing")
@@ -197,6 +225,7 @@ def check_route(page, base_url, route, label, viewport_name, dark_mode):
     check_search_state(page, label, route)
     check_no_horizontal_overflow(page, label)
     check_sidebar_fixed(page, label)
+    check_mobile_navigation(page, base_url, route, label, viewport_name)
 
     if route in {"/", "/category/d/"} and viewport_name == "desktop":
         check_theme_toggle(page, label)
