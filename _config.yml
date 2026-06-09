@@ -37,6 +37,7 @@ exclude:
   - LICENSE
   - serve.sh
   - docs/post-template.md
+  - docs/workflow.md
 
 defaults:
   - scope:
