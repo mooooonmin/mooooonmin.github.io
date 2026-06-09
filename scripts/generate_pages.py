@@ -4,6 +4,8 @@ import re
 import shutil
 from collections import Counter
 
+from category_config import load_category_config
+
 
 # _posts 개수를 기준으로 알파벳/숫자 카테고리별 목록 페이지를 자동 생성한다.
 # 새 글이 추가되어 페이지 수가 바뀌어도 page2, page3 같은 폴더를 직접 만들 필요가 없다.
@@ -12,9 +14,7 @@ posts_dir = os.path.join(base_dir, "_posts")
 config_path = os.path.join(base_dir, "_config.yml")
 category_dir = os.path.join(base_dir, "category")
 
-category_order = [*list("abcdefghijklmnopqrstuvwxyz"), "0-9"]
-category_labels = {letter: letter.upper() for letter in category_order}
-category_labels["0-9"] = "0-9"
+category_order, category_labels = load_category_config()
 
 
 def read_paginate():
