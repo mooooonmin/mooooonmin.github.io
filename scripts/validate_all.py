@@ -11,6 +11,7 @@ CHECKS = [
     ("Validate post format", [sys.executable, "scripts/check_post_format.py"]),
     ("Validate code fences", [sys.executable, "scripts/check_code_fences.py"]),
     ("Validate duplicate post times", [sys.executable, "scripts/check_duplicate_post_times.py"]),
+    ("Validate source text encoding", [sys.executable, "scripts/check_text_encoding.py"]),
     ("Validate whitespace", ["git", "diff", "--check"]),
 ]
 
