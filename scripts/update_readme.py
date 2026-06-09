@@ -86,7 +86,7 @@ for category in sorted(posts_by_category.keys(), key=lambda name: (category_orde
 
 readme = "\n".join(lines).rstrip() + "\n"
 
-with open(readme_path, "w", encoding="utf-8") as f:
+with open(readme_path, "w", encoding="utf-8", newline="\n") as f:
     f.write(readme)
 
 print("README update completed successfully.")

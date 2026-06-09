@@ -71,7 +71,7 @@ def write_page(path, layout, title, values):
     lines.append("---")
     lines.append("")
 
-    with open(path, "w", encoding="utf-8") as f:
+    with open(path, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines))
 
 
