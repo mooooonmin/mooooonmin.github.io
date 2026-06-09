@@ -125,3 +125,14 @@ tags: [database, rdbms, nosql, comparison]
 >
 > - 데이터 무결성과 트랜잭션 중요 → **RDB**
 > - 대규모 데이터와 확장성 중요 → **NoSQL**
+
+---
+
+## 출처
+
+1. PostgreSQL Documentation, Tutorial
+   https://www.postgresql.org/docs/current/tutorial.html
+2. MongoDB Documentation, What is MongoDB?
+   https://www.mongodb.com/docs/manual/
+3. MongoDB Documentation, Embedded Data
+   https://www.mongodb.com/docs/manual/data-modeling/concepts/embedding-vs-references/
