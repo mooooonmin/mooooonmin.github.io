@@ -25,6 +25,7 @@ on:
       - 'scripts/check_code_fences.py'
       - 'scripts/check_duplicate_post_times.py'
       - 'scripts/smoke_render.py'
+      - 'scripts/validate_all.py'
       - 'scripts/category_config.py'
       - '.github/workflows/update-readme.yml'
 
@@ -43,29 +44,8 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Normalize post times
-        run: python scripts/normalize_post_times.py
-
-      - name: Update post categories
-        run: python scripts/update_post_categories.py
-
-      - name: Generate category pages
-        run: python scripts/generate_pages.py
-
-      - name: Run script to update README
-        run: python scripts/update_readme.py
-
-      - name: Validate post format
-        run: python scripts/check_post_format.py
-
-      - name: Validate code fences
-        run: python scripts/check_code_fences.py
-
-      - name: Validate duplicate post times
-        run: python scripts/check_duplicate_post_times.py
-
-      - name: Validate generated diff
-        run: git diff --check
+      - name: Validate generated content
+        run: python scripts/validate_all.py
 
       - name: Build static site
         uses: actions/jekyll-build-pages@v1
