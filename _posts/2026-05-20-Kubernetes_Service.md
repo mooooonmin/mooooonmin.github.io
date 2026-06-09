@@ -7,9 +7,7 @@ tags: [kubernetes, k8s, service, networking, load-balancing]
 
 ## 1. 서비스(Service)란?
 
-> **First Word 법칙**
->
-> 서비스(Service): 외부 또는 내부 요청을 받아 Pod로 전달하는 통로
+서비스(Service)는 클러스터 안팎의 요청을 Pod로 안정적으로 전달하기 위한 Kubernetes 리소스다.
 
 서비스(Service)는 Kubernetes 클러스터 안에서 실행 중인 하나 이상의 Pod로 네트워크 애플리케이션을 노출하는 방법이다. Kubernetes 공식 문서는 Service를 클러스터 안에서 하나 이상의 Pod로 실행되는 네트워크 애플리케이션을 노출하는 방법이라고 설명한다. [1]
 
