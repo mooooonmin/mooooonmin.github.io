@@ -22,6 +22,8 @@ on:
       - 'scripts/update_readme.py'
       - 'scripts/generate_pages.py'
       - 'scripts/check_post_format.py'
+      - 'scripts/check_code_fences.py'
+      - 'scripts/check_duplicate_post_times.py'
       - 'scripts/smoke_render.py'
       - 'scripts/category_config.py'
       - '.github/workflows/update-readme.yml'
@@ -57,51 +59,10 @@ jobs:
         run: python scripts/check_post_format.py
 
       - name: Validate code fences
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-
-          bad = []
-          for path in Path("_posts").glob("*.md"):
-              text = path.read_text(encoding="utf-8")
-              if text.count("```") % 2:
-                  bad.append(str(path))
-
-          if bad:
-              print("\n".join(bad))
-              raise SystemExit(1)
-
-          print("All post code fences are balanced.")
-          PY
+        run: python scripts/check_code_fences.py
 
       - name: Validate duplicate post times
-        run: |
-          python - <<'PY'
-          import re
-          from collections import defaultdict
-          from pathlib import Path
-
-          seen = defaultdict(list)
-          for path in Path("_posts").glob("*.md"):
-              text = path.read_text(encoding="utf-8-sig")
-              match = re.search(
-                  r"^date:\s*(\d{4}-\d{2}-\d{2})\s+(\d{2}:\d{2}:\d{2})\s+([+-]\d{4})\s*$",
-                  text,
-                  re.MULTILINE,
-              )
-              if match:
-                  date, time, _timezone = match.groups()
-                  seen[(date, time)].append(str(path))
-
-          duplicates = {key: paths for key, paths in seen.items() if len(paths) > 1}
-          if duplicates:
-              for (date, time), paths in duplicates.items():
-                  print(date, time)
-                  print("\n".join(paths))
-              raise SystemExit(1)
-
-          print("No duplicate post date-time values found.")
-          PY
+        run: python scripts/check_duplicate_post_times.py
 
       - name: Validate generated diff
         run: git diff --check
