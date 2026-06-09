@@ -89,3 +89,12 @@ Lock 방식의 경우
 > - Consistency : 데이터 무결성 유지
 > - Isolation : Transaction 간 독립성
 > - Durability : 완료된 작업 영구 저장
+
+---
+
+## 출처
+
+1. PostgreSQL Documentation, Transactions
+   https://www.postgresql.org/docs/current/tutorial-transactions.html
+2. PostgreSQL Documentation, Transaction Isolation
+   https://www.postgresql.org/docs/current/transaction-iso.html

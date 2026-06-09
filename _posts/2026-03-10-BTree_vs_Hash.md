@@ -122,3 +122,12 @@ ORDER BY id
 > - 정렬된 데이터 구조
 > - Range Query 처리 가능
 > - 대부분의 RDBMS에서 기본 인덱스 구조로 사용
+
+---
+
+## 출처
+
+1. PostgreSQL Documentation, Index Types
+   https://www.postgresql.org/docs/current/indexes-types.html
+2. PostgreSQL Documentation, Indexes
+   https://www.postgresql.org/docs/current/indexes.html

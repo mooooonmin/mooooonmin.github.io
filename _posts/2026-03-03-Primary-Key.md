@@ -68,3 +68,10 @@ tags: [database, key, primary-key, relation]
 >
 > **Q. 외래키(FK)의 목적은 무엇인가?**
 > * 데이터의 무결성을 유지하고 테이블 간의 관계(Relation)를 정의하여 참조 무결성을 보장하기 위함.
+
+---
+
+## 출처
+
+1. PostgreSQL Documentation, Constraints
+   https://www.postgresql.org/docs/current/ddl-constraints.html
