@@ -107,14 +107,10 @@ jobs:
         run: git diff --check
 
       - name: Build static site
-        run: |
-          mkdir -p _site
-          docker run --rm \
-            -v "$PWD:/github/workspace" \
-            -v "$PWD/_site:/site-out" \
-            --entrypoint bash \
-            ghcr.io/actions/jekyll-build-pages:v1.0.13 \
-            -lc "cd /github/workspace && /usr/local/bundle/bin/github-pages build --source /github/workspace --destination /site-out"
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
 
       - name: Install Playwright
         run: |
