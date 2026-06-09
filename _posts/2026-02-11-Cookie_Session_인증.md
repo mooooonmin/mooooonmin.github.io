@@ -42,7 +42,7 @@ tags: [network, security, authentication, authorization, session]
 
 ---
 
-## 4. 추가 정리
+## 정리
 
 **Q. 서버 확장성 문제를 해결하는 방법은?**
 - **Sticky Session**: 특정 사용자의 요청을 처음 처리한 서버로만 고정 전달하는 방식.
