@@ -123,3 +123,10 @@ H3/H4 사이에는 `---`를 넣지 않는다.
 > 큰 섹션 사이는 `---`로 구분하고, 목록과 표는 정해진 Markdown 형식을 따른다.
 >
 > 자격증 포스트는 별도 형식을 유지한다.
+
+---
+
+## 출처
+
+1. docs/post-template.md
+2. scripts/check_post_format.py
