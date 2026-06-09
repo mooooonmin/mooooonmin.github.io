@@ -70,7 +70,7 @@ def update_post(post, new_time):
     content = post["content"][:start] + new_date_line + post["content"][end:]
 
     if content != post["content"]:
-        post["path"].write_text(content, encoding="utf-8")
+        post["path"].write_text(content, encoding="utf-8", newline="\n")
         return True
     return False
 
