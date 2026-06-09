@@ -41,12 +41,6 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1'
-          bundler-cache: true
-
       - name: Normalize post times
         run: python scripts/normalize_post_times.py
 
@@ -113,7 +107,14 @@ jobs:
         run: git diff --check
 
       - name: Build static site
-        run: bundle exec jekyll build
+        run: |
+          mkdir -p _site
+          docker run --rm \
+            -v "$PWD:/github/workspace" \
+            -v "$PWD/_site:/site-out" \
+            --entrypoint bash \
+            ghcr.io/actions/jekyll-build-pages:v1.0.13 \
+            -lc "cd /github/workspace && /usr/local/bundle/bin/github-pages build --source /github/workspace --destination /site-out"
 
       - name: Install Playwright
         run: |
