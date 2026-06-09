@@ -15,6 +15,8 @@ on:
       - 'images/**'
       - 'index.html'
       - 'search.html'
+      - '_config.yml'
+      - 'docs/**.md'
       - 'Gemfile'
       - 'Gemfile.lock'
       - 'scripts/normalize_post_times.py'
