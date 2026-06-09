@@ -88,3 +88,12 @@ class Stack(object):
 > **Q. 이 자료구조의 실질적인 활용도는?**
 > * 일반적인 Stack에 비해 Pop 연산의 비용이 O(n)으로 높기 때문에 실제 프로덕션 환경에서 사용되는 경우는 드묾.
 > * 다만, 가용 가능한 자원이 Queue뿐인 특수한 제약 상황에서의 문제 해결 능력을 검증하는 용도로 적합.
+
+---
+
+## 출처
+
+1. Pat Morin, Open Data Structures - Array-Based Lists
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/2_Array_Based_Lists.html
+2. Pat Morin, Open Data Structures - Linked Lists
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/3_Linked_Lists.html

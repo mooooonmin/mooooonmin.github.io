@@ -54,3 +54,12 @@ Array와의 결정적인 차이점은 메모리 저장의 **비연속성**
 - **메모리 저장**: Array는 연속적 저장, Linked List는 불연속적 저장 방식.
 - **연산 성능**: 조회 위주 작업은 Array(O(1)), 삽입/삭제 위주 작업은 Linked List(O(1))가 유리함.
 - **데이터 참조**: Linked List는 논리적 연결을 위해 주소(Next Address)를 추가 저장해야 함을 명시.
+
+---
+
+## 출처
+
+1. Pat Morin, Open Data Structures - Linked Lists
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/3_Linked_Lists.html
+2. MIT OpenCourseWare 6.006, Data Structures and Dynamic Arrays
+   https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/

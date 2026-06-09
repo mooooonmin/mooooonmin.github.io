@@ -85,3 +85,12 @@ class Queue(object):
 > **Q. 면접에서 이 질문의 의도는?**
 > * 기본적인 자료구조의 특성(LIFO vs FIFO)을 활용하여 새로운 기능을 설계하는 문제 해결 능력을 평가하기 위함.
 > * 특히 O(n)의 연산이 가끔 발생하더라도 전체적인 효율성이 O(1)로 수렴하는 **Amortized O(1)** 개념을 정확히 설명할 수 있는지 확인하는 것이 주된 목적.
+
+---
+
+## 출처
+
+1. Pat Morin, Open Data Structures - Array-Based Lists
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/2_Array_Based_Lists.html
+2. Pat Morin, Open Data Structures - Linked Lists
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/3_Linked_Lists.html

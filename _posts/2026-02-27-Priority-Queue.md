@@ -63,3 +63,12 @@ tags: [datastructure, priority-queue, heap]
 
 > **Q. 우선순위 큐의 대표적인 활용 사례는?**
 > * 네트워크 데이터 패킷의 우선순위 제어, 다익스트라(Dijkstra) 최단 경로 알고리즘, 운영체제의 CPU 스케줄링 등에서 필수적으로 사용.
+
+---
+
+## 출처
+
+1. Pat Morin, Open Data Structures - Heaps
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/10_Heaps.html
+2. Python Documentation, heapq - Heap queue algorithm
+   https://docs.python.org/3/library/heapq.html

@@ -54,3 +54,10 @@ tags: [datastructure, hash-table, collision]
 > * **충돌 해결**: 추가 메모리를 쓰는 **Chaining**과 테이블 내 빈 공간을 찾는 **Open Addressing**으로 나뉨.
 > * **성능 리스크**: Chaining의 최악의 경우 성능은 O(n)이며, Open Addressing은 클러스터링으로 인해 탐색 시간이 증가할 수 있음.
 > * **면접 포인트**: 각 기법의 시간 복잡도 차이와 클러스터링 현상의 원인 및 해결책(이중 해싱 등)을 연관 지어 설명하는 것이 중요.
+
+---
+
+## 출처
+
+1. Pat Morin, Open Data Structures - Hash Tables
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/5_Hash_Tables.html

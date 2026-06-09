@@ -60,3 +60,14 @@ tags: [datastructure, array, linked-list, comparison]
 - **Array**: 인덱스를 통한 빠른 데이터 접근(O(1))이 최대 장점이나, 중간 삽입/삭제 시 데이터 이동 비용(O(n))이 발생함.
 - **Linked List**: 동적 크기 조절과 삽입/삭제의 논리적 간결함이 강점이나, 특정 위치 탐색 시 순차 접근(O(n))으로 인해 느림.
 - **결론**: 데이터의 성격(정적/동적)과 주요 연산(조회/수정)의 빈도에 따라 적절한 자료구조를 선택하는 것이 필수적임.
+
+---
+
+## 출처
+
+1. Pat Morin, Open Data Structures - Array-Based Lists
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/2_Array_Based_Lists.html
+2. Pat Morin, Open Data Structures - Linked Lists
+   https://opendatastructures.org/versions/edition-0.1e/ods-java/3_Linked_Lists.html
+3. MIT OpenCourseWare 6.006, Data Structures and Dynamic Arrays
+   https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/
