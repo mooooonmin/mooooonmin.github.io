@@ -125,3 +125,10 @@ docs(posts): 커밋 메시지 작성 가이드 추가
 > 본문은 작업 배경, 추가/수정, 결과 순서로 작성한다.
 >
 > 검증 결과는 실제로 실행한 명령어와 결과만 적는다.
+
+---
+
+## 출처
+
+1. Conventional Commits, Specification v1.0.0
+   https://www.conventionalcommits.org/en/v1.0.0/
