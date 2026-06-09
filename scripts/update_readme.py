@@ -4,6 +4,8 @@ import re
 import urllib.parse
 from collections import defaultdict
 
+from category_config import load_category_config
+
 
 # README는 저장소 첫 화면에서 전체 글 목록을 확인하기 위한 인덱스다.
 # GitHub Actions가 _posts 변경 시 이 스크립트를 실행해 목록을 최신 상태로 맞춘다.
@@ -13,9 +15,7 @@ readme_path = os.path.join(base_dir, "README.md")
 
 data = defaultdict(lambda: defaultdict(list))
 
-category_order = [*list("abcdefghijklmnopqrstuvwxyz"), "0-9"]
-category_labels = {letter: letter.upper() for letter in category_order}
-category_labels["0-9"] = "0-9"
+category_order, category_labels = load_category_config()
 
 for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
     # Jekyll 게시글 파일명 규칙에서 날짜와 URL slug를 가져온다.
