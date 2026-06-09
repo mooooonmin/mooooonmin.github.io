@@ -18,13 +18,6 @@ layout: default
 		{"id":"{{ post.url | slugify }}","title":{{ post.title | jsonify }},"url":{{ post.url | jsonify }},"tags":{{ post.tags | join: " " | jsonify }},"content":{{ post.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
 		{% assign need_comma = true %}
 	{% endfor %}
-	{% for page in site.html_pages %}
-		{% if page.title and page.url != '/' and page.url != '/search/' %}
-		{% if need_comma %},{% endif %}
-		{"id":"page-{{ page.url | slugify }}","title":{{ page.title | jsonify }},"url":{{ page.url | jsonify }},"tags":"","content":{{ page.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
-		{% assign need_comma = true %}
-		{% endif %}
-	{% endfor %}
 	];
 
 	var baseurl = "{{ site.baseurl }}";
