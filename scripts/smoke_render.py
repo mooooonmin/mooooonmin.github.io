@@ -1,7 +1,6 @@
 import argparse
 import functools
 import http.server
-import json
 import socketserver
 import sys
 import threading
@@ -219,14 +218,16 @@ def run_smoke(args):
                     dark_mode = viewport_name == "desktop"
                     route_label = f"{viewport_name} {label} {route}"
                     context = browser.new_context(viewport=dict(VIEWPORTS_BY_NAME[viewport_name]))
-                    theme_value = json.dumps("dark" if dark_mode else "light")
-                    context.add_init_script(
-                        f"""() => {{
-                            window.localStorage.setItem("theme-mode", {theme_value});
-                            window.localStorage.removeItem("sidebar-collapsed");
-                        }}""",
-                    )
                     page = context.new_page()
+                    theme_value = "dark" if dark_mode else "light"
+                    page.goto(base_url, wait_until="domcontentloaded")
+                    page.evaluate(
+                        """theme => {
+                            window.localStorage.setItem("theme-mode", theme);
+                            window.localStorage.removeItem("sidebar-collapsed");
+                        }""",
+                        theme_value,
+                    )
                     try:
                         check_route(page, base_url, route, route_label, viewport_name, dark_mode)
                         print(f"PASS {route_label}")
