@@ -116,7 +116,7 @@ Kubernetes 공식 문서는 Deployment를 수동으로 스케일링할 때 `kube
 
 ---
 
-## 핵심 정리
+## 정리
 
 Deployment로 서버 개수를 늘리는 흐름은 다음과 같다.
 

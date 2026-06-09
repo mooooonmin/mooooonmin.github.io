@@ -45,7 +45,7 @@ tags: [network, http, method, rest]
 
 ---
 
-## 핵심 정리
+## 정리
 
 > Safe는 상태 변경 여부에 초점을 두고,
 > Idempotent는 반복 호출 시 최종 상태 동일 여부에 초점을 둔다.

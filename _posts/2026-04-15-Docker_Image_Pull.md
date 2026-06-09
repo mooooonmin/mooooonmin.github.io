@@ -85,7 +85,7 @@ docker pull nginx:stable-perl
 
 ---
 
-## 핵심 정리
+## 정리
 
 > **docker pull**
 >

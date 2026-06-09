@@ -112,7 +112,7 @@ docker run --name webserver -p 80:80 nginx
 
 ---
 
-## 핵심 정리
+## 정리
 
 Docker CLI와 Docker Compose는 서로 다른 문법을 사용하지만, 컨테이너 실행에 필요한 이미지, 포트, 볼륨, 환경 변수 같은 설정은 서로 대응시켜 이해할 수 있다. [1][2]
 

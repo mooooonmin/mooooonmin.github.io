@@ -104,7 +104,7 @@ Linux는 Windows나 macOS 같은 운영체제 계열이고,
 
 ---
 
-## 핵심 정리
+## 정리
 
 > Linux는 처음에는 Windows나 macOS 같은 운영체제 계열로 이해하면 된다.
 >

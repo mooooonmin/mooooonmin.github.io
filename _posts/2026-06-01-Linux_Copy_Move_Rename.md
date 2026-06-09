@@ -183,7 +183,7 @@ ls
 
 ---
 
-## 핵심 정리
+## 정리
 
 - `cp source target`은 파일을 복사할 때 사용한다.
 - `cp a.txt b.txt`는 `a.txt`를 `b.txt`라는 이름으로 복사한다.

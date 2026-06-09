@@ -107,7 +107,7 @@ tags: [database, rdbms, nosql, comparison]
 
 ---
 
-## 핵심 정리
+## 정리
 
 > **RDB**
 >
