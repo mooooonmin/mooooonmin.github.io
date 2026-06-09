@@ -62,3 +62,14 @@ tags: [network, http, cookie, session]
 - 쇼핑몰 장바구니 기능
 - 로그인 시 "아이디 저장" 또는 자동 로그인
 - 팝업창의 "오늘 더 이상 이 창을 보지 않음" 설정
+
+---
+
+## 출처
+
+1. MDN Web Docs, Using HTTP cookies
+   https://developer.mozilla.org/docs/Web/HTTP/Guides/Cookies
+2. RFC 6265, HTTP State Management Mechanism
+   https://www.rfc-editor.org/rfc/rfc6265
+3. OWASP Cheat Sheet Series, Session Management
+   https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html

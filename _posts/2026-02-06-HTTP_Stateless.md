@@ -58,3 +58,12 @@ HTTP는 기본적으로 요청과 응답이 끝나면 연결을 유지하지 않
 > 비연결성은 요청과 응답이 끝나면 연결을 종료하는 특성이다.
 >
 > 두 특성은 HTTP의 확장성과 자원 효율성을 높이는 핵심 요소다.
+
+---
+
+## 출처
+
+1. MDN Web Docs, Overview of HTTP
+   https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview
+2. RFC 9110, HTTP Semantics
+   https://datatracker.ietf.org/doc/html/rfc9110

@@ -51,3 +51,14 @@ tags: [network, http, method, rest]
 > Idempotent는 반복 호출 시 최종 상태 동일 여부에 초점을 둔다.
 >
 > 따라서 `PUT`, `DELETE`는 안전하지 않을 수 있지만 멱등할 수 있다.
+
+---
+
+## 출처
+
+1. RFC 9110, HTTP Semantics - Methods
+   https://datatracker.ietf.org/doc/html/rfc9110#name-methods
+2. RFC 9110, HTTP Semantics - Safe Methods
+   https://datatracker.ietf.org/doc/html/rfc9110#name-safe-methods
+3. RFC 9110, HTTP Semantics - Idempotent Methods
+   https://datatracker.ietf.org/doc/html/rfc9110#name-idempotent-methods

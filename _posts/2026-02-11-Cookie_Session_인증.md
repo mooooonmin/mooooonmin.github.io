@@ -52,3 +52,14 @@ tags: [network, security, authentication, authorization, session]
 **Q. 세션 방식과 JWT(토큰) 방식의 결정적 차이는?**
 - 세션은 **서버가 상태를 보관하는 방식(Stateful)**이고, JWT는 서버가 상태를 보관하지 않는 **무상태 방식(Stateless)**이다.
 - 확장성이 중요한 대규모 서비스에서는 서버 자원 부담이 상대적으로 적은 토큰 기반 인증이 자주 사용된다.
+
+---
+
+## 출처
+
+1. MDN Web Docs, Using HTTP cookies
+   https://developer.mozilla.org/docs/Web/HTTP/Guides/Cookies
+2. OWASP Cheat Sheet Series, Session Management
+   https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
+3. RFC 6265, HTTP State Management Mechanism
+   https://www.rfc-editor.org/rfc/rfc6265
