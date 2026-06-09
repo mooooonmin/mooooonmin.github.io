@@ -17,6 +17,7 @@ on:
       - 'search.html'
       - '_config.yml'
       - 'docs/**.md'
+      - '.gitattributes'
       - 'Gemfile'
       - 'Gemfile.lock'
       - 'scripts/normalize_post_times.py'
