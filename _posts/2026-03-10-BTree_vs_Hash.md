@@ -109,7 +109,7 @@ ORDER BY id
 
 ---
 
-## 핵심 정리
+## 정리
 
 > **Hash Index**
 >

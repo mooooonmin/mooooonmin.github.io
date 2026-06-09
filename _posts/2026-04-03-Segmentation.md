@@ -104,7 +104,7 @@ segment table과 page table을 함께 사용해야 한다는 비용이 생김. [
 
 ---
 
-## 핵심 정리
+## 정리
 
 > **Segmentation**
 >

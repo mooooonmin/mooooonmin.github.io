@@ -49,7 +49,7 @@ tags: [datastructure, hash-table, collision]
 
 ---
 
-## 핵심 정리
+## 정리
 
 > * **충돌 해결**: 추가 메모리를 쓰는 **Chaining**과 테이블 내 빈 공간을 찾는 **Open Addressing**으로 나뉨.
 > * **성능 리스크**: Chaining의 최악의 경우 성능은 O(n)이며, Open Addressing은 클러스터링으로 인해 탐색 시간이 증가할 수 있음.

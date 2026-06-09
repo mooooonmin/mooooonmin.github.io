@@ -147,7 +147,7 @@ vi app.txt
 
 ---
 
-## 핵심 정리
+## 정리
 
 - `vi app.txt` 또는 `vim app.txt`로 파일을 열 수 있다.
 - Vim은 처음 열렸을 때 보통 Normal mode로 시작한다.

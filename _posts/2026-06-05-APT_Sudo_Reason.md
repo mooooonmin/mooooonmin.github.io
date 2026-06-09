@@ -158,7 +158,7 @@ apt list --installed
 
 ---
 
-## 핵심 정리
+## 정리
 
 `apt install nginx`를 `sudo` 없이 실행하면 `/var/lib/dpkg/lock-frontend` 파일에 접근할 권한이 없어 `Permission denied`가 발생할 수 있다.
 

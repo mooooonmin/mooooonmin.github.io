@@ -54,7 +54,7 @@ tags: [datastructure, array, dynamic-array, amortized]
 
 ---
 
-## 핵심 정리
+## 정리
 
 - **Dynamic Array**: 크기 고민 없이 데이터를 추가할 수 있도록 자동 리사이징 기능을 제공하는 배열 구조.
 - **Amortized O(1)**: 리사이징 비용(O(n))이 가끔 발생하지만, 전체적인 추가(Append) 연산의 평균 효율은 상수로 유지.

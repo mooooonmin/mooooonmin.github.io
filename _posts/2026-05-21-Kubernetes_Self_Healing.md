@@ -114,7 +114,7 @@ Kubernetes의 Self-Healing은 크게 두 가지 흐름으로 이해하면 된다
 
 ---
 
-## 핵심 정리
+## 정리
 
 Kubernetes는 Pod 안의 컨테이너가 종료되면 `restartPolicy`에 따라 컨테이너를 자동으로 재시작할 수 있다. [2]
 

@@ -229,7 +229,7 @@ image: my-registry.example.com/spring-server:1.0
 
 ---
 
-## 핵심 정리
+## 정리
 
 Kubernetes에서 새로운 버전의 서버로 업데이트하는 흐름은 다음과 같다.
 

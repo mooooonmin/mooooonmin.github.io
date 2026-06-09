@@ -313,7 +313,7 @@ Kubernetes 공식 문서에 따르면 `NetworkPolicy`는 IP 주소 또는 포트
 
 ---
 
-## 핵심 정리
+## 정리
 
 MySQL처럼 외부 사용자가 직접 접근할 필요가 없는 DB는 `NodePort`로 노출하지 않는 것이 좋다.
 

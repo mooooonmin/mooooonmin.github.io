@@ -6,7 +6,7 @@ import sys
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 POSTS_DIR = os.path.join(BASE_DIR, "_posts")
 
-SUMMARY_TITLES = {"정리", "요약", "핵심 정리", "전체 정리와 주의점"}
+SUMMARY_TITLES = {"요약", "핵심 정리", "전체 정리와 주의점"}
 SOURCE_TITLES = {"참고 자료", "참고자료"}
 H3_NUMBER_PATTERNS = [
     re.compile(r"^\d+[\.)]\s+"),
@@ -85,7 +85,7 @@ def check_post(path):
 
         if line.startswith("## "):
             title = line[3:].strip()
-            if title not in {"핵심 정리", "출처"} and not re.match(r"^\d+\.\s+", title):
+            if title not in {"정리", "출처"} and not re.match(r"^\d+\.\s+", title):
                 errors.append((line_no, "일반 H2 제목은 `## 1. 제목` 형식을 사용해야 합니다."))
 
             if h2_seen and previous_nonblank(lines, index) != "---":
@@ -96,8 +96,8 @@ def check_post(path):
                 errors.append((line_no, "제목 아래에는 빈 줄을 정확히 1줄 둡니다."))
 
             normalized = re.sub(r"^\d+\.\s+", "", title)
-            if title != "핵심 정리" and (normalized in SUMMARY_TITLES or normalized.endswith("의 핵심 정리")):
-                errors.append((line_no, "마지막 요약 제목은 `## 핵심 정리`로 통일합니다."))
+            if title != "정리" and (normalized in SUMMARY_TITLES or normalized.endswith("의 정리")):
+                errors.append((line_no, "마지막 요약 제목은 `## 정리`로 통일합니다."))
             if title != "출처" and normalized in SOURCE_TITLES:
                 errors.append((line_no, "출처 섹션 제목은 `## 출처`로 통일합니다."))
 

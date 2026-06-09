@@ -150,7 +150,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 ---
 
-## 핵심 정리
+## 정리
 
 `docker exec -it`는 실행 중인 컨테이너 내부에 들어갈 때 사용하는 명령이다. [2]
 

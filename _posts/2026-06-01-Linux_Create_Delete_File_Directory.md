@@ -159,7 +159,7 @@ rm -rf target-name
 
 ---
 
-## 핵심 정리
+## 정리
 
 - `touch file-name`은 빈 파일을 만들 때 사용할 수 있다.
 - `mkdir directory-name`은 디렉터리를 만들 때 사용한다.

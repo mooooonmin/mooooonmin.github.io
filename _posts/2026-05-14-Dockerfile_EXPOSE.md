@@ -143,7 +143,7 @@ docker run -P my-server
 
 ---
 
-## 핵심 정리
+## 정리
 
 `EXPOSE`는 Dockerfile에서 컨테이너 내부 애플리케이션이 사용할 포트를 문서화하는 명령이다.
 

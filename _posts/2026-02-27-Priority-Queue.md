@@ -48,7 +48,7 @@ tags: [datastructure, priority-queue, heap]
 
 ---
 
-## 핵심 정리
+## 정리
 
 - **동작 원리**: Queue는 들어온 순서(Time)를 따르지만, Priority Queue는 값의 중요도(Priority)를 우선.
 - **구현 방식**: 효율적인 우선순위 유지를 위해 완전 이진 트리 구조인 Heap을 사용하며, 이는 배열로 구현하여 인덱스 연산으로 관리.
