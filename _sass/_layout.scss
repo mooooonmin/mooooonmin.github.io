@@ -611,8 +611,21 @@ h4 svg {
 
 		p {
 			line-height: 1.5;
+			color: var(--theme-muted);
 		}
 	}
+}
+
+.search-state {
+	color: var(--theme-muted);
+	font-size: 1.05rem;
+}
+
+.search-result-tags {
+	display: inline-block;
+	margin: 0 0 0.8rem;
+	color: var(--theme-subtle);
+	font-size: 0.9rem;
 }
 
 
