@@ -1,11 +1,11 @@
 ---
-title: 찾기
+title: Search
 sitemap: false
 layout: default
 ---
 
 <ul id="search-results"></ul>
-<p id="search-empty" style="display: none;">결과가 없습니다.</p>
+<p id="search-empty" class="search-state" style="display: none;"></p>
 
 <script>
 (function() {
@@ -15,13 +15,13 @@ layout: default
 	{% assign need_comma = false %}
 	{% for post in site.posts %}
 		{% if need_comma %},{% endif %}
-		{"id":"{{ post.url | slugify }}","title":{{ post.title | jsonify }},"url":{{ post.url | jsonify }},"content":{{ post.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
+		{"id":"{{ post.url | slugify }}","title":{{ post.title | jsonify }},"url":{{ post.url | jsonify }},"tags":{{ post.tags | join: " " | jsonify }},"content":{{ post.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
 		{% assign need_comma = true %}
 	{% endfor %}
 	{% for page in site.html_pages %}
 		{% if page.title and page.url != '/' and page.url != '/search/' %}
 		{% if need_comma %},{% endif %}
-		{"id":"page-{{ page.url | slugify }}","title":{{ page.title | jsonify }},"url":{{ page.url | jsonify }},"content":{{ page.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
+		{"id":"page-{{ page.url | slugify }}","title":{{ page.title | jsonify }},"url":{{ page.url | jsonify }},"tags":"","content":{{ page.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
 		{% assign need_comma = true %}
 		{% endif %}
 	{% endfor %}
@@ -55,13 +55,13 @@ layout: default
 		if (start > 0) out = "..." + out;
 		if (end < text.length) out = out + "...";
 		try {
-			out = out.replace(new RegExp("(" + escapeRegex(query) + ")", "gi"), "<strong style=\"color: #e53935;\">$1</strong>");
+			out = out.replace(new RegExp("(" + escapeRegex(query) + ")", "gi"), "<mark>$1</mark>");
 		} catch (e) {}
 		return out;
 	}
 
 	function run() {
-		// 블로그 규모가 작으므로 제목/본문 단순 부분 일치만으로 검색한다.
+		// 블로그 규모가 작으므로 제목/태그/본문 단순 부분 일치만으로 검색한다.
 		var data = window.__searchData || [];
 		var dataById = {};
 		data.forEach(function(item) {
@@ -81,8 +81,10 @@ layout: default
 			for (var id in dataById) {
 				var item = dataById[id];
 				var title = String(item.title || "");
+				var tags = String(item.tags || "");
 				var content = String(item.content || "");
-				if (title.toLowerCase().indexOf(q) !== -1 || content.toLowerCase().indexOf(q) !== -1)
+				var haystack = [title, tags, content].join(" ").toLowerCase();
+				if (haystack.indexOf(q) !== -1)
 					keys.push(id);
 			}
 		}
@@ -93,14 +95,18 @@ layout: default
 				var item = dataById[id];
 				var url = baseurl + (item.url || "").trim();
 				var title = item.title || "(제목 없음)";
+				var tags = item.tags ? "<span class=\"search-result-tags\">" + preview(item.tags, query, 120) + "</span>" : "";
 				var content = item.content || "";
-				html += "<li><h4><a href=\"" + url + "\">" + preview(title, query, 200) + "</a></h4><p><small>" + preview(content, query, 170) + "</small></p></li>";
+				html += "<li><h4><a href=\"" + url + "\">" + preview(title, query, 200) + "</a></h4>" + tags + "<p><small>" + preview(content, query, 170) + "</small></p></li>";
 			});
 			if (resultsEl) { resultsEl.innerHTML = html; resultsEl.style.display = ""; }
 			if (emptyEl) emptyEl.style.display = "none";
 		} else {
 			if (resultsEl) { resultsEl.innerHTML = ""; resultsEl.style.display = "none"; }
-			if (emptyEl) emptyEl.style.display = "block";
+			if (emptyEl) {
+				emptyEl.textContent = query ? "No results found." : "Enter a keyword to search posts.";
+				emptyEl.style.display = "block";
+			}
 		}
 	}
 

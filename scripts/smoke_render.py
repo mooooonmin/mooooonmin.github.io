@@ -16,6 +16,8 @@ ROUTES = [
     ("/tags/", "Tags"),
     ("/category/d/", "Category D"),
     ("/category/d/page2/", "Category D page 2"),
+    ("/search/?q=Linux", "Search results"),
+    ("/search/?q=no-result-token", "Search empty results"),
     ("/2026/05/20/Kubernetes_Deployment/", "Post with code and source"),
     ("/2026/02/13/Linux/", "Linux command post"),
 ]
@@ -149,6 +151,24 @@ def check_visual_surfaces(page, label):
         assert_true(current.is_visible(), f"{label}: pagination current marker hidden")
 
 
+def check_search_state(page, label, route):
+    if not route.startswith("/search/"):
+        return
+
+    if "no-result-token" in route:
+        empty_state = page.locator("#search-empty")
+        assert_true(empty_state.is_visible(), f"{label}: empty search state is hidden")
+        assert_true(
+            "No results found." in empty_state.inner_text(),
+            f"{label}: empty search message missing",
+        )
+        return
+
+    results = page.locator("#search-results li")
+    assert_true(results.count() > 0, f"{label}: search results missing")
+    assert_true(page.locator("#search-results mark").count() > 0, f"{label}: search highlight missing")
+
+
 def check_route(page, base_url, route, label, viewport_name, dark_mode):
     console_messages = []
     page.on(
@@ -174,6 +194,7 @@ def check_route(page, base_url, route, label, viewport_name, dark_mode):
     assert_true(actual_theme == expected_theme, f"{label}: expected {expected_theme} theme")
 
     check_visual_surfaces(page, label)
+    check_search_state(page, label, route)
     check_no_horizontal_overflow(page, label)
     check_sidebar_fixed(page, label)
 

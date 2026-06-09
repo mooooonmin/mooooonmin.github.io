@@ -62,7 +62,7 @@
         {{ site.title }}
         <button type="button" class="open-nav" id="open-nav"></button>
       </h1>
-      <form action="{{ site.baseurl }}/search/" method="get">
+      <form action="{{ site.baseurl }}/search/" method="get" id="site-search-form">
         <input type="text" name="q" id="search-input" placeholder="Search" />
         <input type="submit" value="Search" style="display: none" />
       </form>
@@ -120,6 +120,8 @@
         var openNavButton = document.getElementById("open-nav");
         var sidebarToggleButton = document.getElementById("toggle-sidebar");
         var themeToggleButton = document.getElementById("theme-toggle");
+        var searchForm = document.getElementById("site-search-form");
+        var searchInput = document.getElementById("search-input");
         var collapsedClass = "nav-collapsed";
         var storageKey = "sidebar-collapsed";
 
@@ -159,6 +161,17 @@
         if (openNavButton) {
           openNavButton.addEventListener("click", function () {
             body.classList.toggle("nav-open");
+          });
+        }
+
+        if (searchForm && searchInput) {
+          searchInput.addEventListener("keydown", function (event) {
+            if (event.key !== "Enter") {
+              return;
+            }
+
+            event.preventDefault();
+            searchForm.submit();
           });
         }
 
