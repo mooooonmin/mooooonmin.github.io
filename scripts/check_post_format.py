@@ -64,6 +64,8 @@ def check_post(path):
     errors = []
     in_fence = False
     h2_seen = False
+    has_summary = False
+    has_source = False
 
     for index, line in enumerate(lines):
         stripped = line.strip()
@@ -85,6 +87,11 @@ def check_post(path):
 
         if line.startswith("## "):
             title = line[3:].strip()
+            if title == "정리":
+                has_summary = True
+            if title == "출처":
+                has_source = True
+
             if title not in {"정리", "출처"} and not re.match(r"^\d+\.\s+", title):
                 errors.append((line_no, "일반 H2 제목은 `## 1. 제목` 형식을 사용해야 합니다."))
 
@@ -103,6 +110,11 @@ def check_post(path):
 
     if in_fence:
         errors.append((len(lines), "닫히지 않은 코드블록이 있습니다."))
+
+    if not has_summary:
+        errors.append((len(lines), "일반 포스트에는 `## 정리` 섹션이 필요합니다."))
+    if not has_source:
+        errors.append((len(lines), "일반 포스트에는 `## 출처` 섹션이 필요합니다."))
 
     return errors
 
