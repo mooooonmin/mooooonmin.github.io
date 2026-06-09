@@ -26,6 +26,7 @@ on:
       - 'scripts/check_post_format.py'
       - 'scripts/check_code_fences.py'
       - 'scripts/check_duplicate_post_times.py'
+      - 'scripts/check_text_encoding.py'
       - 'scripts/smoke_render.py'
       - 'scripts/validate_all.py'
       - 'scripts/category_config.py'
