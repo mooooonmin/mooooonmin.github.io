@@ -7,9 +7,7 @@ tags: [kubernetes, k8s, pod, deployment, self-healing, restart-policy]
 
 ## 1. Self-Healing이란?
 
-> **First Word 법칙**
->
-> Self-Healing: 문제가 생긴 컨테이너나 Pod를 Kubernetes가 자동으로 복구하는 기능
+Self-Healing은 문제가 생긴 컨테이너나 Pod를 Kubernetes가 원하는 상태에 맞게 다시 복구하는 동작을 의미한다.
 
 Kubernetes에는 Self-Healing 기능이 있다. Kubernetes 공식 문서는 Self-Healing을 실패한 컨테이너를 자동으로 교체하고, 노드를 사용할 수 없을 때 워크로드를 다시 스케줄링하며, 시스템의 원하는 상태를 유지하는 기능으로 설명한다. [1]
 

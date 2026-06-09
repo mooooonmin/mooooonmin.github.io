@@ -7,9 +7,7 @@ tags: [kubernetes, k8s, deployment, replicaset, pod]
 
 ## 1. 디플로이먼트(Deployment)란?
 
-> **First Word 법칙**
->
-> 디플로이먼트(Deployment): 파드를 묶음으로 쉽게 관리할 수 있는 기능
+디플로이먼트(Deployment)는 여러 Pod를 원하는 상태로 유지하고, 업데이트와 롤백을 쉽게 관리하기 위한 Kubernetes 리소스다.
 
 디플로이먼트(Deployment)는 애플리케이션 워크로드를 실행하기 위한 파드(Pod) 집합을 관리하는 Kubernetes 리소스다. Kubernetes 공식 문서는 Deployment가 보통 상태를 유지하지 않는 애플리케이션 워크로드를 실행하기 위해 Pod 집합을 관리한다고 설명한다. [1]
 
