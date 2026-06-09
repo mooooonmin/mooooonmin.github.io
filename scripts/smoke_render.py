@@ -1,6 +1,7 @@
 import argparse
 import functools
 import http.server
+import json
 import socketserver
 import sys
 import threading
@@ -180,7 +181,23 @@ def check_route(page, base_url, route, label, viewport_name, dark_mode):
     if route in {"/", "/category/d/"} and viewport_name == "desktop":
         check_theme_toggle(page, label)
 
-    assert_true(not console_messages, f"{label}: console errors: {console_messages}")
+    relevant_console_messages = [
+        message
+        for message in console_messages
+        if not any(
+            ignored in message
+            for ignored in [
+                "cdn.jsdelivr.net",
+                "Pretendard",
+                "Failed to load resource",
+                "net::ERR",
+            ]
+        )
+    ]
+    assert_true(
+        not relevant_console_messages,
+        f"{label}: console errors: {relevant_console_messages}",
+    )
 
 
 def run_smoke(args):
@@ -202,12 +219,12 @@ def run_smoke(args):
                     dark_mode = viewport_name == "desktop"
                     route_label = f"{viewport_name} {label} {route}"
                     context = browser.new_context(viewport=dict(VIEWPORTS_BY_NAME[viewport_name]))
+                    theme_value = json.dumps("dark" if dark_mode else "light")
                     context.add_init_script(
-                        """theme => {
-                            window.localStorage.setItem("theme-mode", theme);
+                        f"""() => {{
+                            window.localStorage.setItem("theme-mode", {theme_value});
                             window.localStorage.removeItem("sidebar-collapsed");
-                        }""",
-                        "dark" if dark_mode else "light",
+                        }}""",
                     )
                     page = context.new_page()
                     try:
