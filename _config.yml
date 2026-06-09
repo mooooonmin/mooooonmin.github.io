@@ -1,5 +1,5 @@
-# ----
-# Site (블로그)
+# -----
+# Site
 
 title: Repository
 url: "https://mooooonmin.github.io"
@@ -8,7 +8,9 @@ google_analytics_key:
 encoding: utf-8
 timezone: Asia/Seoul
 
-# SEO (jekyll-seo-tag)
+# -----
+# SEO
+
 logo: /images/database.svg
 description:
 author:
@@ -38,6 +40,9 @@ exclude:
   - serve.sh
   - docs/post-template.md
   - docs/workflow.md
+
+# -----
+# Defaults
 
 defaults:
   - scope:
