@@ -8,11 +8,21 @@ on:
     paths:
       - '_posts/**.md'
       - '_data/categories.json'
+      - '_includes/**'
+      - '_layouts/**'
+      - '_sass/**'
+      - 'css/**'
+      - 'images/**'
+      - 'index.html'
+      - 'search.html'
+      - 'Gemfile'
+      - 'Gemfile.lock'
       - 'scripts/normalize_post_times.py'
       - 'scripts/update_post_categories.py'
       - 'scripts/update_readme.py'
       - 'scripts/generate_pages.py'
       - 'scripts/check_post_format.py'
+      - 'scripts/smoke_render.py'
       - 'scripts/category_config.py'
       - '.github/workflows/update-readme.yml'
 
@@ -30,6 +40,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
 
       - name: Normalize post times
         run: python scripts/normalize_post_times.py
@@ -95,6 +110,18 @@ jobs:
 
       - name: Validate generated diff
         run: git diff --check
+
+      - name: Build static site
+        run: bundle exec jekyll build
+
+      - name: Install Playwright
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Run render smoke tests
+        run: python scripts/smoke_render.py
 
       - name: Commit and Push changes
         run: |
