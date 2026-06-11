@@ -124,11 +124,12 @@
 </details>
 
 <details>
-<summary><b>I (5)</b></summary>
+<summary><b>I (6)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-11 | [IP Address](https://mooooonmin.github.io/2026/06/11/IP_Address/) |
 | 2026-05-19 | [ImagePullBackOff](https://mooooonmin.github.io/2026/05/19/Kubernetes_Image_Pull_Policy/) |
 | 2026-03-24 | [IPC](https://mooooonmin.github.io/2026/03/24/IPC/) |
 | 2026-03-09 | [Index Column](https://mooooonmin.github.io/2026/03/09/Index_Column/) |
