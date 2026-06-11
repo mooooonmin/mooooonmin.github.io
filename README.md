@@ -84,6 +84,17 @@
 </details>
 
 <details>
+<summary><b>E (1)</b></summary>
+<div markdown="1">
+
+| Date | Title |
+|---|---|
+| 2026-06-12 | [Echo Print Text](https://mooooonmin.github.io/2026/06/12/Echo_Print_Text/) |
+
+</div>
+</details>
+
+<details>
 <summary><b>F (1)</b></summary>
 <div markdown="1">
 
