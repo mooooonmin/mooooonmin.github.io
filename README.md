@@ -151,11 +151,12 @@
 </details>
 
 <details>
-<summary><b>K (8)</b></summary>
+<summary><b>K (9)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-15 | [Kafka Message Queue](https://mooooonmin.github.io/2026/06/15/Kafka_Message_Queue/) |
 | 2026-05-23 | [Kubernetes에서 외부 MySQL 접근 막기](https://mooooonmin.github.io/2026/05/23/Kubernetes_MySQL_ClusterIP/) |
 | 2026-05-22 | [Kubernetes Volume](https://mooooonmin.github.io/2026/05/22/Kubernetes_Volume/) |
 | 2026-05-21 | [서버가 죽었을 때 자동으로 복구하는 기능](https://mooooonmin.github.io/2026/05/21/Kubernetes_Self_Healing/) |
