@@ -272,11 +272,12 @@
 </details>
 
 <details>
-<summary><b>S (9)</b></summary>
+<summary><b>S (10)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-15 | [Shell Script Run](https://mooooonmin.github.io/2026/06/15/Shell_Script_Run/) |
 | 2026-06-08 | [Standard Output](https://mooooonmin.github.io/2026/06/08/Standard_Output/) |
 | 2026-06-08 | [Standard Error](https://mooooonmin.github.io/2026/06/08/Standard_Error/) |
 | 2026-06-04 | [Sudo](https://mooooonmin.github.io/2026/06/04/Linux_Sudo/) |
