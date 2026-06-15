@@ -52,7 +52,7 @@ spec:
             - containerPort: 8080
           env:
             - name: MY_ACCOUNT
-              value: jaeseong
+              value: USER1
             - name: MY_PASSWORD
               value: pwd1234
 ```
@@ -82,7 +82,7 @@ kind: ConfigMap
 metadata:
   name: spring-config
 data:
-  my-account: jscode
+  my-account: USER2
   my-password: password123
 ```
 
@@ -90,7 +90,7 @@ data:
 
 ```yaml
 data:
-  my-account: jscode
+  my-account: USER2
   my-password: password123
 ```
 
@@ -99,8 +99,8 @@ Kubernetes 공식 문서에 따르면 ConfigMap은 대부분의 Kubernetes 오�
 위 예시에서는 확인을 쉽게 하기 위해 기존 Deployment에 직접 적었던 값과 다르게 설정했다.
 
 ```text
-기존 값: jaeseong / pwd1234
-ConfigMap 값: jscode / password123
+기존 값: USER1 / pwd1234
+ConfigMap 값: USER2 / password123
 ```
 
 ---
@@ -223,7 +223,7 @@ kubectl exec -it spring-deployment-xxxxxxxxxx-aaaaa -- printenv MY_ACCOUNT
 예상 출력은 다음과 같다.
 
 ```text
-jscode
+USER2
 ```
 
 비밀번호 예시 값도 확인하려면 다음처럼 볼 수 있다.
