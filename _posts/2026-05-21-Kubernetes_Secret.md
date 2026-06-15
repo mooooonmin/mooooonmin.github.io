@@ -32,7 +32,7 @@ kind: ConfigMap
 metadata:
   name: spring-config
 data:
-  my-account: jscode
+  my-account: USER1
   my-password: password123
 ```
 
@@ -61,7 +61,7 @@ kind: ConfigMap
 metadata:
   name: spring-config
 data:
-  my-account: jscode
+  my-account: USER1
 ```
 
 이제 ConfigMap에는 공개되어도 큰 문제가 없는 일반 설정값만 남는다.
@@ -221,7 +221,7 @@ kubectl exec -it spring-deployment-xxxxxxxxxx-aaaaa -- printenv MY_ACCOUNT
 예상 출력은 다음과 같다.
 
 ```text
-jscode
+USER1
 ```
 
 Secret에서 가져온 값도 확인한다.

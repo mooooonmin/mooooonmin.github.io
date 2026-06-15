@@ -58,14 +58,14 @@ Docker Compose를 쓰지 않으면 컨테이너를 실행할 때마다 긴 `dock
 예를 들어 MySQL 컨테이너를 실행한다고 해보자.
 
 ```bash
-docker run -e MYSQL_ROOT_PASSWORD=password123 -p 3306:3306 -v /Users/jaeseong/Documents/Develop/docker-mysql/mysql_data:/var/lib/mysql -d mysql
+docker run -e MYSQL_ROOT_PASSWORD=password123 -p 3306:3306 -v /Users/USER1/Documents/Develop/docker-mysql/mysql_data:/var/lib/mysql -d mysql
 ```
 
 위 명령어에는 여러 설정이 들어 있다.
 
 - `-e MYSQL_ROOT_PASSWORD=password123`: MySQL root 비밀번호를 환경 변수로 설정한다.
 - `-p 3306:3306`: 호스트의 3306번 포트와 컨테이너의 3306번 포트를 연결한다.
-- `-v /Users/jaeseong/Documents/Develop/docker-mysql/mysql_data:/var/lib/mysql`: 호스트 디렉터리를 컨테이너의 MySQL 데이터 디렉터리에 마운트한다.
+- `-v /Users/USER1/Documents/Develop/docker-mysql/mysql_data:/var/lib/mysql`: 호스트 디렉터리를 컨테이너의 MySQL 데이터 디렉터리에 마운트한다.
 - `-d`: 컨테이너를 백그라운드에서 실행한다.
 - `mysql`: 사용할 이미지 이름이다.
 
@@ -82,7 +82,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - /Users/jaeseong/Documents/Develop/docker-mysql/mysql_data:/var/lib/mysql
+      - /Users/USER1/Documents/Develop/docker-mysql/mysql_data:/var/lib/mysql
 ```
 
 이제 MySQL 컨테이너를 실행할 때는 다음 명령어만 사용하면 된다.
