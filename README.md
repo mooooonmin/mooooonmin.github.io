@@ -151,11 +151,12 @@
 </details>
 
 <details>
-<summary><b>K (11)</b></summary>
+<summary><b>K (12)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-17 | [Kafka Produce Consume CLI](https://mooooonmin.github.io/2026/06/17/Kafka_Produce_Consume_CLI/) |
 | 2026-06-16 | [Kafka Topic CLI](https://mooooonmin.github.io/2026/06/16/Kafka_Topic_CLI/) |
 | 2026-06-15 | [Kafka Topic Producer Consumer](https://mooooonmin.github.io/2026/06/15/Kafka_Topic_Producer_Consumer/) |
 | 2026-06-15 | [Kafka Message Queue](https://mooooonmin.github.io/2026/06/15/Kafka_Message_Queue/) |
