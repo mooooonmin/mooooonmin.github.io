@@ -151,11 +151,12 @@
 </details>
 
 <details>
-<summary><b>K (14)</b></summary>
+<summary><b>K (15)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-18 | [Kafka Consumer Sequential Processing](https://mooooonmin.github.io/2026/06/18/Kafka_Consumer_Sequential_Processing/) |
 | 2026-06-18 | [Kafka Async Performance](https://mooooonmin.github.io/2026/06/18/Kafka_Async_Performance/) |
 | 2026-06-17 | [Kafka Produce Consume CLI](https://mooooonmin.github.io/2026/06/17/Kafka_Produce_Consume_CLI/) |
 | 2026-06-17 | [Kafka Consumer Group Offset](https://mooooonmin.github.io/2026/06/17/Kafka_Consumer_Group_Offset/) |
