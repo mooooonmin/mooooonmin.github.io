@@ -71,7 +71,7 @@
           <li
             class="nav-item top-level {% if page.url == '/' %}current{% endif %}"
           >
-            <a href="{{ site.baseurl }}/">All</a>
+            <a href="{{ site.baseurl }}/">All <span class="category-count">({{ site.posts | size }})</span></a>
           </li>
           <li
             class="nav-item top-level {% if page.url contains '/tags/' %}current{% endif %}"
