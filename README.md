@@ -151,11 +151,12 @@
 </details>
 
 <details>
-<summary><b>K (17)</b></summary>
+<summary><b>K (18)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-19 | [Kafka Partition Count Calculation](https://mooooonmin.github.io/2026/06/19/Kafka_Partition_Count_Calculation/) |
 | 2026-06-19 | [Kafka Partition Count CLI](https://mooooonmin.github.io/2026/06/19/Kafka_Partition_Count_CLI/) |
 | 2026-06-19 | [Kafka Partition](https://mooooonmin.github.io/2026/06/19/Kafka_Partition/) |
 | 2026-06-18 | [Kafka Consumer Sequential Processing](https://mooooonmin.github.io/2026/06/18/Kafka_Consumer_Sequential_Processing/) |
