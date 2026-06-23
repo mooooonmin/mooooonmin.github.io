@@ -151,11 +151,12 @@
 </details>
 
 <details>
-<summary><b>K (21)</b></summary>
+<summary><b>K (22)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-23 | [Kafka Three Node Verification](https://mooooonmin.github.io/2026/06/23/Kafka_Three_Node_Verification/) |
 | 2026-06-23 | [Kafka Three Node Setup](https://mooooonmin.github.io/2026/06/23/Kafka_Three_Node_Setup/) |
 | 2026-06-22 | [Kafka Node Broker Controller Cluster Replication](https://mooooonmin.github.io/2026/06/22/Kafka_Node_Broker_Controller_Cluster_Replication/) |
 | 2026-06-22 | [Kafka Consumer Lag](https://mooooonmin.github.io/2026/06/22/Kafka_Consumer_Lag/) |
