@@ -7,7 +7,7 @@ tags: [kafka, topic, cli, kafka-topics, backend]
 
 ## 1. CLI를 활용한 Kafka 조작
 
-이전 글에서는 백엔드 서버가 Kafka에 메시지를 넣고 읽는 흐름을 중심으로 설명했다.
+백엔드 서버가 Kafka에 메시지를 넣고 읽는 흐름만 먼저 보면,
 그래서 Kafka는 Spring Boot 같은 백엔드 서버 코드로만 조작하는 것처럼 느껴질 수 있다.
 
 하지만 Kafka는 CLI로도 조작할 수 있다.

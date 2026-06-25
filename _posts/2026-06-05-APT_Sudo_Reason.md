@@ -7,7 +7,7 @@ tags: [linux, ubuntu, apt, sudo, dpkg, permission]
 
 ## 1. `sudo` 없이 `apt`를 실행하면 어떻게 될까?
 
-이전 글에서 `apt` 명령어를 사용할 때 아래처럼 `sudo`를 붙여서 실행했다.
+`apt` 명령어는 아래처럼 `sudo`를 붙여서 실행하는 경우가 많다.
 
 ```bash
 sudo apt install [패키지명]
@@ -186,4 +186,3 @@ sudo apt purge --auto-remove [패키지명]
 [3] Debian FAQ, "The Debian package management tools", <https://www.debian.org/doc/manuals/debian-faq/pkgtools.html>
 
 [4] Sudo Manual, "`sudo`, `sudoedit` - execute a command as another user", <https://www.sudo.ws/docs/man/1.9.9/sudo.man/>
-

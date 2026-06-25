@@ -7,7 +7,7 @@ tags: [kafka, consumer-group, offset, consumer, cli]
 
 ## 1. 메시지를 어디까지 읽었는지 기억하기
 
-이전 글에서는 `kafka-console-consumer.sh`에 `--from-beginning` 옵션을 붙여 Topic에 있는 메시지를 처음부터 읽어봤다.
+`kafka-console-consumer.sh`에 `--from-beginning` 옵션을 붙이면 Topic에 있는 메시지를 처음부터 읽을 수 있다.
 
 ```bash
 bin/kafka-console-consumer.sh \

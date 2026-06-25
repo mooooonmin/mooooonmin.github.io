@@ -7,7 +7,7 @@ tags: [kafka, kraft, cluster, controller, broker, replication]
 
 ## 1. 왜 Kafka 서버를 3대로 구성할까?
 
-이전 글에서 Kafka Node 1대만 운영하면 그 Node에 장애가 나는 순간 서비스 전체에 영향을 줄 수 있다고 설명했다.
+Kafka Node 1대만 운영하면 그 Node에 장애가 나는 순간 서비스 전체에 영향을 줄 수 있다.
 
 Kafka KRaft 문서는 Controller quorum을 보통 3대 또는 5대로 두며, 3대일 때는 1대 장애를 견딜 수 있다고 설명한다. [1]
 
@@ -339,7 +339,6 @@ Kafka Node를 3대로 구성하면 controller quorum을 3대로 만들어 일부
 4. Node 2, Node 3을 시작한 뒤 `add-controller`로 quorum에 추가한다.
 5. `describe --status`에서 `CurrentVoters`가 3개인지 확인한다.
 
-다음 글에서는 이렇게 만든 Kafka 서버 3대가 실제로 잘 연동되는지 확인하는 과정을 이어서 다룬다.
 
 ---
 
