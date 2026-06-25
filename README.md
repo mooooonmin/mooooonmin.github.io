@@ -290,11 +290,12 @@
 </details>
 
 <details>
-<summary><b>S (10)</b></summary>
+<summary><b>S (11)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-26 | [Spring Boot Kafka Three Brokers](https://mooooonmin.github.io/2026/06/26/Spring_Boot_Kafka_Three_Brokers/) |
 | 2026-06-15 | [Shell Script Run](https://mooooonmin.github.io/2026/06/15/Shell_Script_Run/) |
 | 2026-06-08 | [Standard Output](https://mooooonmin.github.io/2026/06/08/Standard_Output/) |
 | 2026-06-08 | [Standard Error](https://mooooonmin.github.io/2026/06/08/Standard_Error/) |
