@@ -151,11 +151,12 @@
 </details>
 
 <details>
-<summary><b>K (23)</b></summary>
+<summary><b>K (24)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-25 | [Kafka Follower Write](https://mooooonmin.github.io/2026/06/25/Kafka_Follower_Write/) |
 | 2026-06-24 | [Kafka Topic Describe Fields](https://mooooonmin.github.io/2026/06/24/Kafka_Topic_Describe_Fields/) |
 | 2026-06-23 | [Kafka Three Node Verification](https://mooooonmin.github.io/2026/06/23/Kafka_Three_Node_Verification/) |
 | 2026-06-23 | [Kafka Three Node Setup](https://mooooonmin.github.io/2026/06/23/Kafka_Three_Node_Setup/) |
