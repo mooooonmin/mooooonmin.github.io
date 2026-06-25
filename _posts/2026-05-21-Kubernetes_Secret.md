@@ -22,7 +22,7 @@ Secret = 비밀번호, 토큰, 인증키 같은 민감한 값 관리
 
 ## 2. 기존 ConfigMap 살펴보기
 
-이전 글에서는 환경 변수를 ConfigMap으로 분리했다.
+환경 변수를 ConfigMap으로 분리해두었다고 가정하자.
 
 `spring-config.yaml`
 

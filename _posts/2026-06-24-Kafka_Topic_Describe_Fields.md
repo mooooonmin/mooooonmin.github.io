@@ -129,7 +129,7 @@ Apache Kafka 공식 문서는 leader를 해당 파티션에 대한 모든 읽기
 
 즉, Producer가 메시지를 넣고 Consumer가 읽어갈 때 직접 상대하는 대상은 leader이다.
 
-이전 글에서 설명했던 복습 내용을 짧게 정리하면 아래와 같다.
+핵심만 짧게 정리하면 아래와 같다.
 
 1. leader partition은 읽기/쓰기를 직접 처리한다.
 2. follower replica는 leader의 데이터를 복제한다.

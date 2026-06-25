@@ -7,7 +7,7 @@ tags: [kafka, leader, follower, producer, broker, replication]
 
 ## 1. 팔로워 파티션이 있는 노드에 메시지를 넣으면 어떻게 될까?
 
-이전 글에서 아래처럼 설명했다.
+먼저 아래 설명을 떠올려보자.
 
 ```text
 리더 파티션은 프로듀서나 컨슈머가 직접적으로 메시지를 쓰고 읽는 파티션이다.

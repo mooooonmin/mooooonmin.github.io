@@ -92,7 +92,7 @@ curl localhost:8080
 
 이 명령어는 현재 Linux 서버 자기 자신을 기준으로 8080번 포트에 요청을 보낸다.
 
-예를 들어 이전 글에서 Spring Boot 서버를 아래처럼 실행했다고 해보자.
+예를 들어 Spring Boot 서버를 아래처럼 실행했다고 해보자.
 
 ```bash
 nohup java -jar linux-springboot-0.0.1-SNAPSHOT.jar &
