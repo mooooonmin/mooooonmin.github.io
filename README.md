@@ -187,11 +187,12 @@
 </details>
 
 <details>
-<summary><b>L (6)</b></summary>
+<summary><b>L (7)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-26 | [Log Levels](https://mooooonmin.github.io/2026/06/26/Log_Levels/) |
 | 2026-06-11 | [Linux Port Lsof](https://mooooonmin.github.io/2026/06/11/Linux_Port_Lsof/) |
 | 2026-05-27 | [ls -l/ls -a](https://mooooonmin.github.io/2026/05/27/Linux_Ls_Long_All/) |
 | 2026-05-26 | [리눅스 배포판과 터미널 기본 조작법](https://mooooonmin.github.io/2026/05/26/Linux_Distribution_Terminal_Basics/) |
