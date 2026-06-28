@@ -187,12 +187,13 @@
 </details>
 
 <details>
-<summary><b>L (8)</b></summary>
+<summary><b>L (9)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
 | 2026-06-29 | [Log Line Fields](https://mooooonmin.github.io/2026/06/29/Log_Line_Fields/) |
+| 2026-06-29 | [Log File Output](https://mooooonmin.github.io/2026/06/29/Log_File_Output/) |
 | 2026-06-26 | [Log Levels](https://mooooonmin.github.io/2026/06/26/Log_Levels/) |
 | 2026-06-11 | [Linux Port Lsof](https://mooooonmin.github.io/2026/06/11/Linux_Port_Lsof/) |
 | 2026-05-27 | [ls -l/ls -a](https://mooooonmin.github.io/2026/05/27/Linux_Ls_Long_All/) |
