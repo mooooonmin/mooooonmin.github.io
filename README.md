@@ -187,11 +187,12 @@
 </details>
 
 <details>
-<summary><b>L (9)</b></summary>
+<summary><b>L (10)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-06-30 | [Logback Appenders](https://mooooonmin.github.io/2026/06/30/Logback_Appenders/) |
 | 2026-06-29 | [Log Line Fields](https://mooooonmin.github.io/2026/06/29/Log_Line_Fields/) |
 | 2026-06-29 | [Log File Output](https://mooooonmin.github.io/2026/06/29/Log_File_Output/) |
 | 2026-06-26 | [Log Levels](https://mooooonmin.github.io/2026/06/26/Log_Levels/) |
