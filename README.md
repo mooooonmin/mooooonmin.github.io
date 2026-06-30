@@ -84,11 +84,12 @@
 </details>
 
 <details>
-<summary><b>E (1)</b></summary>
+<summary><b>E (2)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-07-01 | [ELK Stack](https://mooooonmin.github.io/2026/07/01/ELK_Stack/) |
 | 2026-06-12 | [Echo Print Text](https://mooooonmin.github.io/2026/06/12/Echo_Print_Text/) |
 
 </div>
