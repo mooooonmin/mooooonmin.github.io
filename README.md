@@ -188,11 +188,12 @@
 </details>
 
 <details>
-<summary><b>L (11)</b></summary>
+<summary><b>L (12)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-07-06 | [Logging Architecture With Elasticsearch](https://mooooonmin.github.io/2026/07/06/Logging_Architecture_With_Elasticsearch/) |
 | 2026-07-01 | [Logstash Core Features](https://mooooonmin.github.io/2026/07/01/Logstash_Core_Features/) |
 | 2026-06-30 | [Logback Appenders](https://mooooonmin.github.io/2026/06/30/Logback_Appenders/) |
 | 2026-06-29 | [Log Line Fields](https://mooooonmin.github.io/2026/06/29/Log_Line_Fields/) |
