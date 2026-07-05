@@ -361,6 +361,17 @@
 </details>
 
 <details>
+<summary><b>W (1)</b></summary>
+<div markdown="1">
+
+| Date | Title |
+|---|---|
+| 2026-07-06 | [Why Elasticsearch For Logs](https://mooooonmin.github.io/2026/07/06/Why_Elasticsearch_For_Logs/) |
+
+</div>
+</details>
+
+<details>
 <summary><b>0-9 (18)</b></summary>
 <div markdown="1">
 
