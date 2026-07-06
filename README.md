@@ -152,11 +152,12 @@
 </details>
 
 <details>
-<summary><b>K (26)</b></summary>
+<summary><b>K (27)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-07-07 | [Kibana Core Features](https://mooooonmin.github.io/2026/07/07/Kibana_Core_Features/) |
 | 2026-06-26 | [Kafka Broker Count](https://mooooonmin.github.io/2026/06/26/Kafka_Broker_Count/) |
 | 2026-06-25 | [Kafka Leader Failure](https://mooooonmin.github.io/2026/06/25/Kafka_Leader_Failure/) |
 | 2026-06-25 | [Kafka Follower Write](https://mooooonmin.github.io/2026/06/25/Kafka_Follower_Write/) |
