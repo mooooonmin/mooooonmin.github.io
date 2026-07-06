@@ -211,11 +211,12 @@
 </details>
 
 <details>
-<summary><b>M (4)</b></summary>
+<summary><b>M (5)</b></summary>
 <div markdown="1">
 
 | Date | Title |
 |---|---|
+| 2026-07-07 | [Monitoring Need And Tools](https://mooooonmin.github.io/2026/07/07/Monitoring_Need_And_Tools/) |
 | 2026-05-22 | [MySQL과 연결이 제대로 되지 않았다면 어떻게 될까?](https://mooooonmin.github.io/2026/05/22/Kubernetes_MySQL_Connection_Failure/) |
 | 2026-03-23 | [Multi process vs Multi thread](https://mooooonmin.github.io/2026/03/23/Multi_Process_vs_Multi_Thread/) |
 | 2026-03-19 | [Multi thread](https://mooooonmin.github.io/2026/03/19/Multi_Thread/) |
