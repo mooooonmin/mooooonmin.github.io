@@ -12,16 +12,16 @@
         // CSS가 내려오기 전에 테마를 먼저 지정해 라이트/다크 전환 시 화면 깜빡임을 줄인다.
         try {
           var savedTheme = window.localStorage.getItem("theme-mode");
-          var prefersDark = window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches;
-          var theme = savedTheme || (prefersDark ? "dark" : "light");
+          var theme = savedTheme === "light" ? "light" : "blue";
+          if (savedTheme === "dark") {
+            window.localStorage.setItem("theme-mode", "blue");
+          }
           document.documentElement.setAttribute("data-theme", theme);
         } catch (error) {
-          document.documentElement.setAttribute("data-theme", "light");
+          document.documentElement.setAttribute("data-theme", "blue");
         }
       })();
     </script>
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css?v={{ site.time | date: '%Y%m%d%H%M%S' }}" />
     <link rel="apple-touch-icon" href="{{ site.baseurl }}/images/database.svg" />
     <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/images/database.svg" />
@@ -41,29 +41,30 @@
     {% endif %}
   </head>
 
-  <body class="{% if page.url == '/tags/' %}tag-page-body{% endif %}">
+  <body class="{% if page.url == '/tags/' %}tag-page-body{% endif %}{% if page.layout == 'post' %} post-page-body{% endif %}">
     <button
       type="button"
       class="sidebar-toggle"
       id="toggle-sidebar"
       aria-controls="site-sidebar"
       aria-expanded="true"
-      aria-label="Collapse category panel"
+      aria-label="카테고리 패널 접기"
     ></button>
     <header id="site-sidebar">
-      <h1>
-        <a href="{{ site.baseurl }}/"
-          ><img
+      <h1 class="site-title">
+        <a href="{{ site.baseurl }}/" class="site-title-link">
+          <img
             src="{{ site.baseurl }}/images/database.svg"
             width="40"
             height="40"
             alt="{{ site.title }} logo"
-        /></a>
-        {{ site.title }}
-        <button type="button" class="open-nav" id="open-nav"></button>
+          />
+          <span>{{ site.title }}</span>
+        </a>
+        <button type="button" class="open-nav" id="open-nav" aria-label="메뉴 열기" aria-expanded="false"></button>
       </h1>
       <form action="{{ site.baseurl }}/search/" method="get" id="site-search-form">
-        <input type="text" name="q" id="search-input" placeholder="Search" />
+        <input type="text" name="q" id="search-input" placeholder="SEARCH" aria-label="블로그 검색" />
         <input type="submit" value="Search" style="display: none" />
       </form>
       <nav class="full-navigation">
@@ -71,12 +72,12 @@
           <li
             class="nav-item top-level {% if page.url == '/' %}current{% endif %}"
           >
-            <a href="{{ site.baseurl }}/">All <span class="category-count">({{ site.posts | size }})</span></a>
+            <a href="{{ site.baseurl }}/">ALL <span class="category-count">({{ site.posts | size }})</span></a>
           </li>
           <li
             class="nav-item top-level {% if page.url contains '/tags/' %}current{% endif %}"
           >
-            <a href="{{ site.baseurl }}/tags/">Tags</a>
+            <a href="{{ site.baseurl }}/tags/">TAGS</a>
           </li>
           {% assign postsByCategory = site.posts | group_by: "category" %}
           {% assign category_order = site.data.categories.order %}
@@ -93,19 +94,6 @@
           {% endfor %}
         </ul>
       </nav>
-      {% comment %}긴 카테고리 목록은 nav만 스크롤되고, 테마 토글은 사이드바 하단에 남도록 nav 밖에 둔다.{% endcomment %}
-      <div class="theme-switcher">
-        <button
-          type="button"
-          class="theme-toggle"
-          id="theme-toggle"
-          aria-label="다크 모드로 변경"
-          aria-pressed="false"
-        >
-          <span class="theme-toggle-icon" aria-hidden="true"></span>
-          <span class="theme-toggle-label">다크 모드</span>
-        </button>
-      </div>
     </header>
 
     <section class="main">
@@ -114,6 +102,21 @@
       </div>
       <article class="content">{{ content }}</article>
     </section>
+    <footer class="status-bar" aria-label="사이트 상태">
+      <span class="status-segment status-site">SITE : {{ site.title }}</span>
+      <span class="status-segment status-page">PAGE : {{ page.title | default: site.title }}</span>
+      <span class="status-segment status-count">POSTS : {{ site.posts | size }}</span>
+      <button
+        type="button"
+        class="status-segment status-theme-toggle"
+        id="theme-toggle"
+        aria-label="밝은 테마로 변경"
+        aria-pressed="true"
+      >
+        <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+        <span class="theme-toggle-label">MODE : BLUE</span>
+      </button>
+    </footer>
     <script>
       (function () {
         var body = document.body;
@@ -134,33 +137,36 @@
             );
             sidebarToggleButton.setAttribute(
               "aria-label",
-              isCollapsed ? "Expand category panel" : "Collapse category panel",
+              isCollapsed ? "카테고리 패널 펼치기" : "카테고리 패널 접기",
             );
           }
         }
 
         function setTheme(theme) {
           // 실제 색상 변경은 CSS 변수와 data-theme 속성이 처리한다. JS는 상태 저장과 접근성 문구만 갱신한다.
-          var nextTheme = theme === "dark" ? "dark" : "light";
+          var nextTheme = theme === "light" ? "light" : "blue";
           document.documentElement.setAttribute("data-theme", nextTheme);
+          document.documentElement.style.colorScheme = nextTheme === "blue" ? "dark" : "light";
 
           if (themeToggleButton) {
-            var isDark = nextTheme === "dark";
+            var isBlue = nextTheme === "blue";
             var label = themeToggleButton.querySelector(".theme-toggle-label");
-            themeToggleButton.setAttribute("aria-pressed", String(isDark));
+            themeToggleButton.setAttribute("aria-pressed", String(isBlue));
             themeToggleButton.setAttribute(
               "aria-label",
-              isDark ? "라이트 모드로 변경" : "다크 모드로 변경",
+              isBlue ? "밝은 테마로 변경" : "파랑 테마로 변경",
             );
             if (label) {
-              label.textContent = isDark ? "라이트 모드" : "다크 모드";
+              label.textContent = isBlue ? "MODE : BLUE" : "MODE : LIGHT";
             }
           }
         }
 
         if (openNavButton) {
           openNavButton.addEventListener("click", function () {
-            body.classList.toggle("nav-open");
+            var isOpen = body.classList.toggle("nav-open");
+            openNavButton.setAttribute("aria-expanded", String(isOpen));
+            openNavButton.setAttribute("aria-label", isOpen ? "메뉴 닫기" : "메뉴 열기");
           });
         }
 
@@ -199,13 +205,13 @@
 
         if (themeToggleButton) {
           var currentTheme =
-            document.documentElement.getAttribute("data-theme") || "light";
+            document.documentElement.getAttribute("data-theme") || "blue";
           setTheme(currentTheme);
 
           themeToggleButton.addEventListener("click", function () {
             var activeTheme =
-              document.documentElement.getAttribute("data-theme") || "light";
-            var nextTheme = activeTheme === "dark" ? "light" : "dark";
+              document.documentElement.getAttribute("data-theme") || "blue";
+            var nextTheme = activeTheme === "blue" ? "light" : "blue";
             setTheme(nextTheme);
 
             try {
