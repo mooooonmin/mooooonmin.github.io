@@ -5,7 +5,7 @@ date: 2026-02-11 00:00:00 +0900
 tags: [network, security, authentication, authorization, session]
 ---
 
-<img src="/images/2026-02-11-Cookie_Session_인증/로그인.jpeg" alt="로그인" style="max-width:100%;" />
+<img src="/images/2026-02-11-Cookie_Session_인증/로그인.jpeg" alt="로그인 인증 흐름" width="1920" height="1080" loading="lazy" decoding="async" />
 
 ## 1. 인증(Authentication)과 인가(Authorization)의 정의
 
