@@ -4,6 +4,7 @@ import sys
 
 
 CHECKS = [
+    ("Run automation unit tests", [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"]),
     ("Validate post format", [sys.executable, "scripts/check_post_format.py"]),
     ("Validate duplicate post times", [sys.executable, "scripts/check_duplicate_post_times.py"]),
     ("Validate source text encoding", [sys.executable, "scripts/check_text_encoding.py"]),

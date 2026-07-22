@@ -6,6 +6,7 @@ GENERATORS = [
     ("Normalize post times", [sys.executable, "scripts/normalize_post_times.py"]),
     ("Update post categories", [sys.executable, "scripts/update_post_categories.py"]),
     ("Generate category pages", [sys.executable, "scripts/generate_pages.py"]),
+    ("Generate search index", [sys.executable, "scripts/generate_search_index.py"]),
     ("Update README", [sys.executable, "scripts/update_readme.py"]),
 ]
 

@@ -28,6 +28,7 @@ tags: [tag1, tag2]
 아래 파일과 디렉터리는 스크립트가 자동으로 갱신한다.
 
 - `README.md`
+- `assets/data/search-index.json`
 - `category/**`
 - 포스트의 시간 정규화
 - 포스트의 A-Z, 0-9 카테고리 정규화
@@ -47,6 +48,8 @@ python scripts/sync_generated.py
 ```powershell
 python scripts/validate_all.py
 ```
+
+이 명령은 생성 스크립트와 front matter 단위 테스트도 함께 실행한다.
 
 화면 렌더링까지 포함하려면 아래 명령을 실행한다.
 
