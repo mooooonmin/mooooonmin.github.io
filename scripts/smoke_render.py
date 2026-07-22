@@ -20,6 +20,7 @@ ROUTES = [
     ("/search/?q=no-result-token", "Search empty results"),
     ("/2026/05/20/Kubernetes_Deployment/", "Post with code and source"),
     ("/2026/02/13/Linux/", "Linux command post"),
+    ("/404.html", "404 page"),
 ]
 
 VIEWPORTS = [
@@ -197,6 +198,18 @@ def check_search_state(page, label, route):
     assert_true(page.locator("#search-results mark").count() > 0, f"{label}: search highlight missing")
 
 
+def check_tag_state(page, label, route):
+    if route != "/tags/":
+        return
+
+    button = page.locator(".tag-cloud-button").first
+    assert_true(button.count() == 1, f"{label}: tag button missing")
+    button.click()
+    page.locator("#tag-result-list li").first.wait_for(state="visible")
+    assert_true(button.get_attribute("aria-pressed") == "true", f"{label}: active tag state missing")
+    assert_true(page.locator("#tag-results").is_visible(), f"{label}: tag results hidden")
+
+
 def check_route(page, base_url, route, label, viewport_name, blue_mode):
     console_messages = []
     page.on(
@@ -220,9 +233,11 @@ def check_route(page, base_url, route, label, viewport_name, blue_mode):
     expected_theme = "blue" if blue_mode else "light"
     actual_theme = page.locator("html").get_attribute("data-theme")
     assert_true(actual_theme == expected_theme, f"{label}: expected {expected_theme} theme")
+    assert_true(page.title() != "Repository", f"{label}: document title is not page-specific")
 
     check_visual_surfaces(page, label)
     check_search_state(page, label, route)
+    check_tag_state(page, label, route)
     check_no_horizontal_overflow(page, label)
     check_sidebar_fixed(page, label)
     check_mobile_navigation(page, base_url, route, label, viewport_name)

@@ -1,4 +1,4 @@
-name: Update README Index
+name: Validate and Update Blog
 
 on:
   push:
@@ -6,39 +6,37 @@ on:
       - main
       - master
     paths:
-      - '_posts/**.md'
-      - '_data/categories.json'
+      - '_posts/**'
+      - '_data/**'
       - '_includes/**'
       - '_layouts/**'
+      - '_plugins/**'
       - '_sass/**'
+      - 'assets/**'
+      - 'category/**'
       - 'css/**'
+      - 'docs/**'
       - 'images/**'
-      - 'index.html'
-      - 'search.html'
+      - 'scripts/**'
+      - 'tags/**'
+      - '*.html'
+      - '*.json'
       - '_config.yml'
-      - 'docs/**.md'
       - '.gitattributes'
       - 'Gemfile'
       - 'Gemfile.lock'
-      - 'scripts/normalize_post_times.py'
-      - 'scripts/update_post_categories.py'
-      - 'scripts/update_readme.py'
-      - 'scripts/generate_pages.py'
-      - 'scripts/check_post_format.py'
-      - 'scripts/check_code_fences.py'
-      - 'scripts/check_duplicate_post_times.py'
-      - 'scripts/check_text_encoding.py'
-      - 'scripts/smoke_render.py'
-      - 'scripts/validate_all.py'
-      - 'scripts/category_config.py'
       - '.github/workflows/update-readme.yml'
 
+concurrency:
+  group: blog-validation-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  update-readme:
+  validate:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      
+      contents: read
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -48,7 +46,10 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Validate generated content
+      - name: Synchronize generated content
+        run: python scripts/sync_generated.py
+
+      - name: Validate source
         run: python scripts/validate_all.py
 
       - name: Build static site
@@ -66,10 +67,34 @@ jobs:
       - name: Run render smoke tests
         run: python scripts/smoke_render.py
 
-      - name: Commit and Push changes
+  update-generated:
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout latest branch state
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - name: Synchronize generated content
+        run: python scripts/sync_generated.py
+
+      - name: Commit and push generated changes
         run: |
           git config --local user.name 'github-actions[bot]'
           git config --local user.email 'github-actions[bot]@users.noreply.github.com'
           git add README.md category _posts
-          git commit -m "docs: auto-update generated pages [skip ci]" || echo "No changes to commit"
-          git push
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit'
+          else
+            git commit -m 'docs: auto-update generated pages [skip ci]'
+            git push
+          fi

@@ -2,6 +2,8 @@ import os
 import re
 import sys
 
+from front_matter import parse_inline_list, read_front_matter
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 POSTS_DIR = os.path.join(BASE_DIR, "_posts")
@@ -15,27 +17,8 @@ H3_NUMBER_PATTERNS = [
 ]
 
 
-def split_front_matter(text):
-    text = text.lstrip("\ufeff")
-    if not text.startswith("---"):
-        return {}, text.splitlines()
-
-    parts = text.split("---", 2)
-    if len(parts) < 3:
-        return {}, text.splitlines()
-
-    front_matter = {}
-    for line in parts[1].splitlines():
-        if ":" not in line:
-            continue
-        key, value = line.split(":", 1)
-        front_matter[key.strip()] = value.strip()
-    return front_matter, parts[2].splitlines()
-
-
 def is_exam_post(front_matter):
-    tags = front_matter.get("tags", "")
-    return "exam" in {tag.strip().strip('"').strip("'") for tag in tags.strip("[]").split(",")}
+    return "exam" in set(parse_inline_list(front_matter.get("tags", "")))
 
 
 def previous_nonblank(lines, index):
@@ -56,9 +39,12 @@ def next_blank_count(lines, index):
 
 def check_post(path):
     with open(path, "r", encoding="utf-8-sig") as f:
-        front_matter, lines = split_front_matter(f.read())
+        front_matter, body = read_front_matter(f.read())
+    lines = body.splitlines()
 
     if is_exam_post(front_matter):
+        if body.count("```") % 2:
+            return [(len(lines), "닫히지 않은 코드블록이 있습니다.")]
         return []
 
     errors = []

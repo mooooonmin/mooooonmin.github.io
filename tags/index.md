@@ -16,10 +16,11 @@ permalink: /tags/
         <button
           type="button"
           class="tag-cloud-item tag-cloud-button"
-          data-tag-name="{{ tag_name | downcase }}"
-          data-tag-label="{{ tag_name }}"
+          data-tag-name="{{ tag_name | downcase | escape }}"
+          data-tag-label="{{ tag_name | escape }}"
           data-count="{{ tag_posts.size }}"
-          style="--tag-count: {{ tag_posts.size }};"
+          aria-pressed="false"
+          aria-controls="tag-result-list"
         >
           <span class="tag-cloud-name">{{ tag_name }}</span>
           <span class="tag-cloud-count">{{ tag_posts.size }}</span>
@@ -28,32 +29,15 @@ permalink: /tags/
     </div>
   </div>
 
-  <div class="tag-pane tag-pane-posts">
+  <div class="tag-pane tag-pane-posts" aria-live="polite">
     <div class="tag-result-header">
       <h4 id="tag-result-title">Select a tag</h4>
       <span class="tag-section-count" id="tag-result-count"></span>
     </div>
 
-    {% for tag in sorted_tags %}
-      {% assign tag_name = tag[0] %}
-      {% assign tag_posts = tag[1] %}
-      <section
-        class="tag-section tag-section-panel"
-        data-tag-name="{{ tag_name | downcase }}"
-        data-tag-label="{{ tag_name }}"
-        data-count="{{ tag_posts.size }}"
-      >
-        <ul class="post-list">
-          {% for post in tag_posts %}
-            <li>
-              <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-              <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      </section>
-    {% endfor %}
-
+    <section class="tag-section tag-section-panel" id="tag-results" hidden>
+      <ul class="post-list" id="tag-result-list"></ul>
+    </section>
     <p class="tag-empty-state tag-empty-state-visible" id="tag-empty-state">Select a tag on the left to see related posts.</p>
   </div>
 </section>
@@ -63,67 +47,102 @@ permalink: /tags/
 
 <script>
   (function () {
-    var cloud = document.getElementById("tag-cloud-list");
+    var indexUrl = {{ "/tags.json" | relative_url | jsonify }};
     var resultTitle = document.getElementById("tag-result-title");
     var resultCount = document.getElementById("tag-result-count");
+    var resultSection = document.getElementById("tag-results");
+    var resultList = document.getElementById("tag-result-list");
     var emptyState = document.getElementById("tag-empty-state");
     var buttons = Array.prototype.slice.call(document.querySelectorAll(".tag-cloud-button"));
-    var sections = Array.prototype.slice.call(document.querySelectorAll(".tag-section-panel"));
     var activeTag = null;
+    var indexPromise = null;
 
     function normalize(value) {
       return (value || "").toLowerCase().trim();
     }
 
     function getHashTag() {
-      return normalize(window.location.hash.replace("#", ""));
+      try {
+        return normalize(decodeURIComponent(window.location.hash.substring(1)));
+      } catch (error) {
+        return "";
+      }
     }
 
     function setHashTag(tagName) {
-      var nextUrl = window.location.pathname + window.location.search + (tagName ? ("#" + tagName) : "");
-      window.history.replaceState(null, "", nextUrl);
+      var hash = tagName ? ("#" + encodeURIComponent(tagName)) : "";
+      window.history.replaceState(null, "", window.location.pathname + window.location.search + hash);
     }
 
-    function sortAlphabetically(items) {
-      items.sort(function (a, b) {
-        return a.dataset.tagName.localeCompare(b.dataset.tagName);
+    function getButton(tagName) {
+      return buttons.find(function (button) {
+        return button.dataset.tagName === tagName;
       });
-      return items;
     }
 
-    function getSection(tagName) {
-      return sections.find(function (section) {
-        return section.dataset.tagName === tagName;
-      });
+    function loadIndex() {
+      if (!indexPromise) {
+        indexPromise = fetch(indexUrl).then(function (response) {
+          if (!response.ok) throw new Error("Tag index request failed");
+          return response.json();
+        });
+      }
+      return indexPromise;
     }
 
     function syncButtonState() {
       buttons.forEach(function (button) {
-        button.classList.toggle("is-active", button.dataset.tagName === activeTag);
+        var isActive = button.dataset.tagName === activeTag;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
       });
     }
 
-    function render() {
-      var activeSection = activeTag ? getSection(activeTag) : null;
+    function showMessage(message) {
+      resultSection.hidden = true;
+      resultList.replaceChildren();
+      emptyState.textContent = message;
+      emptyState.style.display = "block";
+    }
 
-      sections.forEach(function (section) {
-        section.style.display = section === activeSection ? "block" : "none";
+    function renderPosts(posts) {
+      resultList.replaceChildren();
+      posts.forEach(function (post) {
+        var item = document.createElement("li");
+        var date = document.createElement("span");
+        var link = document.createElement("a");
+        date.className = "post-date";
+        date.textContent = post.date;
+        link.href = {{ site.baseurl | jsonify }} + post.url;
+        link.textContent = post.title;
+        item.append(date, link);
+        resultList.appendChild(item);
       });
+      resultSection.hidden = false;
+      emptyState.style.display = "none";
+    }
 
-      if (activeSection) {
-        resultTitle.textContent = "#" + activeSection.dataset.tagLabel;
-        resultCount.textContent = activeSection.dataset.count + "개";
-        emptyState.style.display = "none";
-      } else {
+    async function render() {
+      var button = activeTag ? getButton(activeTag) : null;
+      if (!button) {
         resultTitle.textContent = "Select a tag";
         resultCount.textContent = "";
-        emptyState.style.display = "block";
+        showMessage("Select a tag on the left to see related posts.");
+        return;
+      }
+
+      resultTitle.textContent = "#" + button.dataset.tagLabel;
+      resultCount.textContent = button.dataset.count + "개";
+      showMessage("Loading posts...");
+
+      try {
+        var index = await loadIndex();
+        if (activeTag !== button.dataset.tagName) return;
+        renderPosts(index[activeTag] || []);
+      } catch (error) {
+        showMessage("Tag posts are temporarily unavailable.");
       }
     }
-
-    sortAlphabetically(buttons).forEach(function (button) {
-      cloud.appendChild(button);
-    });
 
     buttons.forEach(function (button) {
       button.addEventListener("click", function () {
@@ -136,14 +155,13 @@ permalink: /tags/
 
     window.addEventListener("hashchange", function () {
       var nextTag = getHashTag();
-      activeTag = buttons.some(function (button) { return button.dataset.tagName === nextTag; }) ? nextTag : null;
+      activeTag = getButton(nextTag) ? nextTag : null;
       syncButtonState();
       render();
     });
 
     var hashTag = getHashTag();
-    activeTag = buttons.some(function (button) { return button.dataset.tagName === hashTag; }) ? hashTag : null;
-
+    activeTag = getButton(hashTag) ? hashTag : null;
     syncButtonState();
     render();
   })();

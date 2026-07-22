@@ -4,8 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark light" />
-    {% seo title=false %}
-    <title>{{ site.title }}</title>
+    {% seo %}
     {% feed_meta %}
     <script>
       (function () {
@@ -41,7 +40,7 @@
     {% endif %}
   </head>
 
-  <body class="{% if page.url == '/tags/' %}tag-page-body{% endif %}{% if page.layout == 'post' %} post-page-body{% endif %}">
+  <body class="{% if page.url == '/tags/' %}tag-page-body{% endif %}">
     <button
       type="button"
       class="sidebar-toggle"
@@ -123,8 +122,6 @@
         var openNavButton = document.getElementById("open-nav");
         var sidebarToggleButton = document.getElementById("toggle-sidebar");
         var themeToggleButton = document.getElementById("theme-toggle");
-        var searchForm = document.getElementById("site-search-form");
-        var searchInput = document.getElementById("search-input");
         var collapsedClass = "nav-collapsed";
         var storageKey = "sidebar-collapsed";
 
@@ -167,17 +164,6 @@
             var isOpen = body.classList.toggle("nav-open");
             openNavButton.setAttribute("aria-expanded", String(isOpen));
             openNavButton.setAttribute("aria-label", isOpen ? "메뉴 닫기" : "메뉴 열기");
-          });
-        }
-
-        if (searchForm && searchInput) {
-          searchInput.addEventListener("keydown", function (event) {
-            if (event.key !== "Enter") {
-              return;
-            }
-
-            event.preventDefault();
-            searchForm.submit();
           });
         }
 

@@ -1,0 +1,21 @@
+---
+layout: null
+permalink: /tags.json
+sitemap: false
+---
+{
+{% assign sorted_tags = site.tags | sort %}
+{% for tag in sorted_tags %}
+  {% assign tag_name = tag[0] %}
+  {% assign tag_posts = tag[1] %}
+  {{ tag_name | downcase | jsonify }}: [
+  {% for post in tag_posts %}
+    {
+      "title": {{ post.title | jsonify }},
+      "url": {{ post.url | jsonify }},
+      "date": {{ post.date | date: "%Y-%m-%d" | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+  ]{% unless forloop.last %},{% endunless %}
+{% endfor %}
+}

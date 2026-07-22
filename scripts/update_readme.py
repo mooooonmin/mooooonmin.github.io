@@ -1,92 +1,94 @@
-import glob
-import os
 import re
 import urllib.parse
 from collections import defaultdict
+from pathlib import Path
 
 from category_config import load_category_config
+from front_matter import parse_front_matter, read_front_matter
 
 
-# README는 저장소 첫 화면에서 전체 글 목록을 확인하기 위한 인덱스다.
-# GitHub Actions가 _posts 변경 시 이 스크립트를 실행해 목록을 최신 상태로 맞춘다.
-base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-posts_dir = os.path.join(base_dir, "_posts")
-readme_path = os.path.join(base_dir, "README.md")
+BASE_DIR = Path(__file__).resolve().parent.parent
+POSTS_DIR = BASE_DIR / "_posts"
+README_PATH = BASE_DIR / "README.md"
+CONFIG_PATH = BASE_DIR / "_config.yml"
+POST_FILENAME = re.compile(r"^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$")
 
-data = defaultdict(lambda: defaultdict(list))
 
-category_order, category_labels = load_category_config()
+def get_site_prefix():
+    config = parse_front_matter(CONFIG_PATH.read_text(encoding="utf-8").splitlines())
+    site_url = config.get("url", "").rstrip("/")
+    baseurl = config.get("baseurl", "").strip("/")
+    if not site_url:
+        raise ValueError("_config.yml must define url")
+    return site_url + (f"/{baseurl}" if baseurl else "")
 
-for filepath in glob.glob(os.path.join(posts_dir, "*.md")):
-    # Jekyll 게시글 파일명 규칙에서 날짜와 URL slug를 가져온다.
-    filename = os.path.basename(filepath)
-    match = re.match(r"^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$", filename)
-    if not match:
-        continue
 
-    year, month, day, slug = match.groups()
-    slug = slug.strip()
-    slug_url = urllib.parse.quote(slug)
+def collect_posts(site_prefix):
+    posts_by_category = defaultdict(list)
+    for path in POSTS_DIR.glob("*.md"):
+        match = POST_FILENAME.match(path.name)
+        if not match:
+            continue
 
-    with open(filepath, "r", encoding="utf-8") as f:
-        content = f.read()
+        year, month, day, slug = match.groups()
+        front_matter, _ = read_front_matter(path.read_text(encoding="utf-8"))
+        title = front_matter.get("title", slug)
+        category = front_matter.get("category", "Uncategorized")
+        post_url = (
+            f"{site_prefix}/{year}/{month}/{day}/"
+            f"{urllib.parse.quote(slug.strip())}/"
+        )
+        posts_by_category[category].append(
+            {"title": title, "date": f"{year}-{month}-{day}", "url": post_url}
+        )
+    return posts_by_category
 
-    title = slug
-    category = "Uncategorized"
 
-    content_for_front_matter = content.lstrip("\ufeff")
+def render_readme(posts_by_category, category_order, category_labels):
+    category_rank = {name: index for index, name in enumerate(category_order)}
+    lines = []
+    for category in sorted(
+        posts_by_category,
+        key=lambda name: (category_rank.get(name, len(category_rank)), str(name)),
+    ):
+        posts = sorted(
+            posts_by_category[category],
+            key=lambda item: (item["date"], item["title"]),
+            reverse=True,
+        )
+        category_label = category_labels.get(category, category)
+        lines.extend(
+            [
+                "<details>",
+                f"<summary><b>{category_label} ({len(posts)})</b></summary>",
+                '<div markdown="1">',
+                "",
+                "| Date | Title |",
+                "|---|---|",
+            ]
+        )
+        for post in posts:
+            lines.append(f"| {post['date']} | [{post['title']}]({post['url']}) |")
+        lines.extend(["", "</div>", "</details>", ""])
+    return "\n".join(lines).rstrip() + "\n"
 
-    if content_for_front_matter.startswith("---"):
-        # README에는 제목과 카테고리만 필요하므로 front matter에서 필요한 값만 추출한다.
-        parts = content_for_front_matter.split("---", 2)
-        if len(parts) >= 3:
-            front_matter = parts[1]
-            title_match = re.search(r'^\s*title:\s*"?([^\n"]+)"?\s*$', front_matter, re.MULTILINE)
-            if title_match:
-                title = title_match.group(1).strip()
-            category_match = re.search(r'^\s*category:\s*"?([^\n"]+)"?\s*$', front_matter, re.MULTILINE)
-            if category_match:
-                category = category_match.group(1).strip()
 
-    post_url = f"https://mooooonmin.github.io/{year}/{month}/{day}/{slug_url}/"
-
-    data[year][category].append(
-        {
-            "title": title,
-            "date": f"{year}-{month}-{day}",
-            "url": post_url,
-        }
+def main():
+    category_order, category_labels = load_category_config()
+    readme = render_readme(
+        collect_posts(get_site_prefix()),
+        category_order,
+        category_labels,
     )
+    current = README_PATH.read_text(encoding="utf-8") if README_PATH.exists() else ""
+    if readme == current:
+        print("README is already up to date.")
+        return 0
 
-posts_by_category = defaultdict(list)
-for categories in data.values():
-    for category, posts in categories.items():
-        posts_by_category[category].extend(posts)
+    README_PATH.write_text(readme, encoding="utf-8", newline="\n")
+    print("README update completed successfully.")
+    return 0
 
-lines = []
 
-for category in sorted(posts_by_category.keys(), key=lambda name: (category_order.index(name) if name in category_order else 999, str(name))):
-    # 카테고리는 주제 대신 사전식 색인으로만 사용한다.
-    posts = sorted(posts_by_category[category], key=lambda item: (item["date"], item["title"]), reverse=True)
-    category_label = category_labels.get(category, category)
-    lines.append("<details>")
-    lines.append(f"<summary><b>{category_label} ({len(posts)})</b></summary>")
-    lines.append('<div markdown="1">')
-    lines.append("")
-    lines.append("| Date | Title |")
-    lines.append("|---|---|")
-
-    for post in posts:
-        lines.append(f"| {post['date']} | [{post['title']}]({post['url']}) |")
-
-    lines.append("")
-    lines.append("</div>")
-    lines.append("</details>")
-    lines.append("")
-
-readme = "\n".join(lines).rstrip() + "\n"
-
-with open(readme_path, "w", encoding="utf-8", newline="\n") as f:
-    f.write(readme)
-
-print("README update completed successfully.")
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -32,11 +32,17 @@ tags: [tag1, tag2]
 - 포스트의 시간 정규화
 - 포스트의 A-Z, 0-9 카테고리 정규화
 
-따라서 위 파일을 수동으로 오래 유지보수하지 않는다. 필요한 변경은 원본 포스트나 생성 스크립트를 수정한 뒤 검증 명령으로 반영한다.
+따라서 위 파일을 수동으로 오래 유지보수하지 않는다. 필요한 변경은 원본 포스트나 생성 스크립트를 수정한 뒤 동기화 명령으로 반영한다.
 
 ## 3. 로컬 검증
 
-빠른 검증은 아래 명령으로 실행한다.
+먼저 자동 생성 파일을 동기화한다.
+
+```powershell
+python scripts/sync_generated.py
+```
+
+빠른 읽기 전용 검증은 아래 명령으로 실행한다.
 
 ```powershell
 python scripts/validate_all.py
@@ -96,6 +102,6 @@ fix(theme): improve dark pagination contrast
 
 커밋 후에는 원격 `main`에 푸시하고 GitHub Actions 결과를 확인한다.
 
-- `Update README Index` workflow가 success인지 확인한다.
+- `Validate and Update Blog` workflow가 success인지 확인한다.
 - 실패하면 실패한 step을 먼저 확인한다.
 - 자동 생성 파일이 변경되었으면 workflow가 `[skip ci]` 커밋을 추가로 만들 수 있다.
