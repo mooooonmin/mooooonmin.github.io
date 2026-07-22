@@ -4,26 +4,13 @@ sitemap: false
 ---
 
 $baseurl: "{{ site.baseurl }}";
-$body-background-color: #f7f6f3;
-
-$content-max-width: 800px;
-$content-color: #37352f;
-$content-background-color: #ffffff;
-
-$brand-colour: #37352f;
-$brand-colour-light: #f7f6f3;
-
-$nav-header-background-color: $brand-colour;
 $nav-header-height: 60px;
-$nav-background-color: #f7f6f3;
 $nav-width: 300px;
 
 $space: 20px;
 
 $mobile-break: 700px;
-$full-width-break: $nav-width + ($space * 4) + $content-max-width;
 
-@import "mixins";
 @import "normalize";
 @import "typography";
 @import "code";
