@@ -131,6 +131,46 @@ def check_theme_toggle(page, label):
     toggle.click()
     after = page.locator("html").get_attribute("data-theme")
     assert_true(before != after, f"{label}: theme toggle did not change theme")
+    expected_pressed = "true" if after == "blue" else "false"
+    assert_true(
+        toggle.get_attribute("aria-pressed") == expected_pressed,
+        f"{label}: theme aria-pressed does not match {after}",
+    )
+
+    page.reload(wait_until="networkidle")
+    assert_true(
+        page.locator("html").get_attribute("data-theme") == after,
+        f"{label}: saved theme was not restored",
+    )
+
+
+def check_sidebar_persistence(page, label, route, viewport_name):
+    if route != "/" or viewport_name != "desktop":
+        return
+
+    toggle = page.locator("#toggle-sidebar")
+    toggle.click()
+    assert_true("nav-collapsed" in page.locator("body").get_attribute("class"), f"{label}: sidebar did not collapse")
+    page.reload(wait_until="networkidle")
+    assert_true(
+        "nav-collapsed" in page.locator("body").get_attribute("class"),
+        f"{label}: collapsed sidebar state was not restored",
+    )
+    assert_true(toggle.get_attribute("aria-expanded") == "false", f"{label}: sidebar aria state was not restored")
+    toggle.click()
+    assert_true("nav-collapsed" not in page.locator("body").get_attribute("class"), f"{label}: sidebar did not expand")
+
+
+def check_search_submit(page, base_url, label, route, viewport_name):
+    if route != "/" or viewport_name != "desktop":
+        return
+
+    search_input = page.locator("#search-input")
+    search_input.fill("Linux")
+    with page.expect_navigation(wait_until="networkidle"):
+        search_input.press("Enter")
+    assert_true(page.url == f"{base_url}/search/?q=Linux", f"{label}: search Enter navigation failed")
+    assert_true(page.locator("#search-results li").count() > 0, f"{label}: submitted search has no results")
 
 
 def check_mobile_navigation(page, base_url, route, label, viewport_name):
@@ -216,6 +256,19 @@ def check_tag_state(page, label, route):
     page.locator("#tag-result-list li").first.wait_for(state="visible")
     assert_true(button.get_attribute("aria-pressed") == "true", f"{label}: active tag state missing")
     assert_true(page.locator("#tag-results").is_visible(), f"{label}: tag results hidden")
+    page.reload(wait_until="networkidle")
+    restored_button = page.locator(".tag-cloud-button.is-active")
+    assert_true(restored_button.count() == 1, f"{label}: restored tag selection missing")
+    assert_true(restored_button.get_attribute("aria-pressed") == "true", f"{label}: tag hash state was not restored")
+    assert_true(page.locator("#tag-result-list li").count() > 0, f"{label}: restored tag results missing")
+
+
+def check_external_scripts(page, label, route):
+    assert_true(page.locator('script[src*="/assets/js/site.js"]').count() == 1, f"{label}: site.js missing")
+    if route.startswith("/search/"):
+        assert_true(page.locator('script[src*="/assets/js/search.js"]').count() == 1, f"{label}: search.js missing")
+    if route == "/tags/":
+        assert_true(page.locator('script[src*="/assets/js/tags.js"]').count() == 1, f"{label}: tags.js missing")
 
 
 def check_route(page, base_url, route, label, viewport_name, blue_mode):
@@ -244,6 +297,7 @@ def check_route(page, base_url, route, label, viewport_name, blue_mode):
     assert_true(page.title() != "Repository", f"{label}: document title is not page-specific")
 
     check_visual_surfaces(page, label)
+    check_external_scripts(page, label, route)
     check_search_state(page, label, route)
     check_tag_state(page, label, route)
     check_no_horizontal_overflow(page, label)
@@ -251,7 +305,10 @@ def check_route(page, base_url, route, label, viewport_name, blue_mode):
     check_mobile_navigation(page, base_url, route, label, viewport_name)
 
     if route in {"/", "/category/d/"} and viewport_name == "desktop":
+        check_sidebar_persistence(page, label, route, viewport_name)
         check_theme_toggle(page, label)
+
+    check_search_submit(page, base_url, label, route, viewport_name)
 
     relevant_console_messages = [
         message

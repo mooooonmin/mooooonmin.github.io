@@ -49,7 +49,7 @@ python scripts/sync_generated.py
 python scripts/validate_all.py
 ```
 
-이 명령은 생성 스크립트와 front matter 단위 테스트도 함께 실행한다.
+이 명령은 생성 스크립트와 front matter 단위 테스트, `assets/js` 문법 검사도 함께 실행한다.
 
 화면 렌더링까지 포함하려면 아래 명령을 실행한다.
 

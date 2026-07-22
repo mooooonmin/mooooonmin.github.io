@@ -5,6 +5,9 @@ import sys
 
 CHECKS = [
     ("Run automation unit tests", [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"]),
+    ("Validate site JavaScript", ["node", "--check", "assets/js/site.js"]),
+    ("Validate search JavaScript", ["node", "--check", "assets/js/search.js"]),
+    ("Validate tag JavaScript", ["node", "--check", "assets/js/tags.js"]),
     ("Validate post format", [sys.executable, "scripts/check_post_format.py"]),
     ("Validate duplicate post times", [sys.executable, "scripts/check_duplicate_post_times.py"]),
     ("Validate source text encoding", [sys.executable, "scripts/check_text_encoding.py"]),
