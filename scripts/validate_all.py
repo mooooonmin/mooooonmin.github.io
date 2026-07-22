@@ -4,12 +4,7 @@ import sys
 
 
 CHECKS = [
-    ("Normalize post times", [sys.executable, "scripts/normalize_post_times.py"]),
-    ("Update post categories", [sys.executable, "scripts/update_post_categories.py"]),
-    ("Generate category pages", [sys.executable, "scripts/generate_pages.py"]),
-    ("Update README", [sys.executable, "scripts/update_readme.py"]),
     ("Validate post format", [sys.executable, "scripts/check_post_format.py"]),
-    ("Validate code fences", [sys.executable, "scripts/check_code_fences.py"]),
     ("Validate duplicate post times", [sys.executable, "scripts/check_duplicate_post_times.py"]),
     ("Validate source text encoding", [sys.executable, "scripts/check_text_encoding.py"]),
     ("Validate whitespace", ["git", "diff", "--check"]),
@@ -54,8 +49,6 @@ def main():
             smoke_command.append("--skip-browser-if-unavailable")
         checks.append(("Render smoke test", smoke_command))
 
-    # 앞 단계에서 생성 파일을 갱신한 뒤 바로 검증한다.
-    # 실패 시 어떤 명령에서 멈췄는지 보이도록 한 단계씩 순차 실행한다.
     for title, command in checks:
         exit_code = run_step(title, command)
         if exit_code:

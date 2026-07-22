@@ -18,34 +18,6 @@
 	--retro-shadow: rgba(0, 0, 0, 0.38);
 	--retro-highlight: #fff59d;
 	--retro-highlight-text: #011375;
-
-	--theme-body-bg: var(--retro-bg);
-	--theme-content-bg: var(--retro-panel);
-	--theme-nav-bg: var(--retro-panel);
-	--theme-header-bg: var(--retro-panel);
-	--theme-header-text: var(--retro-text);
-	--theme-text: var(--retro-text);
-	--theme-muted: var(--retro-muted);
-	--theme-subtle: var(--retro-muted);
-	--theme-border: var(--retro-border);
-	--theme-border-strong: var(--retro-border);
-	--theme-chip-bg: var(--retro-row-alt);
-	--theme-chip-hover: var(--retro-selected-bg);
-	--theme-category-chip-bg: var(--retro-selected-bg);
-	--theme-category-chip-text: var(--retro-selected-text);
-	--theme-pagination-active-bg: var(--retro-selected-bg);
-	--theme-pagination-active-text: var(--retro-selected-text);
-	--theme-input-bg: var(--retro-panel);
-	--theme-table-row-bg: var(--retro-panel);
-	--theme-table-alt-bg: var(--retro-row-alt);
-	--theme-table-head-bg: var(--retro-selected-bg);
-	--theme-code-block-bg: var(--retro-row-alt);
-	--theme-code-block-text: var(--retro-text);
-	--theme-code-block-border: var(--retro-border);
-	--theme-inline-code-bg: var(--retro-selected-bg);
-	--theme-inline-code-text: var(--retro-selected-text);
-	--theme-highlight: var(--retro-highlight);
-	--theme-shadow: var(--retro-shadow);
 }
 
 :root[data-theme="light"] {
@@ -61,34 +33,6 @@
 	--retro-shadow: rgba(1, 19, 117, 0.24);
 	--retro-highlight: #011375;
 	--retro-highlight-text: #f4f4f4;
-
-	--theme-body-bg: var(--retro-bg);
-	--theme-content-bg: var(--retro-panel);
-	--theme-nav-bg: var(--retro-panel);
-	--theme-header-bg: var(--retro-panel);
-	--theme-header-text: var(--retro-text);
-	--theme-text: var(--retro-text);
-	--theme-muted: var(--retro-muted);
-	--theme-subtle: var(--retro-muted);
-	--theme-border: var(--retro-border);
-	--theme-border-strong: var(--retro-border);
-	--theme-chip-bg: var(--retro-row-alt);
-	--theme-chip-hover: var(--retro-selected-bg);
-	--theme-category-chip-bg: var(--retro-selected-bg);
-	--theme-category-chip-text: var(--retro-selected-text);
-	--theme-pagination-active-bg: var(--retro-selected-bg);
-	--theme-pagination-active-text: var(--retro-selected-text);
-	--theme-input-bg: var(--retro-panel);
-	--theme-table-row-bg: var(--retro-panel);
-	--theme-table-alt-bg: var(--retro-row-alt);
-	--theme-table-head-bg: var(--retro-selected-bg);
-	--theme-code-block-bg: var(--retro-row-alt);
-	--theme-code-block-text: var(--retro-text);
-	--theme-code-block-border: var(--retro-border);
-	--theme-inline-code-bg: var(--retro-selected-bg);
-	--theme-inline-code-text: var(--retro-selected-text);
-	--theme-highlight: var(--retro-highlight);
-	--theme-shadow: var(--retro-shadow);
 }
 
 * {
@@ -195,6 +139,19 @@ input:focus-visible {
 
 .content > :last-child {
 	margin-bottom: 0;
+}
+
+.not-found {
+	max-width: 600px;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.not-found h1 {
+	margin: 30px 0;
+	font-size: 4em;
+	line-height: 1;
+	letter-spacing: -1px;
 }
 
 header#site-sidebar {
@@ -736,6 +693,10 @@ th {
 
 .tag-section-panel {
 	padding: 0;
+}
+
+.tag-section-panel:not([hidden]) {
+	display: block;
 }
 
 .tag-section-panel .post-list {

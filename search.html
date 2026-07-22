@@ -9,97 +9,119 @@ layout: default
 
 <script>
 (function() {
-	// Jekyll 빌드 시점에 검색 대상 데이터를 현재 페이지 안에 직접 넣는다.
-	// 새 글이 추가되면 site.posts 순회 결과가 자동으로 바뀌므로 별도 검색 인덱스를 관리하지 않는다.
-	window.__searchData = [
-	{% assign need_comma = false %}
-	{% for post in site.posts %}
-		{% if need_comma %},{% endif %}
-		{"id":"{{ post.url | slugify }}","title":{{ post.title | jsonify }},"url":{{ post.url | jsonify }},"tags":{{ post.tags | join: " " | jsonify }},"content":{{ post.content | strip_html | replace_regex: "[\s\n]+", " " | strip | jsonify }}}
-		{% assign need_comma = true %}
-	{% endfor %}
-	];
-
-	var baseurl = "{{ site.baseurl }}";
+	var searchIndexUrl = {{ "/search.json" | relative_url | jsonify }};
 
 	function getQuery() {
-		// /search/?q=검색어 형태의 URL에서 q 값만 꺼낸다.
-		var s = window.location.search.substring(1), vars = s.split("&");
-		for (var i = 0; i < vars.length; i++) {
-			var p = vars[i].split("=");
-			if (p[0] === "q" && p[1]) return decodeURIComponent(p[1].replace(/\+/g, " ")).trim();
-		}
-		return "";
+		return new URLSearchParams(window.location.search).get("q") || "";
 	}
 
-	function escapeRegex(str) {
-		// 검색어가 정규식 특수문자를 포함해도 하이라이트 정규식이 깨지지 않게 처리한다.
-		return String(str).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-	}
-
-	function preview(text, query, len) {
-		// 검색어 주변 문맥만 잘라 보여주고, 일치한 단어는 굵게 표시한다.
+	function getPreview(text, query, length) {
 		text = String(text || "");
-		len = len || 120;
-		var q = query.toLowerCase(), t = text.toLowerCase(), i = t.indexOf(q);
-		if (i < 0) return text.substring(0, len).trim() + (text.length > len ? "..." : "");
-		var start = Math.max(0, i - 40), end = Math.min(text.length, i + query.length + 80);
-		var out = text.substring(start, end).trim();
-		if (start > 0) out = "..." + out;
-		if (end < text.length) out = out + "...";
-		try {
-			out = out.replace(new RegExp("(" + escapeRegex(query) + ")", "gi"), "<mark>$1</mark>");
-		} catch (e) {}
-		return out;
+		var normalizedQuery = query.toLowerCase();
+		var matchIndex = text.toLowerCase().indexOf(normalizedQuery);
+		var start = matchIndex < 0 ? 0 : Math.max(0, matchIndex - 40);
+		var end = matchIndex < 0
+			? Math.min(text.length, length)
+			: Math.min(text.length, matchIndex + query.length + 80);
+
+		return {
+			text: text.substring(start, end).trim(),
+			prefix: start > 0,
+			suffix: end < text.length
+		};
 	}
 
-	function run() {
-		// 블로그 규모가 작으므로 제목/태그/본문 단순 부분 일치만으로 검색한다.
-		var data = window.__searchData || [];
-		var dataById = {};
-		data.forEach(function(item) {
-			if (item && item.id) dataById[item.id] = item;
-		});
+	function appendHighlightedText(parent, text, query, length) {
+		var preview = getPreview(text, query, length);
+		if (preview.prefix) parent.appendChild(document.createTextNode("..."));
 
-		var query = getQuery();
-		var resultsEl = document.getElementById("search-results");
-		var emptyEl = document.getElementById("search-empty");
-		var headerInput = document.getElementById("search-input");
+		var normalizedQuery = query.toLowerCase();
+		var remaining = preview.text;
+		while (normalizedQuery && remaining) {
+			var matchIndex = remaining.toLowerCase().indexOf(normalizedQuery);
+			if (matchIndex < 0) break;
 
-		if (headerInput) headerInput.value = query;
-
-		var keys = [];
-		if (query) {
-			var q = query.toLowerCase();
-			for (var id in dataById) {
-				var item = dataById[id];
-				var title = String(item.title || "");
-				var tags = String(item.tags || "");
-				var content = String(item.content || "");
-				var haystack = [title, tags, content].join(" ").toLowerCase();
-				if (haystack.indexOf(q) !== -1)
-					keys.push(id);
-			}
+			parent.appendChild(document.createTextNode(remaining.substring(0, matchIndex)));
+			var mark = document.createElement("mark");
+			mark.textContent = remaining.substring(matchIndex, matchIndex + query.length);
+			parent.appendChild(mark);
+			remaining = remaining.substring(matchIndex + query.length);
 		}
 
-		if (keys.length > 0) {
-			var html = "";
-			keys.forEach(function(id) {
-				var item = dataById[id];
-				var url = baseurl + (item.url || "").trim();
-				var title = item.title || "(제목 없음)";
-				var tags = item.tags ? "<span class=\"search-result-tags\">" + preview(item.tags, query, 120) + "</span>" : "";
-				var content = item.content || "";
-				html += "<li><h4><a href=\"" + url + "\">" + preview(title, query, 200) + "</a></h4>" + tags + "<p><small>" + preview(content, query, 170) + "</small></p></li>";
+		parent.appendChild(document.createTextNode(remaining));
+		if (preview.suffix) parent.appendChild(document.createTextNode("..."));
+	}
+
+	function createResult(item, query) {
+		var listItem = document.createElement("li");
+		var heading = document.createElement("h4");
+		var link = document.createElement("a");
+		link.href = {{ site.baseurl | jsonify }} + String(item.url || "").trim();
+		appendHighlightedText(link, item.title || "(제목 없음)", query, 200);
+		heading.appendChild(link);
+		listItem.appendChild(heading);
+
+		if (item.tags) {
+			var tags = document.createElement("span");
+			tags.className = "search-result-tags";
+			appendHighlightedText(tags, item.tags, query, 120);
+			listItem.appendChild(tags);
+		}
+
+		var paragraph = document.createElement("p");
+		var summary = document.createElement("small");
+		appendHighlightedText(summary, item.content || "", query, 170);
+		paragraph.appendChild(summary);
+		listItem.appendChild(paragraph);
+		return listItem;
+	}
+
+	function showMessage(message) {
+		var results = document.getElementById("search-results");
+		var empty = document.getElementById("search-empty");
+		results.replaceChildren();
+		results.style.display = "none";
+		empty.textContent = message;
+		empty.style.display = "block";
+	}
+
+	async function run() {
+		var query = getQuery().trim();
+		var input = document.getElementById("search-input");
+		if (input) input.value = query;
+
+		if (!query) {
+			showMessage("Enter a keyword to search posts.");
+			return;
+		}
+
+		try {
+			var response = await fetch(searchIndexUrl);
+			if (!response.ok) throw new Error("Search index request failed");
+			var data = await response.json();
+			var normalizedQuery = query.toLowerCase();
+			var matches = data.filter(function(item) {
+				return [item.title, item.tags, item.content]
+					.join(" ")
+					.toLowerCase()
+					.includes(normalizedQuery);
 			});
-			if (resultsEl) { resultsEl.innerHTML = html; resultsEl.style.display = ""; }
-			if (emptyEl) emptyEl.style.display = "none";
-		} else {
-			if (resultsEl) { resultsEl.innerHTML = ""; resultsEl.style.display = "none"; }
-			if (emptyEl) {
-				emptyEl.textContent = query ? "No results found." : "Enter a keyword to search posts.";
-				emptyEl.style.display = "block";
+
+			if (!matches.length) {
+				showMessage("No results found.");
+				return;
 			}
+
+			var results = document.getElementById("search-results");
+			var empty = document.getElementById("search-empty");
+			results.replaceChildren();
+			matches.forEach(function(item) {
+				results.appendChild(createResult(item, query));
+			});
+			results.style.display = "";
+			empty.style.display = "none";
+		} catch (error) {
+			showMessage("Search is temporarily unavailable.");
 		}
 	}
 
