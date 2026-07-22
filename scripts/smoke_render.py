@@ -197,7 +197,7 @@ def check_search_state(page, label, route):
     assert_true(page.locator("#search-results mark").count() > 0, f"{label}: search highlight missing")
 
 
-def check_route(page, base_url, route, label, viewport_name, dark_mode):
+def check_route(page, base_url, route, label, viewport_name, blue_mode):
     console_messages = []
     page.on(
         "console",
@@ -217,7 +217,7 @@ def check_route(page, base_url, route, label, viewport_name, dark_mode):
         f"{label}: framework error overlay text detected",
     )
 
-    expected_theme = "dark" if dark_mode else "light"
+    expected_theme = "blue" if blue_mode else "light"
     actual_theme = page.locator("html").get_attribute("data-theme")
     assert_true(actual_theme == expected_theme, f"{label}: expected {expected_theme} theme")
 
@@ -265,11 +265,11 @@ def run_smoke(args):
 
             for viewport_name, _ in VIEWPORTS:
                 for route, label in ROUTES:
-                    dark_mode = viewport_name == "desktop"
+                    blue_mode = viewport_name == "desktop"
                     route_label = f"{viewport_name} {label} {route}"
                     context = browser.new_context(viewport=dict(VIEWPORTS_BY_NAME[viewport_name]))
                     page = context.new_page()
-                    theme_value = "dark" if dark_mode else "light"
+                    theme_value = "blue" if blue_mode else "light"
                     page.goto(base_url, wait_until="domcontentloaded")
                     page.evaluate(
                         """theme => {
@@ -279,7 +279,7 @@ def run_smoke(args):
                         theme_value,
                     )
                     try:
-                        check_route(page, base_url, route, route_label, viewport_name, dark_mode)
+                        check_route(page, base_url, route, route_label, viewport_name, blue_mode)
                         print(f"PASS {route_label}")
                     except (AssertionError, PlaywrightError) as error:
                         failures.append(f"FAIL {route_label}: {error}")
