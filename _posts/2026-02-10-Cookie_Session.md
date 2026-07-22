@@ -15,7 +15,7 @@ tags: [network, http, cookie, session]
 
 ## 2. 쿠키 (Cookie)
 
-<img src="/images/2026-02-10-Cookie_Session/쿠키.jpeg" alt="쿠키" style="max-width:100%;" />
+<img src="/images/2026-02-10-Cookie_Session/쿠키.jpeg" alt="쿠키" width="1920" height="1080" loading="lazy" decoding="async" />
 
 - **정의:** 클라이언트(브라우저) 로컬에 key-value 쌍 형태로 저장되는 작은 데이터 파일이다.
 - **동작 방식:**
@@ -29,7 +29,7 @@ tags: [network, http, cookie, session]
 
 ## 3. 세션 (Session)
 
-<img src="/images/2026-02-10-Cookie_Session/세션.jpeg" alt="세션" style="max-width:100%;"  />
+<img src="/images/2026-02-10-Cookie_Session/세션.jpeg" alt="세션" width="1920" height="1080" loading="lazy" decoding="async" />
 
 - **정의:** 사용자 정보를 브라우저가 아닌 서버 측에서 관리하는 방식이다.
 - **동작 방식:**

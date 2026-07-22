@@ -21,6 +21,7 @@ ROUTES = [
     ("/search/?q=no-result-token", "Search empty results"),
     ("/2026/05/20/Kubernetes_Deployment/", "Post with code and source"),
     ("/2026/02/13/Linux/", "Linux command post"),
+    ("/2026/02/12/OSI_7_vs_TCP_IP_4/", "Post with images"),
     ("/404.html", "404 page"),
 ]
 
@@ -271,6 +272,37 @@ def check_external_scripts(page, label, route):
         assert_true(page.locator('script[src*="/assets/js/tags.js"]').count() == 1, f"{label}: tags.js missing")
 
 
+def check_post_images(page, label, route):
+    if route != "/2026/02/12/OSI_7_vs_TCP_IP_4/":
+        return
+
+    images = page.locator(".content img")
+    assert_true(images.count() == 3, f"{label}: expected three content images")
+    for index in range(images.count()):
+        image = images.nth(index)
+        image.scroll_into_view_if_needed()
+        image.evaluate("element => element.decode()")
+        attributes = image.evaluate(
+            """element => ({
+                alt: element.getAttribute("alt"),
+                width: element.getAttribute("width"),
+                height: element.getAttribute("height"),
+                loading: element.getAttribute("loading"),
+                decoding: element.getAttribute("decoding"),
+                complete: element.complete,
+                naturalWidth: element.naturalWidth
+            })""",
+        )
+        assert_true(attributes["alt"], f"{label}: image {index + 1} has no alt text")
+        assert_true(attributes["width"] and attributes["height"], f"{label}: image {index + 1} has no dimensions")
+        assert_true(attributes["loading"] == "lazy", f"{label}: image {index + 1} is not lazy-loaded")
+        assert_true(attributes["decoding"] == "async", f"{label}: image {index + 1} is not asynchronously decoded")
+        assert_true(
+            attributes["complete"] and attributes["naturalWidth"] > 0,
+            f"{label}: image {index + 1} failed to load",
+        )
+
+
 def check_route(page, base_url, route, label, viewport_name, blue_mode):
     console_messages = []
     page.on(
@@ -298,6 +330,7 @@ def check_route(page, base_url, route, label, viewport_name, blue_mode):
 
     check_visual_surfaces(page, label)
     check_external_scripts(page, label, route)
+    check_post_images(page, label, route)
     check_search_state(page, label, route)
     check_tag_state(page, label, route)
     check_no_horizontal_overflow(page, label)

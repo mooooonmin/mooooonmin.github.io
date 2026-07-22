@@ -1,0 +1,234 @@
+.main {
+	min-height: calc(100vh - 34px);
+	margin: 0;
+	padding: 54px 28px 82px;
+	background: var(--retro-bg);
+}
+
+.page-header,
+.content {
+	width: 100%;
+	max-width: 920px;
+	margin: 0 auto;
+	background: var(--retro-panel);
+	color: var(--retro-text);
+}
+
+.page-header {
+	position: relative;
+	padding: 16px 22px 14px;
+	border: 2px solid var(--retro-border);
+}
+
+.page-header::before {
+	content: "[ REPOSITORY ]";
+	display: block;
+	margin-bottom: 8px;
+	color: var(--retro-muted);
+	font-size: 1.3rem;
+	line-height: 1;
+}
+
+.page-header h3 {
+	margin: 0;
+	color: var(--retro-text);
+	font-size: clamp(2.5rem, 5vw, 4rem);
+	font-weight: 400;
+	letter-spacing: 0;
+	line-height: 1.15;
+	text-transform: uppercase;
+}
+
+.content {
+	position: relative;
+	padding: 26px 28px 34px;
+	border: 2px solid var(--retro-border);
+	border-top: 0;
+	box-shadow: 10px 10px 0 var(--retro-shadow);
+	overflow-wrap: anywhere;
+}
+
+.content > :last-child {
+	margin-bottom: 0;
+}
+
+.not-found {
+	max-width: 600px;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.not-found h1 {
+	margin: 30px 0;
+	font-size: 4em;
+	line-height: 1;
+	letter-spacing: -1px;
+}
+
+header#site-sidebar {
+	background: var(--retro-panel);
+	color: var(--retro-text);
+	border-right: 2px solid var(--retro-border);
+}
+
+header .site-title {
+	min-height: 66px;
+	height: auto;
+	padding: 0;
+	background: var(--retro-panel);
+	border: 0;
+	border-bottom: 2px solid var(--retro-border);
+	box-shadow: none;
+}
+
+.site-title-link {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+	width: 100%;
+	height: 66px;
+	padding: 10px 18px;
+	border: 0;
+	color: var(--retro-text);
+	font-size: 2.3rem;
+	font-weight: 400;
+	line-height: 1;
+	text-transform: uppercase;
+}
+
+.site-title-link:hover {
+	border: 0;
+	background: var(--retro-selected-bg);
+	color: var(--retro-selected-text);
+}
+
+header .site-title img {
+	width: 38px;
+	height: 38px;
+	margin: 0 12px 0 0;
+	border: 2px solid var(--retro-border);
+	border-radius: 0;
+	image-rendering: pixelated;
+}
+
+.site-title-link:hover img {
+	border-color: var(--retro-selected-text);
+}
+
+#search-input {
+	-webkit-appearance: none;
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	height: 52px;
+	margin: 0;
+	padding: 10px 16px;
+	border: 0;
+	border-bottom: 2px solid var(--retro-border);
+	border-left: 0;
+	border-radius: 0;
+	background: var(--retro-panel);
+	box-shadow: none;
+	color: var(--retro-text);
+	font-size: 1.7rem;
+	font-weight: 400;
+	line-height: 1.8;
+}
+
+#search-input::placeholder {
+	color: var(--retro-muted);
+	opacity: 1;
+}
+
+#search-input:focus {
+	background: var(--retro-selected-bg);
+	color: var(--retro-selected-text);
+}
+
+#search-input:focus::placeholder {
+	color: var(--retro-selected-text);
+}
+
+header > nav {
+	flex: 1;
+	min-height: 0;
+	padding: 0;
+	overflow-y: auto;
+	scrollbar-color: var(--retro-border) var(--retro-bg);
+}
+
+nav > ul {
+	padding: 0;
+}
+
+.nav-item {
+	font-family: "NeoDunggeunmo", "Nanum Gothic Coding", monospace;
+}
+
+.nav-item > a,
+.nav-item.top-level > a {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 44px;
+	padding: 8px 16px;
+	border: 0;
+	border-bottom: 2px solid var(--retro-border);
+	background: var(--retro-panel);
+	color: var(--retro-text);
+	font-size: 1.7rem;
+	font-weight: 400;
+	line-height: 1.2;
+}
+
+.nav-item.current > a,
+.nav-item > a:hover,
+.nav-item > a:focus-visible,
+.nav-item > a:active {
+	background: var(--retro-selected-bg);
+	color: var(--retro-selected-text);
+}
+
+.category-count {
+	color: inherit;
+	font-size: 0.8em;
+}
+
+.sidebar-toggle {
+	display: none;
+	border: 2px solid var(--retro-border);
+	border-radius: 0;
+	background: var(--retro-panel);
+	box-shadow: 4px 4px 0 var(--retro-shadow);
+	color: var(--retro-text);
+	font-family: "NeoDunggeunmo Code", monospace;
+	cursor: pointer;
+}
+
+.sidebar-toggle:hover,
+.sidebar-toggle:focus-visible {
+	background: var(--retro-selected-bg);
+	color: var(--retro-selected-text);
+}
+
+.sidebar-toggle::before {
+	content: "<";
+	font-size: 1.3rem;
+	font-weight: 700;
+}
+
+body.nav-collapsed .sidebar-toggle::before {
+	content: ">";
+}
+
+header .open-nav {
+	color: var(--retro-text);
+}
+
+header .open-nav::before {
+	content: "≡";
+}
+
+body.nav-open header .open-nav::before {
+	content: "×";
+}

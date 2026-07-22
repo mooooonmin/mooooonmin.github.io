@@ -1,0 +1,256 @@
+/* Tags and search */
+.tag-cloud {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.tag-cloud-item {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 8px;
+	line-height: 1;
+}
+
+.tag-cloud-name {
+	display: inline-block;
+}
+
+.tag-cloud-count {
+	color: var(--retro-muted);
+	font-size: 0.42em;
+}
+
+.tag-page {
+	display: grid;
+	grid-template-columns: minmax(260px, 0.75fr) minmax(0, 1.25fr);
+	gap: 24px;
+	max-width: none;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.tag-pane {
+	min-width: 0;
+}
+
+.tag-pane-posts {
+	min-height: 420px;
+}
+
+.tag-page-body .content,
+.tag-page-body .page-header {
+	max-width: 1180px;
+}
+
+.tag-pane-list {
+	position: sticky;
+	top: 18px;
+	align-self: start;
+}
+
+.tag-cloud-split {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0;
+	padding: 0;
+	border: 2px solid var(--retro-border);
+}
+
+.tag-cloud-button {
+	justify-content: space-between;
+	min-width: 0;
+	padding: 8px 10px;
+	border: 0;
+	border-right: 2px solid var(--retro-border);
+	border-bottom: 2px solid var(--retro-border);
+	background: var(--retro-panel);
+	color: var(--retro-text);
+	cursor: pointer;
+	font-family: inherit;
+	font-size: 1.5rem;
+	font-weight: 400;
+	text-align: left;
+	transform: none;
+}
+
+.tag-cloud-button:nth-child(even) {
+	border-right: 0;
+}
+
+.tag-cloud-button:hover,
+.tag-cloud-button.is-active,
+.tag-cloud-button.is-active .tag-cloud-count {
+	border-bottom-color: var(--retro-border);
+	background: var(--retro-selected-bg);
+	color: var(--retro-selected-text);
+	transform: none;
+}
+
+.tag-cloud-button.is-active .tag-cloud-name {
+	font-weight: 800;
+}
+
+.tag-result-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 10px 12px;
+	margin-bottom: 0;
+	border: 2px solid var(--retro-border);
+}
+
+.tag-result-header h4 {
+	margin: 0;
+	font-size: 2.2rem;
+}
+
+.tag-result-header h4,
+.tag-section-count,
+.tag-empty-state {
+	color: var(--retro-text);
+	font-family: inherit;
+	font-weight: 400;
+}
+
+.tag-section-count {
+	font-size: 1.2rem;
+}
+
+.tag-section-panel {
+	padding: 0;
+	margin-top: 0;
+	border-top: 0;
+}
+
+.tag-section-panel:not([hidden]) {
+	display: block;
+}
+
+.tag-section-panel .post-list {
+	border-top: 0;
+}
+
+.tag-empty-state {
+	display: none;
+	padding: 18px;
+	border: 2px solid var(--retro-border);
+	border-top: 0;
+}
+
+#search-results {
+	margin: 0;
+	padding: 0;
+	border: 2px solid var(--retro-border);
+}
+
+#search-results li {
+	margin: 0;
+	padding: 16px;
+	border-bottom: 2px solid var(--retro-border);
+	list-style: none;
+}
+
+#search-results li:last-child {
+	border-bottom: 0;
+}
+
+#search-results li:hover,
+#search-results li:focus-within {
+	background: var(--retro-row-alt);
+}
+
+#search-results h4 {
+	margin: 0 0 8px;
+	font-size: 2rem;
+}
+
+#search-results p {
+	color: var(--retro-muted);
+	line-height: 1.5;
+}
+
+.search-state {
+	padding: 14px;
+	border: 2px solid var(--retro-border);
+	color: var(--retro-muted);
+	font-size: 1.05rem;
+}
+
+.search-result-tags {
+	display: inline-block;
+	margin: 0 0 0.8rem;
+	color: var(--retro-muted);
+	font-size: 0.9rem;
+}
+
+/* Fixed status bar */
+.status-bar {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 30;
+	display: grid;
+	grid-template-columns: minmax(180px, 1fr) minmax(220px, 2fr) auto auto;
+	height: 34px;
+	border-top: 2px solid var(--retro-border);
+	background: var(--retro-panel);
+	color: var(--retro-text);
+	font-family: "NeoDunggeunmo Code", "NeoDunggeunmo", monospace;
+	font-size: 1.4rem;
+	line-height: 1;
+}
+
+.status-segment {
+	display: flex;
+	align-items: center;
+	min-width: 0;
+	padding: 0 10px;
+	border: 0;
+	border-right: 2px solid var(--retro-border);
+	background: var(--retro-panel);
+	color: var(--retro-text);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.status-theme-toggle {
+	min-width: 150px;
+	justify-content: center;
+	gap: 8px;
+	border-right: 0;
+	cursor: pointer;
+}
+
+.status-theme-toggle:hover,
+.status-theme-toggle:focus-visible {
+	background: var(--retro-selected-bg);
+	color: var(--retro-selected-text);
+}
+
+.status-theme-toggle .theme-toggle-icon {
+	position: static;
+	display: inline;
+	width: auto;
+	height: auto;
+	border-radius: 0;
+	background: transparent;
+	color: inherit;
+	font-size: 1.6rem;
+}
+
+.status-theme-toggle .theme-toggle-icon::before {
+	content: none;
+}
+
+.status-theme-toggle .theme-toggle-label {
+	position: static;
+	width: auto;
+	height: auto;
+	overflow: visible;
+	clip: auto;
+	white-space: nowrap;
+}
