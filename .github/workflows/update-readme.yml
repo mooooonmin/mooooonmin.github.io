@@ -91,7 +91,7 @@ jobs:
         run: |
           git config --local user.name 'github-actions[bot]'
           git config --local user.email 'github-actions[bot]@users.noreply.github.com'
-          git add README.md category _posts
+          git add README.md assets/data/search-index.json category _posts
           if git diff --cached --quiet; then
             echo 'No generated changes to commit'
           else

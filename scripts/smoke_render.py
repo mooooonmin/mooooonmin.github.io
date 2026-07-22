@@ -17,6 +17,7 @@ ROUTES = [
     ("/category/d/", "Category D"),
     ("/category/d/page2/", "Category D page 2"),
     ("/search/?q=Linux", "Search results"),
+    ("/search/?q=accessmodes", "Search full-body index"),
     ("/search/?q=no-result-token", "Search empty results"),
     ("/2026/05/20/Kubernetes_Deployment/", "Post with code and source"),
     ("/2026/02/13/Linux/", "Linux command post"),
@@ -195,6 +196,13 @@ def check_search_state(page, label, route):
 
     results = page.locator("#search-results li")
     assert_true(results.count() > 0, f"{label}: search results missing")
+    if "accessmodes" in route:
+        result_url = results.first.locator("a").get_attribute("href")
+        assert_true(
+            result_url == "/2026/05/22/Kubernetes_MySQL_Volume/",
+            f"{label}: full-body search returned an unexpected post: {result_url}",
+        )
+        return
     assert_true(page.locator("#search-results mark").count() > 0, f"{label}: search highlight missing")
 
 

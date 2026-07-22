@@ -9,7 +9,7 @@ layout: default
 
 <script>
 (function() {
-	var searchIndexUrl = {{ "/search.json" | relative_url | jsonify }};
+	var searchIndexUrl = {{ "/assets/data/search-index.json" | relative_url | jsonify }};
 
 	function getQuery() {
 		return new URLSearchParams(window.location.search).get("q") || "";
@@ -56,21 +56,21 @@ layout: default
 		var listItem = document.createElement("li");
 		var heading = document.createElement("h4");
 		var link = document.createElement("a");
-		link.href = {{ site.baseurl | jsonify }} + String(item.url || "").trim();
-		appendHighlightedText(link, item.title || "(제목 없음)", query, 200);
+		link.href = {{ site.baseurl | jsonify }} + String(item[1] || "").trim();
+		appendHighlightedText(link, item[0] || "(제목 없음)", query, 200);
 		heading.appendChild(link);
 		listItem.appendChild(heading);
 
-		if (item.tags) {
+		if (item[2]) {
 			var tags = document.createElement("span");
 			tags.className = "search-result-tags";
-			appendHighlightedText(tags, item.tags, query, 120);
+			appendHighlightedText(tags, item[2], query, 120);
 			listItem.appendChild(tags);
 		}
 
 		var paragraph = document.createElement("p");
 		var summary = document.createElement("small");
-		appendHighlightedText(summary, item.content || "", query, 170);
+		appendHighlightedText(summary, item[3] || "", query, 170);
 		paragraph.appendChild(summary);
 		listItem.appendChild(paragraph);
 		return listItem;
@@ -83,6 +83,39 @@ layout: default
 		results.style.display = "none";
 		empty.textContent = message;
 		empty.style.display = "block";
+	}
+
+	function tokenize(query) {
+		return query.toLowerCase().match(/[0-9A-Za-z가-힣_+#]{2,}/g) || [query.toLowerCase()];
+	}
+
+	function findDocumentIds(index, query) {
+		var terms = index.terms || {};
+		var queryTerms = tokenize(query);
+		var candidates = null;
+
+		queryTerms.forEach(function(queryTerm) {
+			var matchingIds = new Set();
+			if (terms[queryTerm]) {
+				terms[queryTerm].forEach(function(id) { matchingIds.add(id); });
+			} else {
+				Object.keys(terms).forEach(function(term) {
+					if (term.includes(queryTerm)) {
+						terms[term].forEach(function(id) { matchingIds.add(id); });
+					}
+				});
+			}
+
+			if (candidates === null) {
+				candidates = matchingIds;
+			} else {
+				candidates = new Set(Array.from(candidates).filter(function(id) {
+					return matchingIds.has(id);
+				}));
+			}
+		});
+
+		return Array.from(candidates || []).sort(function(a, b) { return a - b; });
 	}
 
 	async function run() {
@@ -98,14 +131,11 @@ layout: default
 		try {
 			var response = await fetch(searchIndexUrl);
 			if (!response.ok) throw new Error("Search index request failed");
-			var data = await response.json();
-			var normalizedQuery = query.toLowerCase();
-			var matches = data.filter(function(item) {
-				return [item.title, item.tags, item.content]
-					.join(" ")
-					.toLowerCase()
-					.includes(normalizedQuery);
-			});
+			var index = await response.json();
+			var documents = index.documents || [];
+			var matches = findDocumentIds(index, query).map(function(id) {
+				return documents[id];
+			}).filter(Boolean);
 
 			if (!matches.length) {
 				showMessage("No results found.");
