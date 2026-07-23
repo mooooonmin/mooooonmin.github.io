@@ -43,7 +43,7 @@ permalink: /tags/
     <section class="tag-section tag-section-panel" id="tag-results" hidden>
       <ul class="post-list" id="tag-result-list"></ul>
     </section>
-    <p class="tag-empty-state tag-empty-state-visible" id="tag-empty-state">Select a tag on the left to see related posts.</p>
+    <p class="tag-empty-state" id="tag-empty-state">Select a tag on the left to see related posts.</p>
   </div>
 </section>
 {% else %}

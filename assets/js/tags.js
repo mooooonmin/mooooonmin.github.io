@@ -58,7 +58,7 @@
     resultSection.hidden = true;
     resultList.replaceChildren();
     emptyState.textContent = message;
-    emptyState.style.display = "block";
+    emptyState.hidden = false;
   }
 
   function renderPosts(posts) {
@@ -75,7 +75,7 @@
       resultList.appendChild(item);
     });
     resultSection.hidden = false;
-    emptyState.style.display = "none";
+    emptyState.hidden = true;
   }
 
   async function render() {

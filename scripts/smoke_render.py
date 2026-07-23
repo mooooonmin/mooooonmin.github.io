@@ -257,17 +257,25 @@ def check_tag_state(page, label, route):
     if route != "/tags/":
         return
 
+    empty_state = page.locator("#tag-empty-state")
+    results = page.locator("#tag-results")
+    assert_true(empty_state.is_visible(), f"{label}: initial tag guidance hidden")
+    assert_true(not results.is_visible(), f"{label}: tag results visible before selection")
+
     button = page.locator(".tag-cloud-button").first
     assert_true(button.count() == 1, f"{label}: tag button missing")
     button.click()
     page.locator("#tag-result-list li").first.wait_for(state="visible")
     assert_true(button.get_attribute("aria-pressed") == "true", f"{label}: active tag state missing")
-    assert_true(page.locator("#tag-results").is_visible(), f"{label}: tag results hidden")
+    assert_true(results.is_visible(), f"{label}: tag results hidden")
+    assert_true(not empty_state.is_visible(), f"{label}: tag guidance remained visible with results")
+
     page.reload(wait_until="networkidle")
     restored_button = page.locator(".tag-cloud-button.is-active")
     assert_true(restored_button.count() == 1, f"{label}: restored tag selection missing")
     assert_true(restored_button.get_attribute("aria-pressed") == "true", f"{label}: tag hash state was not restored")
     assert_true(page.locator("#tag-result-list li").count() > 0, f"{label}: restored tag results missing")
+    assert_true(not page.locator("#tag-empty-state").is_visible(), f"{label}: restored tag guidance remained visible")
 
 
 def check_static_assets(page, label, route):
