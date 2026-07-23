@@ -1,6 +1,183 @@
 (function () {
   "use strict";
 
+  var TOKEN_PATTERN = /[0-9A-Za-z가-힣_+#]{2,}/g;
+
+  function tokenize(query) {
+    var normalized = String(query || "").toLowerCase().trim();
+    if (!normalized) return [];
+    var matches = normalized.match(TOKEN_PATTERN) || [normalized];
+    return Array.from(new Set(matches));
+  }
+
+  function findNextMatch(text, tokens, start) {
+    var normalized = text.toLowerCase();
+    var bestMatch = null;
+
+    tokens.forEach(function (token) {
+      var index = normalized.indexOf(token, start);
+      if (index < 0) return;
+      if (
+        bestMatch === null
+        || index < bestMatch.index
+        || (index === bestMatch.index && token.length > bestMatch.length)
+      ) {
+        bestMatch = { index: index, length: token.length };
+      }
+    });
+
+    return bestMatch;
+  }
+
+  function getPreview(text, tokens, length) {
+    var value = String(text || "");
+    var firstMatch = findNextMatch(value, tokens, 0);
+    var start = firstMatch ? Math.max(0, firstMatch.index - 40) : 0;
+    var end = Math.min(value.length, start + length);
+    if (firstMatch && end < firstMatch.index + firstMatch.length) {
+      end = Math.min(value.length, firstMatch.index + firstMatch.length);
+    }
+
+    return {
+      text: value.substring(start, end).trim(),
+      prefix: start > 0,
+      suffix: end < value.length,
+    };
+  }
+
+  function getHighlightedSegments(text, tokens, length) {
+    var preview = getPreview(text, tokens, length);
+    var segments = [];
+    var position = 0;
+    var match = findNextMatch(preview.text, tokens, position);
+
+    while (match) {
+      if (match.index > position) {
+        segments.push({ text: preview.text.substring(position, match.index), highlighted: false });
+      }
+      segments.push({
+        text: preview.text.substring(match.index, match.index + match.length),
+        highlighted: true,
+      });
+      position = match.index + match.length;
+      match = findNextMatch(preview.text, tokens, position);
+    }
+
+    if (position < preview.text.length) {
+      segments.push({ text: preview.text.substring(position), highlighted: false });
+    }
+
+    return {
+      prefix: preview.prefix,
+      suffix: preview.suffix,
+      segments: segments,
+    };
+  }
+
+  function resolveTermMatches(terms, indexedTerms, queryTerm) {
+    var matches = new Map();
+    if (Object.prototype.hasOwnProperty.call(terms, queryTerm)) {
+      terms[queryTerm].forEach(function (id) { matches.set(id, 30); });
+      return matches;
+    }
+
+    indexedTerms.forEach(function (term) {
+      if (!term.includes(queryTerm)) return;
+      var quality = term.startsWith(queryTerm) ? 12 : 6;
+      terms[term].forEach(function (id) {
+        matches.set(id, Math.max(matches.get(id) || 0, quality));
+      });
+    });
+    return matches;
+  }
+
+  function scoreDocument(item, tokens, query) {
+    var title = String(item[0] || "").toLowerCase();
+    var tags = String(item[2] || "").toLowerCase();
+    var summary = String(item[3] || "").toLowerCase();
+    var tagTerms = new Set(tokenize(tags));
+    var normalizedQuery = String(query || "").toLowerCase().trim();
+    var score = 0;
+
+    if (title === normalizedQuery) score += 300;
+    else if (normalizedQuery && title.includes(normalizedQuery)) score += 140;
+
+    tokens.forEach(function (token) {
+      if (title === token) score += 120;
+      else if (title.startsWith(token)) score += 80;
+      else if (title.includes(token)) score += 60;
+
+      if (tagTerms.has(token)) score += 50;
+      else if (tags.includes(token)) score += 25;
+
+      if (summary.includes(token)) score += 8;
+    });
+
+    return score;
+  }
+
+  function findDocumentMatches(index, query) {
+    var terms = index.terms || {};
+    var documents = index.documents || [];
+    var tokens = tokenize(query);
+    var indexedTerms = null;
+    var candidates = null;
+
+    tokens.forEach(function (queryTerm) {
+      var needsPartialLookup = !Object.prototype.hasOwnProperty.call(terms, queryTerm);
+      if (needsPartialLookup && indexedTerms === null) indexedTerms = Object.keys(terms);
+      var termMatches = resolveTermMatches(terms, indexedTerms || [], queryTerm);
+
+      if (candidates === null) {
+        candidates = new Map(termMatches);
+        return;
+      }
+
+      Array.from(candidates.keys()).forEach(function (id) {
+        if (!termMatches.has(id)) candidates.delete(id);
+        else candidates.set(id, candidates.get(id) + termMatches.get(id));
+      });
+    });
+
+    return Array.from(candidates || [])
+      .filter(function (entry) { return Boolean(documents[entry[0]]); })
+      .map(function (entry) {
+        return {
+          id: entry[0],
+          score: entry[1] + scoreDocument(documents[entry[0]], tokens, query),
+        };
+      })
+      .sort(function (left, right) {
+        return right.score - left.score || left.id - right.id;
+      });
+  }
+
+  function appendHighlightedText(parent, text, tokens, length) {
+    var highlighted = getHighlightedSegments(text, tokens, length);
+    if (highlighted.prefix) parent.appendChild(document.createTextNode("..."));
+
+    highlighted.segments.forEach(function (segment) {
+      if (!segment.highlighted) {
+        parent.appendChild(document.createTextNode(segment.text));
+        return;
+      }
+      var mark = document.createElement("mark");
+      mark.textContent = segment.text;
+      parent.appendChild(mark);
+    });
+
+    if (highlighted.suffix) parent.appendChild(document.createTextNode("..."));
+  }
+
+  var api = {
+    findDocumentMatches: findDocumentMatches,
+    getHighlightedSegments: getHighlightedSegments,
+    scoreDocument: scoreDocument,
+    tokenize: tokenize,
+  };
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
+  if (typeof document === "undefined") return;
+
   var results = document.getElementById("search-results");
   var empty = document.getElementById("search-empty");
   if (!results || !empty) return;
@@ -12,59 +189,25 @@
     return new URLSearchParams(window.location.search).get("q") || "";
   }
 
-  function getPreview(text, query, length) {
-    text = String(text || "");
-    var matchIndex = text.toLowerCase().indexOf(query.toLowerCase());
-    var start = matchIndex < 0 ? 0 : Math.max(0, matchIndex - 40);
-    var end = matchIndex < 0
-      ? Math.min(text.length, length)
-      : Math.min(text.length, matchIndex + query.length + 80);
-    return {
-      text: text.substring(start, end).trim(),
-      prefix: start > 0,
-      suffix: end < text.length,
-    };
-  }
-
-  function appendHighlightedText(parent, text, query, length) {
-    var preview = getPreview(text, query, length);
-    if (preview.prefix) parent.appendChild(document.createTextNode("..."));
-
-    var normalizedQuery = query.toLowerCase();
-    var remaining = preview.text;
-    while (normalizedQuery && remaining) {
-      var matchIndex = remaining.toLowerCase().indexOf(normalizedQuery);
-      if (matchIndex < 0) break;
-      parent.appendChild(document.createTextNode(remaining.substring(0, matchIndex)));
-      var mark = document.createElement("mark");
-      mark.textContent = remaining.substring(matchIndex, matchIndex + query.length);
-      parent.appendChild(mark);
-      remaining = remaining.substring(matchIndex + query.length);
-    }
-
-    parent.appendChild(document.createTextNode(remaining));
-    if (preview.suffix) parent.appendChild(document.createTextNode("..."));
-  }
-
-  function createResult(item, query) {
+  function createResult(item, tokens) {
     var listItem = document.createElement("li");
     var heading = document.createElement("h4");
     var link = document.createElement("a");
     link.href = baseurl + String(item[1] || "").trim();
-    appendHighlightedText(link, item[0] || "(제목 없음)", query, 200);
+    appendHighlightedText(link, item[0] || "(제목 없음)", tokens, 200);
     heading.appendChild(link);
     listItem.appendChild(heading);
 
     if (item[2]) {
       var tags = document.createElement("span");
       tags.className = "search-result-tags";
-      appendHighlightedText(tags, item[2], query, 120);
+      appendHighlightedText(tags, item[2], tokens, 120);
       listItem.appendChild(tags);
     }
 
     var paragraph = document.createElement("p");
     var summary = document.createElement("small");
-    appendHighlightedText(summary, item[3] || "", query, 170);
+    appendHighlightedText(summary, item[3] || "", tokens, 170);
     paragraph.appendChild(summary);
     listItem.appendChild(paragraph);
     return listItem;
@@ -77,36 +220,9 @@
     empty.hidden = false;
   }
 
-  function tokenize(query) {
-    return query.toLowerCase().match(/[0-9A-Za-z가-힣_+#]{2,}/g) || [query.toLowerCase()];
-  }
-
-  function findDocumentIds(index, query) {
-    var terms = index.terms || {};
-    var indexedTerms = Object.keys(terms);
-    var candidates = null;
-
-    tokenize(query).forEach(function (queryTerm) {
-      var matchingIds = new Set();
-      if (terms[queryTerm]) {
-        terms[queryTerm].forEach(function (id) { matchingIds.add(id); });
-      } else {
-        indexedTerms.forEach(function (term) {
-          if (term.includes(queryTerm)) {
-            terms[term].forEach(function (id) { matchingIds.add(id); });
-          }
-        });
-      }
-      candidates = candidates === null
-        ? matchingIds
-        : new Set(Array.from(candidates).filter(function (id) { return matchingIds.has(id); }));
-    });
-
-    return Array.from(candidates || []).sort(function (a, b) { return a - b; });
-  }
-
   async function run() {
     var query = getQuery().trim();
+    var tokens = tokenize(query);
     var input = document.getElementById("search-input");
     if (input) input.value = query;
     if (!query) {
@@ -119,16 +235,15 @@
       if (!response.ok) throw new Error("Search index request failed");
       var index = await response.json();
       var documents = index.documents || [];
-      var matches = findDocumentIds(index, query)
-        .map(function (id) { return documents[id]; })
-        .filter(Boolean);
+      var matches = findDocumentMatches(index, query)
+        .map(function (match) { return documents[match.id]; });
       if (!matches.length) {
         showMessage("No results found.");
         return;
       }
 
       results.replaceChildren();
-      matches.forEach(function (item) { results.appendChild(createResult(item, query)); });
+      matches.forEach(function (item) { results.appendChild(createResult(item, tokens)); });
       results.hidden = false;
       empty.hidden = true;
     } catch (error) {

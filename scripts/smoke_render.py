@@ -244,6 +244,12 @@ def check_search_state(page, label, route):
             f"{label}: full-body search returned an unexpected post: {result_url}",
         )
         return
+    if "q=Linux" in route:
+        first_result = results.first.locator("a")
+        assert_true(
+            first_result.get_attribute("href") == "/2026/05/26/Linux_Intro/",
+            f"{label}: exact title match was not ranked first",
+        )
     assert_true(page.locator("#search-results mark").count() > 0, f"{label}: search highlight missing")
 
 
