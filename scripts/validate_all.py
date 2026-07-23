@@ -25,6 +25,16 @@ def parse_args():
         help="Run browser smoke rendering checks after the fast validation steps.",
     )
     parser.add_argument(
+        "--include-site-integrity",
+        action="store_true",
+        help="Validate links, identifiers, and images in an existing generated site.",
+    )
+    parser.add_argument(
+        "--site-dir",
+        default="_site",
+        help="Generated site directory used by optional render and integrity checks.",
+    )
+    parser.add_argument(
         "--skip-browser-if-unavailable",
         action="store_true",
         help="Pass through to smoke_render.py when --include-smoke is used.",
@@ -47,8 +57,16 @@ def main():
     args = parse_args()
     checks = list(CHECKS)
 
+    if args.include_site_integrity:
+        checks.append(
+            (
+                "Validate generated site integrity",
+                [sys.executable, "scripts/check_site_integrity.py", "--site-dir", args.site_dir],
+            ),
+        )
+
     if args.include_smoke:
-        smoke_command = [sys.executable, "scripts/smoke_render.py"]
+        smoke_command = [sys.executable, "scripts/smoke_render.py", "--site-dir", args.site_dir]
         if args.skip_browser_if_unavailable:
             smoke_command.append("--skip-browser-if-unavailable")
         checks.append(("Render smoke test", smoke_command))

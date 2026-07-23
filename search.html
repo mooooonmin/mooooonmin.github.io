@@ -9,6 +9,6 @@ layout: default
 	data-index-url="{{ '/assets/data/search-index.json' | relative_url }}"
 	data-baseurl="{{ site.baseurl | escape }}"
 ></ul>
-<p id="search-empty" class="search-state" style="display: none;"></p>
+<p id="search-empty" class="search-state" hidden></p>
 
 <script src="{{ '/assets/js/search.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
