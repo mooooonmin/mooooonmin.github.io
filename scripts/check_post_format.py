@@ -1,12 +1,8 @@
-import os
 import re
 import sys
 
-from front_matter import parse_inline_list, read_front_matter
+from post_repository import BASE_DIR, POSTS_DIR, iter_posts
 
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-POSTS_DIR = os.path.join(BASE_DIR, "_posts")
 
 SUMMARY_TITLES = {"요약", "핵심 정리", "전체 정리와 주의점"}
 SOURCE_TITLES = {"참고 자료", "참고자료"}
@@ -17,8 +13,8 @@ H3_NUMBER_PATTERNS = [
 ]
 
 
-def is_exam_post(front_matter):
-    return "exam" in set(parse_inline_list(front_matter.get("tags", "")))
+def is_exam_post(tags):
+    return "exam" in set(tags)
 
 
 def previous_nonblank(lines, index):
@@ -37,13 +33,11 @@ def next_blank_count(lines, index):
     return count
 
 
-def check_post(path):
-    with open(path, "r", encoding="utf-8-sig") as f:
-        front_matter, body = read_front_matter(f.read())
-    lines = body.splitlines()
+def check_post(post):
+    lines = post.body.splitlines()
 
-    if is_exam_post(front_matter):
-        if body.count("```") % 2:
+    if is_exam_post(post.tags):
+        if post.body.count("```") % 2:
             return [(len(lines), "닫히지 않은 코드블록이 있습니다.")]
         return []
 
@@ -107,12 +101,10 @@ def check_post(path):
 
 def main():
     all_errors = []
-    for filename in sorted(os.listdir(POSTS_DIR)):
-        if not filename.endswith(".md"):
-            continue
-        path = os.path.join(POSTS_DIR, filename)
-        for line_no, message in check_post(path):
-            all_errors.append(f"{os.path.relpath(path, BASE_DIR)}:{line_no}: {message}")
+    for post in iter_posts(POSTS_DIR):
+        for line_no, message in check_post(post):
+            relative_path = post.path.relative_to(BASE_DIR)
+            all_errors.append(f"{relative_path}:{line_no}: {message}")
 
     if all_errors:
         print("\n".join(all_errors))

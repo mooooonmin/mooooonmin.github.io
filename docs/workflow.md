@@ -37,6 +37,12 @@ tags: [tag1, tag2]
 
 ## 3. 로컬 검증
 
+최초 한 번 Python 의존성을 설치한다.
+
+```powershell
+python -m pip install -r requirements.txt
+```
+
 먼저 자동 생성 파일을 동기화한다.
 
 ```powershell

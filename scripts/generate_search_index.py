@@ -1,17 +1,14 @@
 import html
 import json
 import re
-import urllib.parse
 from collections import defaultdict
 from pathlib import Path
 
-from front_matter import parse_inline_list, read_front_matter
+from post_repository import POSTS_DIR, iter_posts
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-POSTS_DIR = BASE_DIR / "_posts"
 OUTPUT_PATH = BASE_DIR / "assets" / "data" / "search-index.json"
-POST_FILENAME = re.compile(r"^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$")
 SEARCH_TERM = re.compile(r"[0-9A-Za-z가-힣_+#]{2,}")
 MARKDOWN_LINK = re.compile(r"!?\[([^]]*)\]\([^)]*\)")
 HTML_TAG = re.compile(r"<[^>]+>")
@@ -27,29 +24,16 @@ def clean_markdown(value):
     return WHITESPACE.sub(" ", html.unescape(value)).strip()
 
 
-def post_url(path):
-    match = POST_FILENAME.match(path.name)
-    if not match:
-        return None
-    year, month, day, slug = match.groups()
-    return f"/{year}/{month}/{day}/{urllib.parse.quote(slug)}/"
-
-
 def collect_documents(posts_dir=POSTS_DIR):
     documents = []
-    for path in posts_dir.glob("*.md"):
-        url = post_url(path)
-        if not url:
-            continue
-        front_matter, body = read_front_matter(path.read_text(encoding="utf-8"))
-        title = front_matter.get("title", path.stem)
-        tags = " ".join(parse_inline_list(front_matter.get("tags", "")))
-        content = clean_markdown(body)
+    for post in iter_posts(posts_dir):
+        tags = " ".join(post.tags)
+        content = clean_markdown(post.body)
         documents.append(
             {
-                "date": front_matter.get("date", path.name[:10]),
-                "title": title,
-                "url": url,
+                "date": post.date,
+                "title": post.title,
+                "url": post.url,
                 "tags": tags,
                 "content": content,
             }

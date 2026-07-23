@@ -5,13 +5,12 @@ import shutil
 from collections import Counter
 
 from category_config import load_category_config
-from front_matter import read_front_matter
+from post_repository import POSTS_DIR, iter_posts
 
 
 # _posts 개수를 기준으로 알파벳/숫자 카테고리별 목록 페이지를 자동 생성한다.
 # 새 글이 추가되어 페이지 수가 바뀌어도 page2, page3 같은 폴더를 직접 만들 필요가 없다.
 base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-posts_dir = os.path.join(base_dir, "_posts")
 config_path = os.path.join(base_dir, "_config.yml")
 category_dir = os.path.join(base_dir, "category")
 generated_marker = "generated_by: scripts/generate_pages.py"
@@ -28,21 +27,7 @@ def read_paginate():
 
 
 def collect_posts():
-    # _posts 파일명 규칙에 맞는 게시글만 순회하고 카테고리를 모은다.
-    posts = []
-    for filename in os.listdir(posts_dir):
-        match = re.match(r"^\d{4}-\d{2}-\d{2}-.+\.md$", filename)
-        if not match:
-            continue
-
-        filepath = os.path.join(posts_dir, filename)
-        with open(filepath, "r", encoding="utf-8") as f:
-            front_matter, _ = read_front_matter(f.read())
-
-        category = front_matter.get("category", "Uncategorized")
-        posts.append({"category": category})
-
-    return posts
+    return list(iter_posts(POSTS_DIR))
 
 
 def write_page(path, layout, title, values):
@@ -122,7 +107,7 @@ def generate_collection_pages(parent_dir, layout, title, values, count, per_page
 def main():
     per_page = read_paginate()
     posts = collect_posts()
-    categories = Counter(post["category"] for post in posts)
+    categories = Counter(post.category for post in posts)
     remove_stale_category_dirs(set(categories.keys()))
 
     for category, count in categories.items():

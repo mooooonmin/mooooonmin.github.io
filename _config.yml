@@ -34,6 +34,7 @@ plugins:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - requirements.txt
   - README.md
   - LICENSE
   - serve.sh
