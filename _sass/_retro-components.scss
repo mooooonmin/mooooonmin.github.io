@@ -194,7 +194,7 @@
 	z-index: 30;
 	display: grid;
 	grid-template-columns: minmax(180px, 1fr) minmax(220px, 2fr) auto auto;
-	height: 34px;
+	height: $status-bar-height;
 	border-top: 2px solid var(--retro-border);
 	background: var(--retro-panel);
 	color: var(--retro-text);

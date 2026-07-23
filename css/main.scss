@@ -4,13 +4,8 @@ sitemap: false
 ---
 
 $baseurl: "{{ site.baseurl }}";
-$nav-header-height: 60px;
-$nav-width: 300px;
 
-$space: 20px;
-
-$mobile-break: 700px;
-
+@import "tokens";
 @import "normalize";
 @import "typography";
 @import "layout";

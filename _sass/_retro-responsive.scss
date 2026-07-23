@@ -1,7 +1,7 @@
 @media (min-width: $mobile-break) {
 	header#site-sidebar {
 		top: 0;
-		bottom: 34px;
+		bottom: $status-bar-height;
 		width: $nav-width;
 		max-height: none;
 	}
@@ -38,7 +38,7 @@
 
 @media (max-width: $mobile-break - 1px) {
 	body {
-		padding: 0 0 32px;
+		padding: 0 0 $mobile-status-bar-height;
 	}
 
 	header#site-sidebar {
@@ -47,15 +47,15 @@
 		right: 0;
 		bottom: auto;
 		left: 0;
-		min-height: 66px;
-		max-height: 66px;
+		min-height: $site-header-height;
+		max-height: $site-header-height;
 		border-right: 0;
 		border-bottom: 2px solid var(--retro-border);
 		overflow: hidden;
 	}
 
 	body.nav-open header#site-sidebar {
-		bottom: 32px;
+		bottom: $mobile-status-bar-height;
 		max-height: none;
 	}
 
@@ -66,7 +66,7 @@
 	}
 
 	header .open-nav {
-		top: 13px;
+		top: ($site-header-height - 40px) / 2;
 		right: 14px;
 		display: inline-flex;
 		align-items: center;
@@ -98,8 +98,8 @@
 	}
 
 	.main {
-		min-height: calc(100vh - 32px);
-		padding: 86px 12px 58px;
+		min-height: calc(100vh - #{$mobile-status-bar-height});
+		padding: ($site-header-height + 20px) 12px 58px;
 	}
 
 	.page-header {
@@ -203,7 +203,7 @@
 
 	.status-bar {
 		grid-template-columns: minmax(0, 1fr) auto;
-		height: 32px;
+		height: $mobile-status-bar-height;
 		font-size: 1.2rem;
 	}
 

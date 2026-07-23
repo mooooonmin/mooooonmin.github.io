@@ -30,6 +30,13 @@ body {
 	text-rendering: geometricPrecision;
 }
 
+button,
+input,
+select,
+textarea {
+	font-family: "NeoDunggeunmo", "Nanum Gothic Coding", monospace;
+}
+
 h1,
 h2,
 h3,
@@ -91,7 +98,6 @@ h6 {
 
 a {
 	color: var(--retro-text);
-	transition: color 0.1s ease, border-bottom 0.1s ease;
 	border-bottom: 1px solid var(--retro-muted);
     text-decoration: none;
 }
