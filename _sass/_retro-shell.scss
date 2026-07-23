@@ -149,6 +149,10 @@ header .site-title img {
 	color: var(--retro-selected-text);
 }
 
+.search-submit {
+	display: none;
+}
+
 header > nav {
 	flex: 1;
 	min-height: 0;

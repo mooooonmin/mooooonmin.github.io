@@ -11,6 +11,7 @@ permalink: /tags/
   class="tag-page"
   data-index-url="{{ '/tags.json' | relative_url }}"
   data-baseurl="{{ site.baseurl | escape }}"
+  data-dynamic-fragments
 >
   <div class="tag-pane tag-pane-list">
     <div class="tag-cloud tag-cloud-split" id="tag-cloud-list">

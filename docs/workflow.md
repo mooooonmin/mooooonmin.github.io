@@ -54,10 +54,11 @@ python scripts/validate_all.py
 화면 렌더링까지 포함하려면 아래 명령을 실행한다.
 
 ```powershell
-python scripts/validate_all.py --include-smoke
+bundle exec jekyll build
+python scripts/validate_all.py --include-site-integrity --include-smoke
 ```
 
-브라우저 스모크 테스트는 `_site`의 주요 화면을 데스크톱/모바일 viewport로 확인한다.
+사이트 무결성 검사는 `_site`의 전체 HTML에서 내부 링크, 참조 파일, 중복 ID, 이미지 메타데이터를 확인한다. 브라우저 스모크 테스트는 주요 화면을 데스크톱/모바일 viewport로 확인한다.
 
 - 홈
 - 태그
@@ -65,13 +66,14 @@ python scripts/validate_all.py --include-smoke
 - 카테고리 페이지네이션
 - 코드블록이 있는 포스트
 - Linux 명령어 포스트
+- 이미지가 있는 포스트
 
 ## 4. 커밋 전 확인
 
 커밋 전에는 최소한 아래 조건을 만족해야 한다.
 
 - `python scripts/validate_all.py` 통과
-- 화면이나 CSS를 수정했다면 `python scripts/validate_all.py --include-smoke` 통과
+- 화면이나 CSS를 수정했다면 빌드 후 `python scripts/validate_all.py --include-site-integrity --include-smoke` 통과
 - `git status --short`에서 의도한 파일만 변경됨
 - `scripts/__pycache__/` 같은 생성물이 커밋 대상에 없음
 

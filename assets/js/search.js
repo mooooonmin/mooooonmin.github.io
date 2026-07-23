@@ -72,9 +72,9 @@
 
   function showMessage(message) {
     results.replaceChildren();
-    results.style.display = "none";
+    results.hidden = true;
     empty.textContent = message;
-    empty.style.display = "block";
+    empty.hidden = false;
   }
 
   function tokenize(query) {
@@ -129,8 +129,8 @@
 
       results.replaceChildren();
       matches.forEach(function (item) { results.appendChild(createResult(item, query)); });
-      results.style.display = "";
-      empty.style.display = "none";
+      results.hidden = false;
+      empty.hidden = true;
     } catch (error) {
       showMessage("Search is temporarily unavailable.");
     }
