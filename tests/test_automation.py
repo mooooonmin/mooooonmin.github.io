@@ -11,6 +11,7 @@ sys.path.insert(0, str(SCRIPTS_DIR))
 
 import generate_pages
 import generate_search_index
+from check_post_format import check_post
 from front_matter import FrontMatterError, parse_inline_list, read_front_matter, split_front_matter
 from post_repository import load_post
 
@@ -85,6 +86,26 @@ class PostRepositoryTests(unittest.TestCase):
             self.assertEqual(post.tags, ("linux", "shell, cli"))
             self.assertEqual(post.date, "2026-01-02 03:04:05 +0900")
             self.assertEqual(post.url, "/2026/01/02/Linux%20Guide/")
+
+
+class PostFormatTests(unittest.TestCase):
+    def test_rejects_duplicate_tags_case_insensitively(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "2026-01-02-Exam.md"
+            path.write_text(
+                "---\n"
+                "title: Exam\n"
+                "category: e\n"
+                "date: 2026-01-02 03:04:05 +0900\n"
+                "tags: [exam, security, Exam]\n"
+                "---\n\n"
+                "Body\n",
+                encoding="utf-8",
+            )
+
+            errors = check_post(load_post(path))
+
+            self.assertIn((5, "중복 태그가 있습니다: exam"), errors)
 
 
 class GeneratedPageSafetyTests(unittest.TestCase):

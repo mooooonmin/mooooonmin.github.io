@@ -17,6 +17,25 @@ def is_exam_post(tags):
     return "exam" in set(tags)
 
 
+def find_duplicate_tags(tags):
+    seen = set()
+    duplicates = []
+    for tag in tags:
+        normalized = tag.casefold()
+        if normalized in seen and normalized not in duplicates:
+            duplicates.append(normalized)
+        seen.add(normalized)
+    return duplicates
+
+
+def front_matter_line(post, key):
+    pattern = re.compile(rf"^\s*{re.escape(key)}\s*:")
+    return next(
+        (index + 2 for index, line in enumerate(post.front_matter_lines) if pattern.match(line)),
+        1,
+    )
+
+
 def previous_nonblank(lines, index):
     for i in range(index - 1, -1, -1):
         if lines[i].strip():
@@ -35,13 +54,22 @@ def next_blank_count(lines, index):
 
 def check_post(post):
     lines = post.body.splitlines()
+    errors = []
+
+    duplicate_tags = find_duplicate_tags(post.tags)
+    if duplicate_tags:
+        errors.append(
+            (
+                front_matter_line(post, "tags"),
+                f"중복 태그가 있습니다: {', '.join(duplicate_tags)}",
+            )
+        )
 
     if is_exam_post(post.tags):
         if post.body.count("```") % 2:
-            return [(len(lines), "닫히지 않은 코드블록이 있습니다.")]
-        return []
+            errors.append((len(lines), "닫히지 않은 코드블록이 있습니다."))
+        return errors
 
-    errors = []
     in_fence = False
     h2_seen = False
     has_summary = False
