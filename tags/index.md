@@ -50,4 +50,4 @@ permalink: /tags/
 <p>No tags have been added.</p>
 {% endif %}
 
-<script src="{{ '/assets/js/tags.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
+<script src="{{ '/assets/js/tags.js' | relative_url }}" defer></script>

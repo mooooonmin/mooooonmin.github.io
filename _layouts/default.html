@@ -6,6 +6,13 @@
     <meta name="color-scheme" content="dark light" />
     {% seo %}
     {% feed_meta %}
+    <link
+      rel="preload"
+      href="{{ '/assets/fonts/neodgm.woff2' | relative_url }}"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <script>
       (function () {
         // CSS가 내려오기 전에 테마를 먼저 지정해 라이트/다크 전환 시 화면 깜빡임을 줄인다.
@@ -21,23 +28,9 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css?v={{ site.time | date: '%Y%m%d%H%M%S' }}" />
+    <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}" />
     <link rel="apple-touch-icon" href="{{ site.baseurl }}/images/database.svg" />
     <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/images/database.svg" />
-    {% if jekyll.environment == 'production' and site.google_analytics_key != ''
-    %}
-    <script>
-      window.ga =
-        window.ga ||
-        function () {
-          (ga.q = ga.q || []).push(arguments);
-        };
-      ga.l = +new Date();
-      ga("create", "{{ site.google_analytics_key }}", "auto");
-      ga("send", "pageview");
-    </script>
-    <script async src="https://www.google-analytics.com/analytics.js"></script>
-    {% endif %}
   </head>
 
   <body class="{% if page.url == '/tags/' %}tag-page-body{% endif %}">
@@ -116,6 +109,6 @@
         <span class="theme-toggle-label">MODE : BLUE</span>
       </button>
     </footer>
-    <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
+    <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
   </body>
 </html>
