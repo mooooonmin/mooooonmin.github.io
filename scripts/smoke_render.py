@@ -264,12 +264,26 @@ def check_tag_state(page, label, route):
     assert_true(page.locator("#tag-result-list li").count() > 0, f"{label}: restored tag results missing")
 
 
-def check_external_scripts(page, label, route):
-    assert_true(page.locator('script[src*="/assets/js/site.js"]').count() == 1, f"{label}: site.js missing")
+def check_static_assets(page, label, route):
+    stylesheet = page.locator('link[rel="stylesheet"][href="/css/main.css"]')
+    assert_true(stylesheet.count() == 1, f"{label}: stable main.css reference missing")
+
+    font_preload = page.locator(
+        'link[rel="preload"][as="font"][type="font/woff2"][href="/assets/fonts/neodgm.woff2"]',
+    )
+    assert_true(font_preload.count() == 1, f"{label}: base font preload missing")
+
+    assert_true(page.locator('script[src="/assets/js/site.js"]').count() == 1, f"{label}: stable site.js reference missing")
     if route.startswith("/search/"):
-        assert_true(page.locator('script[src*="/assets/js/search.js"]').count() == 1, f"{label}: search.js missing")
+        assert_true(
+            page.locator('script[src="/assets/js/search.js"]').count() == 1,
+            f"{label}: stable search.js reference missing",
+        )
     if route == "/tags/":
-        assert_true(page.locator('script[src*="/assets/js/tags.js"]').count() == 1, f"{label}: tags.js missing")
+        assert_true(
+            page.locator('script[src="/assets/js/tags.js"]').count() == 1,
+            f"{label}: stable tags.js reference missing",
+        )
 
 
 def check_post_images(page, label, route):
@@ -329,7 +343,7 @@ def check_route(page, base_url, route, label, viewport_name, blue_mode):
     assert_true(page.title() != "Repository", f"{label}: document title is not page-specific")
 
     check_visual_surfaces(page, label)
-    check_external_scripts(page, label, route)
+    check_static_assets(page, label, route)
     check_post_images(page, label, route)
     check_search_state(page, label, route)
     check_tag_state(page, label, route)
