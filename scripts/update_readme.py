@@ -1,21 +1,18 @@
-import re
-import urllib.parse
 from collections import defaultdict
 from pathlib import Path
 
 from category_config import load_category_config
-from front_matter import parse_front_matter, read_front_matter
+from front_matter import parse_yaml_mapping
+from post_repository import POSTS_DIR, iter_posts
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-POSTS_DIR = BASE_DIR / "_posts"
 README_PATH = BASE_DIR / "README.md"
 CONFIG_PATH = BASE_DIR / "_config.yml"
-POST_FILENAME = re.compile(r"^(\d{4})-(\d{2})-(\d{2})-(.+)\.md$")
 
 
 def get_site_prefix():
-    config = parse_front_matter(CONFIG_PATH.read_text(encoding="utf-8").splitlines())
+    config = parse_yaml_mapping(CONFIG_PATH.read_text(encoding="utf-8"))
     site_url = config.get("url", "").rstrip("/")
     baseurl = config.get("baseurl", "").strip("/")
     if not site_url:
@@ -25,21 +22,13 @@ def get_site_prefix():
 
 def collect_posts(site_prefix):
     posts_by_category = defaultdict(list)
-    for path in POSTS_DIR.glob("*.md"):
-        match = POST_FILENAME.match(path.name)
-        if not match:
-            continue
-
-        year, month, day, slug = match.groups()
-        front_matter, _ = read_front_matter(path.read_text(encoding="utf-8"))
-        title = front_matter.get("title", slug)
-        category = front_matter.get("category", "Uncategorized")
-        post_url = (
-            f"{site_prefix}/{year}/{month}/{day}/"
-            f"{urllib.parse.quote(slug.strip())}/"
-        )
-        posts_by_category[category].append(
-            {"title": title, "date": f"{year}-{month}-{day}", "url": post_url}
+    for post in iter_posts(POSTS_DIR):
+        posts_by_category[post.category].append(
+            {
+                "title": post.title,
+                "date": post.filename_date,
+                "url": site_prefix + post.url,
+            }
         )
     return posts_by_category
 

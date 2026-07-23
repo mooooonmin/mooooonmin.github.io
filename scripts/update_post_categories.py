@@ -1,16 +1,11 @@
-import os
 import re
 from collections import Counter
 
-from front_matter import parse_front_matter, parse_inline_list, split_front_matter
+from post_repository import POSTS_DIR, iter_posts
 
 
 # 포스트의 주제 분류는 tags가 담당하고, category는 사전식 탐색을 위한 색인으로만 사용한다.
 # 제목에 영문자나 숫자가 있으면 그 값을 우선 사용하고, 한글 제목처럼 색인 문자가 없으면 파일명과 태그를 보조 기준으로 사용한다.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-POSTS_DIR = os.path.join(BASE_DIR, "_posts")
-
-
 def category_from_text(text):
     match = re.search(r"[A-Za-z0-9]", text)
     if not match:
@@ -50,34 +45,15 @@ def main():
     counts = Counter()
     changed = 0
 
-    for filename in sorted(os.listdir(POSTS_DIR)):
-        if not filename.endswith(".md"):
-            continue
-
-        match = re.match(r"^\d{4}-\d{2}-\d{2}-(.+)\.md$", filename)
-        if not match:
-            continue
-
-        path = os.path.join(POSTS_DIR, filename)
-        with open(path, "r", encoding="utf-8-sig") as f:
-            text = f.read()
-
-        lines, body = split_front_matter(text)
-        if lines is None:
-            continue
-
-        front_matter = parse_front_matter(lines)
-        title = front_matter.get("title", match.group(1))
-        tags = parse_inline_list(front_matter.get("tags", "[]"))
-        category = category_for_post(title, match.group(1), tags)
+    for post in iter_posts(POSTS_DIR):
+        category = category_for_post(post.title, post.slug, post.tags)
         counts[category] += 1
 
-        new_lines = rewrite_front_matter(lines, category)
-        new_text = "---\n" + "\n".join(new_lines).rstrip() + "\n---\n\n" + body
+        new_lines = rewrite_front_matter(post.front_matter_lines, category)
+        new_text = "---\n" + "\n".join(new_lines).rstrip() + "\n---\n\n" + post.body
 
-        if new_text != text.lstrip("\ufeff").replace("\r\n", "\n"):
-            with open(path, "w", encoding="utf-8", newline="\n") as f:
-                f.write(new_text)
+        if new_text != post.raw_text.replace("\r\n", "\n"):
+            post.path.write_text(new_text, encoding="utf-8", newline="\n")
             changed += 1
 
     print(f"Post categories updated successfully. changed={changed}")

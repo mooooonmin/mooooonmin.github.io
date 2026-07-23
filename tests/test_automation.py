@@ -11,7 +11,8 @@ sys.path.insert(0, str(SCRIPTS_DIR))
 
 import generate_pages
 import generate_search_index
-from front_matter import parse_inline_list, read_front_matter, split_front_matter
+from front_matter import FrontMatterError, parse_inline_list, read_front_matter, split_front_matter
+from post_repository import load_post
 
 
 class FrontMatterTests(unittest.TestCase):
@@ -28,6 +29,62 @@ class FrontMatterTests(unittest.TestCase):
 
         self.assertIsNone(lines)
         self.assertEqual(body, "Plain body")
+
+    def test_supports_nested_multiline_and_quoted_list_values(self):
+        text = (
+            "---\n"
+            "title: |\n"
+            "  Linux: Basics\n"
+            "tags: ['linux, shell', yaml]\n"
+            "date: 2026-01-01 00:00:00 +0900\n"
+            "author:\n"
+            "  name: Moon\n"
+            "---\n\n"
+            "Body\n"
+        )
+
+        front_matter, body = read_front_matter(text)
+
+        self.assertEqual(front_matter["title"], "Linux: Basics\n")
+        self.assertEqual(parse_inline_list(front_matter["tags"]), ["linux, shell", "yaml"])
+        self.assertEqual(front_matter["date"], "2026-01-01 00:00:00 +0900")
+        self.assertEqual(front_matter["author"], {"name": "Moon"})
+        self.assertEqual(body, "Body\n")
+
+    def test_requires_front_matter_delimiters_on_separate_lines(self):
+        lines, body = split_front_matter("---not-metadata\ntitle: Example\n---\nBody")
+
+        self.assertIsNone(lines)
+        self.assertEqual(body, "---not-metadata\ntitle: Example\n---\nBody")
+
+    def test_rejects_non_mapping_yaml_metadata(self):
+        with self.assertRaises(FrontMatterError):
+            read_front_matter("---\n- invalid\n- metadata\n---\nBody\n")
+
+
+class PostRepositoryTests(unittest.TestCase):
+    def test_loads_normalized_post_metadata_and_url(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "2026-01-02-Linux Guide.md"
+            path.write_text(
+                "---\n"
+                "title: Linux Guide\n"
+                "category: l\n"
+                "date: 2026-01-02 03:04:05 +0900\n"
+                "tags: [linux, 'shell, cli']\n"
+                "---\n\n"
+                "Body\n",
+                encoding="utf-8",
+            )
+
+            post = load_post(path)
+
+            self.assertEqual(post.filename_date, "2026-01-02")
+            self.assertEqual(post.title, "Linux Guide")
+            self.assertEqual(post.category, "l")
+            self.assertEqual(post.tags, ("linux", "shell, cli"))
+            self.assertEqual(post.date, "2026-01-02 03:04:05 +0900")
+            self.assertEqual(post.url, "/2026/01/02/Linux%20Guide/")
 
 
 class GeneratedPageSafetyTests(unittest.TestCase):
