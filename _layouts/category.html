@@ -17,15 +17,9 @@ layout: default
 {% assign current_page = page.page_num | default: 1 %}
 {% assign offset = current_page | minus: 1 | times: per_page %}
 {% assign category_slug = page.category | append: "" | slugify %}
+{% assign page_posts = filtered_posts | slice: offset, per_page %}
 
-<ul class="post-list">
-{% for post in filtered_posts limit: per_page offset: offset %}
-	<li>
-		<span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-		<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-	</li>
-{% endfor %}
-</ul>
+{% include post-list.html posts=page_posts %}
 
 {% if filtered_posts.size == 0 %}
 <p>No posts in this category.</p>

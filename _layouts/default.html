@@ -29,8 +29,8 @@
       })();
     </script>
     <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}" />
-    <link rel="apple-touch-icon" href="{{ site.baseurl }}/images/database.svg" />
-    <link rel="icon" type="image/svg+xml" href="{{ site.baseurl }}/images/database.svg" />
+    <link rel="apple-touch-icon" href="{{ '/images/database.svg' | relative_url }}" />
+    <link rel="icon" type="image/svg+xml" href="{{ '/images/database.svg' | relative_url }}" />
   </head>
 
   <body class="{% if page.url == '/tags/' %}tag-page-body{% endif %}">
@@ -44,9 +44,9 @@
     ></button>
     <header id="site-sidebar">
       <h1 class="site-title">
-        <a href="{{ site.baseurl }}/" class="site-title-link">
+        <a href="{{ '/' | relative_url }}" class="site-title-link">
           <img
-            src="{{ site.baseurl }}/images/database.svg"
+            src="{{ '/images/database.svg' | relative_url }}"
             width="40"
             height="40"
             alt="{{ site.title }} logo"
@@ -55,7 +55,7 @@
         </a>
         <button type="button" class="open-nav" id="open-nav" aria-label="메뉴 열기" aria-expanded="false"></button>
       </h1>
-      <form action="{{ site.baseurl }}/search/" method="get" id="site-search-form">
+      <form action="{{ '/search/' | relative_url }}" method="get" id="site-search-form">
         <input type="text" name="q" id="search-input" placeholder="SEARCH" aria-label="블로그 검색" />
         <input type="submit" value="Search" class="search-submit" />
       </form>
@@ -64,12 +64,12 @@
           <li
             class="nav-item top-level {% if page.url == '/' %}current{% endif %}"
           >
-            <a href="{{ site.baseurl }}/">ALL <span class="category-count">({{ site.posts | size }})</span></a>
+            <a href="{{ '/' | relative_url }}">ALL <span class="category-count">({{ site.posts | size }})</span></a>
           </li>
           <li
             class="nav-item top-level {% if page.url contains '/tags/' %}current{% endif %}"
           >
-            <a href="{{ site.baseurl }}/tags/">TAGS</a>
+            <a href="{{ '/tags/' | relative_url }}">TAGS</a>
           </li>
           {% assign postsByCategory = site.posts | group_by: "category" %}
           {% assign category_order = site.data.categories.order %}
@@ -79,9 +79,11 @@
               {% continue %}
             {% endif %}
             {% assign category_label = catGroup.name | upcase %}
-            {% assign category_path = "/category/" | append: catGroup.name | append: "/" %}
+            {% assign category_slug = catGroup.name | slugify %}
+            {% assign category_path = "/category/" | append: category_slug | append: "/" %}
+            {% assign category_url = category_path | relative_url %}
             <li class="nav-item top-level {% if page.category == catGroup.name or page.url contains category_path %}current{% endif %}">
-              <a href="{{ site.baseurl }}/category/{{ catGroup.name | slugify }}/">{{ category_label }} <span class="category-count">({{ catGroup.items | size }})</span></a>
+              <a href="{{ category_url }}">{{ category_label }} <span class="category-count">({{ catGroup.items | size }})</span></a>
             </li>
           {% endfor %}
         </ul>

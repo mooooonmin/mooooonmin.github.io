@@ -17,7 +17,8 @@ layout: default
         <span class="post-meta-label">Tags</span>
         <div class="post-meta-tags">
           {% for tag in page.tags %}
-            <a href="{{ site.baseurl }}/tags/#{{ tag | downcase }}" class="post-meta-chip">#{{ tag }}</a>
+            {% capture tag_url %}/tags/#{{ tag | downcase }}{% endcapture %}
+            <a href="{{ tag_url | relative_url }}" class="post-meta-chip">#{{ tag }}</a>
           {% endfor %}
         </div>
       </div>
@@ -66,14 +67,14 @@ layout: default
 <div class="post-navigation">
   <div>
     {% if prev_post.url %}
-      <a href="{{ site.baseurl }}{{ prev_post.url }}" role="button" tabindex="0" title="{{ prev_post.title }}">
+      <a href="{{ prev_post.url | relative_url }}" role="button" tabindex="0" title="{{ prev_post.title }}">
         &laquo; {{ prev_post.title | truncate: 25 }}
       </a>
     {% endif %}
   </div>
   <div>
     {% if next_post.url %}
-      <a href="{{ site.baseurl }}{{ next_post.url }}" role="button" tabindex="0" title="{{ next_post.title }}">
+      <a href="{{ next_post.url | relative_url }}" role="button" tabindex="0" title="{{ next_post.title }}">
         {{ next_post.title | truncate: 25 }} &raquo;
       </a>
     {% endif %}

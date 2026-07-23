@@ -8,9 +8,10 @@
 	{% if current_page > 1 %}
 		{% assign previous_page = current_page | minus: 1 %}
 		{% if previous_page == 1 %}
-			<a href="{{ site.baseurl }}{{ base_path }}" class="pagination-prev">&lt;</a>
+			<a href="{{ base_path | relative_url }}" class="pagination-prev">&lt;</a>
 		{% else %}
-			<a href="{{ site.baseurl }}{{ base_path }}page{{ previous_page }}/" class="pagination-prev">&lt;</a>
+			{% capture previous_url %}{{ base_path }}page{{ previous_page }}/{% endcapture %}
+			<a href="{{ previous_url | relative_url }}" class="pagination-prev">&lt;</a>
 		{% endif %}
 	{% else %}
 		<span class="pagination-prev disabled">&lt;</span>
@@ -21,16 +22,18 @@
 			{% if page_number == current_page %}
 				<span class="pagination-current">{{ page_number }}</span>
 			{% elsif page_number == 1 %}
-				<a href="{{ site.baseurl }}{{ base_path }}">{{ page_number }}</a>
+				<a href="{{ base_path | relative_url }}">{{ page_number }}</a>
 			{% else %}
-				<a href="{{ site.baseurl }}{{ base_path }}page{{ page_number }}/">{{ page_number }}</a>
+				{% capture page_url %}{{ base_path }}page{{ page_number }}/{% endcapture %}
+				<a href="{{ page_url | relative_url }}">{{ page_number }}</a>
 			{% endif %}
 		{% endfor %}
 	</span>
 
 	{% if current_page < total_pages %}
 		{% assign next_page = current_page | plus: 1 %}
-		<a href="{{ site.baseurl }}{{ base_path }}page{{ next_page }}/" class="pagination-next">&gt;</a>
+		{% capture next_url %}{{ base_path }}page{{ next_page }}/{% endcapture %}
+		<a href="{{ next_url | relative_url }}" class="pagination-next">&gt;</a>
 	{% else %}
 		<span class="pagination-next disabled">&gt;</span>
 	{% endif %}
