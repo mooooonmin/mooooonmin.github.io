@@ -214,7 +214,7 @@ metadata를 통해 leader를 찾은 뒤 leader broker로 전송했다.
 
 ## 출처
 
-1. Apache Kafka, "Producer Configs - bootstrap.servers", https://kafka.apache.org/43/configuration/producer-configs/
-2. Apache Kafka, "Design - Load balancing and metadata", https://kafka.apache.org/43/design/design/
-3. Apache Kafka, "Consumer Configs - bootstrap.servers", https://kafka.apache.org/41/configuration/consumer-configs/
-4. Apache Kafka, "Design - Replication", https://kafka.apache.org/43/design/design/
+1. [Apache Kafka, "Producer Configs - bootstrap.servers"](https://kafka.apache.org/43/configuration/producer-configs/)
+2. [Apache Kafka, "Design - Load balancing and metadata"](https://kafka.apache.org/43/design/design/)
+3. [Apache Kafka, "Consumer Configs - bootstrap.servers"](https://kafka.apache.org/41/configuration/consumer-configs/)
+4. [Apache Kafka, "Design - Replication"](https://kafka.apache.org/43/design/design/)

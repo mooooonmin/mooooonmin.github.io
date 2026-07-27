@@ -237,5 +237,5 @@ Kafka에 저장된 메시지는 읽는 순간 바로 제거되는 방식이 아�
 
 ## 출처
 
-1. Apache Kafka, "Quickstart - Step 4: Write some events into the topic", https://kafka.apache.org/quickstart/
-2. Apache Kafka, "Quickstart - Step 5: Read the events", https://kafka.apache.org/quickstart/
+1. [Apache Kafka, "Quickstart - Step 4: Write some events into the topic"](https://kafka.apache.org/quickstart/)
+2. [Apache Kafka, "Quickstart - Step 5: Read the events"](https://kafka.apache.org/quickstart/)

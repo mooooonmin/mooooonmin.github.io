@@ -303,6 +303,6 @@ Consumer 서버 수, Consumer concurrency, 실제 처리량, Consumer lag까지 
 
 ## 출처
 
-1. Confluent Documentation, "Choose and Change the Partition Count in Kafka", https://docs.confluent.io/kafka/operations-tools/partition-determination.html
-2. Confluent Documentation, "Kafka Consumer Design: Consumers, Consumer Groups, and Offsets", https://docs.confluent.io/kafka/design/consumer-design.html
-3. Apache Kafka, "Introduction - Main Concepts and Terminology", https://kafka.apache.org/intro/
+1. [Confluent Documentation, "Choose and Change the Partition Count in Kafka"](https://docs.confluent.io/kafka/operations-tools/partition-determination.html)
+2. [Confluent Documentation, "Kafka Consumer Design: Consumers, Consumer Groups, and Offsets"](https://docs.confluent.io/kafka/design/consumer-design.html)
+3. [Apache Kafka, "Introduction - Main Concepts and Terminology"](https://kafka.apache.org/intro/)

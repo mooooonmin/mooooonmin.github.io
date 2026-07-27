@@ -167,5 +167,5 @@ docker exec -it [Container ID] bash
 
 ## 출처
 
-[1] Docker Docs, Dockerfile reference - ENTRYPOINT: <https://docs.docker.com/reference/builder/#entrypoint>
-[2] Docker Docs, docker container run - Detached mode: <https://docs.docker.com/reference/cli/docker/container/run/#detached-mode--d---detach>
+1. [Docker Docs, Dockerfile reference - ENTRYPOINT](https://docs.docker.com/reference/builder/#entrypoint)
+2. [Docker Docs, docker container run - Detached mode](https://docs.docker.com/reference/cli/docker/container/run/#detached-mode--d---detach)

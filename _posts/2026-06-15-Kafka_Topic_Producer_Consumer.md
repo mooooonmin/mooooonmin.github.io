@@ -213,5 +213,5 @@ Producer -> Topic -> Consumer
 
 ## 출처
 
-1. Apache Kafka, "Introduction - Main Concepts and Terminology", https://kafka.apache.org/intro/
-2. Apache Kafka, "Introduction - Kafka APIs", https://kafka.apache.org/intro/
+1. [Apache Kafka, "Introduction - Main Concepts and Terminology"](https://kafka.apache.org/intro/)
+2. [Apache Kafka, "Introduction - Kafka APIs"](https://kafka.apache.org/intro/)

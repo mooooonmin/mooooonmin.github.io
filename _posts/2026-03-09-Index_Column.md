@@ -132,7 +132,5 @@ Index는 일반적으로 **카디널리티가 높고 선택도가 높은 컬럼�
 
 ## 출처
 
-1. PostgreSQL Documentation, Multicolumn Indexes
-   https://www.postgresql.org/docs/current/indexes-multicolumn.html
-2. PostgreSQL Documentation, Indexes
-   https://www.postgresql.org/docs/current/indexes.html
+1. [PostgreSQL Documentation, Multicolumn Indexes](https://www.postgresql.org/docs/current/indexes-multicolumn.html)
+2. [PostgreSQL Documentation, Indexes](https://www.postgresql.org/docs/current/indexes.html)

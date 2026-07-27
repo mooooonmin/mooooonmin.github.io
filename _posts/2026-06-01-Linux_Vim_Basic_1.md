@@ -160,6 +160,6 @@ vi app.txt
 
 ## 출처
 
-- [1] Vim User Manual, first steps in Vim - <https://vimhelp.org/usr_02.txt.html>
-- [2] Vim Reference Manual, Insert mode - <https://vimhelp.org/insert.txt.html>
-- [3] Vim Quick Reference, writing and quitting - <https://vimhelp.org/quickref.txt.html>
+1. [Vim User Manual, first steps in Vim](https://vimhelp.org/usr_02.txt.html)
+2. [Vim Reference Manual, Insert mode](https://vimhelp.org/insert.txt.html)
+3. [Vim Quick Reference, writing and quitting](https://vimhelp.org/quickref.txt.html)

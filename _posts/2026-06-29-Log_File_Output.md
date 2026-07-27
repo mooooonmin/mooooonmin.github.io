@@ -222,7 +222,7 @@ Logback = 그 로그를 실제로 출력하고 저장하는 구현체 쪽
 
 ## 출처
 
-1. Spring Boot Reference, "Logging", https://docs.spring.io/spring-boot/reference/features/logging.html
-2. Spring Boot API, "LogFile", https://docs.spring.io/spring-boot/api/java/org/springframework/boot/logging/LogFile.html
-3. Logback Manual, "Introduction", https://logback.qos.ch/manual/introduction.html
-4. Logback Manual, "Architecture", https://logback.qos.ch/manual/architecture.html
+1. [Spring Boot Reference, "Logging"](https://docs.spring.io/spring-boot/reference/features/logging.html)
+2. [Spring Boot API, "LogFile"](https://docs.spring.io/spring-boot/api/java/org/springframework/boot/logging/LogFile.html)
+3. [Logback Manual, "Introduction"](https://logback.qos.ch/manual/introduction.html)
+4. [Logback Manual, "Architecture"](https://logback.qos.ch/manual/architecture.html)

@@ -59,5 +59,4 @@ tags: [datastructure, hash-table, collision]
 
 ## 출처
 
-1. Pat Morin, Open Data Structures - Hash Tables
-   https://opendatastructures.org/versions/edition-0.1e/ods-java/5_Hash_Tables.html
+1. [Pat Morin, Open Data Structures - Hash Tables](https://opendatastructures.org/versions/edition-0.1e/ods-java/5_Hash_Tables.html)

@@ -344,8 +344,8 @@ Kafka Node를 3대로 구성하면 controller quorum을 3대로 만들어 일부
 
 ## 출처
 
-1. Apache Kafka, "KRaft - Process Roles and Controllers", https://kafka.apache.org/39/operations/kraft/
-2. Apache Kafka, "KRaft - Formatting Brokers and New Controllers", https://kafka.apache.org/41/operations/kraft/
-3. Apache Kafka, "Listener Configuration", https://kafka.apache.org/42/security/listener-configuration/
-4. Apache Kafka, "Broker Configs - advertised.listeners", https://kafka.apache.org/41/configuration/broker-configs/
-5. Confluent Documentation, "Configure and Monitor KRaft", https://docs.confluent.io/platform/current/kafka-metadata/config-kraft.html
+1. [Apache Kafka, "KRaft - Process Roles and Controllers"](https://kafka.apache.org/39/operations/kraft/)
+2. [Apache Kafka, "KRaft - Formatting Brokers and New Controllers"](https://kafka.apache.org/41/operations/kraft/)
+3. [Apache Kafka, "Listener Configuration"](https://kafka.apache.org/42/security/listener-configuration/)
+4. [Apache Kafka, "Broker Configs - advertised.listeners"](https://kafka.apache.org/41/configuration/broker-configs/)
+5. [Confluent Documentation, "Configure and Monitor KRaft"](https://docs.confluent.io/platform/current/kafka-metadata/config-kraft.html)

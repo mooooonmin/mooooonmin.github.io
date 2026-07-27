@@ -267,6 +267,6 @@ Consumer Group의 offset 상태 조회는 `kafka-consumer-groups.sh --describe -
 
 ## 출처
 
-1. Apache Kafka, "Basic Kafka Operations - Checking consumer position / Managing consumer groups", https://kafka.apache.org/41/operations/basic-kafka-operations/
-2. Apache Kafka, "Introduction - Main Concepts and Terminology", https://kafka.apache.org/intro/
-3. Confluent Documentation, "Kafka Consumer - Offset management configuration", https://docs.confluent.io/platform/current/clients/consumer.html
+1. [Apache Kafka, "Basic Kafka Operations - Checking consumer position / Managing consumer groups"](https://kafka.apache.org/41/operations/basic-kafka-operations/)
+2. [Apache Kafka, "Introduction - Main Concepts and Terminology"](https://kafka.apache.org/intro/)
+3. [Confluent Documentation, "Kafka Consumer - Offset management configuration"](https://docs.confluent.io/platform/current/clients/consumer.html)

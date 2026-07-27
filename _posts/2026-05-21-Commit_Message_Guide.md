@@ -130,5 +130,4 @@ docs(posts): 커밋 메시지 작성 가이드 추가
 
 ## 출처
 
-1. Conventional Commits, Specification v1.0.0
-   https://www.conventionalcommits.org/en/v1.0.0/
+1. [Conventional Commits, Specification v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/)

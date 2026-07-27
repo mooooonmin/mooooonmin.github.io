@@ -172,8 +172,8 @@ git -v
 
 ## 출처
 
-[1] Docker Docs, Dockerfile reference - RUN: <https://docs.docker.com/reference/dockerfile/#run>
-[2] Docker Docs, Dockerfile reference - Shell and exec form: <https://docs.docker.com/reference/dockerfile/#shell-and-exec-form>
-[3] Docker Docs, Dockerfile reference - ENTRYPOINT: <https://docs.docker.com/reference/dockerfile/#entrypoint>
-[4] Docker Docs, docker image build: <https://docs.docker.com/reference/cli/docker/image/build/>
-[5] Docker Docs, docker container exec: <https://docs.docker.com/reference/cli/docker/container/exec/>
+1. [Docker Docs, Dockerfile reference - RUN](https://docs.docker.com/reference/dockerfile/#run)
+2. [Docker Docs, Dockerfile reference - Shell and exec form](https://docs.docker.com/reference/dockerfile/#shell-and-exec-form)
+3. [Docker Docs, Dockerfile reference - ENTRYPOINT](https://docs.docker.com/reference/dockerfile/#entrypoint)
+4. [Docker Docs, docker image build](https://docs.docker.com/reference/cli/docker/image/build/)
+5. [Docker Docs, docker container exec](https://docs.docker.com/reference/cli/docker/container/exec/)

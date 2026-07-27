@@ -176,5 +176,5 @@ Kafka는 이런 메시지 처리 흐름을 대규모 데이터 환경에서 사�
 
 ## 출처
 
-1. Apache Kafka, "Apache Kafka", https://kafka.apache.org/
-2. Amazon Web Services, "Amazon Simple Queue Service Developer Guide - Welcome", https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html
+1. [Apache Kafka, "Apache Kafka"](https://kafka.apache.org/)
+2. [Amazon Web Services, "Amazon Simple Queue Service Developer Guide - Welcome"](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html)

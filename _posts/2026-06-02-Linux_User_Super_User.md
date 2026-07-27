@@ -182,6 +182,6 @@ whoami
 
 ## 출처
 
-- [1] Linux man-pages, `passwd(5)` - <https://man7.org/linux/man-pages/man5/passwd.5.html>
-- [2] GNU Coreutils Manual, `whoami` invocation - <https://www.gnu.org/s/coreutils/manual/html_node/whoami-invocation.html>
-- [3] Linux man-pages, `su(1)` - <https://man7.org/linux/man-pages/man1/su.1.html>
+1. [Linux man-pages, `passwd(5)`](https://man7.org/linux/man-pages/man5/passwd.5.html)
+2. [GNU Coreutils Manual, `whoami` invocation](https://www.gnu.org/s/coreutils/manual/html_node/whoami-invocation.html)
+3. [Linux man-pages, `su(1)`](https://man7.org/linux/man-pages/man1/su.1.html)

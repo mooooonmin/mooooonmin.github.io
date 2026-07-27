@@ -172,5 +172,5 @@ cd .././../lib/./../../var
 
 ## 출처
 
-- [1] Linux man-pages, `path_resolution(7)` - <https://man7.org/linux/man-pages/man7/path_resolution.7.html>
-- [2] Linux man-pages, POSIX `cd(1p)` - <https://man7.org/linux/man-pages/man1/cd.1p.html>
+1. [Linux man-pages, `path_resolution(7)`](https://man7.org/linux/man-pages/man7/path_resolution.7.html)
+2. [Linux man-pages, POSIX `cd(1p)`](https://man7.org/linux/man-pages/man1/cd.1p.html)

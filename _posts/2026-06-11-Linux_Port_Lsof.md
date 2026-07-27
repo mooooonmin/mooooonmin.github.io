@@ -220,12 +220,8 @@ kill [PID]
 
 ## 출처
 
-[1] Spring Boot Reference Documentation, "Embedded Web Servers - Change the HTTP Port", 확인일: 2026-06-11, <https://docs.spring.io/spring-boot/how-to/webserver.html>
-
-[2] IETF RFC 7605, "Recommendations on Using Assigned Transport Port Numbers", Section 5, 확인일: 2026-06-11, <https://datatracker.ietf.org/doc/html/rfc7605#section-5>
-
-[3] Linux man-pages, "lsof(8) - Linux manual page", 확인일: 2026-06-11, <https://man7.org/linux/man-pages/man8/lsof.8.html>
-
-[4] Linux man-pages, "ps(1) - Linux manual page", 확인일: 2026-06-11, <https://man7.org/linux/man-pages/man1/ps.1.html>
-
-[5] Linux man-pages, "kill(1) - Linux manual page", 확인일: 2026-06-11, <https://man7.org/linux/man-pages/man1/kill.1.html>
+1. [Spring Boot Reference Documentation, "Embedded Web Servers - Change the HTTP Port", 확인일: 2026-06-11](https://docs.spring.io/spring-boot/how-to/webserver.html)
+2. [IETF RFC 7605, "Recommendations on Using Assigned Transport Port Numbers", Section 5, 확인일: 2026-06-11](https://datatracker.ietf.org/doc/html/rfc7605#section-5)
+3. [Linux man-pages, "lsof(8) - Linux manual page", 확인일: 2026-06-11](https://man7.org/linux/man-pages/man8/lsof.8.html)
+4. [Linux man-pages, "ps(1) - Linux manual page", 확인일: 2026-06-11](https://man7.org/linux/man-pages/man1/ps.1.html)
+5. [Linux man-pages, "kill(1) - Linux manual page", 확인일: 2026-06-11](https://man7.org/linux/man-pages/man1/kill.1.html)

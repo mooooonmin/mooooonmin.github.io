@@ -125,17 +125,10 @@ segment table과 page table을 함께 사용해야 한다는 비용이 생김. [
 
 ## 출처
 
-1. KOCW, 운영체제 강의자료
-   https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/7.pdf
-2. University of Illinois Chicago, Operating Systems Notes, "Segmentation" / "Paging"
-   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/8_MainMemory.html
-3. University of Maryland, Computer Architecture Notes, "Virtual Memory II"
-   https://www.cs.umd.edu/users/meesh/411/CA-online/chapter/289/index.html
-4. University of Wisconsin-Madison, CS 537 Notes, "Segmentation"
-   https://pages.cs.wisc.edu/~solomon/cs537-old/s07/segmentation.html
-5. Gordon College, CS322 Memory Management, "Paged and Segmented Memory Organizations"
-   https://www.cs.gordon.edu/courses/cs322/lectures/memory.html
-6. University of California, Davis, "Segmentation and Paging Combined"
-   https://nob.cs.ucdavis.edu/classes/ecs150-2008-02/handouts/memory/mm-segpag.html
-7. UC Davis ECS 150 Memory Management Notes, "Paged Segmentation"
-   https://nob.cs.ucdavis.edu/classes/ecs150-2008-02/notes/memory.pdf
+1. [KOCW, 운영체제 강의자료](https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/7.pdf)
+2. [University of Illinois Chicago, Operating Systems Notes, "Segmentation" / "Paging"](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/8_MainMemory.html)
+3. [University of Maryland, Computer Architecture Notes, "Virtual Memory II"](https://www.cs.umd.edu/users/meesh/411/CA-online/chapter/289/index.html)
+4. [University of Wisconsin-Madison, CS 537 Notes, "Segmentation"](https://pages.cs.wisc.edu/~solomon/cs537-old/s07/segmentation.html)
+5. [Gordon College, CS322 Memory Management, "Paged and Segmented Memory Organizations"](https://www.cs.gordon.edu/courses/cs322/lectures/memory.html)
+6. [University of California, Davis, "Segmentation and Paging Combined"](https://nob.cs.ucdavis.edu/classes/ecs150-2008-02/handouts/memory/mm-segpag.html)
+7. [UC Davis ECS 150 Memory Management Notes, "Paged Segmentation"](https://nob.cs.ucdavis.edu/classes/ecs150-2008-02/notes/memory.pdf)

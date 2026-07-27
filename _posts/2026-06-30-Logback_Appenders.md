@@ -222,11 +222,11 @@ Logback의 Appender는 로그를 어디로 출력할지를 결정하는 구성 �
 
 ## 출처
 
-1. Logback Short Introduction, https://logback.qos.ch/shortIntro.html
-2. Logback Manual, "Encoders", https://logback.qos.ch/manual/encoders.html
-3. Logback Manual, "Appenders - ConsoleAppender", https://logback.qos.ch/manual/appenders.html
-4. Logback API, "FileAppender", https://logback.qos.ch/apidocs/ch.qos.logback.core/ch/qos/logback/core/FileAppender.html
-5. Logback API, "RollingFileAppender", https://logback.qos.ch/apidocs/ch.qos.logback.core/ch/qos/logback/core/rolling/RollingFileAppender.html
-6. Logback API, "TimeBasedRollingPolicy", https://logback.qos.ch/apidocs-1.3.x/ch/qos/logback/core/rolling/TimeBasedRollingPolicy.html
-7. Logback API, "SizeAndTimeBasedRollingPolicy", https://logback.qos.ch/apidocs/ch.qos.logback.core/ch/qos/logback/core/rolling/SizeAndTimeBasedRollingPolicy.html
-8. Logback, "Reasons to prefer logback over log4j 1.x", https://logback.qos.ch/reasonsToSwitch.html
+1. [Logback Short Introduction](https://logback.qos.ch/shortIntro.html)
+2. [Logback Manual, "Encoders"](https://logback.qos.ch/manual/encoders.html)
+3. [Logback Manual, "Appenders - ConsoleAppender"](https://logback.qos.ch/manual/appenders.html)
+4. [Logback API, "FileAppender"](https://logback.qos.ch/apidocs/ch.qos.logback.core/ch/qos/logback/core/FileAppender.html)
+5. [Logback API, "RollingFileAppender"](https://logback.qos.ch/apidocs/ch.qos.logback.core/ch/qos/logback/core/rolling/RollingFileAppender.html)
+6. [Logback API, "TimeBasedRollingPolicy"](https://logback.qos.ch/apidocs-1.3.x/ch/qos/logback/core/rolling/TimeBasedRollingPolicy.html)
+7. [Logback API, "SizeAndTimeBasedRollingPolicy"](https://logback.qos.ch/apidocs/ch.qos.logback.core/ch/qos/logback/core/rolling/SizeAndTimeBasedRollingPolicy.html)
+8. [Logback, "Reasons to prefer logback over log4j 1.x"](https://logback.qos.ch/reasonsToSwitch.html)

@@ -216,6 +216,5 @@ tail -f result.log
 
 ## 출처
 
-[1] Ubuntu Community Help Wiki, "LinuxLogFiles", 확인일: 2026-06-12, <https://help.ubuntu.com/community/LinuxLogFiles>
-
-[2] GNU Coreutils Manual, "tail invocation", 확인일: 2026-06-12, <https://www.gnu.org/software/coreutils/manual/html_node/tail-invocation.html>
+1. [Ubuntu Community Help Wiki, "LinuxLogFiles", 확인일: 2026-06-12](https://help.ubuntu.com/community/LinuxLogFiles)
+2. [GNU Coreutils Manual, "tail invocation", 확인일: 2026-06-12](https://www.gnu.org/software/coreutils/manual/html_node/tail-invocation.html)

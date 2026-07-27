@@ -170,6 +170,6 @@ Consumer 코드에 `Thread.sleep(3000)`이 들어있는 상태에서 API 요청�
 
 ## 출처
 
-1. Spring for Apache Kafka, "Message Listener Containers", https://docs.spring.io/spring-kafka/reference/kafka/receiving-messages/message-listener-container.html
-2. Apache Kafka, "Introduction - Main Concepts and Terminology", https://kafka.apache.org/intro/
-3. Confluent Documentation, "Kafka Consumer Design: Consumers, Consumer Groups, and Offsets", https://docs.confluent.io/kafka/design/consumer-design.html
+1. [Spring for Apache Kafka, "Message Listener Containers"](https://docs.spring.io/spring-kafka/reference/kafka/receiving-messages/message-listener-container.html)
+2. [Apache Kafka, "Introduction - Main Concepts and Terminology"](https://kafka.apache.org/intro/)
+3. [Confluent Documentation, "Kafka Consumer Design: Consumers, Consumer Groups, and Offsets"](https://docs.confluent.io/kafka/design/consumer-design.html)

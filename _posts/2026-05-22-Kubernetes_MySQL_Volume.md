@@ -226,11 +226,6 @@ SHOW DATABASES;
 
 ## 출처
 
-1. Kubernetes Docs, "Persistent Volumes"
-   https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-
-2. Kubernetes Docs, "Volumes - hostPath"
-   https://kubernetes.io/docs/concepts/storage/volumes/#hostpath
-
-3. Docker Library Docs, "mysql"
-   https://github.com/docker-library/docs/tree/master/mysql
+1. [Kubernetes Docs, "Persistent Volumes"](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+2. [Kubernetes Docs, "Volumes - hostPath"](https://kubernetes.io/docs/concepts/storage/volumes/#hostpath)
+3. [Docker Library Docs, "mysql"](https://github.com/docker-library/docs/tree/master/mysql)

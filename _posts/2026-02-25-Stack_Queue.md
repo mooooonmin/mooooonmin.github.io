@@ -90,7 +90,5 @@ class Queue(object):
 
 ## 출처
 
-1. Pat Morin, Open Data Structures - Array-Based Lists
-   https://opendatastructures.org/versions/edition-0.1e/ods-java/2_Array_Based_Lists.html
-2. Pat Morin, Open Data Structures - Linked Lists
-   https://opendatastructures.org/versions/edition-0.1e/ods-java/3_Linked_Lists.html
+1. [Pat Morin, Open Data Structures - Array-Based Lists](https://opendatastructures.org/versions/edition-0.1e/ods-java/2_Array_Based_Lists.html)
+2. [Pat Morin, Open Data Structures - Linked Lists](https://opendatastructures.org/versions/edition-0.1e/ods-java/3_Linked_Lists.html)

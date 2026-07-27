@@ -210,6 +210,6 @@ Kafka 서버 3대가 잘 연동됐는지 확인하려면, 토픽을 `replication
 
 ## 출처
 
-1. Apache Kafka, "Basic Kafka Operations", https://kafka.apache.org/42/operations/basic-kafka-operations/
-2. Apache Kafka, "Quick Start", https://kafka.apache.org/11/getting-started/quickstart/
-3. Apache Kafka, "Design - Replication and ISR", https://kafka.apache.org/43/design/design/
+1. [Apache Kafka, "Basic Kafka Operations"](https://kafka.apache.org/42/operations/basic-kafka-operations/)
+2. [Apache Kafka, "Quick Start"](https://kafka.apache.org/11/getting-started/quickstart/)
+3. [Apache Kafka, "Design - Replication and ISR"](https://kafka.apache.org/43/design/design/)

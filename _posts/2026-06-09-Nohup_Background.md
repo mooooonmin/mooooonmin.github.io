@@ -180,6 +180,5 @@ ps aux | grep java
 
 ## 출처
 
-[1] GNU Bash Manual, "Lists of Commands", <https://www.gnu.org/software/bash/manual/html_node/Lists.html>
-
-[2] GNU Coreutils Manual, "nohup invocation", <https://www.gnu.org/software/coreutils/manual/html_node/nohup-invocation.html>
+1. [GNU Bash Manual, "Lists of Commands"](https://www.gnu.org/software/bash/manual/html_node/Lists.html)
+2. [GNU Coreutils Manual, "nohup invocation"](https://www.gnu.org/software/coreutils/manual/html_node/nohup-invocation.html)

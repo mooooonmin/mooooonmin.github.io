@@ -240,6 +240,6 @@ Topic을 다룰 때 사용하는 명령어는 `bin/kafka-topics.sh`이다.
 
 ## 출처
 
-1. Apache Kafka, "Basic Kafka Operations", https://kafka.apache.org/43/operations/basic-kafka-operations/
-2. Apache Kafka, "Quickstart - Step 3: Create a topic to store your events", https://kafka.apache.org/quickstart/
-3. Apache Kafka, "Quick Start - Step 3: Create a topic", https://kafka.apache.org/26/getting-started/quickstart/
+1. [Apache Kafka, "Basic Kafka Operations"](https://kafka.apache.org/43/operations/basic-kafka-operations/)
+2. [Apache Kafka, "Quickstart - Step 3: Create a topic to store your events"](https://kafka.apache.org/quickstart/)
+3. [Apache Kafka, "Quick Start - Step 3: Create a topic"](https://kafka.apache.org/26/getting-started/quickstart/)

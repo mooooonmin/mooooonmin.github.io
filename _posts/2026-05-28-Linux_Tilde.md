@@ -117,5 +117,5 @@ Bash 문서는 따옴표로 감싸지 않은 `~` 접두어가 tilde expansion �
 
 ## 출처
 
-- [1] GNU Bash Reference Manual, Tilde Expansion - <https://www.gnu.org/software/bash/manual/html_node/Tilde-Expansion.html>
-- [2] GNU C Library Manual, Tilde Expansion - <https://www.gnu.org/software/libc/manual/html_node/Tilde-Expansion.html>
+1. [GNU Bash Reference Manual, Tilde Expansion](https://www.gnu.org/software/bash/manual/html_node/Tilde-Expansion.html)
+2. [GNU C Library Manual, Tilde Expansion](https://www.gnu.org/software/libc/manual/html_node/Tilde-Expansion.html)

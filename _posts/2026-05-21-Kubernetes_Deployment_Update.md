@@ -248,14 +248,9 @@ Kubernetes에서 새로운 버전의 서버로 업데이트하는 흐름은 다�
 
 ## 출처
 
-[1] Kubernetes Docs, "Deployments - Updating a Deployment", 확인일: 2026-05-21, <https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment>
-
-[2] Kubernetes Docs, "kubectl apply", 확인일: 2026-05-21, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/>
-
-[3] Kubernetes Docs, "kubectl rollout status", 확인일: 2026-05-21, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_status/>
-
-[4] Kubernetes Docs, "Deployments - Rolling Update Deployment", 확인일: 2026-05-21, <https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment>
-
-[5] Kubernetes Docs, "Images - Image pull policy", 확인일: 2026-05-21, <https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy>
-
-[6] Kubernetes Docs, "kubectl port-forward", 확인일: 2026-05-21, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/>
+1. [Kubernetes Docs, "Deployments - Updating a Deployment", 확인일: 2026-05-21](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#updating-a-deployment)
+2. [Kubernetes Docs, "kubectl apply", 확인일: 2026-05-21](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/)
+3. [Kubernetes Docs, "kubectl rollout status", 확인일: 2026-05-21](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_status/)
+4. [Kubernetes Docs, "Deployments - Rolling Update Deployment", 확인일: 2026-05-21](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment)
+5. [Kubernetes Docs, "Images - Image pull policy", 확인일: 2026-05-21](https://kubernetes.io/docs/concepts/containers/images/#image-pull-policy)
+6. [Kubernetes Docs, "kubectl port-forward", 확인일: 2026-05-21](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/)

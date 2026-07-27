@@ -343,10 +343,7 @@ MySQL처럼 외부 사용자가 직접 접근할 필요가 없는 DB는 `NodePor
 
 ## 출처
 
-[1] Kubernetes Docs, "Service", 확인일 2026-05-23, <https://kubernetes.io/docs/concepts/services-networking/service/>
-
-[2] Kubernetes Docs, "kubectl rollout", 확인일 2026-05-23, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/>
-
-[3] Kubernetes Docs, "kubectl port-forward", 확인일 2026-05-23, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/>
-
-[4] Kubernetes Docs, "Network Policies", 확인일 2026-05-23, <https://kubernetes.io/docs/concepts/services-networking/network-policies/>
+1. [Kubernetes Docs, "Service", 확인일 2026-05-23](https://kubernetes.io/docs/concepts/services-networking/service/)
+2. [Kubernetes Docs, "kubectl rollout", 확인일 2026-05-23](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/)
+3. [Kubernetes Docs, "kubectl port-forward", 확인일 2026-05-23](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/)
+4. [Kubernetes Docs, "Network Policies", 확인일 2026-05-23](https://kubernetes.io/docs/concepts/services-networking/network-policies/)

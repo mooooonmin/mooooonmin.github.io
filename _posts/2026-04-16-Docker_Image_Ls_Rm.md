@@ -152,7 +152,5 @@ Bash, Zsh, PowerShell 등 환경에 따라 동작 형태가 달라질 수 있다
 
 ## 출처
 
-1. Docker Docs, `docker image ls`
-   https://docs.docker.com/reference/cli/docker/image/ls/
-2. Docker Docs, `docker image rm`
-   https://docs.docker.com/reference/cli/docker/image/rm/
+1. [Docker Docs, `docker image ls`](https://docs.docker.com/reference/cli/docker/image/ls/)
+2. [Docker Docs, `docker image rm`](https://docs.docker.com/reference/cli/docker/image/rm/)

@@ -115,6 +115,6 @@ Linux man-pages의 `ls(1)` 문서도 `ls`에서 사용할 수 있는 옵션을 �
 
 ## 출처
 
-- [1] GNU Coreutils Manual, `ls` invocation - <https://www.gnu.org/software/coreutils/manual/html_node/ls-invocation.html>
-- [2] GNU Coreutils Manual, which files are listed - <https://www.gnu.org/software/coreutils/manual/html_node/Which-files-are-listed.html>
-- [3] Linux man-pages, `ls(1)` - <https://man7.org/linux/man-pages/man1/ls.1.html>
+1. [GNU Coreutils Manual, `ls` invocation](https://www.gnu.org/software/coreutils/manual/html_node/ls-invocation.html)
+2. [GNU Coreutils Manual, which files are listed](https://www.gnu.org/software/coreutils/manual/html_node/Which-files-are-listed.html)
+3. [Linux man-pages, `ls(1)`](https://man7.org/linux/man-pages/man1/ls.1.html)

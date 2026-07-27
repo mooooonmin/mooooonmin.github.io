@@ -218,7 +218,7 @@ Kafka를 사용하면 오래 걸리는 작업을 Consumer에게 맡기고 API �
 
 ## 출처
 
-1. Spring for Apache Kafka, "@KafkaListener Annotation", https://docs.spring.io/spring-kafka/reference/kafka/receiving-messages/listener-annotation.html
-2. Apache Kafka, "Introduction - Main Concepts and Terminology", https://kafka.apache.org/intro/
-3. Confluent, "Apache Kafka Dead Letter Queue: A Comprehensive Guide", https://www.confluent.io/learn/kafka-dead-letter-queue/
-4. Spring Cloud Stream, "Dead-Letter Topic Processing", https://docs.spring.io/spring-cloud-stream/reference/kafka/kafka-binder/dlq.html
+1. [Spring for Apache Kafka, "@KafkaListener Annotation"](https://docs.spring.io/spring-kafka/reference/kafka/receiving-messages/listener-annotation.html)
+2. [Apache Kafka, "Introduction - Main Concepts and Terminology"](https://kafka.apache.org/intro/)
+3. [Confluent, "Apache Kafka Dead Letter Queue: A Comprehensive Guide"](https://www.confluent.io/learn/kafka-dead-letter-queue/)
+4. [Spring Cloud Stream, "Dead-Letter Topic Processing"](https://docs.spring.io/spring-cloud-stream/reference/kafka/kafka-binder/dlq.html)

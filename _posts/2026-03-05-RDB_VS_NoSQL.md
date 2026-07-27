@@ -130,9 +130,6 @@ tags: [database, rdbms, nosql, comparison]
 
 ## 출처
 
-1. PostgreSQL Documentation, Tutorial
-   https://www.postgresql.org/docs/current/tutorial.html
-2. MongoDB Documentation, What is MongoDB?
-   https://www.mongodb.com/docs/manual/
-3. MongoDB Documentation, Embedded Data
-   https://www.mongodb.com/docs/manual/data-modeling/concepts/embedding-vs-references/
+1. [PostgreSQL Documentation, Tutorial](https://www.postgresql.org/docs/current/tutorial.html)
+2. [MongoDB Documentation, What is MongoDB?](https://www.mongodb.com/docs/manual/)
+3. [MongoDB Documentation, Embedded Data](https://www.mongodb.com/docs/manual/data-modeling/concepts/embedding-vs-references/)

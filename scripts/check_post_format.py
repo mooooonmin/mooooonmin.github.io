@@ -11,6 +11,8 @@ H3_NUMBER_PATTERNS = [
     re.compile(r"^Step\s+\d+[\.)]?\s+", re.IGNORECASE),
     re.compile(r"^[①②③④⑤⑥⑦⑧⑨⑩]\s*"),
 ]
+SOURCE_LINK_PATTERN = re.compile(r"^(\d+)\.\s+\[[^\]]+\]\(https?://[^\s)]+\)$")
+SOURCE_CONFIRMED_DATE_PATTERN = re.compile(r"^확인일:\s+\d{4}-\d{2}-\d{2}$")
 
 
 def is_exam_post(tags):
@@ -74,6 +76,8 @@ def check_post(post):
     h2_seen = False
     has_summary = False
     has_source = False
+    in_source_section = False
+    source_link_count = 0
 
     for index, line in enumerate(lines):
         stripped = line.strip()
@@ -99,6 +103,7 @@ def check_post(post):
                 has_summary = True
             if title == "출처":
                 has_source = True
+            in_source_section = title == "출처"
 
             if title not in {"정리", "출처"} and not re.match(r"^\d+\.\s+", title):
                 errors.append((line_no, "일반 H2 제목은 `## 1. 제목` 형식을 사용해야 합니다."))
@@ -116,6 +121,23 @@ def check_post(post):
             if title != "출처" and normalized in SOURCE_TITLES:
                 errors.append((line_no, "출처 섹션 제목은 `## 출처`로 통일합니다."))
 
+            continue
+
+        if in_source_section and stripped:
+            if SOURCE_CONFIRMED_DATE_PATTERN.fullmatch(stripped):
+                continue
+
+            source_link = SOURCE_LINK_PATTERN.fullmatch(stripped)
+            if not source_link:
+                errors.append(
+                    (line_no, "출처는 `1. [출처 이름](URL)` 형식의 하이퍼링크로 작성해야 합니다.")
+                )
+                continue
+
+            source_link_count += 1
+            if int(source_link.group(1)) != source_link_count:
+                errors.append((line_no, "출처 번호는 1부터 순서대로 작성해야 합니다."))
+
     if in_fence:
         errors.append((len(lines), "닫히지 않은 코드블록이 있습니다."))
 
@@ -123,6 +145,8 @@ def check_post(post):
         errors.append((len(lines), "일반 포스트에는 `## 정리` 섹션이 필요합니다."))
     if not has_source:
         errors.append((len(lines), "일반 포스트에는 `## 출처` 섹션이 필요합니다."))
+    elif source_link_count == 0:
+        errors.append((len(lines), "출처 섹션에는 하이퍼링크가 1개 이상 필요합니다."))
 
     return errors
 

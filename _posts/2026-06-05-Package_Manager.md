@@ -148,11 +148,7 @@ Ubuntu에서는 `apt`, Node.js에서는 `npm`, Python에서는 `pip`를 주로 �
 
 ## 출처
 
-[1] Ubuntu Server Documentation, "Install and manage packages", <https://ubuntu.com/server/docs/package-management/>
-
-[2] Node.js Learn, "An introduction to the npm package manager", <https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager>
-
-[3] Python Packaging User Guide, "Installing Packages", <https://packaging.python.org/installing/>
-
-[4] Fedora Docs, "DNF", <https://docs.fedoraproject.org/ast/fedora/f31/system-administrators-guide/package-management/DNF/>
-
+1. [Ubuntu Server Documentation, "Install and manage packages"](https://ubuntu.com/server/docs/package-management/)
+2. [Node.js Learn, "An introduction to the npm package manager"](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager)
+3. [Python Packaging User Guide, "Installing Packages"](https://packaging.python.org/installing/)
+4. [Fedora Docs, "DNF"](https://docs.fedoraproject.org/ast/fedora/f31/system-administrators-guide/package-management/DNF/)

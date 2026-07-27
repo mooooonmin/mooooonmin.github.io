@@ -151,7 +151,7 @@ docker run으로 컨테이너 실행
 
 ## 출처
 
-[1] Docker Docs, "Dockerfile overview", https://docs.docker.com/build/concepts/dockerfile/
-[2] Docker Docs, "Dockerfile reference", https://docs.docker.com/reference/builder
-[3] Docker Docs, "Build, tag, and publish an image", https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/
-[4] Docker Docs, "Docker Hub", https://docs.docker.com/docker-hub/
+1. [Docker Docs, "Dockerfile overview"](https://docs.docker.com/build/concepts/dockerfile/)
+2. [Docker Docs, "Dockerfile reference"](https://docs.docker.com/reference/builder)
+3. [Docker Docs, "Build, tag, and publish an image"](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/)
+4. [Docker Docs, "Docker Hub"](https://docs.docker.com/docker-hub/)

@@ -179,10 +179,7 @@ sudo apt purge --auto-remove [패키지명]
 
 ## 출처
 
-[1] Debian Wiki, "dpkg", <https://wiki.debian.org/dpkg>
-
-[2] Debian Reference, "Debian package management", <https://www.debian.org/doc/manuals/debian-reference/ch02.en.html>
-
-[3] Debian FAQ, "The Debian package management tools", <https://www.debian.org/doc/manuals/debian-faq/pkgtools.html>
-
-[4] Sudo Manual, "`sudo`, `sudoedit` - execute a command as another user", <https://www.sudo.ws/docs/man/1.9.9/sudo.man/>
+1. [Debian Wiki, "dpkg"](https://wiki.debian.org/dpkg)
+2. [Debian Reference, "Debian package management"](https://www.debian.org/doc/manuals/debian-reference/ch02.en.html)
+3. [Debian FAQ, "The Debian package management tools"](https://www.debian.org/doc/manuals/debian-faq/pkgtools.html)
+4. [Sudo Manual, "`sudo`, `sudoedit` - execute a command as another user"](https://www.sudo.ws/docs/man/1.9.9/sudo.man/)

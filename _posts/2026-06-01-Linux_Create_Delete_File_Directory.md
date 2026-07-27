@@ -172,6 +172,6 @@ rm -rf target-name
 
 ## 출처
 
-- [1] GNU Coreutils Manual, `touch` invocation - <https://www.gnu.org/s/coreutils/manual/html_node/touch-invocation.html>
-- [2] GNU Coreutils Manual, `mkdir` invocation - <https://www.gnu.org/s/coreutils/manual/html_node/mkdir-invocation.html>
-- [3] GNU Coreutils Manual, `rm` invocation - <https://www.gnu.org/software/coreutils/rm>
+1. [GNU Coreutils Manual, `touch` invocation](https://www.gnu.org/s/coreutils/manual/html_node/touch-invocation.html)
+2. [GNU Coreutils Manual, `mkdir` invocation](https://www.gnu.org/s/coreutils/manual/html_node/mkdir-invocation.html)
+3. [GNU Coreutils Manual, `rm` invocation](https://www.gnu.org/software/coreutils/rm)

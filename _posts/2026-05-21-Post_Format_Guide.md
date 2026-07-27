@@ -110,8 +110,7 @@ H3/H4 사이에는 `---`를 넣지 않는다.
 
 ## 출처
 
-1. 출처 이름
-   URL
+1. [출처 이름](URL)
 ```
 
 ---
@@ -128,5 +127,5 @@ H3/H4 사이에는 `---`를 넣지 않는다.
 
 ## 출처
 
-1. docs/post-template.md
-2. scripts/check_post_format.py
+1. [docs/post-template.md](https://github.com/mooooonmin/mooooonmin.github.io/blob/main/docs/post-template.md)
+2. [scripts/check_post_format.py](https://github.com/mooooonmin/mooooonmin.github.io/blob/main/scripts/check_post_format.py)

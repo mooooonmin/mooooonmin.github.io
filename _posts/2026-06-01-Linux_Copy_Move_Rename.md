@@ -196,6 +196,6 @@ ls
 
 ## 출처
 
-- [1] GNU Coreutils Manual, `cp` invocation - <https://www.gnu.org/software/coreutils/cp>
-- [2] GNU Coreutils Manual, `cp --recursive` option - <https://www.gnu.org/s/coreutils/manual/html_node/cp-invocation.html>
-- [3] GNU Coreutils Manual, `mv` invocation - <https://www.gnu.org/software/coreutils/mv>
+1. [GNU Coreutils Manual, `cp` invocation](https://www.gnu.org/software/coreutils/cp)
+2. [GNU Coreutils Manual, `cp --recursive` option](https://www.gnu.org/s/coreutils/manual/html_node/cp-invocation.html)
+3. [GNU Coreutils Manual, `mv` invocation](https://www.gnu.org/software/coreutils/mv)

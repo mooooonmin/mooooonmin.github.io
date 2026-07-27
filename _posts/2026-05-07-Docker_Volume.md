@@ -206,9 +206,6 @@ Docker 공식 문서에 따르면 컨테이너가 생성하고 사용하는 데�
 
 ## 출처
 
-1. Docker Docs, "Persisting container data"
-   https://docs.docker.com/get-started/docker-concepts/running-containers/persisting-container-data/
-2. Docker Docs, "Volumes"
-   https://docs.docker.com/engine/storage/volumes/
-3. Docker Docs, "Bind mounts"
-   https://docs.docker.com/engine/storage/bind-mounts/
+1. [Docker Docs, "Persisting container data"](https://docs.docker.com/get-started/docker-concepts/running-containers/persisting-container-data/)
+2. [Docker Docs, "Volumes"](https://docs.docker.com/engine/storage/volumes/)
+3. [Docker Docs, "Bind mounts"](https://docs.docker.com/engine/storage/bind-mounts/)

@@ -205,7 +205,7 @@ Elastic의 로그 탐색 문서도 Elasticsearch에 적재된 로그를 Discover
 
 ## 출처
 
-1. Elastic, "Elasticsearch", https://www.elastic.co/elasticsearch
-2. Elastic Docs, "The Elastic Stack", https://www.elastic.co/docs/get-started/the-stack
-3. Elastic Docs, "How full-text search works", https://www.elastic.co/docs/solutions/search/full-text/how-full-text-works
-4. Elastic Docs, "Explore logs in Discover", https://www.elastic.co/docs/solutions/observability/logs/discover-logs
+1. [Elastic, "Elasticsearch"](https://www.elastic.co/elasticsearch)
+2. [Elastic Docs, "The Elastic Stack"](https://www.elastic.co/docs/get-started/the-stack)
+3. [Elastic Docs, "How full-text search works"](https://www.elastic.co/docs/solutions/search/full-text/how-full-text-works)
+4. [Elastic Docs, "Explore logs in Discover"](https://www.elastic.co/docs/solutions/observability/logs/discover-logs)

@@ -127,7 +127,5 @@ ORDER BY id
 
 ## 출처
 
-1. PostgreSQL Documentation, Index Types
-   https://www.postgresql.org/docs/current/indexes-types.html
-2. PostgreSQL Documentation, Indexes
-   https://www.postgresql.org/docs/current/indexes.html
+1. [PostgreSQL Documentation, Index Types](https://www.postgresql.org/docs/current/indexes-types.html)
+2. [PostgreSQL Documentation, Indexes](https://www.postgresql.org/docs/current/indexes.html)

@@ -249,6 +249,6 @@ TRACE, DEBUG, INFO, WARN, ERROR
 
 ## 출처
 
-1. Logback API, "Level", https://logback.qos.ch/apidocs/ch.qos.logback.classic/ch/qos/logback/classic/Level.html
-2. Apache Log4j 2 API, "Level", https://logging.apache.org/log4j/2.x/javadoc/log4j-api/org/apache/logging/log4j/Level.html
-3. Spring Boot Reference, "Logging", https://docs.spring.io/spring-boot/reference/features/logging.html
+1. [Logback API, "Level"](https://logback.qos.ch/apidocs/ch.qos.logback.classic/ch/qos/logback/classic/Level.html)
+2. [Apache Log4j 2 API, "Level"](https://logging.apache.org/log4j/2.x/javadoc/log4j-api/org/apache/logging/log4j/Level.html)
+3. [Spring Boot Reference, "Logging"](https://docs.spring.io/spring-boot/reference/features/logging.html)

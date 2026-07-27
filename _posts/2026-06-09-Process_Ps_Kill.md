@@ -189,6 +189,5 @@ kill [PID 값]
 
 ## 출처
 
-[1] Linux man-pages, "ps(1) - Linux manual page", <https://man7.org/linux/man-pages/man1/ps.1.html>
-
-[2] Linux man-pages, "kill(1) - Linux manual page", <https://man7.org/linux/man-pages/man1/kill.1.html>
+1. [Linux man-pages, "ps(1) - Linux manual page"](https://man7.org/linux/man-pages/man1/ps.1.html)
+2. [Linux man-pages, "kill(1) - Linux manual page"](https://man7.org/linux/man-pages/man1/kill.1.html)

@@ -149,7 +149,5 @@ ls > result.txt
 
 ## 출처
 
-[1] Ubuntu Manpage, "stdin, stdout, stderr - standard I/O streams", <https://manpages.ubuntu.com/manpages/noble/man3/stdout.3.html>
-
-[2] Linux man-pages, "stdio(3) - standard input/output library functions", <https://man7.org/linux/man-pages/man3/stdio.3.html>
-
+1. [Ubuntu Manpage, "stdin, stdout, stderr - standard I/O streams"](https://manpages.ubuntu.com/manpages/noble/man3/stdout.3.html)
+2. [Linux man-pages, "stdio(3) - standard input/output library functions"](https://man7.org/linux/man-pages/man3/stdio.3.html)

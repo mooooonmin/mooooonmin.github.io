@@ -118,11 +118,6 @@ Linux는 Windows나 macOS 같은 운영체제 계열이고,
 
 ## 출처
 
-1. Red Hat, "What is Linux?"
-   https://www.redhat.com/en/topics/linux/what-is-linux
-
-2. The Linux Kernel documentation
-   https://docs.kernel.org/
-
-3. Linux.com, "What is Linux?"
-   https://www.linux.com/what-is-linux/
+1. [Red Hat, "What is Linux?"](https://www.redhat.com/en/topics/linux/what-is-linux)
+2. [The Linux Kernel documentation](https://docs.kernel.org/)
+3. [Linux.com, "What is Linux?"](https://www.linux.com/what-is-linux/)

@@ -195,4 +195,4 @@ echo "hello linux"
 
 ## 출처
 
-[1] GNU Coreutils Manual, "echo invocation", 확인일: 2026-06-12, <https://www.gnu.org/software/coreutils/manual/html_node/echo-invocation.html>
+1. [GNU Coreutils Manual, "echo invocation", 확인일: 2026-06-12](https://www.gnu.org/software/coreutils/manual/html_node/echo-invocation.html)

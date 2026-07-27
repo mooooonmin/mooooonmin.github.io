@@ -350,14 +350,9 @@ ConfigMap과 Secret으로 환경 변수를 분리하는 흐름은 다음과 같�
 
 ## 출처
 
-[1] Kubernetes Docs, "ConfigMaps", 확인일: 2026-05-23, <https://kubernetes.io/docs/concepts/configuration/configmap/>
-
-[2] Kubernetes Docs, "Secrets", 확인일: 2026-05-23, <https://kubernetes.io/docs/concepts/configuration/secret/>
-
-[3] Kubernetes Docs, "Managing Secrets using Configuration File", 확인일: 2026-05-23, <https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-config-file/>
-
-[4] Kubernetes Docs, "Distribute Credentials Securely Using Secrets", 확인일: 2026-05-23, <https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/>
-
-[5] Kubernetes Docs, "kubectl apply", 확인일: 2026-05-23, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/>
-
-[6] Kubernetes Docs, "kubectl rollout", 확인일: 2026-05-23, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/>
+1. [Kubernetes Docs, "ConfigMaps", 확인일: 2026-05-23](https://kubernetes.io/docs/concepts/configuration/configmap/)
+2. [Kubernetes Docs, "Secrets", 확인일: 2026-05-23](https://kubernetes.io/docs/concepts/configuration/secret/)
+3. [Kubernetes Docs, "Managing Secrets using Configuration File", 확인일: 2026-05-23](https://kubernetes.io/docs/tasks/configmap-secret/managing-secret-using-config-file/)
+4. [Kubernetes Docs, "Distribute Credentials Securely Using Secrets", 확인일: 2026-05-23](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/)
+5. [Kubernetes Docs, "kubectl apply", 확인일: 2026-05-23](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/)
+6. [Kubernetes Docs, "kubectl rollout", 확인일: 2026-05-23](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/)

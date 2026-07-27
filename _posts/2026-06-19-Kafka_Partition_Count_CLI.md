@@ -325,7 +325,7 @@ Partition 수를 줄여야 한다면 원하는 Partition 수의 새 Topic을 만
 
 ## 출처
 
-1. Apache Kafka, "Configuration - Broker Configs: num.partitions", https://kafka.apache.org/documentation/#brokerconfigs_num.partitions
-2. Apache Kafka, "Quickstart - Create a topic to store your events", https://kafka.apache.org/quickstart/
-3. Confluent Documentation, "Choose and Change the Partition Count in Kafka", https://docs.confluent.io/kafka/operations-tools/partition-determination.html
-4. Apache Kafka, "Basic Kafka Operations", https://kafka.apache.org/10/operations/basic-kafka-operations/
+1. [Apache Kafka, "Configuration - Broker Configs: num.partitions"](https://kafka.apache.org/documentation/#brokerconfigs_num.partitions)
+2. [Apache Kafka, "Quickstart - Create a topic to store your events"](https://kafka.apache.org/quickstart/)
+3. [Confluent Documentation, "Choose and Change the Partition Count in Kafka"](https://docs.confluent.io/kafka/operations-tools/partition-determination.html)
+4. [Apache Kafka, "Basic Kafka Operations"](https://kafka.apache.org/10/operations/basic-kafka-operations/)

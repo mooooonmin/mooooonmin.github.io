@@ -197,8 +197,8 @@ Kibana의 핵심 기능은 Elasticsearch에 쌓인 데이터를 조회하고, �
 
 ## 출처
 
-1. Elastic, "Kibana", https://www.elastic.co/kibana
-2. Elastic Docs, "Explore and analyze data with Kibana", https://www.elastic.co/docs/explore-analyze
-3. Elastic Docs, "Discover", https://www.elastic.co/docs/explore-analyze/discover
-4. Elastic Docs, "Lens", https://www.elastic.co/docs/explore-analyze/visualize/lens
-5. Elastic Docs, "Exploring dashboards", https://www.elastic.co/docs/explore-analyze/dashboards/using
+1. [Elastic, "Kibana"](https://www.elastic.co/kibana)
+2. [Elastic Docs, "Explore and analyze data with Kibana"](https://www.elastic.co/docs/explore-analyze)
+3. [Elastic Docs, "Discover"](https://www.elastic.co/docs/explore-analyze/discover)
+4. [Elastic Docs, "Lens"](https://www.elastic.co/docs/explore-analyze/visualize/lens)
+5. [Elastic Docs, "Exploring dashboards"](https://www.elastic.co/docs/explore-analyze/dashboards/using)

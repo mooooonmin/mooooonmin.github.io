@@ -137,7 +137,5 @@ PC Register에는 다음 정보 저장.
 
 ## 출처
 
-1. KOCW, 운영체제 강의자료
-   https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf
-2. University of Illinois Chicago, Operating Systems Notes, "Threads"
-   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html
+1. [KOCW, 운영체제 강의자료](https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf)
+2. [University of Illinois Chicago, Operating Systems Notes, "Threads"](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html)

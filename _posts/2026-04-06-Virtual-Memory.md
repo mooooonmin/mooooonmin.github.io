@@ -131,7 +131,5 @@ Page fault가 발생했을 때 빈 프레임이 없다면,
 
 ## 출처
 
-1. KOCW, 운영체제 강의자료
-   https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/8.pdf
-2. University of Illinois Chicago, Operating Systems Notes, "Virtual Memory"
-   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/9_VirtualMemory.html
+1. [KOCW, 운영체제 강의자료](https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/8.pdf)
+2. [University of Illinois Chicago, Operating Systems Notes, "Virtual Memory"](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/9_VirtualMemory.html)

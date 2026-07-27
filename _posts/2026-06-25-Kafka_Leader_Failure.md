@@ -229,8 +229,8 @@ Kafka에서 leader partition이 있는 Broker에 장애가 나면, ISR 안에 �
 
 ## 출처
 
-1. Apache Kafka, "Introduction", https://kafka.apache.org/082/getting-started/introduction/
-2. Apache Kafka, "Design - Replication and ISR", https://kafka.apache.org/090/design/design/
-3. Apache Kafka, "Basic Kafka Operations - Graceful shutdown", https://kafka.apache.org/41/operations/basic-kafka-operations/
-4. Apache Kafka, "Monitoring - ISR shrink and expand", https://kafka.apache.org/082/operations/monitoring/
-5. Apache Kafka, "Documentation - Introduction", https://kafka.apache.org/documentation/
+1. [Apache Kafka, "Introduction"](https://kafka.apache.org/082/getting-started/introduction/)
+2. [Apache Kafka, "Design - Replication and ISR"](https://kafka.apache.org/090/design/design/)
+3. [Apache Kafka, "Basic Kafka Operations - Graceful shutdown"](https://kafka.apache.org/41/operations/basic-kafka-operations/)
+4. [Apache Kafka, "Monitoring - ISR shrink and expand"](https://kafka.apache.org/082/operations/monitoring/)
+5. [Apache Kafka, "Documentation - Introduction"](https://kafka.apache.org/documentation/)

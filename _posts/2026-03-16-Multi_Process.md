@@ -166,9 +166,6 @@ Context Switch 수행 과정
 
 ## 출처
 
-1. KOCW, 운영체제 강의자료
-   https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf
-2. University of Illinois Chicago, Operating Systems Notes, "Processes"
-   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/3_Processes.html
-3. University of Illinois Chicago, Operating Systems Notes, "CPU Scheduling"
-   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/6_CPU_Scheduling.html
+1. [KOCW, 운영체제 강의자료](https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf)
+2. [University of Illinois Chicago, Operating Systems Notes, "Processes"](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/3_Processes.html)
+3. [University of Illinois Chicago, Operating Systems Notes, "CPU Scheduling"](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/6_CPU_Scheduling.html)

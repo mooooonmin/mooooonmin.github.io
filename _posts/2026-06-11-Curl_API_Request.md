@@ -201,12 +201,8 @@ curl https://jsonplaceholder.typicode.com/posts
 
 ## 출처
 
-[1] curl man page, "curl(1)", 확인일: 2026-06-11, <https://curl.se/docs/manpage.html>
-
-[2] curl Documentation, "The Art Of Scripting HTTP Requests Using curl", 확인일: 2026-06-11, <https://curl.se/docs/httpscripting.html>
-
-[3] Everything curl, "Method", 확인일: 2026-06-11, <https://everything.curl.dev/http/method.html>
-
-[4] Everything curl, "Request method", 확인일: 2026-06-11, <https://everything.curl.dev/http/modify/method.html>
-
-[5] curl man page, "Options", 확인일: 2026-06-11, <https://curl.se/docs/manpage.html>
+1. [curl man page, "curl(1)", 확인일: 2026-06-11](https://curl.se/docs/manpage.html)
+2. [curl Documentation, "The Art Of Scripting HTTP Requests Using curl", 확인일: 2026-06-11](https://curl.se/docs/httpscripting.html)
+3. [Everything curl, "Method", 확인일: 2026-06-11](https://everything.curl.dev/http/method.html)
+4. [Everything curl, "Request method", 확인일: 2026-06-11](https://everything.curl.dev/http/modify/method.html)
+5. [curl man page, "Options", 확인일: 2026-06-11](https://curl.se/docs/manpage.html)

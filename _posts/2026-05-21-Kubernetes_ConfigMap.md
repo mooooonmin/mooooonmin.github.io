@@ -279,14 +279,9 @@ ConfigMap을 사용해 환경 변수를 분리하는 흐름은 다음과 같다.
 
 ## 출처
 
-[1] Spring Boot Docs, "Externalized Configuration", 확인일: 2026-05-21, <https://docs.spring.io/spring-boot/4.1/reference/features/external-config.html>
-
-[2] NestJS Docs, "Configuration", 확인일: 2026-05-21, <https://docs.nestjs.com/techniques/configuration>
-
-[3] Kubernetes Docs, "ConfigMaps", 확인일: 2026-05-21, <https://kubernetes.io/docs/concepts/configuration/configmap/>
-
-[4] Kubernetes Docs, "Configure a Pod to Use a ConfigMap", 확인일: 2026-05-21, <https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/>
-
-[5] Kubernetes Docs, "kubectl apply", 확인일: 2026-05-21, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/>
-
-[6] Kubernetes Docs, "kubectl rollout", 확인일: 2026-05-21, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/>
+1. [Spring Boot Docs, "Externalized Configuration", 확인일: 2026-05-21](https://docs.spring.io/spring-boot/4.1/reference/features/external-config.html)
+2. [NestJS Docs, "Configuration", 확인일: 2026-05-21](https://docs.nestjs.com/techniques/configuration)
+3. [Kubernetes Docs, "ConfigMaps", 확인일: 2026-05-21](https://kubernetes.io/docs/concepts/configuration/configmap/)
+4. [Kubernetes Docs, "Configure a Pod to Use a ConfigMap", 확인일: 2026-05-21](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)
+5. [Kubernetes Docs, "kubectl apply", 확인일: 2026-05-21](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/)
+6. [Kubernetes Docs, "kubectl rollout", 확인일: 2026-05-21](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/)

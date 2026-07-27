@@ -100,6 +100,6 @@ ls -la
 
 ## 출처
 
-- [1] GNU Coreutils Manual, `ls` long format option - <https://www.gnu.org/software/coreutils/manual/coreutils.html>
-- [2] Linux man-pages, `inode(7)` - <https://man7.org/linux/man-pages/man7/inode.7.html>
-- [3] GNU Coreutils Manual, which files are listed - <https://www.gnu.org/software/coreutils/manual/html_node/Which-files-are-listed.html>
+1. [GNU Coreutils Manual, `ls` long format option](https://www.gnu.org/software/coreutils/manual/coreutils.html)
+2. [Linux man-pages, `inode(7)`](https://man7.org/linux/man-pages/man7/inode.7.html)
+3. [GNU Coreutils Manual, which files are listed](https://www.gnu.org/software/coreutils/manual/html_node/Which-files-are-listed.html)

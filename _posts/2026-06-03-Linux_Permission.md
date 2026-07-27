@@ -283,8 +283,8 @@ drwxr-x---
 
 ## 출처
 
-- [1] GNU Coreutils Manual, file permissions - <https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html>
-- [2] GNU Coreutils Manual, `ls` long format information - <https://www.gnu.org/software/coreutils/manual/html_node/What-information-is-listed.html>
-- [3] Linux man-pages, `inode(7)` - <https://man7.org/linux/man-pages/man7/inode.7.html>
-- [4] GNU Coreutils Manual, `id` invocation - <https://www.gnu.org/software/coreutils/manual/html_node/id-invocation.html>
-- [5] GNU Coreutils Manual, mode structure - <https://www.gnu.org/software/coreutils/manual/html_node/Mode-Structure.html>
+1. [GNU Coreutils Manual, file permissions](https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html)
+2. [GNU Coreutils Manual, `ls` long format information](https://www.gnu.org/software/coreutils/manual/html_node/What-information-is-listed.html)
+3. [Linux man-pages, `inode(7)`](https://man7.org/linux/man-pages/man7/inode.7.html)
+4. [GNU Coreutils Manual, `id` invocation](https://www.gnu.org/software/coreutils/manual/html_node/id-invocation.html)
+5. [GNU Coreutils Manual, mode structure](https://www.gnu.org/software/coreutils/manual/html_node/Mode-Structure.html)

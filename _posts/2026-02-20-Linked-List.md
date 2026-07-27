@@ -59,7 +59,5 @@ Array와의 결정적인 차이점은 메모리 저장의 **비연속성**
 
 ## 출처
 
-1. Pat Morin, Open Data Structures - Linked Lists
-   https://opendatastructures.org/versions/edition-0.1e/ods-java/3_Linked_Lists.html
-2. MIT OpenCourseWare 6.006, Data Structures and Dynamic Arrays
-   https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/
+1. [Pat Morin, Open Data Structures - Linked Lists](https://opendatastructures.org/versions/edition-0.1e/ods-java/3_Linked_Lists.html)
+2. [MIT OpenCourseWare 6.006, Data Structures and Dynamic Arrays](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/)

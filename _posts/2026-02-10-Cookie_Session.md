@@ -67,9 +67,6 @@ tags: [network, http, cookie, session]
 
 ## 출처
 
-1. MDN Web Docs, Using HTTP cookies
-   https://developer.mozilla.org/docs/Web/HTTP/Guides/Cookies
-2. RFC 6265, HTTP State Management Mechanism
-   https://www.rfc-editor.org/rfc/rfc6265
-3. OWASP Cheat Sheet Series, Session Management
-   https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html
+1. [MDN Web Docs, Using HTTP cookies](https://developer.mozilla.org/docs/Web/HTTP/Guides/Cookies)
+2. [RFC 6265, HTTP State Management Mechanism](https://www.rfc-editor.org/rfc/rfc6265)
+3. [OWASP Cheat Sheet Series, Session Management](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)

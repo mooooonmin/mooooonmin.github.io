@@ -132,10 +132,7 @@ Deployment로 서버 개수를 늘리는 흐름은 다음과 같다.
 
 ## 출처
 
-[1] Kubernetes Docs, "Deployments", 확인일: 2026-05-20, <https://kubernetes.io/docs/concepts/workloads/controllers/deployment/>
-
-[2] Kubernetes Docs, "ReplicaSet", 확인일: 2026-05-20, <https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/>
-
-[3] Kubernetes Docs, "kubectl apply", 확인일: 2026-05-20, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/>
-
-[4] Kubernetes Docs, "Horizontal Manual Scaling for a Deployment", 확인일: 2026-05-20, <https://kubernetes.io/docs/tasks/run-application/scale-deployment/>
+1. [Kubernetes Docs, "Deployments", 확인일: 2026-05-20](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+2. [Kubernetes Docs, "ReplicaSet", 확인일: 2026-05-20](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)
+3. [Kubernetes Docs, "kubectl apply", 확인일: 2026-05-20](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/)
+4. [Kubernetes Docs, "Horizontal Manual Scaling for a Deployment", 확인일: 2026-05-20](https://kubernetes.io/docs/tasks/run-application/scale-deployment/)

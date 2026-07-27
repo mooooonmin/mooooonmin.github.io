@@ -252,8 +252,8 @@ Logback, Logstash, Elasticsearch를 함께 사용하면 애플리케이션 로�
 
 ## 출처
 
-1. Elastic Docs, "How Logstash Works", https://www.elastic.co/docs/reference/logstash/how-logstash-works
-2. Elasticsearch API, "Create a new document in the index", https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-create
-3. Elasticsearch API, "Create or update a document in an index", https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-index
-4. Elastic Docs, "Index fundamentals", https://www.elastic.co/docs/manage-data/data-store/index-basics
-5. Elastic Docs, "Elasticsearch output plugin", https://www.elastic.co/docs/reference/logstash/plugins/plugins-outputs-elasticsearch
+1. [Elastic Docs, "How Logstash Works"](https://www.elastic.co/docs/reference/logstash/how-logstash-works)
+2. [Elasticsearch API, "Create a new document in the index"](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-create)
+3. [Elasticsearch API, "Create or update a document in an index"](https://www.elastic.co/docs/api/doc/elasticsearch/operation/operation-index)
+4. [Elastic Docs, "Index fundamentals"](https://www.elastic.co/docs/manage-data/data-store/index-basics)
+5. [Elastic Docs, "Elasticsearch output plugin"](https://www.elastic.co/docs/reference/logstash/plugins/plugins-outputs-elasticsearch)

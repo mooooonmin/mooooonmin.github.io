@@ -248,6 +248,6 @@ Spring Boot 기본 로그 한 줄은 보통 아래 항목들로 읽으면 된다
 
 ## 출처
 
-1. Spring Boot 2 Logging Reference, "Log format", https://docs.spring.io/spring-boot/docs/2.0.0.M5/reference/html/boot-features-logging.html
-2. Spring Boot Reference, "Logging", https://docs.spring.io/spring-boot/reference/features/logging.html
-3. Spring Boot Common Application Properties, "logging.pattern.dateformat", https://docs.spring.io/spring-boot/appendix/application-properties/index.html
+1. [Spring Boot 2 Logging Reference, "Log format"](https://docs.spring.io/spring-boot/docs/2.0.0.M5/reference/html/boot-features-logging.html)
+2. [Spring Boot Reference, "Logging"](https://docs.spring.io/spring-boot/reference/features/logging.html)
+3. [Spring Boot Common Application Properties, "logging.pattern.dateformat"](https://docs.spring.io/spring-boot/appendix/application-properties/index.html)

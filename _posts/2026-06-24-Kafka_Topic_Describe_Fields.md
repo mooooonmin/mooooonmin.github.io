@@ -269,8 +269,8 @@ Kafka 토픽 세부 정보 출력값에서 가장 중요한 항목은 `Partition
 
 ## 출처
 
-1. Apache Kafka, "Design - Replication", https://kafka.apache.org/090/design/design/
-2. Apache Kafka, "Quick Start", https://kafka.apache.org/11/getting-started/quickstart/
-3. Apache Kafka, "Monitoring - ISR shrink/expand", https://kafka.apache.org/082/operations/monitoring/
-4. Apache Kafka, "Upgrading to 4.0 - Eligible Leader Replicas", https://kafka.apache.org/41/getting-started/upgrade/
-5. Apache Kafka, "Eligible Leader Replicas", https://kafka.apache.org/41/operations/eligible-leader-replicas/
+1. [Apache Kafka, "Design - Replication"](https://kafka.apache.org/090/design/design/)
+2. [Apache Kafka, "Quick Start"](https://kafka.apache.org/11/getting-started/quickstart/)
+3. [Apache Kafka, "Monitoring - ISR shrink/expand"](https://kafka.apache.org/082/operations/monitoring/)
+4. [Apache Kafka, "Upgrading to 4.0 - Eligible Leader Replicas"](https://kafka.apache.org/41/getting-started/upgrade/)
+5. [Apache Kafka, "Eligible Leader Replicas"](https://kafka.apache.org/41/operations/eligible-leader-replicas/)

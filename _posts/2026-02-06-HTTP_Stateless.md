@@ -63,7 +63,5 @@ HTTP는 기본적으로 요청과 응답이 끝나면 연결을 유지하지 않
 
 ## 출처
 
-1. MDN Web Docs, Overview of HTTP
-   https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview
-2. RFC 9110, HTTP Semantics
-   https://datatracker.ietf.org/doc/html/rfc9110
+1. [MDN Web Docs, Overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Overview)
+2. [RFC 9110, HTTP Semantics](https://datatracker.ietf.org/doc/html/rfc9110)

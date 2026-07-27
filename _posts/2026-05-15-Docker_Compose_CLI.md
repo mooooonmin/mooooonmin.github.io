@@ -154,13 +154,13 @@ docker compose down -v
 
 확인일: 2026-05-14
 
-[1] Docker Docs, History and development of Docker Compose: <https://docs.docker.com/compose/intro/history/>
-[2] Docker Docs, Install the Docker Compose standalone (Legacy): <https://docs.docker.com/compose/install/standalone/>
-[3] Docker Docs, How Compose works - The Compose file: <https://docs.docker.com/compose/intro/compose-application-model/>
-[4] Docker Docs, Define services in Docker Compose: <https://docs.docker.com/reference/compose-file/services/>
-[5] Docker Docs, `docker compose up`: <https://docs.docker.com/reference/cli/docker/compose/up/>
-[6] Docker Docs, `docker compose ps`: <https://docs.docker.com/reference/cli/docker/compose/ps/>
-[7] Docker Docs, `docker compose logs`: <https://docs.docker.com/reference/cli/docker/compose/logs/>
-[8] Docker Docs, `docker compose build`: <https://docs.docker.com/reference/cli/docker/compose/build/>
-[9] Docker Docs, `docker compose pull`: <https://docs.docker.com/reference/cli/docker/compose/pull/>
-[10] Docker Docs, `docker compose down`: <https://docs.docker.com/reference/cli/docker/compose/down/>
+1. [Docker Docs, History and development of Docker Compose](https://docs.docker.com/compose/intro/history/)
+2. [Docker Docs, Install the Docker Compose standalone (Legacy)](https://docs.docker.com/compose/install/standalone/)
+3. [Docker Docs, How Compose works - The Compose file](https://docs.docker.com/compose/intro/compose-application-model/)
+4. [Docker Docs, Define services in Docker Compose](https://docs.docker.com/reference/compose-file/services/)
+5. [Docker Docs, `docker compose up`](https://docs.docker.com/reference/cli/docker/compose/up/)
+6. [Docker Docs, `docker compose ps`](https://docs.docker.com/reference/cli/docker/compose/ps/)
+7. [Docker Docs, `docker compose logs`](https://docs.docker.com/reference/cli/docker/compose/logs/)
+8. [Docker Docs, `docker compose build`](https://docs.docker.com/reference/cli/docker/compose/build/)
+9. [Docker Docs, `docker compose pull`](https://docs.docker.com/reference/cli/docker/compose/pull/)
+10. [Docker Docs, `docker compose down`](https://docs.docker.com/reference/cli/docker/compose/down/)

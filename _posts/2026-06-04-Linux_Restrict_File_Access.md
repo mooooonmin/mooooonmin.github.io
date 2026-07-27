@@ -206,6 +206,5 @@ chmod 444 myfile.txt
 
 ## 출처
 
-[1] GNU Coreutils Manual, "File permissions", <https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html>
-
-[2] GNU Coreutils Manual, "Numeric Modes", <https://www.gnu.org/software/coreutils/manual/html_node/Numeric-Modes.html>
+1. [GNU Coreutils Manual, "File permissions"](https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html)
+2. [GNU Coreutils Manual, "Numeric Modes"](https://www.gnu.org/software/coreutils/manual/html_node/Numeric-Modes.html)

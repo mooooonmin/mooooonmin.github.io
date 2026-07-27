@@ -281,12 +281,8 @@ Secret을 활용해 민감한 값을 환경 변수로 분리하는 흐름은 다
 
 ## 출처
 
-[1] Kubernetes Docs, "Secrets", 확인일: 2026-05-21, <https://kubernetes.io/docs/concepts/configuration/secret/>
-
-[2] Kubernetes Docs, "ConfigMaps", 확인일: 2026-05-21, <https://kubernetes.io/docs/concepts/configuration/configmap/>
-
-[3] Kubernetes Docs, "Distribute Credentials Securely Using Secrets", 확인일: 2026-05-21, <https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/>
-
-[4] Kubernetes Docs, "kubectl apply", 확인일: 2026-05-21, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/>
-
-[5] Kubernetes Docs, "kubectl rollout", 확인일: 2026-05-21, <https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/>
+1. [Kubernetes Docs, "Secrets", 확인일: 2026-05-21](https://kubernetes.io/docs/concepts/configuration/secret/)
+2. [Kubernetes Docs, "ConfigMaps", 확인일: 2026-05-21](https://kubernetes.io/docs/concepts/configuration/configmap/)
+3. [Kubernetes Docs, "Distribute Credentials Securely Using Secrets", 확인일: 2026-05-21](https://kubernetes.io/docs/tasks/inject-data-application/distribute-credentials-secure/)
+4. [Kubernetes Docs, "kubectl apply", 확인일: 2026-05-21](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/)
+5. [Kubernetes Docs, "kubectl rollout", 확인일: 2026-05-21](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/)

@@ -303,8 +303,6 @@ Service를 사용하는 이유는 다음과 같다.
 
 ## 출처
 
-[1] Kubernetes Docs, "Service", 확인일: 2026-05-19, <https://kubernetes.io/docs/concepts/services-networking/service/>
-
-[2] Kubernetes Docs, "Services, Load Balancing, and Networking", 확인일: 2026-05-19, <https://kubernetes.io/docs/concepts/services-networking/>
-
-[3] Kubernetes Docs, "Connecting Applications with Services", 확인일: 2026-05-19, <https://kubernetes.io/docs/tutorials/services/connect-applications-service/>
+1. [Kubernetes Docs, "Service", 확인일: 2026-05-19](https://kubernetes.io/docs/concepts/services-networking/service/)
+2. [Kubernetes Docs, "Services, Load Balancing, and Networking", 확인일: 2026-05-19](https://kubernetes.io/docs/concepts/services-networking/)
+3. [Kubernetes Docs, "Connecting Applications with Services", 확인일: 2026-05-19](https://kubernetes.io/docs/tutorials/services/connect-applications-service/)

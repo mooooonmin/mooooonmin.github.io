@@ -68,7 +68,5 @@ tags: [datastructure, priority-queue, heap]
 
 ## 출처
 
-1. Pat Morin, Open Data Structures - Heaps
-   https://opendatastructures.org/versions/edition-0.1e/ods-java/10_Heaps.html
-2. Python Documentation, heapq - Heap queue algorithm
-   https://docs.python.org/3/library/heapq.html
+1. [Pat Morin, Open Data Structures - Heaps](https://opendatastructures.org/versions/edition-0.1e/ods-java/10_Heaps.html)
+2. [Python Documentation, heapq - Heap queue algorithm](https://docs.python.org/3/library/heapq.html)

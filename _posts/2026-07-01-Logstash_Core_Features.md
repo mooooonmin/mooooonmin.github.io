@@ -238,13 +238,13 @@ Logstash의 핵심 기능은 로그나 이벤트 데이터를 받아서, 가공�
 
 ## 출처
 
-1. Elastic, "Logstash", https://www.elastic.co/logstash
-2. Elastic Docs, "Logstash", https://www.elastic.co/docs/reference/logstash
-3. Elastic Docs, "How Logstash Works", https://www.elastic.co/docs/reference/logstash/how-logstash-works
-4. Elastic Docs, "Input plugins", https://www.elastic.co/docs/reference/logstash/plugins/input-plugins
-5. Elastic Docs, "File input plugin", https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-file
-6. Elastic Blog, "A Practical Introduction to Logstash", https://www.elastic.co/blog/a-practical-introduction-to-logstash
-7. Elastic Docs, "Filter plugins", https://www.elastic.co/docs/reference/logstash/plugins/filter-plugins
-8. Elastic, "Logstash: Collect, Parse, Transform Logs", https://www.elastic.co/logstash
-9. Elastic Docs, "Output plugins", https://www.elastic.co/docs/reference/logstash/plugins/output-plugins
-10. Elastic Docs, "Elasticsearch output plugin", https://www.elastic.co/docs/reference/logstash/plugins/plugins-outputs-elasticsearch
+1. [Elastic, "Logstash"](https://www.elastic.co/logstash)
+2. [Elastic Docs, "Logstash"](https://www.elastic.co/docs/reference/logstash)
+3. [Elastic Docs, "How Logstash Works"](https://www.elastic.co/docs/reference/logstash/how-logstash-works)
+4. [Elastic Docs, "Input plugins"](https://www.elastic.co/docs/reference/logstash/plugins/input-plugins)
+5. [Elastic Docs, "File input plugin"](https://www.elastic.co/docs/reference/logstash/plugins/plugins-inputs-file)
+6. [Elastic Blog, "A Practical Introduction to Logstash"](https://www.elastic.co/blog/a-practical-introduction-to-logstash)
+7. [Elastic Docs, "Filter plugins"](https://www.elastic.co/docs/reference/logstash/plugins/filter-plugins)
+8. [Elastic, "Logstash: Collect, Parse, Transform Logs"](https://www.elastic.co/logstash)
+9. [Elastic Docs, "Output plugins"](https://www.elastic.co/docs/reference/logstash/plugins/output-plugins)
+10. [Elastic Docs, "Elasticsearch output plugin"](https://www.elastic.co/docs/reference/logstash/plugins/plugins-outputs-elasticsearch)

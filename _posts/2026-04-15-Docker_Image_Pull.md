@@ -107,11 +107,7 @@ docker pull nginx:stable-perl
 
 ## 출처
 
-1. Docker Docs, `docker image pull`
-   https://docs.docker.com/reference/cli/docker/image/pull/
-2. Docker Docs, `docker image tag`
-   https://docs.docker.com/engine/reference/commandline/tag/
-3. Docker Docs, Build, tag, and publish an image
-   https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/
-4. Docker Docs, Tags on Docker Hub
-   https://docs.docker.com/docker-hub/repos/manage/hub-images/tags/
+1. [Docker Docs, `docker image pull`](https://docs.docker.com/reference/cli/docker/image/pull/)
+2. [Docker Docs, `docker image tag`](https://docs.docker.com/engine/reference/commandline/tag/)
+3. [Docker Docs, Build, tag, and publish an image](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/)
+4. [Docker Docs, Tags on Docker Hub](https://docs.docker.com/docker-hub/repos/manage/hub-images/tags/)

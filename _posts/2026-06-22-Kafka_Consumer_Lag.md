@@ -264,10 +264,10 @@ CLI에서는 `kafka-consumer-groups.sh --describe`로 확인할 수 있다.
 
 ## 출처
 
-1. Confluent Documentation, "Kafka Consumer Design: Consumers, Consumer Groups, and Offsets", https://docs.confluent.io/kafka/design/consumer-design.html
-2. Confluent Cloud Documentation, "Monitor Kafka Consumer Lag in Confluent Cloud", https://docs.confluent.io/cloud/current/monitoring/monitor-lag.html
-3. Amazon Web Services, "Monitor consumer lags", https://docs.aws.amazon.com/msk/latest/developerguide/consumer-lag.html
-4. Datadog Docs, "Amazon MSK", https://docs.datadoghq.com/integrations/amazon-msk/
-5. LinkedIn Burrow GitHub, "Burrow: Kafka Consumer Lag Checking", https://github.com/linkedin/burrow
-6. Prometheus Documentation, "Overview", https://prometheus.io/docs/introduction/overview/
-7. Grafana Documentation, "Introduction", https://grafana.com/docs/grafana/latest/fundamentals/
+1. [Confluent Documentation, "Kafka Consumer Design: Consumers, Consumer Groups, and Offsets"](https://docs.confluent.io/kafka/design/consumer-design.html)
+2. [Confluent Cloud Documentation, "Monitor Kafka Consumer Lag in Confluent Cloud"](https://docs.confluent.io/cloud/current/monitoring/monitor-lag.html)
+3. [Amazon Web Services, "Monitor consumer lags"](https://docs.aws.amazon.com/msk/latest/developerguide/consumer-lag.html)
+4. [Datadog Docs, "Amazon MSK"](https://docs.datadoghq.com/integrations/amazon-msk/)
+5. [LinkedIn Burrow GitHub, "Burrow: Kafka Consumer Lag Checking"](https://github.com/linkedin/burrow)
+6. [Prometheus Documentation, "Overview"](https://prometheus.io/docs/introduction/overview/)
+7. [Grafana Documentation, "Introduction"](https://grafana.com/docs/grafana/latest/fundamentals/)

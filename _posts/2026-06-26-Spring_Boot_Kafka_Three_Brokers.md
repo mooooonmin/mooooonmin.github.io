@@ -242,6 +242,6 @@ Spring Boot에서 Kafka 서버 3대를 연결할 때 가장 중요한 설정은 
 
 ## 출처
 
-1. Spring Boot Reference, "Apache Kafka Support", https://docs.spring.io/spring-boot/reference/messaging/kafka.html
-2. Apache Kafka, "Producer Configs", https://kafka.apache.org/43/configuration/producer-configs/
-3. Apache Kafka, "Consumer Configs", https://kafka.apache.org/41/configuration/consumer-configs/
+1. [Spring Boot Reference, "Apache Kafka Support"](https://docs.spring.io/spring-boot/reference/messaging/kafka.html)
+2. [Apache Kafka, "Producer Configs"](https://kafka.apache.org/43/configuration/producer-configs/)
+3. [Apache Kafka, "Consumer Configs"](https://kafka.apache.org/41/configuration/consumer-configs/)

@@ -94,7 +94,5 @@ Lock 방식의 경우
 
 ## 출처
 
-1. PostgreSQL Documentation, Transactions
-   https://www.postgresql.org/docs/current/tutorial-transactions.html
-2. PostgreSQL Documentation, Transaction Isolation
-   https://www.postgresql.org/docs/current/transaction-iso.html
+1. [PostgreSQL Documentation, Transactions](https://www.postgresql.org/docs/current/tutorial-transactions.html)
+2. [PostgreSQL Documentation, Transaction Isolation](https://www.postgresql.org/docs/current/transaction-iso.html)

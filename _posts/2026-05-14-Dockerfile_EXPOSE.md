@@ -159,5 +159,5 @@ docker run -P my-server
 
 ## 출처
 
-[1] Docker Docs, Dockerfile reference - EXPOSE: <https://docs.docker.com/reference/dockerfile/#expose>
-[2] Docker Docs, Publishing and exposing ports: <https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports/>
+1. [Docker Docs, Dockerfile reference - EXPOSE](https://docs.docker.com/reference/dockerfile/#expose)
+2. [Docker Docs, Publishing and exposing ports](https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports/)

@@ -116,8 +116,5 @@ Pod가 “어떤 물리 저장소를 직접 쓸지”까지 알 필요가 없게
 
 ## 출처
 
-1. Kubernetes Docs, "Volumes"
-   https://kubernetes.io/docs/concepts/storage/volumes/
-
-2. Kubernetes Docs, "Persistent Volumes"
-   https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+1. [Kubernetes Docs, "Volumes"](https://kubernetes.io/docs/concepts/storage/volumes/)
+2. [Kubernetes Docs, "Persistent Volumes"](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)

@@ -287,6 +287,6 @@ Kafka의 고가용성은 여러 Node, Cluster 구성, Controller 관리, Replica
 
 ## 출처
 
-1. Apache Kafka, "Introduction", https://kafka.apache.org/documentation/
-2. Apache Kafka, "KRaft - Process Roles", https://kafka.apache.org/41/operations/kraft/
-3. Confluent Documentation, "Kafka Replication", https://docs.confluent.io/kafka/design/replication.html
+1. [Apache Kafka, "Introduction"](https://kafka.apache.org/documentation/)
+2. [Apache Kafka, "KRaft - Process Roles"](https://kafka.apache.org/41/operations/kraft/)
+3. [Confluent Documentation, "Kafka Replication"](https://docs.confluent.io/kafka/design/replication.html)

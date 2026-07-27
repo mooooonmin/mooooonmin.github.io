@@ -154,7 +154,5 @@ Semaphore 값이 0 또는 1만 가지는 경우 의미.
 
 ## 출처
 
-1. KOCW, 운영체제 강의자료
-   https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/5.pdf
-2. University of Illinois Chicago, Operating Systems Notes, "Process Synchronization"
-   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/5_Synchronization.html
+1. [KOCW, 운영체제 강의자료](https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/5.pdf)
+2. [University of Illinois Chicago, Operating Systems Notes, "Process Synchronization"](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/5_Synchronization.html)

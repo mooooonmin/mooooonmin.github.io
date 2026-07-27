@@ -201,6 +201,6 @@ ls -l file.txt
 
 ## 출처
 
-- [1] GNU Coreutils Manual, `chmod` invocation - <https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html>
-- [2] GNU Coreutils Manual, numeric modes - <https://www.gnu.org/s/coreutils/manual/html_node/Numeric-Modes.html>
-- [3] GNU Coreutils Manual, file permissions - <https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html>
+1. [GNU Coreutils Manual, `chmod` invocation](https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html)
+2. [GNU Coreutils Manual, numeric modes](https://www.gnu.org/s/coreutils/manual/html_node/Numeric-Modes.html)
+3. [GNU Coreutils Manual, file permissions](https://www.gnu.org/software/coreutils/manual/html_node/File-permissions.html)

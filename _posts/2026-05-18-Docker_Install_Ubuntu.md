@@ -129,7 +129,7 @@ Ubuntu에서 Docker와 Docker Compose를 새로 설치할 때 핵심은 다음�
 
 확인일: 2026-05-14
 
-[1] Docker Docs, Install Docker Engine on Ubuntu: <https://docs.docker.com/engine/install/ubuntu/>
-[2] Docker Docs, Install the Docker Compose plugin: <https://docs.docker.com/compose/install/linux/>
-[3] Docker Docs, Install the Docker Compose standalone (Legacy): <https://docs.docker.com/compose/install/standalone/>
-[4] Docker Docs, Linux post-installation steps for Docker Engine: <https://docs.docker.com/engine/install/linux-postinstall/>
+1. [Docker Docs, Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+2. [Docker Docs, Install the Docker Compose plugin](https://docs.docker.com/compose/install/linux/)
+3. [Docker Docs, Install the Docker Compose standalone (Legacy)](https://docs.docker.com/compose/install/standalone/)
+4. [Docker Docs, Linux post-installation steps for Docker Engine](https://docs.docker.com/engine/install/linux-postinstall/)

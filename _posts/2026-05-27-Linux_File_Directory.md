@@ -155,7 +155,7 @@ cd btmp
 
 ## 출처
 
-- [1] Linux man-pages, `inode(7)` - <https://man7.org/linux/man-pages/man7/inode.7.html>
-- [2] GNU Coreutils Manual - <https://www.gnu.org/software/coreutils/manual/coreutils.html>
-- [3] GNU Bash Reference Manual - <https://www.gnu.org/software/bash/manual/bash.html>
-- [4] Filesystem Hierarchy Standard - <https://specifications.freedesktop.org/fhs/latest/rootRequirements.html>
+1. [Linux man-pages, `inode(7)`](https://man7.org/linux/man-pages/man7/inode.7.html)
+2. [GNU Coreutils Manual](https://www.gnu.org/software/coreutils/manual/coreutils.html)
+3. [GNU Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html)
+4. [Filesystem Hierarchy Standard](https://specifications.freedesktop.org/fhs/latest/rootRequirements.html)

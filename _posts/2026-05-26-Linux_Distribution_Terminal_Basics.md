@@ -193,11 +193,6 @@ Windows 환경의 일부 터미널에서는 `Ctrl + C`가 복사가 아니라 �
 
 ## 출처
 
-1. Debian, "About Debian"
-   https://www.debian.org/intro/about
-
-2. Ubuntu, "Ubuntu for desktops"
-   https://ubuntu.com/desktop
-
-3. GNU Bash Manual, "Controlling the Prompt"
-   https://www.gnu.org/software/bash/manual/html_node/Controlling-the-Prompt.html
+1. [Debian, "About Debian"](https://www.debian.org/intro/about)
+2. [Ubuntu, "Ubuntu for desktops"](https://ubuntu.com/desktop)
+3. [GNU Bash Manual, "Controlling the Prompt"](https://www.gnu.org/software/bash/manual/html_node/Controlling-the-Prompt.html)

@@ -124,6 +124,5 @@ Kubernetes는 Pod 안의 컨테이너가 종료되면 `restartPolicy`에 따라 
 
 ## 출처
 
-[1] Kubernetes Docs, "Kubernetes Self-Healing", 확인일: 2026-05-20, <https://kubernetes.io/docs/concepts/architecture/self-healing/>
-
-[2] Kubernetes Docs, "Pod Lifecycle", 확인일: 2026-05-20, <https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/>
+1. [Kubernetes Docs, "Kubernetes Self-Healing", 확인일: 2026-05-20](https://kubernetes.io/docs/concepts/architecture/self-healing/)
+2. [Kubernetes Docs, "Pod Lifecycle", 확인일: 2026-05-20](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/)

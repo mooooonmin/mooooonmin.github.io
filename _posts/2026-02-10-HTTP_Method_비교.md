@@ -144,11 +144,7 @@ PATCH는 요청한 필드만 부분 수정하므로 나머지 필드는 유지�
 
 ## 출처
 
-1. RFC 9110, HTTP Semantics - Methods
-   https://datatracker.ietf.org/doc/html/rfc9110#name-methods
-2. RFC 9110, HTTP Semantics - GET
-   https://datatracker.ietf.org/doc/html/rfc9110#name-get
-3. RFC 9110, HTTP Semantics - POST
-   https://datatracker.ietf.org/doc/html/rfc9110#name-post
-4. RFC 5789, PATCH Method for HTTP
-   https://www.rfc-editor.org/rfc/rfc5789
+1. [RFC 9110, HTTP Semantics - Methods](https://datatracker.ietf.org/doc/html/rfc9110#name-methods)
+2. [RFC 9110, HTTP Semantics - GET](https://datatracker.ietf.org/doc/html/rfc9110#name-get)
+3. [RFC 9110, HTTP Semantics - POST](https://datatracker.ietf.org/doc/html/rfc9110#name-post)
+4. [RFC 5789, PATCH Method for HTTP](https://www.rfc-editor.org/rfc/rfc5789)

@@ -201,6 +201,6 @@ Kafka 서버 수는 많을수록 장애 대응에는 유리하지만, 비용과 
 
 ## 출처
 
-1. Apache Kafka, "KRaft", https://kafka.apache.org/41/operations/kraft/
-2. Confluent Documentation, "Running Kafka in Production", https://docs.confluent.io/platform/current/kafka/deployment.html
-3. Apache Kafka, "Producer Configs", https://kafka.apache.org/41/configuration/producer-configs/
+1. [Apache Kafka, "KRaft"](https://kafka.apache.org/41/operations/kraft/)
+2. [Confluent Documentation, "Running Kafka in Production"](https://docs.confluent.io/platform/current/kafka/deployment.html)
+3. [Apache Kafka, "Producer Configs"](https://kafka.apache.org/41/configuration/producer-configs/)

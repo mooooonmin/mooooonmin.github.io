@@ -126,8 +126,6 @@ Multi Thread는 Multi 프로세스 대비
 
 ## 출처
 
-1. KOCW, 운영체제 강의자료
-   https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf
-2. University of Illinois Chicago, Operating Systems Notes, "Processes" / "Threads"
-   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/3_Processes.html
-   https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html
+1. [KOCW, 운영체제 강의자료](https://contents.kocw.or.kr/KOCW/document/2015/cup/weonsunghyun/3.pdf)
+2. [University of Illinois Chicago, Operating Systems Notes, "Processes"](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/3_Processes.html)
+3. [University of Illinois Chicago, Operating Systems Notes, "Threads"](https://www.cs.uic.edu/~jbell/CourseNotes/OperatingSystems/4_Threads.html)

@@ -243,17 +243,8 @@ DB 연결 문제를 확인할 때는 다음 순서로 보는 것이 좋다.
 
 ## 출처
 
-1. Kubernetes Docs, "Pod Lifecycle - How Pods handle problems with containers"
-   https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
-
-2. Kubernetes Docs, "Pod Lifecycle - Types of probe"
-   https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
-
-3. Kubernetes Docs, "kubectl apply"
-   https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/
-
-4. Kubernetes Docs, "kubectl rollout restart"
-   https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/
-
-5. Kubernetes Docs, "kubectl logs"
-   https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/
+1. [Kubernetes Docs, "Pod Lifecycle - How Pods handle problems with containers"](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/)
+2. [Kubernetes Docs, "Pod Lifecycle - Types of probe"](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/)
+3. [Kubernetes Docs, "kubectl apply"](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_apply/)
+4. [Kubernetes Docs, "kubectl rollout restart"](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_rollout/kubectl_rollout_restart/)
+5. [Kubernetes Docs, "kubectl logs"](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_logs/)

@@ -184,5 +184,4 @@ sudo [실행하고자 하는 명령어]
 
 ## 출처
 
-[1] Sudo Manual, "`sudo`, `sudoedit` - execute a command as another user", <https://www.sudo.ws/docs/man/1.9.9/sudo.man/>
-
+1. [Sudo Manual, "`sudo`, `sudoedit` - execute a command as another user"](https://www.sudo.ws/docs/man/1.9.9/sudo.man/)

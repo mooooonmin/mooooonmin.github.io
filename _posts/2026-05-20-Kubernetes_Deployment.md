@@ -203,8 +203,6 @@ Deployment -> ReplicaSet -> Pod
 
 ## 출처
 
-[1] Kubernetes Docs, "Deployments", 확인일: 2026-05-19, <https://kubernetes.io/docs/concepts/workloads/controllers/deployment/>
-
-[2] Kubernetes Docs, "Pods", 확인일: 2026-05-19, <https://kubernetes.io/docs/concepts/workloads/pods/>
-
-[3] Kubernetes Docs, "ReplicaSet", 확인일: 2026-05-19, <https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/>
+1. [Kubernetes Docs, "Deployments", 확인일: 2026-05-19](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
+2. [Kubernetes Docs, "Pods", 확인일: 2026-05-19](https://kubernetes.io/docs/concepts/workloads/pods/)
+3. [Kubernetes Docs, "ReplicaSet", 확인일: 2026-05-19](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/)

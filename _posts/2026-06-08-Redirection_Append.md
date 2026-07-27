@@ -198,8 +198,6 @@ ls abc 2>> error.txt
 
 ## 출처
 
-[1] GNU Bash Manual, "Redirecting Output", <https://www.gnu.org/software/bash/manual/html_node/Redirections.html>
-
-[2] GNU Bash Manual, "Appending Redirected Output", <https://www.gnu.org/software/bash/manual/html_node/Redirections.html>
-
-[3] GNU Bash Manual, "Redirections", <https://www.gnu.org/software/bash/manual/html_node/Redirections.html>
+1. [GNU Bash Manual, "Redirecting Output"](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)
+2. [GNU Bash Manual, "Appending Redirected Output"](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)
+3. [GNU Bash Manual, "Redirections"](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)

@@ -217,8 +217,6 @@ ls > all.txt 2>&1
 
 ## 출처
 
-[1] Ubuntu Manpage, "stdin, stdout, stderr - standard I/O streams", <https://manpages.ubuntu.com/manpages/noble/man3/stdout.3.html>
-
-[2] GNU Bash Manual, "Redirections", <https://www.gnu.org/software/bash/manual/html_node/Redirections.html>
-
-[3] GNU Bash Manual, "Redirecting Standard Output and Standard Error", <https://www.gnu.org/software/bash/manual/html_node/Redirections.html>
+1. [Ubuntu Manpage, "stdin, stdout, stderr - standard I/O streams"](https://manpages.ubuntu.com/manpages/noble/man3/stdout.3.html)
+2. [GNU Bash Manual, "Redirections"](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)
+3. [GNU Bash Manual, "Redirecting Standard Output and Standard Error"](https://www.gnu.org/software/bash/manual/html_node/Redirections.html)

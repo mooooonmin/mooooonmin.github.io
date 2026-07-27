@@ -148,6 +148,6 @@ ls -a
 
 ## 출처
 
-- [1] Vim User Manual, quit and throw things away - <https://vimhelp.org/usr_21.txt.html>
-- [2] Vim Reference Manual, recovery and swap files - <https://vimhelp.org/recover.txt.html>
-- [3] Vim Reference Manual, editing and quitting - <https://vimhelp.org/editing.txt.html>
+1. [Vim User Manual, quit and throw things away](https://vimhelp.org/usr_21.txt.html)
+2. [Vim Reference Manual, recovery and swap files](https://vimhelp.org/recover.txt.html)
+3. [Vim Reference Manual, editing and quitting](https://vimhelp.org/editing.txt.html)

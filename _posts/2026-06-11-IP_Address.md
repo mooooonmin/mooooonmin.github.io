@@ -194,10 +194,7 @@ ip a
 
 ## 출처
 
-[1] AWS Documentation, "Amazon EC2 instance IP addressing", 확인일: 2026-06-11, <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html>
-
-[2] ifconfig.me, "What Is My IP Address?", 확인일: 2026-06-11, <https://ifconfig.me/>
-
-[3] Linux man-pages, "ip(8) - Linux manual page", 확인일: 2026-06-11, <https://man7.org/linux/man-pages/man8/ip.8.html>
-
-[4] Linux man-pages, "ip-address(8) - Linux manual page", 확인일: 2026-06-11, <https://man7.org/linux/man-pages/man8/ip-address.8.html>
+1. [AWS Documentation, "Amazon EC2 instance IP addressing", 확인일: 2026-06-11](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html)
+2. [ifconfig.me, "What Is My IP Address?", 확인일: 2026-06-11](https://ifconfig.me/)
+3. [Linux man-pages, "ip(8) - Linux manual page", 확인일: 2026-06-11](https://man7.org/linux/man-pages/man8/ip.8.html)
+4. [Linux man-pages, "ip-address(8) - Linux manual page", 확인일: 2026-06-11](https://man7.org/linux/man-pages/man8/ip-address.8.html)

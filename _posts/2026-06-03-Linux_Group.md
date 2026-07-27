@@ -130,6 +130,6 @@ root : root
 
 ## 출처
 
-- [1] Linux man-pages, `group(5)` - <https://man7.org/linux/man-pages/man5/group.5.html>
-- [2] Linux man-pages, `passwd(5)` - <https://man7.org/linux/man-pages/man5/passwd.5.html>
-- [3] Linux man-pages, `groups(1)` - <https://man7.org/linux/man-pages/man1/groups.1.html>
+1. [Linux man-pages, `group(5)`](https://man7.org/linux/man-pages/man5/group.5.html)
+2. [Linux man-pages, `passwd(5)`](https://man7.org/linux/man-pages/man5/passwd.5.html)
+3. [Linux man-pages, `groups(1)`](https://man7.org/linux/man-pages/man1/groups.1.html)

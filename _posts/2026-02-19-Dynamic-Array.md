@@ -64,7 +64,5 @@ tags: [datastructure, array, dynamic-array, amortized]
 
 ## 출처
 
-1. Pat Morin, Open Data Structures - Array-Based Lists
-   https://opendatastructures.org/versions/edition-0.1e/ods-java/2_Array_Based_Lists.html
-2. MIT OpenCourseWare 6.006, Data Structures and Dynamic Arrays
-   https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/
+1. [Pat Morin, Open Data Structures - Array-Based Lists](https://opendatastructures.org/versions/edition-0.1e/ods-java/2_Array_Based_Lists.html)
+2. [MIT OpenCourseWare 6.006, Data Structures and Dynamic Arrays](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/)

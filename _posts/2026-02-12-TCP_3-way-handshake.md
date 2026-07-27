@@ -64,7 +64,5 @@ TCP/IP 프로토콜을 통한 통신 전, 데이터의 정확한 전송을 위�
 
 ## 출처
 
-1. RFC 9293, Transmission Control Protocol
-   https://datatracker.ietf.org/doc/html/rfc9293
-2. RFC 9293, Transmission Control Protocol - Establishing a Connection
-   https://datatracker.ietf.org/doc/html/rfc9293#name-establishing-a-connection
+1. [RFC 9293, Transmission Control Protocol](https://datatracker.ietf.org/doc/html/rfc9293)
+2. [RFC 9293, Transmission Control Protocol - Establishing a Connection](https://datatracker.ietf.org/doc/html/rfc9293#name-establishing-a-connection)

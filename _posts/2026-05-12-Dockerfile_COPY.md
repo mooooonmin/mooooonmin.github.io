@@ -224,5 +224,5 @@ ls /
 
 ## 출처
 
-[1] Docker Docs, Dockerfile reference - COPY: <https://docs.docker.com/reference/builder/#copy>
-[2] Docker Docs, Build context - .dockerignore files: <https://docs.docker.com/build/building/context/#dockerignore-files>
+1. [Docker Docs, Dockerfile reference - COPY](https://docs.docker.com/reference/builder/#copy)
+2. [Docker Docs, Build context - .dockerignore files](https://docs.docker.com/build/building/context/#dockerignore-files)

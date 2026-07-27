@@ -299,12 +299,8 @@ chmod +x first.sh
 
 ## 출처
 
-[1] Linux man-pages, "bash(1) - Linux manual page", 확인일: 2026-06-15, <https://man7.org/linux/man-pages/man1/bash.1.html>
-
-[2] GNU Bash Manual, "Shell Scripts", 확인일: 2026-06-15, <https://www.gnu.org/software/bash/manual/html_node/Shell-Scripts.html>
-
-[3] Linux man-pages, "execve(2) - Linux manual page", 확인일: 2026-06-15, <https://man7.org/linux/man-pages/man2/execve.2.html>
-
-[4] GNU Coreutils Manual, "chmod invocation", 확인일: 2026-06-15, <https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html>
-
-[5] GNU Coreutils Manual, "Setting Permissions", 확인일: 2026-06-15, <https://www.gnu.org/software/coreutils/manual/html_node/Setting-Permissions.html>
+1. [Linux man-pages, "bash(1) - Linux manual page", 확인일: 2026-06-15](https://man7.org/linux/man-pages/man1/bash.1.html)
+2. [GNU Bash Manual, "Shell Scripts", 확인일: 2026-06-15](https://www.gnu.org/software/bash/manual/html_node/Shell-Scripts.html)
+3. [Linux man-pages, "execve(2) - Linux manual page", 확인일: 2026-06-15](https://man7.org/linux/man-pages/man2/execve.2.html)
+4. [GNU Coreutils Manual, "chmod invocation", 확인일: 2026-06-15](https://www.gnu.org/software/coreutils/manual/html_node/chmod-invocation.html)
+5. [GNU Coreutils Manual, "Setting Permissions", 확인일: 2026-06-15](https://www.gnu.org/software/coreutils/manual/html_node/Setting-Permissions.html)

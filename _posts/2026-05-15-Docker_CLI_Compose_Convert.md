@@ -126,8 +126,8 @@ Docker CLI와 Docker Compose는 서로 다른 문법을 사용하지만, 컨테�
 
 확인일: 2026-05-14
 
-[1] Docker Docs, How Compose works: <https://docs.docker.com/compose/intro/compose-application-model/>
-[2] Docker Docs, Define services in Docker Compose: <https://docs.docker.com/reference/compose-file/services/>
-[3] npm, composerize package: <https://www.npmjs.com/package/composerize>
-[4] GitHub, composerize/composerize: <https://github.com/composerize/composerize>
-[5] Decomposerize: <https://www.decomposerize.com/>
+1. [Docker Docs, How Compose works](https://docs.docker.com/compose/intro/compose-application-model/)
+2. [Docker Docs, Define services in Docker Compose](https://docs.docker.com/reference/compose-file/services/)
+3. [npm, composerize package](https://www.npmjs.com/package/composerize)
+4. [GitHub, composerize/composerize](https://github.com/composerize/composerize)
+5. [Decomposerize](https://www.decomposerize.com/)

@@ -56,9 +56,6 @@ tags: [network, http, method, rest]
 
 ## 출처
 
-1. RFC 9110, HTTP Semantics - Methods
-   https://datatracker.ietf.org/doc/html/rfc9110#name-methods
-2. RFC 9110, HTTP Semantics - Safe Methods
-   https://datatracker.ietf.org/doc/html/rfc9110#name-safe-methods
-3. RFC 9110, HTTP Semantics - Idempotent Methods
-   https://datatracker.ietf.org/doc/html/rfc9110#name-idempotent-methods
+1. [RFC 9110, HTTP Semantics - Methods](https://datatracker.ietf.org/doc/html/rfc9110#name-methods)
+2. [RFC 9110, HTTP Semantics - Safe Methods](https://datatracker.ietf.org/doc/html/rfc9110#name-safe-methods)
+3. [RFC 9110, HTTP Semantics - Idempotent Methods](https://datatracker.ietf.org/doc/html/rfc9110#name-idempotent-methods)

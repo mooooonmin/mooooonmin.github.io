@@ -252,8 +252,8 @@ Partition은 Kafka에서 병렬 처리와 메시지 처리량에 큰 영향을 �
 
 ## 출처
 
-1. Apache Kafka, "Introduction - Main Concepts and Terminology", https://kafka.apache.org/intro/
-2. Apache Kafka, "Quickstart - Create a topic to store your events", https://kafka.apache.org/quickstart/
-3. Apache Kafka, "Configuration - Broker Configs: num.partitions", https://kafka.apache.org/documentation/#brokerconfigs_num.partitions
-4. Confluent Documentation, "Kafka Consumer Design: Consumers, Consumer Groups, and Offsets", https://docs.confluent.io/kafka/design/consumer-design.html
-5. Apache Kafka, "Documentation - Introduction", https://kafka.apache.org/documentation/
+1. [Apache Kafka, "Introduction - Main Concepts and Terminology"](https://kafka.apache.org/intro/)
+2. [Apache Kafka, "Quickstart - Create a topic to store your events"](https://kafka.apache.org/quickstart/)
+3. [Apache Kafka, "Configuration - Broker Configs: num.partitions"](https://kafka.apache.org/documentation/#brokerconfigs_num.partitions)
+4. [Confluent Documentation, "Kafka Consumer Design: Consumers, Consumer Groups, and Offsets"](https://docs.confluent.io/kafka/design/consumer-design.html)
+5. [Apache Kafka, "Documentation - Introduction"](https://kafka.apache.org/documentation/)

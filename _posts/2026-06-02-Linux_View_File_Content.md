@@ -155,6 +155,6 @@ Vim motion 문서는 `CTRL-F`를 한 화면 앞으로 스크롤하고, `CTRL-B`�
 
 ## 출처
 
-- [1] Vim User Manual, first steps in Vim - <https://vimhelp.org/usr_02.txt.html>
-- [2] GNU Coreutils Manual, `cat` invocation - <https://www.gnu.org/software/coreutils/cat>
-- [3] Vim Reference Manual, motions - <https://vimhelp.org/motion.txt.html>
+1. [Vim User Manual, first steps in Vim](https://vimhelp.org/usr_02.txt.html)
+2. [GNU Coreutils Manual, `cat` invocation](https://www.gnu.org/software/coreutils/cat)
+3. [Vim Reference Manual, motions](https://vimhelp.org/motion.txt.html)

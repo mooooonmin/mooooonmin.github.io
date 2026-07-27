@@ -199,9 +199,6 @@ Ubuntu 환경에서는 패키지 매니저로 `apt`를 주로 사용한다.
 
 ## 출처
 
-[1] Ubuntu Server Documentation, "Install and manage packages", <https://ubuntu.com/server/docs/package-management/>
-
-[2] Ubuntu Manpage, "apt - command-line interface", <https://manpages.ubuntu.com/manpages/jammy/man8/apt.8.html>
-
-[3] Ubuntu Server Documentation, "Managing your software", <https://ubuntu.com/server/docs/tutorial/managing-software/>
-
+1. [Ubuntu Server Documentation, "Install and manage packages"](https://ubuntu.com/server/docs/package-management/)
+2. [Ubuntu Manpage, "apt - command-line interface"](https://manpages.ubuntu.com/manpages/jammy/man8/apt.8.html)
+3. [Ubuntu Server Documentation, "Managing your software"](https://ubuntu.com/server/docs/tutorial/managing-software/)

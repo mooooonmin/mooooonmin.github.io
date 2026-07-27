@@ -76,7 +76,5 @@ HTTP 상태 코드는 서버가 클라이언트의 요청을 어떻게 처리했
 
 ## 출처
 
-1. RFC 9110, HTTP Semantics - Status Codes
-   https://datatracker.ietf.org/doc/html/rfc9110#name-status-codes
-2. MDN Web Docs, HTTP response status codes
-   https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+1. [RFC 9110, HTTP Semantics - Status Codes](https://datatracker.ietf.org/doc/html/rfc9110#name-status-codes)
+2. [MDN Web Docs, HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)

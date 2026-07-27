@@ -215,4 +215,4 @@ CPU 상태는 `%Cpu(s)` 줄에서 `id` 값을 먼저 본다.
 
 ## 출처
 
-[1] Linux man-pages, "top(1) - Linux manual page", 확인일: 2026-06-12, <https://man7.org/linux/man-pages/man1/top.1.html>
+1. [Linux man-pages, "top(1) - Linux manual page", 확인일: 2026-06-12](https://man7.org/linux/man-pages/man1/top.1.html)

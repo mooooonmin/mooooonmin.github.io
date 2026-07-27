@@ -73,5 +73,4 @@ tags: [database, key, primary-key, relation]
 
 ## 출처
 
-1. PostgreSQL Documentation, Constraints
-   https://www.postgresql.org/docs/current/ddl-constraints.html
+1. [PostgreSQL Documentation, Constraints](https://www.postgresql.org/docs/current/ddl-constraints.html)

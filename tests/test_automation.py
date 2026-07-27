@@ -107,6 +107,56 @@ class PostFormatTests(unittest.TestCase):
 
             self.assertIn((5, "중복 태그가 있습니다: exam"), errors)
 
+    def test_requires_named_source_links(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "2026-01-02-Guide.md"
+            path.write_text(
+                "---\n"
+                "title: Guide\n"
+                "category: g\n"
+                "date: 2026-01-02 03:04:05 +0900\n"
+                "tags: [guide]\n"
+                "---\n\n"
+                "## 1. 내용\n\n"
+                "설명\n\n"
+                "---\n\n"
+                "## 정리\n\n"
+                "> 요약\n\n"
+                "---\n\n"
+                "## 출처\n\n"
+                "1. Example\n"
+                "   https://example.com\n",
+                encoding="utf-8",
+            )
+
+            messages = [message for _, message in check_post(load_post(path))]
+
+            self.assertIn("출처는 `1. [출처 이름](URL)` 형식의 하이퍼링크로 작성해야 합니다.", messages)
+
+    def test_accepts_named_source_links(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            path = Path(temporary) / "2026-01-02-Guide.md"
+            path.write_text(
+                "---\n"
+                "title: Guide\n"
+                "category: g\n"
+                "date: 2026-01-02 03:04:05 +0900\n"
+                "tags: [guide]\n"
+                "---\n\n"
+                "## 1. 내용\n\n"
+                "설명\n\n"
+                "---\n\n"
+                "## 정리\n\n"
+                "> 요약\n\n"
+                "---\n\n"
+                "## 출처\n\n"
+                "확인일: 2026-01-02\n\n"
+                "1. [Example](https://example.com)\n",
+                encoding="utf-8",
+            )
+
+            self.assertEqual(check_post(load_post(path)), [])
+
 
 class GeneratedPageSafetyTests(unittest.TestCase):
     def test_removes_only_marked_stale_category(self):
