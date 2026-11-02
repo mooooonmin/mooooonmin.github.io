@@ -46,13 +46,17 @@
 
   function loadIndex() {
     if (!indexPromise) {
-      indexPromise = fetch(indexUrl).then(function (response) {
+      var controller = new AbortController();
+      var timeout = window.setTimeout(function () { controller.abort(); }, 15000);
+      indexPromise = fetch(indexUrl, { signal: controller.signal }).then(function (response) {
         if (!response.ok) throw new Error("Tag index request failed");
         return response.json();
       }).catch(function (error) {
         // Failed requests must not poison subsequent selections and retries.
         indexPromise = null;
         throw error;
+      }).finally(function () {
+        window.clearTimeout(timeout);
       });
     }
     return indexPromise;
@@ -169,6 +173,9 @@
     render({ reveal: true, keyboard: true });
   });
   filter.addEventListener("input", filterTags);
+  document.getElementById("skip-tag-list").addEventListener("click", function () {
+    revealResults(true);
+  });
   filterClear.addEventListener("click", function () {
     filter.value = "";
     filterTags();
@@ -188,6 +195,8 @@
 
   var hashTag = getHashTag();
   activeTag = getButton(hashTag) ? hashTag : null;
+  document.querySelector(".tag-static-list").hidden = true;
+  tagPage.hidden = false;
   syncButtonState();
   render({ reveal: Boolean(activeTag) });
 })();

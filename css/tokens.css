@@ -21,7 +21,7 @@
   --rail-width: 248px; --content-width: 960px; --reading-width: 72ch;
   --font-face-name: "Pretendard Variable";
   --control-radius: 6px; --color-code: var(--color-paper-2);
-  --color-control-line: #93958e; --color-scroll-thumb: #888c84;
+  --color-control-line: #80847d; --color-scroll-thumb: #888c84;
 }
 :root[data-theme="blue"] {
   color-scheme: dark;

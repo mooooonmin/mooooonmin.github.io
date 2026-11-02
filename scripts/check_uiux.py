@@ -52,6 +52,13 @@ def main():
                     assert page.locator("main h1").count() == 1, route
             checks.append("six routes at six widths: no document overflow and one page heading")
 
+            visit("/page2/")
+            for width in [899, 900, 1024, 1100, 1101]:
+                page.set_viewport_size({"width": width, "height": 900})
+                assert page.locator(".pagination-position").is_visible() == (width <= 1100)
+                assert page.locator(".pagination-numbers a").first.is_visible() == (width > 1100)
+            checks.append("compact pagination shows the page total at tablet widths")
+
             page.set_viewport_size({"width": 375, "height": 812})
             visit("/")
             screenshot("home-mobile")
@@ -73,7 +80,15 @@ def main():
             checks.append("mobile menu traps focus, Escape closes, trigger regains focus")
 
             visit("/tags/")
+            picker_top = page.locator(".tag-picker-scroll").bounding_box()["y"]
+            page.locator("#tag-filter").focus()
+            page.keyboard.press("Tab")
+            assert page.locator("#skip-tag-list").evaluate("e => e === document.activeElement")
+            page.keyboard.press("Enter")
+            assert page.locator("#tag-result-title").evaluate("e => e === document.activeElement")
             page.locator("#tag-filter").fill("docker")
+            page.evaluate("window.scrollTo(0, 0)")
+            assert abs(page.locator(".tag-picker-scroll").bounding_box()["y"] - picker_top) < 1
             assert page.locator(".tag-cloud-button:visible").count() > 0
             page.locator(".tag-cloud-button:visible").first.click()
             page.locator("#tag-result-list li").first.wait_for()
@@ -86,13 +101,34 @@ def main():
             assert page.locator('.tag-cloud-button[aria-pressed="true"]').count() == 1
             checks.append("mobile tag filter, visible result, readable count, URL restoration")
 
+            pending_requests = []
+            page.route("**/tags.json", lambda route: pending_requests.append(route))
+            visit("/tags/")
+            with page.expect_request("**/tags.json"):
+                page.locator('[data-tag-name="docker"]').click()
+            page.locator("#tag-retry").wait_for(state="visible", timeout=20000)
+            pending_requests.pop().abort()
+            page.unroute("**/tags.json")
+            page.locator("#tag-retry").click()
+            page.locator("#tag-result-list li").first.wait_for()
+            assert page.locator("#tag-result-title").inner_text().lower() == "#docker"
+            checks.append("a stalled tag request times out and retry loads the selected tag")
+
             visit("/2026/02/13/Linux/")
             assert page.locator("#post-toc").is_visible()
             command = page.locator("td code").first
             assert command.evaluate("e => getComputedStyle(e).whiteSpace") == "nowrap"
-            assert page.locator(".table-scroll[tabindex='0']").count() > 0
             screenshot("table-mobile")
-            checks.append("article table commands stay intact and wide tables are keyboard reachable")
+            visit("/2026/02/27/DAsP1/")
+            wide_table = page.locator(".table-scroll[tabindex='0']").first
+            wide_table.focus()
+            page.keyboard.press("ArrowRight")
+            page.wait_for_function("document.activeElement.scrollLeft > 0")
+            page.set_viewport_size({"width": 1440, "height": 900})
+            page.wait_for_function("""Array.from(document.querySelectorAll('.table-scroll')).every(
+                e => (e.scrollWidth > e.clientWidth) === (e.getAttribute('tabindex') === '0'))""")
+            page.set_viewport_size({"width": 375, "height": 812})
+            checks.append("table commands stay intact and only overflowing tables enter the tab order")
 
             page.route("**/assets/data/search-index.json", lambda route: route.fulfill(status=503, body="Unavailable"))
             visit("/search/?q=Linux")
@@ -118,6 +154,15 @@ def main():
             assert page.locator("html").get_attribute("data-theme") == "blue"
             screenshot("post-dark")
             checks.append("neutral night reading preference survives reload")
+
+            page.set_viewport_size({"width": 375, "height": 812})
+            page.route("**/assets/js/site.js", lambda route: route.abort())
+            visit("/")
+            assert page.locator("#open-nav").is_hidden()
+            assert page.locator("#search-input").is_visible()
+            page.locator('.full-navigation a[href="/tags/"]').click()
+            page.locator("#tag-filter").wait_for(state="visible")
+            checks.append("mobile search, navigation and tags remain usable if site.js fails")
 
             nojs = browser.new_context(java_script_enabled=False, viewport={"width": 375, "height": 812})
             fallback = nojs.new_page()

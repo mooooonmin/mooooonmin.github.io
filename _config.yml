@@ -32,6 +32,9 @@ plugins:
   - jekyll-paginate
 
 exclude:
+  - scripts
+  - tests
+  - assets/fonts/README.md
   - design.md
   - docs/ink-redesign.md
   - Gemfile

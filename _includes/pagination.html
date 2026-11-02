@@ -17,9 +17,8 @@
   {% endif %}
   <span class="pagination-numbers">
     {% for page_number in (1..total_pages) %}
-      {% assign distance = page_number | minus: current_page | abs %}
       {% if page_number == current_page %}
-        <span class="pagination-current" aria-current="page" aria-label="{{ page_number }}페이지, 현재 페이지">{{ page_number }}</span>
+        <span class="pagination-current" aria-current="page" aria-label="전체 {{ total_pages }}페이지 중 {{ page_number }}페이지">{{ page_number }}</span>
       {% else %}
         {% if page_number == 1 %}{% assign page_url = base_path %}{% else %}{% capture page_url %}{{ base_path }}page{{ page_number }}/{% endcapture %}{% endif %}
         <a href="{{ page_url | relative_url }}" aria-label="{{ page_number }}페이지">{{ page_number }}</a>

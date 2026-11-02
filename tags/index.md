@@ -12,6 +12,7 @@ permalink: /tags/
   data-index-url="{{ '/tags.json' | relative_url }}"
   data-baseurl="{{ site.baseurl | escape }}"
   data-dynamic-fragments
+  hidden
 >
   <div class="tag-pane tag-pane-list">
     <div class="tag-picker-controls">
@@ -21,6 +22,7 @@ permalink: /tags/
         <button type="button" id="tag-filter-clear" hidden>지우기</button>
       </div>
       <p class="tag-filter-status" id="tag-filter-status" role="status">{{ sorted_tags.size }}개의 태그</p>
+      <button type="button" class="skip-link" id="skip-tag-list">태그 목록 건너뛰기</button>
     </div>
     <div class="tag-picker-scroll">
       <div class="tag-cloud tag-cloud-split" id="tag-cloud-list">
@@ -58,8 +60,6 @@ permalink: /tags/
     <button type="button" class="button" id="tag-retry" hidden>다시 불러오기</button>
   </div>
 </section>
-<noscript>
-  <p>태그 검색과 선택 기능은 JavaScript가 필요합니다. 아래 태그를 펼치면 글을 바로 읽을 수 있습니다.</p>
   <div class="tag-static-list">
     {% for tag in sorted_tags %}
       <details>
@@ -72,7 +72,6 @@ permalink: /tags/
       </details>
     {% endfor %}
   </div>
-</noscript>
 {% else %}
 <p>아직 등록된 태그가 없습니다. <a href="{{ '/' | relative_url }}">전체 글 보기</a></p>
 {% endif %}

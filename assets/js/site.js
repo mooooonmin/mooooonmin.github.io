@@ -70,6 +70,7 @@
     setTheme(document.documentElement.dataset.theme === "blue" ? "light" : "blue");
     store("theme-mode", document.documentElement.dataset.theme);
   });
+  document.documentElement.classList.add("nav-ready");
 
   var post = document.querySelector(".post-content");
   var toc = document.getElementById("post-toc");
@@ -93,11 +94,23 @@
     post.querySelectorAll("table").forEach(function (table, index) {
       var wrapper = document.createElement("div");
       wrapper.className = "table-scroll";
-      wrapper.tabIndex = 0;
-      wrapper.setAttribute("role", "region");
-      wrapper.setAttribute("aria-label", "표 " + (index + 1) + ", 가로로 스크롤할 수 있습니다");
       table.parentNode.insertBefore(wrapper, table);
       wrapper.appendChild(table);
+      function syncTableAccess() {
+        if (wrapper.scrollWidth > wrapper.clientWidth) {
+          wrapper.tabIndex = 0;
+          wrapper.setAttribute("role", "region");
+          wrapper.setAttribute("aria-label", "표 " + (index + 1) + ", 가로로 스크롤할 수 있습니다");
+        } else {
+          wrapper.removeAttribute("tabindex");
+          wrapper.removeAttribute("role");
+          wrapper.removeAttribute("aria-label");
+        }
+      }
+      syncTableAccess();
+      var observer = new ResizeObserver(syncTableAccess);
+      observer.observe(wrapper);
+      observer.observe(table);
     });
   }
 })();
