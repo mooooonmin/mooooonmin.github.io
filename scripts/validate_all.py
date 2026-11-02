@@ -71,6 +71,11 @@ def main():
         if args.skip_browser_if_unavailable:
             smoke_command.append("--skip-browser-if-unavailable")
         checks.append(("Render smoke test", smoke_command))
+        if not args.skip_browser_if_unavailable:
+            checks.append((
+                "Check keyboard and mobile reading regressions",
+                [sys.executable, "scripts/check_uiux.py", "--site-dir", args.site_dir],
+            ))
 
     for title, command in checks:
         exit_code = run_step(title, command)

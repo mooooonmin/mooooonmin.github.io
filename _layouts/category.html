@@ -22,8 +22,8 @@ layout: default
 {% include post-list.html posts=page_posts %}
 
 {% if filtered_posts.size == 0 %}
-<p>No posts in this category.</p>
+<p>이 색인에 등록된 글이 없습니다. <a href="{{ '/' | relative_url }}">전체 글 보기</a></p>
 {% endif %}
 
 {% assign category_base_path = "/category/" | append: category_slug | append: "/" %}
-{% include pagination.html total_pages=total_pages current_page=current_page base_path=category_base_path aria_label="Category post list pages" %}
+{% include pagination.html total_pages=total_pages current_page=current_page base_path=category_base_path aria_label="색인 글 목록 페이지" %}

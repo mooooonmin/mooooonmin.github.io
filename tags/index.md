@@ -1,5 +1,5 @@
 ---
-title: Tags
+title: 태그
 layout: default
 permalink: /tags/
 ---
@@ -14,7 +14,16 @@ permalink: /tags/
   data-dynamic-fragments
 >
   <div class="tag-pane tag-pane-list">
-    <div class="tag-cloud tag-cloud-split" id="tag-cloud-list">
+    <div class="tag-picker-controls">
+      <label for="tag-filter">태그 찾기</label>
+      <div class="tag-filter-field">
+        <input type="search" id="tag-filter" placeholder="태그 입력" autocomplete="off" aria-controls="tag-cloud-list" />
+        <button type="button" id="tag-filter-clear" hidden>지우기</button>
+      </div>
+      <p class="tag-filter-status" id="tag-filter-status" role="status">{{ sorted_tags.size }}개의 태그</p>
+    </div>
+    <div class="tag-picker-scroll">
+      <div class="tag-cloud tag-cloud-split" id="tag-cloud-list">
       {% for tag in sorted_tags %}
         {% assign tag_name = tag[0] %}
         {% assign tag_posts = tag[1] %}
@@ -28,26 +37,44 @@ permalink: /tags/
           aria-controls="tag-result-list"
         >
           <span class="tag-cloud-name">{{ tag_name }}</span>
-          <span class="tag-cloud-count">{{ tag_posts.size }}</span>
+          <span class="tag-cloud-count">{{ tag_posts.size }}개</span>
         </button>
       {% endfor %}
+      </div>
+      <p class="tag-filter-empty" id="tag-filter-empty" hidden>일치하는 태그가 없습니다.</p>
     </div>
   </div>
 
-  <div class="tag-pane tag-pane-posts" aria-live="polite">
+  <div class="tag-pane tag-pane-posts" aria-labelledby="tag-result-title">
     <div class="tag-result-header">
-      <h4 id="tag-result-title">Select a tag</h4>
+      <h2 id="tag-result-title" tabindex="-1">태그별 글</h2>
       <span class="tag-section-count" id="tag-result-count"></span>
     </div>
-
+    <p class="visually-hidden" id="tag-load-status" role="status" aria-atomic="true"></p>
     <section class="tag-section tag-section-panel" id="tag-results" hidden>
       <ul class="post-list" id="tag-result-list"></ul>
     </section>
-    <p class="tag-empty-state" id="tag-empty-state">Select a tag on the left to see related posts.</p>
+    <p class="tag-empty-state" id="tag-empty-state">태그를 선택하면 관련 글을 볼 수 있습니다.</p>
+    <button type="button" class="button" id="tag-retry" hidden>다시 불러오기</button>
   </div>
 </section>
+<noscript>
+  <p>태그 검색과 선택 기능은 JavaScript가 필요합니다. 아래 태그를 펼치면 글을 바로 읽을 수 있습니다.</p>
+  <div class="tag-static-list">
+    {% for tag in sorted_tags %}
+      <details>
+        <summary>{{ tag[0] | escape }} ({{ tag[1].size }}개)</summary>
+        <ul>
+          {% for post in tag[1] %}
+            <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
+          {% endfor %}
+        </ul>
+      </details>
+    {% endfor %}
+  </div>
+</noscript>
 {% else %}
-<p>No tags have been added.</p>
+<p>아직 등록된 태그가 없습니다. <a href="{{ '/' | relative_url }}">전체 글 보기</a></p>
 {% endif %}
 
 <script src="{{ '/assets/js/tags.js' | relative_url }}" defer></script>

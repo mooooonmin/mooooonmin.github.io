@@ -3,18 +3,21 @@ layout: default
 ---
 {% assign cat = page.category | default: page.categories[0] %}
 {% assign category_label = cat | upcase %}
+<p class="post-published"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %m월 %d일" }}</time></p>
 
 {% if cat or page.tags %}
   <div class="post-meta">
     {% if cat %}
       <div class="post-meta-group">
-        <span class="post-meta-label">Category</span>
-        <span class="post-meta-chip post-meta-chip-category">{{ category_label }}</span>
+        <span class="post-meta-label">색인</span>
+        {% assign category_slug = cat | slugify %}
+        {% capture category_url %}/category/{{ category_slug }}/{% endcapture %}
+        <a href="{{ category_url | relative_url }}" class="post-meta-chip post-meta-chip-category">{{ category_label }}</a>
       </div>
     {% endif %}
     {% if page.tags and page.tags.size > 0 %}
       <div class="post-meta-group">
-        <span class="post-meta-label">Tags</span>
+        <span class="post-meta-label">태그</span>
         <div class="post-meta-tags">
           {% for tag in page.tags %}
             {% capture tag_url %}/tags/#{{ tag | downcase }}{% endcapture %}
@@ -26,7 +29,8 @@ layout: default
   </div>
 {% endif %}
 
-{{ content }}
+<details class="post-toc" id="post-toc" hidden><summary>이 글의 목차</summary><ol></ol></details>
+<div class="post-content">{{ content }}</div>
 
 <hr class="post-divider">
 
@@ -67,15 +71,15 @@ layout: default
 <div class="post-navigation">
   <div>
     {% if prev_post.url %}
-      <a href="{{ prev_post.url | relative_url }}" role="button" tabindex="0" title="{{ prev_post.title }}">
-        &laquo; {{ prev_post.title | truncate: 25 }}
+      <a href="{{ prev_post.url | relative_url }}" rel="prev" title="{{ prev_post.title }}">
+        <small>이전 글</small><span>{{ prev_post.title }}</span>
       </a>
     {% endif %}
   </div>
   <div>
     {% if next_post.url %}
-      <a href="{{ next_post.url | relative_url }}" role="button" tabindex="0" title="{{ next_post.title }}">
-        {{ next_post.title | truncate: 25 }} &raquo;
+      <a href="{{ next_post.url | relative_url }}" rel="next" title="{{ next_post.title }}">
+        <small>다음 글</small><span>{{ next_post.title }}</span>
       </a>
     {% endif %}
   </div>

@@ -66,6 +66,11 @@ python scripts/validate_all.py --include-site-integrity --include-smoke
 
 사이트 무결성 검사는 `_site`의 전체 HTML에서 내부 링크, 참조 파일, 중복 ID, 이미지 메타데이터를 확인한다. 브라우저 스모크 테스트는 주요 화면을 데스크톱/모바일 viewport로 확인한다.
 
+`--include-smoke`는 Ink UI/UX 회귀 검사도 실행한다. 키보드 메뉴, 모바일 태그 결과,
+페이지네이션, 표의 명령어 줄바꿈, 검색 실패 후 재시도, JavaScript 없는 태그 탐색을 검증한다.
+이 검사만 실행하려면 `python scripts/check_uiux.py`를 사용한다.
+검토용 화면은 `python scripts/check_uiux.py --screenshots <저장할 폴더>`로 저장할 수 있다.
+
 - 홈
 - 태그
 - 카테고리 대표 페이지

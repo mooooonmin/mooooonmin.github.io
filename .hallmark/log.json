@@ -1,0 +1,39 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "app",
+  "shape": "app screen",
+  "theme": "ink",
+  "axes": "light/grotesk-sans/chromatic-teal",
+  "hero": "none: archive and long documents",
+  "nav": "alphabetical index rail",
+  "footer": "quiet site and RSS row",
+  "imagery": "existing article figures and logo",
+  "photos": [],
+  "entry": "index and search",
+  "fingerprint": [
+   "index rail",
+   "ruled list",
+   "left aligned",
+   "paper",
+   "teal state",
+   "long document"
+  ],
+  "sections": [
+   "archive",
+   "tag filter",
+   "search",
+   "article",
+   "404"
+  ],
+  "signature": "searchable ruled technical records",
+  "waived": [
+   "22",
+   "49b"
+  ],
+  "prompt": "Ink 테마로 전체 변경. 한글 Pretendard. 검토 UIUX 문제 개선.",
+  "review": "subagent: 2 findings, 2 resolved; gate73 clipped-scroll false positive documented",
+  "date": "2026-11-02"
+ }
+]

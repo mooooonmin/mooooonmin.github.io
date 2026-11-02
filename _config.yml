@@ -32,6 +32,8 @@ plugins:
   - jekyll-paginate
 
 exclude:
+  - design.md
+  - docs/ink-redesign.md
   - Gemfile
   - Gemfile.lock
   - requirements.txt

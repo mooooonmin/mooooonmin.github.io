@@ -11,6 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_PATH = BASE_DIR / "assets" / "data" / "search-index.json"
 SEARCH_TERM = re.compile(r"[0-9A-Za-z가-힣_+#]{2,}")
 MARKDOWN_LINK = re.compile(r"!?\[([^]]*)\]\([^)]*\)")
+FENCE_LINE = re.compile(r"^[ \t]{0,3}(?:`{3,}|~{3,})[^\n]*(?:\n|$)", re.MULTILINE)
+INLINE_CODE = re.compile(r"(`+)([^\n]+?)\1")
+EMPHASIS = re.compile(r"(\*\*|__|~~)(.+?)\1")
 HTML_TAG = re.compile(r"<[^>]+>")
 MARKDOWN_MARKER = re.compile(r"(?:^|\s)[#>*_~`-]+(?=\s|$)")
 WHITESPACE = re.compile(r"\s+")
@@ -18,6 +21,10 @@ EXCERPT_LENGTH = 180
 
 
 def clean_markdown(value):
+    # Remove fence syntax and its language label, keeping commands searchable.
+    value = FENCE_LINE.sub("\n", value)
+    value = INLINE_CODE.sub(r"\2", value)
+    value = EMPHASIS.sub(r"\2", value)
     value = MARKDOWN_LINK.sub(r"\1", value)
     value = HTML_TAG.sub(" ", value)
     value = MARKDOWN_MARKER.sub(" ", value)

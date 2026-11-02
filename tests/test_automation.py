@@ -225,6 +225,24 @@ class SearchIndexTests(unittest.TestCase):
         self.assertIn("공식 문서", cleaned)
         self.assertNotIn("https://example.com", cleaned)
 
+    def test_markdown_cleanup_removes_code_fences_but_indexes_commands(self):
+        cleaned = generate_search_index.clean_markdown(
+            "## 실행\n```bash\nkubectl get pods --namespace default\n```\n"
+            "`accessModes`와 **설명**\n~~~yaml\nreplicas: 3\n~~~\n"
+        )
+
+        self.assertEqual(
+            cleaned,
+            "실행 kubectl get pods --namespace default accessModes와 설명 replicas: 3",
+        )
+        index = generate_search_index.build_index(
+            [{"title": "명령어", "url": "/commands/", "tags": "", "content": cleaned}]
+        )
+        self.assertEqual(index["terms"]["kubectl"], [0])
+        self.assertEqual(index["terms"]["replicas"], [0])
+        self.assertNotIn("bash", index["terms"])
+        self.assertNotIn("yaml", index["terms"])
+
 
 if __name__ == "__main__":
     unittest.main()

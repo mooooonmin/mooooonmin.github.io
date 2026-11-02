@@ -2,11 +2,8 @@
 title: All
 layout: default
 ---
-
 {% include post-list.html posts=paginator.posts %}
-
 {% if paginator.posts.size == 0 %}
-<p>아직 글이 없습니다. <code>_posts</code> 폴더에 마크다운 파일을 추가하면 글이 표시됩니다.</p>
+<p>아직 등록된 글이 없습니다.</p>
 {% endif %}
-
 {% include pagination.html total_pages=paginator.total_pages current_page=paginator.page base_path="/" aria_label="글 목록 페이지" %}

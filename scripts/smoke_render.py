@@ -121,13 +121,19 @@ def check_sidebar_fixed(page, label):
 
     position = header.evaluate("element => getComputedStyle(element).position")
     viewport_width = page.viewport_size["width"]
-    if viewport_width >= 700:
+    if viewport_width >= 900:
         assert_true(position == "fixed", f"{label}: desktop sidebar is not fixed")
 
 
 def check_theme_toggle(page, label):
     toggle = page.locator("#theme-toggle")
     assert_true(toggle.count() == 1, f"{label}: theme toggle is missing")
+    # Ink keeps the theme control in the navigation panel on every viewport.
+    mobile = page.viewport_size["width"] < 900
+    opened_for_toggle = mobile and "nav-open" not in (page.locator("body").get_attribute("class") or "")
+    if opened_for_toggle:
+        page.locator("#open-nav").click()
+    toggle.scroll_into_view_if_needed()
     before = page.locator("html").get_attribute("data-theme")
     toggle.click()
     after = page.locator("html").get_attribute("data-theme")
@@ -137,6 +143,8 @@ def check_theme_toggle(page, label):
         toggle.get_attribute("aria-pressed") == expected_pressed,
         f"{label}: theme aria-pressed does not match {after}",
     )
+    if opened_for_toggle:
+        page.locator("#open-nav").click()
 
     page.reload(wait_until="networkidle")
     assert_true(
@@ -230,13 +238,19 @@ def check_search_state(page, label, route):
         empty_state = page.locator("#search-empty")
         assert_true(empty_state.is_visible(), f"{label}: empty search state is hidden")
         assert_true(
-            "No results found." in empty_state.inner_text(),
+            "검색 결과가 없습니다." in empty_state.inner_text(),
             f"{label}: empty search message missing",
         )
         return
 
     results = page.locator("#search-results li")
     assert_true(results.count() > 0, f"{label}: search results missing")
+    assert_true(page.locator("#result-search-input").is_visible(), f"{label}: main search field is hidden")
+    summary = page.locator("#search-summary")
+    assert_true(
+        summary.get_attribute("role") == "status" and str(results.count()) + "개" in summary.inner_text(),
+        f"{label}: accessible search result count missing",
+    )
     if "accessmodes" in route:
         result_url = results.first.locator("a").get_attribute("href")
         assert_true(
@@ -283,7 +297,7 @@ def check_static_assets(page, label, route):
     assert_true(stylesheet.count() == 1, f"{label}: stable main.css reference missing")
 
     font_preload = page.locator(
-        'link[rel="preload"][as="font"][type="font/woff2"][href="/assets/fonts/neodgm.woff2"]',
+        'link[rel="preload"][as="font"][type="font/woff2"][href="/assets/fonts/PretendardVariable.woff2"]',
     )
     assert_true(font_preload.count() == 1, f"{label}: base font preload missing")
 

@@ -154,7 +154,7 @@
 
   function appendHighlightedText(parent, text, tokens, length) {
     var highlighted = getHighlightedSegments(text, tokens, length);
-    if (highlighted.prefix) parent.appendChild(document.createTextNode("..."));
+    if (highlighted.prefix) parent.appendChild(document.createTextNode("…"));
 
     highlighted.segments.forEach(function (segment) {
       if (!segment.highlighted) {
@@ -166,7 +166,7 @@
       parent.appendChild(mark);
     });
 
-    if (highlighted.suffix) parent.appendChild(document.createTextNode("..."));
+    if (highlighted.suffix) parent.appendChild(document.createTextNode("…"));
   }
 
   var api = {
@@ -184,6 +184,11 @@
 
   var searchIndexUrl = results.dataset.indexUrl;
   var baseurl = results.dataset.baseurl || "";
+  var summary = document.getElementById("search-summary");
+  var retry = document.getElementById("search-retry");
+  var mainInput = document.getElementById("result-search-input");
+  var activeRequest = null;
+  var requestNumber = 0;
 
   function getQuery() {
     return new URLSearchParams(window.location.search).get("q") || "";
@@ -191,7 +196,7 @@
 
   function createResult(item, tokens) {
     var listItem = document.createElement("li");
-    var heading = document.createElement("h4");
+    var heading = document.createElement("h2");
     var link = document.createElement("a");
     link.href = baseurl + String(item[1] || "").trim();
     appendHighlightedText(link, item[0] || "(제목 없음)", tokens, 200);
@@ -206,39 +211,55 @@
     }
 
     var paragraph = document.createElement("p");
-    var summary = document.createElement("small");
-    appendHighlightedText(summary, item[3] || "", tokens, 170);
-    paragraph.appendChild(summary);
+    paragraph.className = "search-result-summary";
+    appendHighlightedText(paragraph, item[3] || "", tokens, 170);
     listItem.appendChild(paragraph);
     return listItem;
   }
 
-  function showMessage(message) {
+  function showMessage(message, canRetry) {
     results.replaceChildren();
     results.hidden = true;
     empty.textContent = message;
     empty.hidden = false;
+    if (retry) retry.hidden = !canRetry;
   }
 
   async function run() {
+    var currentRequest = ++requestNumber;
+    if (activeRequest) activeRequest.abort();
     var query = getQuery().trim();
     var tokens = tokenize(query);
     var input = document.getElementById("search-input");
     if (input) input.value = query;
+    if (mainInput) mainInput.value = query;
+    if (retry) retry.disabled = true;
     if (!query) {
-      showMessage("Enter a keyword to search posts.");
+      if (summary) summary.textContent = "검색어를 입력하면 제목, 태그, 본문에서 글을 찾습니다.";
+      showMessage("검색어를 입력하세요.");
       return;
     }
 
+    if (summary) summary.textContent = "“" + query + "” 검색 중…";
+    showMessage("글을 찾고 있습니다.");
+    results.setAttribute("aria-busy", "true");
+    var controller = new AbortController();
+    activeRequest = controller;
+    var timeout = window.setTimeout(function () { controller.abort(); }, 15000);
     try {
-      var response = await fetch(searchIndexUrl);
+      var response = await fetch(searchIndexUrl, { signal: controller.signal });
       if (!response.ok) throw new Error("Search index request failed");
       var index = await response.json();
-      var documents = index.documents || [];
+      if (!Array.isArray(index.documents) || !index.terms || typeof index.terms !== "object") {
+        throw new Error("Invalid search index");
+      }
+      var documents = index.documents;
       var matches = findDocumentMatches(index, query)
         .map(function (match) { return documents[match.id]; });
+      if (currentRequest !== requestNumber) return;
+      if (summary) summary.textContent = "“" + query + "” 검색 결과 " + matches.length + "개";
       if (!matches.length) {
-        showMessage("No results found.");
+        showMessage("검색 결과가 없습니다. 다른 검색어를 입력해 보세요.");
         return;
       }
 
@@ -247,9 +268,19 @@
       results.hidden = false;
       empty.hidden = true;
     } catch (error) {
-      showMessage("Search is temporarily unavailable.");
+      if (currentRequest !== requestNumber) return;
+      if (summary) summary.textContent = "“" + query + "” 검색을 완료하지 못했습니다.";
+      showMessage("검색 자료를 불러오지 못했습니다. 연결을 확인한 뒤 다시 시도해 주세요.", true);
+    } finally {
+      window.clearTimeout(timeout);
+      if (currentRequest === requestNumber) {
+        activeRequest = null;
+        results.setAttribute("aria-busy", "false");
+        if (retry) retry.disabled = false;
+      }
     }
   }
 
+  if (retry) retry.addEventListener("click", run);
   run();
 })();

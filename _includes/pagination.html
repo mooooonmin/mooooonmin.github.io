@@ -1,41 +1,38 @@
 {% assign total_pages = include.total_pages | default: 1 %}
 {% assign current_page = include.current_page | default: 1 %}
 {% assign base_path = include.base_path | default: "/" %}
-{% assign aria_label = include.aria_label | default: "Post list pages" %}
-
+{% assign aria_label = include.aria_label | default: "글 목록 페이지" %}
 {% if total_pages > 1 %}
 <nav class="pagination" aria-label="{{ aria_label }}">
-	{% if current_page > 1 %}
-		{% assign previous_page = current_page | minus: 1 %}
-		{% if previous_page == 1 %}
-			<a href="{{ base_path | relative_url }}" class="pagination-prev">&lt;</a>
-		{% else %}
-			{% capture previous_url %}{{ base_path }}page{{ previous_page }}/{% endcapture %}
-			<a href="{{ previous_url | relative_url }}" class="pagination-prev">&lt;</a>
-		{% endif %}
-	{% else %}
-		<span class="pagination-prev disabled">&lt;</span>
-	{% endif %}
-
-	<span class="pagination-numbers">
-		{% for page_number in (1..total_pages) %}
-			{% if page_number == current_page %}
-				<span class="pagination-current">{{ page_number }}</span>
-			{% elsif page_number == 1 %}
-				<a href="{{ base_path | relative_url }}">{{ page_number }}</a>
-			{% else %}
-				{% capture page_url %}{{ base_path }}page{{ page_number }}/{% endcapture %}
-				<a href="{{ page_url | relative_url }}">{{ page_number }}</a>
-			{% endif %}
-		{% endfor %}
-	</span>
-
-	{% if current_page < total_pages %}
-		{% assign next_page = current_page | plus: 1 %}
-		{% capture next_url %}{{ base_path }}page{{ next_page }}/{% endcapture %}
-		<a href="{{ next_url | relative_url }}" class="pagination-next">&gt;</a>
-	{% else %}
-		<span class="pagination-next disabled">&gt;</span>
-	{% endif %}
+  {% if current_page > 1 %}
+    {% assign previous_page = current_page | minus: 1 %}
+    {% if previous_page == 1 %}
+      <a href="{{ base_path | relative_url }}" class="pagination-prev" aria-label="이전 페이지">이전</a>
+    {% else %}
+      {% capture previous_url %}{{ base_path }}page{{ previous_page }}/{% endcapture %}
+      <a href="{{ previous_url | relative_url }}" class="pagination-prev" aria-label="이전 페이지">이전</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-prev disabled" aria-disabled="true">이전</span>
+  {% endif %}
+  <span class="pagination-numbers">
+    {% for page_number in (1..total_pages) %}
+      {% assign distance = page_number | minus: current_page | abs %}
+      {% if page_number == current_page %}
+        <span class="pagination-current" aria-current="page" aria-label="{{ page_number }}페이지, 현재 페이지">{{ page_number }}</span>
+      {% else %}
+        {% if page_number == 1 %}{% assign page_url = base_path %}{% else %}{% capture page_url %}{{ base_path }}page{{ page_number }}/{% endcapture %}{% endif %}
+        <a href="{{ page_url | relative_url }}" aria-label="{{ page_number }}페이지">{{ page_number }}</a>
+      {% endif %}
+    {% endfor %}
+    <span class="pagination-position" aria-hidden="true">/ {{ total_pages }}</span>
+  </span>
+  {% if current_page < total_pages %}
+    {% assign next_page = current_page | plus: 1 %}
+    {% capture next_url %}{{ base_path }}page{{ next_page }}/{% endcapture %}
+    <a href="{{ next_url | relative_url }}" class="pagination-next" aria-label="다음 페이지">다음</a>
+  {% else %}
+    <span class="pagination-next disabled" aria-disabled="true">다음</span>
+  {% endif %}
 </nav>
 {% endif %}

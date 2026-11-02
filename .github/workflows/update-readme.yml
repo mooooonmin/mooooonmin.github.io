@@ -76,6 +76,9 @@ jobs:
       - name: Run render smoke tests
         run: python scripts/smoke_render.py
 
+      - name: Check keyboard and mobile reading regressions
+        run: python scripts/check_uiux.py
+
   update-generated:
     needs: validate
     runs-on: ubuntu-latest
