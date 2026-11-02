@@ -15,11 +15,11 @@
     main.inert = mobile.matches && opened;
     body.classList.toggle("nav-collapsed", !mobile.matches && collapsed);
     collapseButton.setAttribute("aria-expanded", String(!collapsed));
-    collapseButton.setAttribute("aria-label", collapsed ? "카테고리 패널 펼치기" : "카테고리 패널 접기");
-    collapseButton.textContent = collapsed ? "목록 열기" : "접기";
+    collapseButton.title = collapsed ? "메뉴 펼치기" : "메뉴 접기";
+    collapseButton.setAttribute("aria-label", collapseButton.title);
     openButton.setAttribute("aria-expanded", String(opened));
     openButton.setAttribute("aria-label", opened ? "메뉴 닫기" : "메뉴 열기");
-    openButton.textContent = opened ? "닫기" : "메뉴";
+    openButton.querySelector(".nav-toggle-label").textContent = opened ? "닫기" : "메뉴";
   }
   function closeMenu() {
     body.classList.remove("nav-open");

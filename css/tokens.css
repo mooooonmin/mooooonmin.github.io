@@ -20,7 +20,8 @@
   --tracking-display: -0.04em; --display-weight: 700;
   --rail-width: 248px; --content-width: 960px; --reading-width: 72ch;
   --font-face-name: "Pretendard Variable";
-  --control-radius: 10px; --color-code: var(--color-paper-2);
+  --control-radius: 6px; --color-code: var(--color-paper-2);
+  --color-control-line: #93958e; --color-scroll-thumb: #888c84;
 }
 :root[data-theme="blue"] {
   color-scheme: dark;
@@ -30,4 +31,5 @@
   --color-accent: #8cd8c6; --color-accent-ink: #152b25;
   --color-accent-soft: #243e35; --color-accent-soft-ink: #b3ebda;
   --color-focus: #8cd8c6;
+  --color-control-line: #79857d; --color-scroll-thumb: #79857d;
 }
