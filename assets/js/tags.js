@@ -96,7 +96,7 @@
       date.textContent = post.date;
       link.href = baseurl + post.url;
       link.textContent = post.title;
-      item.append(date, link);
+      item.append(link, date);
       fragment.appendChild(item);
     });
     resultList.appendChild(fragment);

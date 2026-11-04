@@ -21,85 +21,62 @@
   </head>
   <body class="{% if page.url == '/tags/' %}tag-page-body{% endif %}{% if page.layout == 'post' %} post-page-body{% endif %}">
     <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
-    <div class="mobile-bar">
-      <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-      <button type="button" class="open-nav" id="open-nav" aria-label="메뉴 열기" aria-controls="site-sidebar" aria-expanded="false">
-        <svg class="control-icon" viewBox="0 0 20 20" aria-hidden="true"><path class="menu-lines" d="M3 5h14M3 10h14M3 15h14"/><path class="menu-cross" d="m5 5 10 10M15 5 5 15"/></svg>
-        <span class="nav-toggle-label">메뉴</span>
-      </button>
-    </div>
-    <button type="button" class="sidebar-toggle" id="toggle-sidebar" aria-controls="site-sidebar" aria-expanded="true" aria-label="메뉴 접기" title="메뉴 접기">
-      <svg class="control-icon" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M7 3v14"/><path class="rail-chevron" d="m13 7-3 3 3 3"/></svg>
-    </button>
-    <header id="site-sidebar" aria-label="사이트 메뉴">
-      <div class="site-title">
-        <a href="{{ '/' | relative_url }}" class="site-title-link">
-          <img src="{{ '/images/database.svg' | relative_url }}" width="28" height="28" alt="{{ site.title }} logo">
-          <span>{{ site.title }}</span>
-        </a>
-      </div>
-      <form action="{{ '/search/' | relative_url }}" method="get" id="site-search-form" role="search">
-        <label for="search-input">글 검색</label>
-        <div class="sidebar-search-row">
-          <input type="text" name="q" id="search-input" placeholder="검색어 입력" enterkeyhint="search">
-          <button type="submit" class="search-submit">검색</button>
-        </div>
-      </form>
-      <nav class="full-navigation" aria-label="글 탐색">
-        <ul class="primary-navigation">
-          <li class="nav-item top-level {% if page.url == '/' or paginator.page > 1 %}current{% endif %}">
-            <a href="{{ '/' | relative_url }}" {% if page.url == '/' or paginator.page > 1 %}aria-current="page"{% endif %}>전체 글 <span class="category-count">{{ site.posts | size }}</span></a>
-          </li>
-          <li class="nav-item top-level {% if page.url contains '/tags/' %}current{% endif %}">
-            <a href="{{ '/tags/' | relative_url }}" {% if page.url contains '/tags/' %}aria-current="page"{% endif %}>태그</a>
-          </li>
-        </ul>
-        <details class="alphabet-index" open>
-          <summary>알파벳 색인</summary>
-          <ul class="category-navigation">
-            {% assign postsByCategory = site.posts | group_by: "category" %}
-            {% for category_name in site.data.categories.order %}
-              {% assign catGroup = postsByCategory | where: "name", category_name | first %}
-              {% if catGroup == nil %}{% continue %}{% endif %}
-              {% assign category_slug = catGroup.name | slugify %}
-              {% assign category_path = "/category/" | append: category_slug | append: "/" %}
-              <li class="nav-item top-level {% if page.category == catGroup.name or page.url contains category_path %}current{% endif %}">
-                <a href="{{ category_path | relative_url }}" {% if page.category == catGroup.name or page.url contains category_path %}aria-current="page"{% endif %} aria-label="{{ catGroup.name | upcase }} 색인, {{ catGroup.items | size }}개 글">{{ catGroup.name | upcase }} <span class="category-count">{{ catGroup.items | size }}</span></a>
-              </li>
-            {% endfor %}
-          </ul>
-        </details>
-      </nav>
-      <div class="sidebar-bottom">
-        <button type="button" class="status-theme-toggle" id="theme-toggle" aria-label="어두운 테마로 변경" aria-pressed="false">
-          <svg class="control-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7"/><path d="M10 3a7 7 0 0 1 0 14Z" fill="currentColor" stroke="none"/></svg>
-          <span class="theme-toggle-label">어두운 테마</span>
-        </button>
-      </div>
-    </header>
-    <main class="main" id="main-content" tabindex="-1">
-      <div class="page-header">
-        {% if page.title == 'All' %}
-          <h1>전체 글</h1>
-        {% elsif page.url == '/tags/' %}
-          <h1>태그</h1>
-        {% elsif page.title == 'Search' %}
-          <h1>글 검색</h1>
-        {% elsif page.category and page.layout != 'post' %}
-          <h1>{{ page.title }} 색인</h1>
-        {% elsif page.url == '/404.html' %}
-          <h1>페이지를 찾을 수 없습니다</h1>
+    <div class="site-frame">
+      <header id="site-sidebar" aria-label="사이트 탐색">
+        {% if page.layout == 'post' %}
+          <nav class="post-tools" aria-label="글 탐색">
+            <a href="{{ '/' | relative_url }}">전체 글</a>
+            <a href="{{ '/search/' | relative_url }}">검색</a>
+          </nav>
+          <nav id="rail-toc" aria-label="이 글의 목차" hidden></nav>
         {% else %}
-          <h1>{{ page.title }}</h1>
+          <a class="site-title-link" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+          <nav class="full-navigation" aria-label="글 탐색">
+            <a href="{{ '/search/' | relative_url }}"{% if page.title == 'Search' %} aria-current="page"{% endif %}>검색</a>
+            <a href="{{ '/tags/' | relative_url }}"{% if page.url == '/tags/' %} aria-current="page"{% endif %}>태그</a>
+            <details class="alphabet-index">
+              <summary>알파벳 색인</summary>
+              <ul class="category-navigation">
+                {% assign postsByCategory = site.posts | group_by: "category" %}
+                {% for category_name in site.data.categories.order %}
+                  {% assign catGroup = postsByCategory | where: "name", category_name | first %}
+                  {% if catGroup == nil %}{% continue %}{% endif %}
+                  {% assign category_slug = catGroup.name | slugify %}
+                  {% assign category_path = "/category/" | append: category_slug | append: "/" %}
+                  <li class="nav-item top-level {% if page.category == catGroup.name or page.url contains category_path %}current{% endif %}">
+                    <a href="{{ category_path | relative_url }}" {% if page.category == catGroup.name or page.url contains category_path %}aria-current="page"{% endif %} aria-label="{{ catGroup.name | upcase }} 색인, {{ catGroup.items | size }}개 글">{{ catGroup.name | upcase }} <span class="category-count">{{ catGroup.items | size }}</span></a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </details>
+          </nav>
         {% endif %}
-      </div>
-      <article class="content">{{ content }}</article>
-      <footer class="status-bar" aria-label="사이트 정보">
-        <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
-        <span class="status-count">전체 글 {{ site.posts | size }}개</span>
-        <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-      </footer>
-    </main>
+      </header>
+      <main class="main" id="main-content" tabindex="-1">
+        <div class="page-header">
+          {% if page.title == 'All' %}
+            <h1>전체 글</h1>
+          {% elsif page.url == '/tags/' %}
+            <h1>태그</h1>
+          {% elsif page.title == 'Search' %}
+            <h1>글 검색</h1>
+          {% elsif page.category and page.layout != 'post' %}
+            <h1>{{ page.title }} 색인</h1>
+          {% elsif page.url == '/404.html' %}
+            <h1>페이지를 찾을 수 없습니다</h1>
+          {% else %}
+            <h1>{{ page.title }}</h1>
+          {% endif %}
+        </div>
+        <article class="content">{{ content }}</article>
+        <footer class="status-bar" aria-label="사이트 정보">
+          <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+          <button type="button" id="theme-toggle" hidden><span class="theme-toggle-label">어두운 테마</span></button>
+          <span class="status-count">전체 글 {{ site.posts | size }}개</span>
+          <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+        </footer>
+      </main>
+    </div>
     <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
   </body>
 </html>

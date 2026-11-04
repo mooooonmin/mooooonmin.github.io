@@ -114,25 +114,9 @@ def check_no_horizontal_overflow(page, label):
     )
 
 
-def check_sidebar_fixed(page, label):
-    header = page.locator("#site-sidebar")
-    if not header.is_visible():
-        return
-
-    position = header.evaluate("element => getComputedStyle(element).position")
-    viewport_width = page.viewport_size["width"]
-    if viewport_width >= 900:
-        assert_true(position == "fixed", f"{label}: desktop sidebar is not fixed")
-
-
 def check_theme_toggle(page, label):
     toggle = page.locator("#theme-toggle")
     assert_true(toggle.count() == 1, f"{label}: theme toggle is missing")
-    # Ink keeps the theme control in the navigation panel on every viewport.
-    mobile = page.viewport_size["width"] < 900
-    opened_for_toggle = mobile and "nav-open" not in (page.locator("body").get_attribute("class") or "")
-    if opened_for_toggle:
-        page.locator("#open-nav").click()
     toggle.scroll_into_view_if_needed()
     before = page.locator("html").get_attribute("data-theme")
     toggle.click()
@@ -143,8 +127,6 @@ def check_theme_toggle(page, label):
         toggle.get_attribute("aria-pressed") == expected_pressed,
         f"{label}: theme aria-pressed does not match {after}",
     )
-    if opened_for_toggle:
-        page.locator("#open-nav").click()
 
     page.reload(wait_until="networkidle")
     assert_true(
@@ -153,28 +135,12 @@ def check_theme_toggle(page, label):
     )
 
 
-def check_sidebar_persistence(page, label, route, viewport_name):
-    if route != "/" or viewport_name != "desktop":
-        return
-
-    toggle = page.locator("#toggle-sidebar")
-    toggle.click()
-    assert_true("nav-collapsed" in page.locator("body").get_attribute("class"), f"{label}: sidebar did not collapse")
-    page.reload(wait_until="networkidle")
-    assert_true(
-        "nav-collapsed" in page.locator("body").get_attribute("class"),
-        f"{label}: collapsed sidebar state was not restored",
-    )
-    assert_true(toggle.get_attribute("aria-expanded") == "false", f"{label}: sidebar aria state was not restored")
-    toggle.click()
-    assert_true("nav-collapsed" not in page.locator("body").get_attribute("class"), f"{label}: sidebar did not expand")
-
-
 def check_search_submit(page, base_url, label, route, viewport_name):
     if route != "/" or viewport_name != "desktop":
         return
 
-    search_input = page.locator("#search-input")
+    page.locator('.full-navigation a[href="/search/"]').click()
+    search_input = page.locator("#result-search-input")
     search_input.fill("Linux")
     with page.expect_navigation(wait_until="networkidle"):
         search_input.press("Enter")
@@ -186,23 +152,8 @@ def check_mobile_navigation(page, base_url, route, label, viewport_name):
     if viewport_name != "mobile" or route != "/":
         return
 
-    open_button = page.locator("#open-nav")
-    assert_true(open_button.count() == 1, f"{label}: mobile nav button missing")
-    assert_true(open_button.is_visible(), f"{label}: mobile nav button hidden")
-
-    open_button.click()
-    assert_true("nav-open" in page.locator("body").get_attribute("class"), f"{label}: mobile nav did not open")
-
-    navigation = page.locator(".full-navigation")
-    assert_true(navigation.is_visible(), f"{label}: mobile navigation hidden after open")
-
-    toggle = page.locator("#theme-toggle")
-    assert_true(toggle.is_visible(), f"{label}: mobile theme toggle hidden after nav open")
-    before_theme = page.locator("html").get_attribute("data-theme")
-    toggle.click()
-    after_theme = page.locator("html").get_attribute("data-theme")
-    assert_true(before_theme != after_theme, f"{label}: mobile theme toggle did not change theme")
-
+    check_theme_toggle(page, label)
+    page.locator(".alphabet-index summary").click()
     category_link = page.locator('a[href="/category/d/"]')
     assert_true(category_link.count() == 1, f"{label}: category D link missing")
     with page.expect_navigation(wait_until="load"):
@@ -213,7 +164,7 @@ def check_mobile_navigation(page, base_url, route, label, viewport_name):
 def check_visual_surfaces(page, label):
     assert_true(page.locator("#site-sidebar").count() == 1, f"{label}: sidebar missing")
     assert_true(page.locator(".content").count() == 1, f"{label}: content missing")
-    assert_true(page.locator("img[alt*='logo']").count() >= 1, f"{label}: logo missing")
+    assert_true(page.locator('link[rel="icon"][href="/images/database.svg"]').count() == 1, f"{label}: site icon missing")
 
     if page.locator("table").count() > 0:
         table_style = page.locator("table").first.evaluate(
@@ -376,11 +327,9 @@ def check_route(page, base_url, route, label, viewport_name, blue_mode):
     check_search_state(page, label, route)
     check_tag_state(page, label, route)
     check_no_horizontal_overflow(page, label)
-    check_sidebar_fixed(page, label)
     check_mobile_navigation(page, base_url, route, label, viewport_name)
 
     if route in {"/", "/category/d/"} and viewport_name == "desktop":
-        check_sidebar_persistence(page, label, route, viewport_name)
         check_theme_toggle(page, label)
 
     check_search_submit(page, base_url, label, route, viewport_name)
@@ -429,7 +378,6 @@ def run_smoke(args):
                     page.evaluate(
                         """theme => {
                             window.localStorage.setItem("theme-mode", theme);
-                            window.localStorage.removeItem("sidebar-collapsed");
                         }""",
                         theme_value,
                     )

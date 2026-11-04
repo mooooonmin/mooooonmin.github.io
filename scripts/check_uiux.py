@@ -36,12 +36,18 @@ def main():
             assert page.evaluate('document.fonts.check(\'16px "Pretendard Variable"\')')
             assert page.locator("main h1").count() == 1
             screenshot("home-desktop")
-            page.locator("#toggle-sidebar").click()
-            page.keyboard.press("Tab")
-            assert not page.evaluate('document.activeElement.closest("#site-sidebar") !== null')
-            assert page.locator("#site-sidebar").evaluate("e => e.inert")
-            page.locator("#toggle-sidebar").click()
-            checks.append("desktop hidden sidebar leaves focus order")
+            first_row = page.locator(".post-list li").first
+            title = first_row.locator("a").bounding_box()
+            date = first_row.locator("time").bounding_box()
+            assert title["x"] + title["width"] <= date["x"]
+            visit("/2026/05/26/Linux_Intro/")
+            assert page.locator(".post-meta").bounding_box()["y"] > page.locator(".post-content").bounding_box()["y"]
+            assert page.locator("#post-toc").is_hidden()
+            heading_link = page.locator("#rail-toc a").nth(1)
+            heading_link.click()
+            assert page.evaluate("document.getElementById(decodeURIComponent(location.hash.slice(1))).matches('.post-content h2')")
+            assert page.locator('.post-tools a[href="/search/"]').is_visible()
+            checks.append("archive titles precede dates and desktop article contents navigate to headings")
 
             routes = ["/", "/tags/", "/search/?q=Linux", "/category/d/", "/2026/05/20/Kubernetes_Deployment/", "/404.html"]
             for width in [320, 375, 768, 1024, 1280, 1920]:
@@ -69,15 +75,16 @@ def main():
             assert page.locator(".pagination-current").is_visible()
             screenshot("pagination-mobile")
             checks.append("mobile pagination next/previous visible without horizontal scroll")
-            page.locator("#open-nav").click()
-            assert page.locator("main").evaluate("e => e.inert")
-            for _ in range(40):
-                page.keyboard.press("Tab")
-                assert not page.evaluate('document.activeElement.closest("main") !== null')
-            page.keyboard.press("Escape")
-            assert page.locator("#open-nav").get_attribute("aria-expanded") == "false"
-            assert page.locator("#open-nav").evaluate("e => e === document.activeElement")
-            checks.append("mobile menu traps focus, Escape closes, trigger regains focus")
+            visit("/2026/05/26/Linux_Intro/")
+            assert page.locator("#rail-toc").is_hidden()
+            summary = page.locator("#post-toc summary")
+            summary.focus()
+            page.keyboard.press("Enter")
+            page.keyboard.press("Tab")
+            assert page.locator("#post-toc a").first.evaluate("e => e === document.activeElement")
+            page.keyboard.press("Enter")
+            assert page.evaluate("document.getElementById(decodeURIComponent(location.hash.slice(1))).matches('.post-content h2')")
+            checks.append("mobile article contents open by keyboard and link to the correct heading")
 
             visit("/tags/")
             picker_top = page.locator(".tag-picker-scroll").bounding_box()["y"]
@@ -158,8 +165,7 @@ def main():
             page.set_viewport_size({"width": 375, "height": 812})
             page.route("**/assets/js/site.js", lambda route: route.abort())
             visit("/")
-            assert page.locator("#open-nav").is_hidden()
-            assert page.locator("#search-input").is_visible()
+            assert page.locator('.full-navigation a[href="/search/"]').is_visible()
             page.locator('.full-navigation a[href="/tags/"]').click()
             page.locator("#tag-filter").wait_for(state="visible")
             checks.append("mobile search, navigation and tags remain usable if site.js fails")

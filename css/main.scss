@@ -3,16 +3,14 @@ layout: null
 sitemap: false
 ---
 /* Hallmark · shape: app screen · genre: editorial · theme: Ink (by request) · redesign: full
- * nav: index rail · signature: a searchable shelf of technical notes · states: loading empty error results
+ * nav: text index and article outline · signature: a searchable shelf of technical notes · states: loading empty error results
  * ink: paper with optional night reading · axes: light/grotesk-sans/chromatic-teal · posture: restrained · v2.0.0 */
-/* Hallmark · pre-emit critique: P4 H4 E4 S4 R5 V3 · weakest: V, kept familiar index navigation for returning readers */
 /* Hallmark · waive 22 · ink and greys at zero chroma · Repository uses the requested Ink paper palette */
 /* Hallmark · waive 49b · real technical titles and source citations, two lines at 320px · Repository preserves the owner's post names instead of truncating them */
 /* Hallmark · dismissed 3 · blockquote stripe identifies quoted post material, not a decorative card */
 /* Hallmark · copy: verbatim · post content is the owner's technical material */
 /* Hallmark · dropped legacy pixel font preload · user requests Pretendard instead */
 /* Hallmark · reworded interface labels in Korean · user requests audited UX fixes */
-/* Hallmark · finish-review: subagent · 2 findings · 2 resolved · gap: none */
 /* Hallmark · render note 73 · clipped tag rows are outside their scrollport, not under the footer; confirmed in screenshot review, raw linter still reports this false positive */
 @import url("./tokens.css");
 @import url("./base.css");

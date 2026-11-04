@@ -5,6 +5,9 @@ layout: default
 {% assign category_label = cat | upcase %}
 <p class="post-published"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %m월 %d일" }}</time></p>
 
+<details class="post-toc" id="post-toc" hidden><summary>목차</summary><ol></ol></details>
+<div class="post-content">{{ content }}</div>
+
 {% if cat or page.tags %}
   <div class="post-meta">
     {% if cat %}
@@ -28,11 +31,6 @@ layout: default
     {% endif %}
   </div>
 {% endif %}
-
-<details class="post-toc" id="post-toc" hidden><summary>이 글의 목차</summary><ol></ol></details>
-<div class="post-content">{{ content }}</div>
-
-<hr class="post-divider">
 
 {% if cat %}
   {% comment %}이전/다음 글은 전체 글 기준이 아니라 같은 카테고리 안에서만 이동하도록 계산한다.{% endcomment %}

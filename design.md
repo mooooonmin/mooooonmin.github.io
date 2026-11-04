@@ -8,11 +8,11 @@ Interface copy: use direct functional labels such as 전체 글, 태그, 글 검
 Do not invent slogans, personal introductions, or decorative descriptions.
 
 - Paper background, near-black type, teal for selected state and keyboard focus.
-- One quiet index rail; content capped at 960px; article reading measure 72ch.
-- Lists use thin rules and generous row spacing. No resting shadows or nested cards.
+- Center a 620px reading column. Desktop post navigation has the index, search and article headings.
+- List rows align the title left and date right, separated by space. No resting shadows or nested cards.
 - Primary controls use ink; secondary controls use neutral paper and a visible border.
 - All controls support visible keyboard focus. Loading, empty, error and full states are explicit.
-- Desktop rail can collapse. Mobile menu traps focus only while open; hidden regions are inert.
+- Archive navigation uses text links and a native alphabet disclosure. Mobile article contents fold below the date.
 - Mobile tag picker is searchable and bounded. Results are adjacent and reachable.
 - Phone pagination always exposes previous and next actions.
 - Code tokens never break internally inside tables; wide tables scroll independently.

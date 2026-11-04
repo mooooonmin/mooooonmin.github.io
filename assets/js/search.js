@@ -230,8 +230,6 @@
     if (activeRequest) activeRequest.abort();
     var query = getQuery().trim();
     var tokens = tokenize(query);
-    var input = document.getElementById("search-input");
-    if (input) input.value = query;
     if (mainInput) mainInput.value = query;
     if (retry) retry.disabled = true;
     if (!query) {

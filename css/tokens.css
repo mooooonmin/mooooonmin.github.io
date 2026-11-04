@@ -18,7 +18,7 @@
   --radius-card: 12px; --radius-pill: 999px; --rule-hair: 1px;
   --shadow-card: 0 20px 40px oklch(20% 0 0 / 0.16);
   --tracking-display: -0.04em; --display-weight: 700;
-  --rail-width: 248px; --content-width: 960px; --reading-width: 72ch;
+  --reading-width: 620px;
   --font-face-name: "Pretendard Variable";
   --control-radius: 6px; --color-code: var(--color-paper-2);
   --color-control-line: #80847d; --color-scroll-thumb: #888c84;
