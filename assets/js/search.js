@@ -179,12 +179,11 @@
   if (typeof document === "undefined") return;
 
   var results = document.getElementById("search-results");
-  var empty = document.getElementById("search-empty");
-  if (!results || !empty) return;
+  var summary = document.getElementById("search-summary");
+  if (!results || !summary) return;
 
   var searchIndexUrl = results.dataset.indexUrl;
   var baseurl = results.dataset.baseurl || "";
-  var summary = document.getElementById("search-summary");
   var retry = document.getElementById("search-retry");
   var mainInput = document.getElementById("result-search-input");
   var activeRequest = null;
@@ -220,8 +219,7 @@
   function showMessage(message, canRetry) {
     results.replaceChildren();
     results.hidden = true;
-    empty.textContent = message;
-    empty.hidden = false;
+    summary.textContent = message;
     if (retry) retry.hidden = !canRetry;
   }
 
@@ -233,13 +231,11 @@
     if (mainInput) mainInput.value = query;
     if (retry) retry.disabled = true;
     if (!query) {
-      if (summary) summary.textContent = "검색어를 입력하면 제목, 태그, 본문에서 글을 찾습니다.";
-      showMessage("검색어를 입력하세요.");
+      showMessage("");
       return;
     }
 
-    if (summary) summary.textContent = "“" + query + "” 검색 중…";
-    showMessage("글을 찾고 있습니다.");
+    showMessage("검색 중…");
     results.setAttribute("aria-busy", "true");
     var controller = new AbortController();
     activeRequest = controller;
@@ -255,20 +251,18 @@
       var matches = findDocumentMatches(index, query)
         .map(function (match) { return documents[match.id]; });
       if (currentRequest !== requestNumber) return;
-      if (summary) summary.textContent = "“" + query + "” 검색 결과 " + matches.length + "개";
       if (!matches.length) {
-        showMessage("검색 결과가 없습니다. 다른 검색어를 입력해 보세요.");
+        showMessage("검색 결과가 없습니다.");
         return;
       }
 
       results.replaceChildren();
       matches.forEach(function (item) { results.appendChild(createResult(item, tokens)); });
       results.hidden = false;
-      empty.hidden = true;
+      summary.textContent = "검색 결과 " + matches.length + "개";
     } catch (error) {
       if (currentRequest !== requestNumber) return;
-      if (summary) summary.textContent = "“" + query + "” 검색을 완료하지 못했습니다.";
-      showMessage("검색 자료를 불러오지 못했습니다. 연결을 확인한 뒤 다시 시도해 주세요.", true);
+      showMessage("검색 결과를 불러오지 못했습니다.", true);
     } finally {
       window.clearTimeout(timeout);
       if (currentRequest === requestNumber) {

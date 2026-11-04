@@ -186,7 +186,7 @@ def check_search_state(page, label, route):
         return
 
     if "no-result-token" in route:
-        empty_state = page.locator("#search-empty")
+        empty_state = page.locator("#search-summary")
         assert_true(empty_state.is_visible(), f"{label}: empty search state is hidden")
         assert_true(
             "검색 결과가 없습니다." in empty_state.inner_text(),
@@ -224,7 +224,7 @@ def check_tag_state(page, label, route):
 
     empty_state = page.locator("#tag-empty-state")
     results = page.locator("#tag-results")
-    assert_true(empty_state.is_visible(), f"{label}: initial tag guidance hidden")
+    assert_true(empty_state.is_hidden(), f"{label}: unexpected message before tag selection")
     assert_true(not results.is_visible(), f"{label}: tag results visible before selection")
 
     button = page.locator(".tag-cloud-button").first

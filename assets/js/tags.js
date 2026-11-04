@@ -16,7 +16,6 @@
   var filter = document.getElementById("tag-filter");
   var filterClear = document.getElementById("tag-filter-clear");
   var filterStatus = document.getElementById("tag-filter-status");
-  var filterEmpty = document.getElementById("tag-filter-empty");
   var buttons = Array.prototype.slice.call(document.querySelectorAll(".tag-cloud-button"));
   var activeTag = null;
   var indexPromise = null;
@@ -79,7 +78,7 @@
     resultSection.hidden = true;
     resultList.replaceChildren();
     emptyState.textContent = message;
-    emptyState.hidden = false;
+    emptyState.hidden = !message;
     retryButton.hidden = state !== "error";
     announce(message);
   }
@@ -122,27 +121,27 @@
     if (!button) {
       resultTitle.textContent = "태그별 글";
       resultCount.textContent = "";
-      showMessage(getHashTag() ? "해당 태그를 찾을 수 없습니다. 다른 태그를 선택해 주세요." : "태그를 선택하면 관련 글을 볼 수 있습니다.", "idle");
+      showMessage(getHashTag() ? "태그를 찾을 수 없습니다." : "", "idle");
       return;
     }
 
     resultTitle.textContent = "#" + button.dataset.tagLabel;
     resultCount.textContent = "";
-    showMessage("글을 불러오는 중입니다.", "loading");
+    showMessage("불러오는 중…", "loading");
     try {
       var index = await loadIndex();
       if (version !== renderVersion) return;
       var posts = index[activeTag] || [];
-      resultCount.textContent = posts.length + "개";
       if (posts.length) {
+        resultCount.textContent = posts.length + "개";
         renderPosts(posts);
         announce(button.dataset.tagLabel + " 태그의 글 " + posts.length + "개를 찾았습니다.");
       } else {
-        showMessage("이 태그에 등록된 글이 없습니다. 다른 태그를 선택해 주세요.", "empty");
+        showMessage("등록된 글이 없습니다.", "empty");
       }
     } catch (error) {
       if (version !== renderVersion) return;
-      showMessage("글을 불러오지 못했습니다. 연결을 확인하고 다시 시도해 주세요.", "error");
+      showMessage("글을 불러오지 못했습니다.", "error");
     }
     if (version === renderVersion && options.reveal) revealResults(options.keyboard);
   }
@@ -156,8 +155,7 @@
       if (matches) visible += 1;
     });
     filterClear.hidden = !query;
-    filterEmpty.hidden = visible !== 0;
-    filterStatus.textContent = query ? "태그 " + visible + "개가 일치합니다." : buttons.length + "개의 태그";
+    filterStatus.textContent = visible ? "태그 " + visible + "개" : "일치하는 태그가 없습니다.";
   }
 
   buttons.forEach(function (button) {
@@ -185,7 +183,7 @@
   function restoreTag() {
     var nextTag = getHashTag();
     var nextActive = getButton(nextTag) ? nextTag : null;
-    if (nextActive === activeTag && tagPage.dataset.state) return;
+    if (nextActive && nextActive === activeTag && tagPage.dataset.state) return;
     activeTag = nextActive;
     syncButtonState();
     render();

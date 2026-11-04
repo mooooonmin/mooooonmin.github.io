@@ -137,6 +137,9 @@ def main():
             page.set_viewport_size({"width": 375, "height": 812})
             checks.append("table commands stay intact and only overflowing tables enter the tab order")
 
+            visit("/search/")
+            assert page.locator("#search-summary").inner_text() == ""
+            assert page.locator("#search-results").is_hidden()
             page.route("**/assets/data/search-index.json", lambda route: route.fulfill(status=503, body="Unavailable"))
             visit("/search/?q=Linux")
             page.locator("#search-retry").wait_for(state="visible")
@@ -144,7 +147,8 @@ def main():
             page.unroute("**/assets/data/search-index.json")
             page.locator("#search-retry").click()
             page.locator("#search-results li").first.wait_for()
-            assert "Linux" in page.locator("#search-summary").inner_text()
+            assert page.locator("#result-search-input").input_value() == "Linux"
+            assert "검색 결과" in page.locator("#search-summary").inner_text()
             assert "```" not in page.locator("#search-results").inner_text()
             screenshot("search-mobile")
             checks.append("search error/retry recovers with query, count and clean snippets")

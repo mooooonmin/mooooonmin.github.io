@@ -7,16 +7,16 @@ layout: default
 <form class="search-form" action="{{ '/search/' | relative_url }}" method="get" role="search" aria-label="글 검색">
   <div class="search-field">
     <label for="result-search-input">검색어</label>
-    <input type="search" id="result-search-input" name="q" placeholder="제목, 태그 또는 본문으로 검색" required />
+    <input type="search" id="result-search-input" name="q" required />
   </div>
   <button type="submit" class="button-primary">검색</button>
 </form>
 
 <p id="search-summary" class="search-summary" role="status" aria-live="polite" aria-atomic="true"></p>
-<p id="search-empty" class="search-state" hidden></p>
 <button type="button" id="search-retry" class="search-retry" hidden>다시 시도</button>
 <ul
 	id="search-results"
+  hidden
 	data-index-url="{{ '/assets/data/search-index.json' | relative_url }}"
 	data-baseurl="{{ site.baseurl | escape }}"
   aria-label="검색 결과"

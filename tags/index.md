@@ -18,10 +18,10 @@ permalink: /tags/
     <div class="tag-picker-controls">
       <label for="tag-filter">태그 찾기</label>
       <div class="tag-filter-field">
-        <input type="search" id="tag-filter" placeholder="태그 입력" autocomplete="off" aria-controls="tag-cloud-list" />
+        <input type="search" id="tag-filter" autocomplete="off" aria-controls="tag-cloud-list" />
         <button type="button" id="tag-filter-clear" hidden>지우기</button>
       </div>
-      <p class="tag-filter-status" id="tag-filter-status" role="status">{{ sorted_tags.size }}개의 태그</p>
+      <p class="tag-filter-status" id="tag-filter-status" role="status">태그 {{ sorted_tags.size }}개</p>
       <button type="button" class="skip-link" id="skip-tag-list">태그 목록 건너뛰기</button>
     </div>
     <div class="tag-picker-scroll">
@@ -43,7 +43,6 @@ permalink: /tags/
         </button>
       {% endfor %}
       </div>
-      <p class="tag-filter-empty" id="tag-filter-empty" hidden>일치하는 태그가 없습니다.</p>
     </div>
   </div>
 
@@ -56,8 +55,8 @@ permalink: /tags/
     <section class="tag-section tag-section-panel" id="tag-results" hidden>
       <ul class="post-list" id="tag-result-list"></ul>
     </section>
-    <p class="tag-empty-state" id="tag-empty-state">태그를 선택하면 관련 글을 볼 수 있습니다.</p>
-    <button type="button" class="button" id="tag-retry" hidden>다시 불러오기</button>
+    <p class="tag-empty-state" id="tag-empty-state" hidden></p>
+    <button type="button" class="button" id="tag-retry" hidden>다시 시도</button>
   </div>
 </section>
   <div class="tag-static-list">
